@@ -11,21 +11,14 @@ const events: Array<{
     date: "毎週木曜日 19:30-20:30",
     location: "Zoom / YouTube Live",
     tag: "無料稽古",
-    isPlaceholder: true,
+    link: "https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
   },
   {
-    title: "現場見学・ワークショップ",
-    date: "順次公開予定",
-    location: "詳細は後日発表",
-    tag: "今後公開",
-    isPlaceholder: true,
-  },
-  {
-    title: "評議会議（ひょうぎかいぎ）",
-    date: "順次公開予定",
-    location: "詳細は後日発表",
-    tag: "今後公開",
-    isPlaceholder: true,
+    title: "実践！AI道場 〜AI活用で生産性5倍にするハンズオン合宿〜",
+    date: "2025年12月21日（日）13:00-17:30",
+    location: "Fujitsu Uvance Kawasaki Tower 26階（JR川崎駅 徒歩5分）",
+    tag: "ハンズオン合宿",
+    link: "https://unson-event-uis.connpass.com/event/376630/",
   },
 ];
 

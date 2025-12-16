@@ -48,18 +48,9 @@ export default function HeroSection() {
             道場の稽古は、毎週の無料ライブから始まります。月謝でアーカイブと伴随を受け、四半期で成果を可視化し、ケースとして公開。和の現場知と実装知で、組織のAI活用を定着させます。
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href="https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary flex items-center justify-center group"
-            >
-              今週の稽古に参加する
-              <span className="arrow-japanese" />
-            </a>
             <Link
               href="/join#enterprise"
-              className="btn-secondary flex items-center justify-center"
+              className="btn-primary flex items-center justify-center"
             >
               四半期で成果を相談する
             </Link>
@@ -72,54 +63,82 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <aside className="shoji-card corner-decoration rounded-2xl border-2 border-dojo-gold/30 bg-white/90 p-8 backdrop-blur">
-          <div className="relative">
-            <p className="text-sm font-bold uppercase tracking-wider text-dojo-gold border-b-2 border-dojo-gold pb-2 inline-block">
-              次回 無料稽古
-            </p>
-            <h3 className="mt-4 font-serif text-2xl font-bold text-dojo-green leading-snug">{nextLive.topic}</h3>
-            <dl className="mt-6 space-y-4 text-sm">
-              <div className="flex items-start gap-3 p-3 rounded-lg bg-washi/50">
-                <span className="mt-1 h-3 w-3 rounded-full bg-dojo-gold flex-shrink-0" />
-                <div>
-                  <dt className="font-bold text-dojo-green mb-1">日時</dt>
-                  <dd className="text-ink">{nextLive.date}</dd>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 p-3 rounded-lg bg-washi/50">
-                <span className="mt-1 h-3 w-3 rounded-full bg-dojo-gold flex-shrink-0" />
-                <div>
-                  <dt className="font-bold text-dojo-green mb-1">師範</dt>
-                  <dd className="text-ink">{nextLive.mentor}</dd>
-                </div>
-              </div>
-            </dl>
-            <div className="mt-6 rounded-xl border-2 border-dojo-indigo/30 bg-gradient-to-br from-dojo-indigo/5 to-dojo-green/5 px-5 py-4 text-sm">
-              <p className="font-bold text-dojo-green flex items-center gap-2">
-                <span className="h-1 w-8 bg-dojo-gold" />
-                月謝会員になると
+        <div className="space-y-4">
+          {/* 週次稽古カード - コンパクト版 */}
+          <aside className="shoji-card corner-decoration rounded-2xl border-2 border-dojo-gold/30 bg-white/90 p-6 backdrop-blur">
+            <div className="relative">
+              <p className="text-xs font-bold uppercase tracking-wider text-dojo-gold border-b-2 border-dojo-gold pb-2 inline-block">
+                次回 無料稽古
               </p>
-              <ul className="mt-3 space-y-2 text-ink">
-                <li className="flex items-start gap-2">
-                  <span className="text-dojo-gold mt-1">◆</span>
-                  アーカイブとノートをいつでも閲覧
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-dojo-gold mt-1">◆</span>
-                  Lark上で伴随レビュー
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-dojo-gold mt-1">◆</span>
-                  伴随案件の優先紹介
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-dojo-gold mt-1">◆</span>
-                  AIニュースの要点とROIヒントを配信
-                </li>
-              </ul>
+              <h3 className="mt-3 font-serif text-lg font-bold text-dojo-green leading-snug">{nextLive.topic}</h3>
+              <dl className="mt-4 space-y-2 text-xs">
+                <div className="flex items-start gap-2 p-2 rounded-lg bg-washi/50">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-dojo-gold flex-shrink-0" />
+                  <div>
+                    <dt className="font-bold text-dojo-green">日時</dt>
+                    <dd className="text-ink">{nextLive.date}</dd>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2 p-2 rounded-lg bg-washi/50">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-dojo-gold flex-shrink-0" />
+                  <div>
+                    <dt className="font-bold text-dojo-green">師範</dt>
+                    <dd className="text-ink">{nextLive.mentor}</dd>
+                  </div>
+                </div>
+              </dl>
+              <a
+                href="https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 block w-full text-center rounded-lg bg-dojo-green px-4 py-2.5 text-sm font-bold text-white transition-all hover:bg-dojo-green/90 shadow-md"
+              >
+                今週の稽古に参加する →
+              </a>
             </div>
-          </div>
-        </aside>
+          </aside>
+
+          {/* ハンズオン合宿イベントカード */}
+          <aside className="shoji-card corner-decoration rounded-2xl border-2 border-vermillion/40 bg-gradient-to-br from-vermillion/5 to-dojo-gold/10 p-6 backdrop-blur animate-pulse-subtle">
+            <div className="relative">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-xs font-bold uppercase tracking-wider text-vermillion border-b-2 border-vermillion pb-1 inline-block">
+                  特別イベント
+                </span>
+                <span className="px-2 py-0.5 text-[10px] font-bold bg-vermillion/20 text-vermillion rounded-full">
+                  NEW
+                </span>
+              </div>
+              <h3 className="font-serif text-lg font-bold text-[#1D1A15] leading-snug">
+                実践！AI道場
+                <br />
+                ハンズオン合宿
+              </h3>
+              <dl className="mt-4 space-y-2 text-xs">
+                <div className="flex items-start gap-2">
+                  <span className="mt-0.5">📅</span>
+                  <div>
+                    <dd className="text-ink font-semibold">2025年12月21日（日）13:00-17:30</dd>
+                  </div>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="mt-0.5">📍</span>
+                  <div>
+                    <dd className="text-ink">Fujitsu Uvance Kawasaki Tower 26階</dd>
+                  </div>
+                </div>
+              </dl>
+              <a
+                href="https://unson-event-uis.connpass.com/event/376630/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 block w-full text-center rounded-lg bg-vermillion px-4 py-2.5 text-sm font-bold text-[#1D1A15] transition-all hover:bg-vermillion-dark shadow-md"
+              >
+                詳細を見る・申し込む →
+              </a>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
   );

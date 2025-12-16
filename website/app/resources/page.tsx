@@ -13,7 +13,14 @@ const events: Array<{
     date: "毎週木曜日 19:30-20:30",
     location: "Zoom / YouTube Live",
     tag: "無料稽古",
-    link: "/join#free-live",
+    link: "https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
+  },
+  {
+    title: "実践！AI道場 〜AI活用で生産性5倍にするハンズオン合宿〜",
+    date: "2025年12月21日（日）13:00-17:30",
+    location: "Fujitsu Uvance Kawasaki Tower 26階（JR川崎駅 徒歩5分）",
+    tag: "ハンズオン合宿",
+    link: "https://unson-event-uis.connpass.com/event/376630/",
   },
   {
     title: "現場見学・ワークショップ",
@@ -160,6 +167,8 @@ export default function ResourcesPage() {
                   {event.link && (
                     <a
                       href={event.link}
+                      target={event.link.startsWith("http") ? "_blank" : undefined}
+                      rel={event.link.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="inline-flex items-center rounded-full bg-vermillion px-5 py-2 text-sm font-semibold text-[#1D1A15] transition hover:bg-vermillion-dark"
                     >
                       参加する

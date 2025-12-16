@@ -70,8 +70,8 @@ const formDefinitions: FormDefinition[] = [
                 選択してください
               </option>
               <option value="general">一般的な質問・相談</option>
-              <option value="corporate">企業向けプログラム（評議会・伴随）</option>
-              <option value="monthly">月謝プラン（修行者・書院生）</option>
+              <option value="corporate">企業向け相談（PRIME / BOOST）</option>
+              <option value="monthly">月謝プラン相談（BASIC / ACTIVE）</option>
             </select>
           </label>
           <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
@@ -120,6 +120,397 @@ const formDefinitions: FormDefinition[] = [
             className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-[#2F4C6E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#4E6E92]"
           >
             送信する
+          </button>
+        </form>
+      ) : (
+        <MissingFormNotice />
+      ),
+  },
+  {
+    key: "fellow",
+    label: "Fellow応募",
+    anchor: "#fellow",
+    heading: "Fellow応募",
+    description: (
+      <div className="space-y-3 text-sm text-[#4B4135]">
+        <p>専門領域や参画の動機を記入してください。Impact Points・グレードに応じた参画プランをご案内します。</p>
+        <ul className="space-y-1 list-disc list-inside">
+          <li>応募後 3 営業日以内に担当 Field Director が面談日程をご連絡します。</li>
+          <li>面談時に Impact Points の仮付与、参画可能な案件や登壇枠をご提案します。</li>
+          <li>合意後は Green Room / Lark へ招待し、最初の案件または登壇にアサインします。</li>
+        </ul>
+      </div>
+    ),
+    renderForm: (action, headingId) =>
+      action ? (
+        <form
+          aria-labelledby={headingId}
+          action={action}
+          method="POST"
+          className="grid gap-4 md:grid-cols-2"
+        >
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            氏名
+            <input
+              type="text"
+              name="company"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            部署・役職
+            <input
+              type="text"
+              name="department"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            氏名
+            <input
+              type="text"
+              name="name"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            メールアドレス
+            <input
+              type="email"
+              name="email"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            電話番号
+            <input
+              type="tel"
+              name="phone"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              placeholder="例）03-1234-5678"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            Field（業界）
+            <select
+              name="field"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="healthcare">医療</option>
+              <option value="manufacturing">製造</option>
+              <option value="finance">金融</option>
+              <option value="public">公共</option>
+              <option value="retail">小売・CX</option>
+              <option value="media">メディア・IP</option>
+              <option value="other">その他</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            Mission（勝ち筋）
+            <select
+              name="mission"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="cost-down">Cost-Down</option>
+              <option value="speed-up">Speed-Up</option>
+              <option value="quality-up">Quality-Up</option>
+              <option value="growth-up">Growth-Up</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            Practice（型）
+            <select
+              name="practice"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="genai-apps">GenAI Apps</option>
+              <option value="data-integration">Data &amp; Integration</option>
+              <option value="ops-automation">Ops Automation</option>
+              <option value="safety-legal">Safety &amp; Legal</option>
+              <option value="change-enablement">Change &amp; Enablement</option>
+              <option value="design-writing">Design &amp; DX Writing</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            希望プログラム
+            <select
+              name="program"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="prime">PRIME</option>
+              <option value="boost">BOOST</option>
+              <option value="consult">CONSULT</option>
+              <option value="undecided">未定</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            希望時期
+            <select
+              name="timeline"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="within-3months">3ヶ月以内</option>
+              <option value="within-6months">半年以内</option>
+              <option value="undecided">未定</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            守秘レベル
+            <select
+              name="privacy"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="public">公開可</option>
+              <option value="anonymous">匿名なら公開可</option>
+              <option value="confidential">非公開</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            予算レンジ（任意）
+            <select
+              name="budget"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="lt-1m">〜100万円</option>
+              <option value="1-3m">100〜300万円</option>
+              <option value="3-5m">300〜500万円</option>
+              <option value="gt-5m">500万円以上</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135] md:col-span-2">
+            KPI / 目指す成果
+            <textarea
+              name="kpi"
+              rows={3}
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              placeholder="例）リードタイムP95を50%短縮／営業一人あたり売上＋20% など"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135] md:col-span-2">
+            相談したい内容
+            <textarea
+              name="message"
+              rows={4}
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              placeholder="現状の課題や関係者、社内の背景を記入してください。"
+              required
+            />
+          </label>
+          <input type="hidden" name="_subject" value="企業向け相談 (PRIME/BOOST)" />
+          <input type="hidden" name="origin" value="join_enterprise" />
+          <button
+            type="submit"
+            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-[#2F4C6E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#4E6E92]"
+          >
+            相談を送信する
+          </button>
+        </form>
+      ) : (
+        <MissingFormNotice />
+      ),
+  },
+  {
+    key: "monthly",
+    label: "月謝プラン相談",
+    anchor: "#basic",
+    heading: "月謝プラン（BASIC / ACTIVE）への問い合わせ",
+    description: (
+      <div className="space-y-3 text-sm text-[#4B4135]">
+        <p>
+          Stripe 決済・Lark 招待は通常 1 営業日以内に発行します。導入背景や希望する開始時期を記入いただくと、最適なプランを Field Director
+          がおすすめします。
+        </p>
+      </div>
+    ),
+    renderForm: (action, headingId) =>
+      action ? (
+        <form
+          aria-labelledby={headingId}
+          action={action}
+          method="POST"
+          className="grid gap-4 md:grid-cols-2"
+        >
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            氏名
+            <input
+              type="text"
+              name="name"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            メールアドレス
+            <input
+              type="email"
+              name="email"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            所属（会社名・部署）
+            <input
+              type="text"
+              name="organization"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              placeholder="例）DX推進部 3名で受講予定"
+              required
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            受講目的
+            <select
+              name="purpose"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="latest">最新情報のキャッチアップ</option>
+              <option value="efficiency">業務効率化</option>
+              <option value="internal">社内展開・研修</option>
+              <option value="career">キャリア開発</option>
+              <option value="other">その他</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135] md:col-span-2">
+            検討しているプラン
+            <select
+              name="plan"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="basic">BASIC</option>
+              <option value="active">ACTIVE</option>
+              <option value="undecided">未定</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            希望開始時期
+            <input
+              type="month"
+              name="start_month"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            決済方法
+            <select
+              name="payment_method"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="corporate">法人請求書払い</option>
+              <option value="personal">個人決済（クレカ）</option>
+              <option value="undecided">未定</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            社内共有予定
+            <select
+              name="internal_sharing"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="yes">共有予定あり</option>
+              <option value="no">共有予定なし</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            Lark / オープンチャット招待
+            <select
+              name="community_invite"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              defaultValue=""
+              required
+            >
+              <option value="" disabled>
+                選択してください
+              </option>
+              <option value="allow">希望する</option>
+              <option value="limit">一部メンバーのみ</option>
+              <option value="no">不要</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
+            利用想定（部署・人数など）
+            <input
+              type="text"
+              name="team_info"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              placeholder="例）営業部 15名／DX推進チーム 3名"
+            />
+          </label>
+          <label className="flex flex-col gap-2 text-sm text-[#4B4135] md:col-span-2">
+            ご質問・期待している伴随内容
+            <textarea
+              name="message"
+              rows={4}
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              placeholder="活用アイデアや社内展開の課題など、自由に記入ください。"
+            />
+          </label>
+          <input type="hidden" name="_subject" value="月謝プラン問い合わせ" />
+          <input type="hidden" name="origin" value="join_monthly" />
+          <button
+            type="submit"
+            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-[#2F4C6E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#4E6E92]"
+          >
+            問い合わせを送信する
           </button>
         </form>
       ) : (
@@ -357,6 +748,8 @@ const formDefinitions: FormDefinition[] = [
 
 const hashToKey: Record<string, FormKey> = {
   "#general": "general",
+  "#enterprise": "corporate",
+  "#basic": "monthly",
   "#fellow": "fellow",
   "#media": "media",
 };
@@ -366,6 +759,8 @@ const anchorByKey = formDefinitions.reduce<Record<FormKey, string>>((acc, def) =
   return acc;
 }, {
   general: "#general",
+  corporate: "#enterprise",
+  monthly: "#basic",
   fellow: "#fellow",
   media: "#media",
 });
@@ -374,6 +769,8 @@ export default function ContactPage() {
   const [activeKey, setActiveKey] = useState<FormKey>("general");
   const tabRefs = useRef<Record<FormKey, HTMLButtonElement | null>>({
     general: null,
+    corporate: null,
+    monthly: null,
     fellow: null,
     media: null,
   });
@@ -482,20 +879,20 @@ export default function ContactPage() {
           </span>
           <h1 className="mt-2 font-serif text-4xl">お問い合わせ・各種受付</h1>
           <p className="mt-4 text-[#4B4135]">
-            BAAO 実戦AI道場へのお問い合わせ窓口です。参加に関するご質問、Fellow応募、メディア取材依頼などをこちらで受け付けています。送信後は担当よりメールまたはLarkでご連絡します。
+            BAAO 実戦AI道場へのお問い合わせ窓口です。一般的なお問い合わせ、企業向け伴随・評議会相談、月謝プランの導入、Fellow応募、メディア取材依頼までこちらで受け付けています。送信後は担当よりメールまたはLarkでご連絡します。
           </p>
           <div className="mt-6 grid gap-3 text-sm text-[#4B4135] sm:grid-cols-3">
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">参加希望</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">一般お問い合わせ</p>
               <p className="mt-2 leading-relaxed">2営業日以内にご返信</p>
             </div>
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">Fellow応募</p>
-              <p className="mt-2 leading-relaxed">3営業日以内に面談調整の連絡</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">企業向け</p>
+              <p className="mt-2 leading-relaxed">24時間以内にField Director担当宣言</p>
             </div>
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">メディア・協業</p>
-              <p className="mt-2 leading-relaxed">迅速に対応いたします</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">Fellow</p>
+              <p className="mt-2 leading-relaxed">3営業日以内に面談調整の連絡</p>
             </div>
           </div>
         </header>

@@ -216,7 +216,9 @@ export default function CommunityPage() {
               師範として応募する
             </a>
             <a
-              href="/join#free-live"
+              href="https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-full border border-bamboo px-6 py-3 text-sm font-semibold text-bamboo transition hover:bg-bamboo/10"
             >
               まずは無料稽古に参加
