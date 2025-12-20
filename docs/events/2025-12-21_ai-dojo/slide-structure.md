@@ -197,7 +197,8 @@
 **ご質問はありますか？**
 
 連絡先：
-- X（Twitter）: @satoshin2071
+- X（Twitter）: @aibiznavigator
+- LINEオープンチャットからお気軽にご質問どうぞ
 - 一般社団法人ビジネスAI推進機構: https://baao.or.jp
 
 ---
