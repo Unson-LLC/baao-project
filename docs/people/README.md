@@ -2,7 +2,7 @@
 
 **一行要約**：BAAO 実戦AI道場の中核メンバー。役割・担当領域・検証可能な肩書きを一箇所で確認できます。
 
-**対象**：会員（BASIC/ACTIVE/PRIME）、協業先、メディア
+**対象**：会員（修行者/書院生/評議会）、協業先、メディア
 
 **何が手に入る**：担当者の公式名｜雅称、担当領域、先行トピック、Appointment#（検証リンク）
 
@@ -49,18 +49,18 @@
 ### 役割
 - **方針決定**: BAAOの戦略・ガバナンス・予算承認
 - **Field Director任命**: 各Fieldの現場責任者の任命・監査
-- **品質監督**: ケース公開・RECIPES執筆の最終承認
+- **品質監督**: ケース公開・秘伝書執筆の最終承認
 - **対外代表**: 業界団体・メディアでのBAAO代表
 
 ### ベネフィット
 **唯物的**:
 - ✅ BAAO公式盾（就任時に授与）
 - ✅ 専用名刺デザイン（金箔ロゴ入り）
-- ✅ 就任講演会を無料で実施（PRIMEコミュニティで30分枠）
+- ✅ 就任講演会を無料で実施（評議会コミュニティで30分枠）
 
 **名誉・特権**:
-- ✅ 先行閲覧72h（全ケース・RECIPES）
-- ✅ Green Room招待（PRIME会合の特別枠）
+- ✅ 先行閲覧72h（全ケース・秘伝書）
+- ✅ Green Room招待（評議会会合の特別枠）
 - ✅ Yearbook掲載（年次報告書に顔写真・実績掲載）
 - ✅ 帯同権（外部イベントへBAAOメンバーを同伴可能）
 
@@ -95,7 +95,7 @@
 
 **名誉・特権**:
 - ✅ Field代表として対外活動（業界カンファレンス登壇優先権）
-- ✅ Executive Desk優先（PRIME会合で個別相談枠）
+- ✅ Executive Desk優先（評議会会合で個別相談枠）
 - ✅ 先行閲覧72h
 
 ### メンバー一覧
@@ -114,17 +114,17 @@
 
 ## 専門師範（Senior Fellows）
 
-> 「監修・RECIPES執筆・品質担保」。各Fieldに最大2名まで配置。案件監修とRECIPES執筆を担当します。
+> 「監修・秘伝書執筆・品質担保」。各Fieldに最大2名まで配置。案件監修と秘伝書執筆を担当します。
 
 ### 役割
-- **週次レビュー**: BOOST案件の進捗・品質確認（週1回×6-8回）
-- **RECIPES執筆**: 業務別の実装手順書を執筆（年1-2本）
+- **週次レビュー**: 伴随案件の進捗・品質確認（週1回×6-8回）
+- **秘伝書執筆**: 業務別の実装手順書を執筆（年1-2本）
 - **技術助言**: Issue発生時の技術的助言・解決策提示
 - **品質検証**: 納品前の品質検証（チェックリスト完遂確認）
 
 ### ベネフィット
 **唯物的**:
-- ✅ Expert Pool報酬（BOOST監修: 30-50万円、RECIPES執筆: 40-60万円）
+- ✅ Expert Pool報酬（伴随監修: 30-50万円、秘伝書執筆: 40-60万円）
 - ✅ Delegated案件実務担当時: CP 55%
 - ✅ 専用名刺デザイン
 
@@ -159,7 +159,7 @@
 **認定条件**：
 - Senior Fellow 継続3年以上
 - Impact Points 15点以上（直近1年）
-- RECIPES 執筆2本以上（査読済・公開）
+- 秘伝書 執筆2本以上（査読済・公開）
 
 **特典**：
 - 名義使用権：「Named Senior Fellow on [領域名]」（例：Named Senior Fellow on Medical AI）
@@ -252,7 +252,7 @@ NC-[YYYY]-[連番3桁]
 ### 役割
 - **案件実務**: Delegated案件の実務担当（Field Directorから指名）
 - **ケース貢献**: 自社案件をBAAOブランド化（C評価）
-- **登壇**: BASIC講演、外部イベント登壇
+- **登壇**: 修行者講演、外部イベント登壇
 - **監修補助**: 小規模案件の監修（CONSULT等）
 
 ### ベネフィット
@@ -347,7 +347,7 @@ Senior Fellow（専門師範）
 - Delegated案件実務担当（**最優先アサイン権**）
 - 自己営業案件のDelegated確約（自動承認）
 - **中規模案件の監修権**（Expert Pool報酬、GCV 800万円未満）
-- **RECIPES執筆権**（Senior Fellowと共著）
+- **秘伝書執筆権**（Senior Fellowと共著）
 - 先行閲覧72h + **帯同権**（Senior Fellowと同等）
 
 **優先度**: アサイン優先度 = **高**（Senior Fellowの次、実質的にほぼ同等）
@@ -355,11 +355,11 @@ Senior Fellow（専門師範）
 **報酬ボーナス**:
 - **最優先アサイン**: Field DirectorがDelegated案件を割り振る際、Fellow IIIを最優先（Senior Fellowと同等）
 - **監修権拡大**: 中規模案件の監修可能（Expert Pool 20-30万円）
-- **RECIPES共著**: Senior Fellowと共にRECIPES執筆（報酬配分 30%）
+- **秘伝書共著**: Senior Fellowと共に秘伝書執筆（報酬配分 30%）
 
 **Senior Fellow昇格パス**:
 - Fellow IIIで**Impact Points 15点以上を2年継続**
-- **RECIPES執筆 1本以上**（共著含む）
+- **秘伝書執筆 1本以上**（共著含む）
 - **推薦2名**（Senior FellowまたはField Director）
 → Senior Fellow審査へ
 
@@ -389,19 +389,19 @@ Impact Points + 案件実績 + 監修実績を集計
 ### 配点
 
 **案件監修**:
-- BOOST監修完遂：+2点
-- RECIPES監修完遂：+1点
+- 伴随監修完遂：+2点
+- 秘伝書監修完遂：+1点
 - CONSULT監修完遂：+0.5点
 
 **知見化**:
 - Case公開（P/C）：+3点
-- RECIPES執筆：+2点
-- RECIPES更新：+1点
+- 秘伝書執筆：+2点
+- 秘伝書更新：+1点
 
 **その他貢献**:
 - 見学主催：+2点
-- 登壇：+3点（BASIC講演、外部イベント等、執筆と同等のコスト）
-- BOOST達成：+2点（未達：−1点）
+- 登壇：+3点（修行者講演、外部イベント等、執筆と同等のコスト）
+- 伴随達成：+2点（未達：−1点）
 
 ### 更新要件
 
@@ -412,14 +412,14 @@ Impact Points + 案件実績 + 監修実績を集計
 
 ### 昇格要件
 
-- **Fellow III → Senior Fellow**: 15点/年を2年継続 + RECIPES執筆1本 + 推薦2名
-- **Senior Fellow → Named Senior Fellow**: Senior Fellow継続3年 + 15点/年達成 + RECIPES執筆2本
+- **Fellow III → Senior Fellow**: 15点/年を2年継続 + 秘伝書執筆1本 + 推薦2名
+- **Senior Fellow → Named Senior Fellow**: Senior Fellow継続3年 + 15点/年達成 + 秘伝書執筆2本
 - **Senior Fellow → Council Member**: Senior Fellow継続5年 + 15点/年を3年連続 + Council Member 2名推薦 + 全会一致承認
 
 ### ケース例（Senior Fellow更新）
 
-- BOOST監修×2回 = 4点
-- RECIPES執筆×1回 = 2点
+- 伴随監修×2回 = 4点
+- 秘伝書執筆×1回 = 2点
 - ケース公開×1回 = 3点
 - **合計9点** → 更新OK
 
@@ -433,7 +433,7 @@ Impact Points + 案件実績 + 監修実績を集計
 | Field Chair | 流派師範 | 流派の顔（対外活動中心）。各Field 1名。 |
 | Field Director | 現場責任者 | A責任・顧客窓口・KPI設定・P/L。各Field 1名。 |
 | Named Senior Fellow | 名義専門師範 | 特定領域の第一人者。名義使用権・優先推薦・報酬+20%。 |
-| Senior Fellow | 専門師範 | 監修・RECIPES執筆・品質担保。各Field最大2名。 |
+| Senior Fellow | 専門師範 | 監修・秘伝書執筆・品質担保。各Field最大2名。 |
 | Fellow | 師範 | 監修・ケース貢献・登壇（任命・更新制）。 |
 | Case Editor | 記録方 | ケース品質・公開の最終責任。 |
 | Community Manager | 世話人 | イベント運営・先行アクセス・アーカイブ管理。 |
@@ -482,7 +482,7 @@ Impact Points + 案件実績 + 監修実績を集計
 
 - **Appointment#** は `FW-年4桁-通し番号3桁`（例：FW-2025-013）。
 - **検証URL** は外部公開のプロフィール（Notion公開ページ可）。QR画像は各自の名刺・スライドに貼付。
-- **公開範囲**：当ページは［公開］。個別の連絡先は必要に応じて [Members' Resources｜会員向け資料室（BASIC/ACTIVE/PRIME）](#) に詳細を置いてください。
+- **公開範囲**：当ページは［公開］。個別の連絡先は必要に応じて [Members' Resources｜会員向け資料室（修行者/書院生/評議会）](#) に詳細を置いてください。
 
 ---
 
@@ -539,7 +539,7 @@ https://baao.example/verify/FW-2025-XXX
 - Media & IP（放送・出版・著作権）
 
 ### 専門師範（Senior Fellow）
-監修・RECIPES執筆（各Field最大2名）
+監修・秘伝書執筆（各Field最大2名）
 
 **募集分野**：
 - Healthcare AI（医療・患者データ分析）

@@ -17,7 +17,7 @@ baao-lark/
 ├── docs/                      # 公開・会員向けドキュメント（→ Wiki）
 │   ├── ABOUT.md              # BAAOとは
 │   ├── FAQ.md                # よくある質問
-│   ├── programs/             # プログラム詳細（BASIC/ACTIVE/PRIME/CONSULT/RECIPES/BOOST）
+│   ├── programs/             # プログラム詳細（修行者/書院生/評議会/CONSULT/秘伝書/伴随）
 │   ├── fieldworks/           # 流派×勝ち筋×型フレームワーク
 │   ├── people/               # 師範会・現場責任者・専門師範
 │   ├── events/               # イベント・現場見学
@@ -31,7 +31,7 @@ baao-lark/
 │   ├── CASHFLOW_SIMULATION.md       # キャッシュフローシミュレーション
 │   └── archive/                     # 過去の調査資料
 │
-└── website/                  # BASIC会員向けLP（Next.js）
+└── website/                  # 修行者会員向けLP（Next.js）
     ├── app/                  # Next.js App Router
     ├── components/           # Reactコンポーネント
     ├── public/               # 静的ファイル
@@ -61,7 +61,7 @@ baao-lark/
 **構造化データ = Base管理**（MCP対応、検索・自動化）
 
 - **会員管理Base**: members, payments, event_registrations
-- **RECIPESベース**: recipes, cases
+- **秘伝書ベース**: recipes, cases
 - **イベント管理Base**: events
 
 ### ドライブ（運営・動的ファイル）
@@ -71,7 +71,7 @@ baao-lark/
 ```
 📁 BAAO運営ドライブ
 ├── 📂 運営内部資料（Internal）
-├── 📂 RECIPES詳細（PDF・スクリプト）
+├── 📂 秘伝書詳細（PDF・スクリプト）
 ├── 📂 一時ドキュメント（MCP生成）
 └── 📂 アーカイブ
 ```
@@ -79,9 +79,9 @@ baao-lark/
 ### グループチャット
 
 - **全体**: announcements, office-hours, introductions
-- **BASIC会員**: 3チャット
-- **ACTIVE会員**: 4チャット（流派別含む）
-- **PRIME会員**: 3チャット
+- **修行者会員**: 3チャット
+- **書院生会員**: 4チャット（流派別含む）
+- **評議会会員**: 3チャット
 - **運営**: 2チャット
 
 ---
@@ -114,7 +114,7 @@ baao-lark/
 | カテゴリ | ツール | 用途 |
 |---------|-------|------|
 | **プラットフォーム** | Lark | チャット・ドキュメント・Base・カレンダー・ビデオ会議 |
-| **Webサイト** | Next.js 16 + TypeScript + Tailwind CSS | BASIC会員向けLP（`website/`） |
+| **Webサイト** | Next.js 16 + TypeScript + Tailwind CSS | 修行者会員向けLP（`website/`） |
 | **会員管理** | Lark Base | 会員情報、決済履歴、イベント参加記録 |
 | **決済** | Stripe | サブスクリプション課金 |
 | **MCP統合** | Claude Desktop | AI Agent経由の自動化 |
@@ -127,9 +127,9 @@ baao-lark/
 
 | 会員層 | 月額 | 年額 | アクセス範囲 |
 |-------|------|------|------------|
-| **BASIC** | ¥2,980 | ¥29,800 | 基本コンテンツ、Weekly |
-| **ACTIVE** | ¥9,800 | ¥98,000 | 流派別チャット、月次イベント、過去アーカイブ |
-| **PRIME** | - | ¥220,000 | 全コンテンツ、現場見学、師範会、全サービス20%割引 |
+| **修行者（しゅぎょうしゃ）** | ¥2,980 | ¥29,800 | 基本コンテンツ、Weekly |
+| **書院生（しょいんせい）** | ¥9,800 | ¥98,000 | 流派別チャット、月次イベント、過去アーカイブ |
+| **評議会（ひょうぎかい）** | - | ¥220,000 | 全コンテンツ、現場見学、師範会、全サービス20%割引 |
 
 ---
 
@@ -142,7 +142,7 @@ baao-lark/
 - [ ] 残り5ドキュメントインポート
 
 ### Phase 2: 会員管理フロー（Week 2）
-- [ ] Base（多次元表）構築（会員・RECIPES・イベント）
+- [ ] Base（多次元表）構築（会員・秘伝書・イベント）
 - [ ] グループチャット作成（15個）
 - [ ] Stripe Webhook連携
 
@@ -167,7 +167,7 @@ baao-lark/
 - **[ガバナンス・ポリシー](docs/governance/README.md)** - 守秘、公開、COI、倫理
 
 ### プログラム
-- **[プログラム一覧](docs/programs/README.md)** - BASIC/ACTIVE/PRIME/CONSULT/RECIPES/BOOST
+- **[プログラム一覧](docs/programs/README.md)** - 修行者/書院生/評議会/CONSULT/秘伝書/伴随
 - **[FieldWorks](docs/fieldworks/README.md)** - 流派×勝ち筋×型フレームワーク
 
 ### 運営

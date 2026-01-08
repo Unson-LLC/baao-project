@@ -1,4 +1,4 @@
-# 立合い BOOST｜Quarter Projects
+# 立合い 伴随（はんずい）｜Quarter Projects
 
 ## ワンライナー
 
@@ -56,9 +56,9 @@
 ## 料金
 
 - **通常価格：¥400–800万円（税抜）**
-- **PRIME会員：¥320–640万円（税抜・20%オフ）**
+- **評議会会員：¥320–640万円（税抜・20%オフ）**
 
-> **CONSULT→BOOST移行特典**：CONSULT実施後3ヶ月以内にBOOSTを契約した場合、CONSULT料金をBOOSTから全額差し引きます。
+> **CONSULT→伴随移行特典**：CONSULT実施後3ヶ月以内に伴随を契約した場合、CONSULT料金を伴随から全額差し引きます。
 
 ---
 
@@ -74,17 +74,17 @@
 
 ### Q. 公開は必須ですか？
 
-**A.** 匿名/要素分解での公開を基本とします。不可の場合はRECIPESへの匿名反映で代替します。
+**A.** 匿名/要素分解での公開を基本とします。不可の場合は秘伝書への匿名反映で代替します。
 
 ### Q. 実装後の保守は？
 
-**A.** 継続運用は別途ご相談。RECIPES/PRIMEでの内製化支援も可能です。
+**A.** 継続運用は別途ご相談。秘伝書/評議会での内製化支援も可能です。
 
 ---
 
 ## CTA
 
-[BOOSTを見積](#)｜[Join & Contact｜相談予約](#)
+[伴随を見積](#)｜[Join & Contact｜相談予約](#)
 
 **責任者**：担当 **Field Director｜現場責任者**
 
@@ -93,7 +93,7 @@
 ## 🔗 関連ドキュメント
 
 - [プログラム一覧](OVERVIEW.md)
-- [師範会PRIME](PRIME.md)
+- [師範会評議会](PRIME.md)
 - [AIコンサルCONSULT](CONSULT.md)
 - [FieldWorks フレームワーク](../fieldworks/README.md)
 - [Cases & Playbooks](../cases/README.md)

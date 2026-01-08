@@ -27,7 +27,7 @@ BAAO実戦AI道場の運営原則と公開・守秘のルール
 
 ### Chatham House Rule
 
-PRIMEのクローズド会や現場見学では **Chatham House Rule** を適用します。
+評議会のクローズド会や現場見学では **Chatham House Rule** を適用します。
 
 #### ルールの内容
 > 「会議で得た情報は自由に使ってよいが、発言者や参加者の身元を特定してはならない」
@@ -104,22 +104,22 @@ PRIMEのクローズド会や現場見学では **Chatham House Rule** を適用
 - **責任範囲**：A責任、顧客窓口、KPI設定、P/L、Field内アサイン決定
 - **権限**：流派内の意思決定、案件の受入可否、監修・実装のアサイン
 
-### 専門師範（Senior Fellow）｜監修・RECIPES執筆
+### 専門師範（Senior Fellow）｜監修・秘伝書執筆
 
 各Fieldの監修・品質担保（各Field最大2名）
 
-- **責任範囲**：案件監修、RECIPES執筆・更新、週次レビュー、品質検証
-- **権限**：技術的助言、RECIPES管理、品質承認
+- **責任範囲**：案件監修、秘伝書執筆・更新、週次レビュー、品質検証
+- **権限**：技術的助言、秘伝書管理、品質承認
 - **成長パス**:
-  - **Named Senior Fellow（名義専門師範）**: Senior Fellow継続3年 + Impact Points 15点以上 + RECIPES執筆2本 → 報酬+20%、優先推薦
+  - **Named Senior Fellow（名義専門師範）**: Senior Fellow継続3年 + Impact Points 15点以上 + 秘伝書執筆2本 → 報酬+20%、優先推薦
   - **Council Member昇格**: Senior Fellow継続5年 + Impact Points 15点×3年連続 + Council Member 2名推薦 + 全会一致承認 → 師範会入り
 
 ### 師範（Fellow）｜実装・貢献
 
 実装・監修・ナレッジ貢献を行う専門家
 
-- **責任範囲**：実装、案件監修、RECIPES貢献、専門知識の提供
-- **権限**：助言・フィードバック、登壇、RECIPES執筆
+- **責任範囲**：実装、案件監修、秘伝書貢献、専門知識の提供
+- **権限**：助言・フィードバック、登壇、秘伝書執筆
 
 ### 世話人（Community Manager）
 

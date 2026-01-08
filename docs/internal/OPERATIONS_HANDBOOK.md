@@ -1,8 +1,8 @@
 # BAAO Operations Handbook｜運用ハンドブック
 
-> 一行要約：本書は「BAAO 実戦AI道場｜BAAO Dojo for Practical AI」の内部標準。金の流れ・肩書き運用・契約・公開・ガバナンス、**実装知（RECIPES）による品質担保**、そして**心理トリガー（S.P.A.R.K.）による行動設計**を単一の真実として定義する。
+> 一行要約：本書は「BAAO 実戦AI道場｜BAAO Dojo for Practical AI」の内部標準。金の流れ・肩書き運用・契約・公開・ガバナンス、**実装知（秘伝書）による品質担保**、そして**心理トリガー（S.P.A.R.K.）による行動設計**を単一の真実として定義する。
 
-**BAAOの本質**：実装知のプラットフォーム。成功ユースケースとRECIPESを蓄積し、インフルエンサー専門家の影響力を集団で増幅する。
+**BAAOの本質**：実装知のプラットフォーム。成功ユースケースと秘伝書を蓄積し、インフルエンサー専門家の影響力を集団で増幅する。
 
 **対象**：理事／Program GM／Field Directors／Senior Fellows／Fellows／Case Editor／Community Manager／Catalysts／事務局
 
@@ -21,7 +21,7 @@
 0. [心理トリガーと行動科学（S.P.A.R.K.）](#0-心理トリガーと行動科学spark)
 1. [組織と肩書きの標準](#1-組織と肩書きの標準)
 2. [実装知プラットフォームモデル](#2-実装知プラットフォームモデル)
-3. [RECIPES & 品質担保](#3-recipes--品質担保)
+3. [秘伝書 & 品質担保](#3-recipes--品質担保)
 4. [Money Flows](#4-money-flows)
 5. [契約・法務](#5-契約法務)
 6. [Publishing & Credit](#6-publishing--credit)
@@ -123,7 +123,7 @@ CP  = NSR − PF
 
 **Impact Points（更新の動機）**
 
-- 配点：Case公開+3／見学主催+2／登壇+1／レシピ+2／BOOST達成+2（未達−1）
+- 配点：Case公開+3／見学主催+2／登壇+1／レシピ+2／伴随達成+2（未達−1）
 - **Fellow≥5／Senior≥8**で更新。
 - 心理効果＝**目標勾配**＋**損失回避**。ダッシュボードで**残ポイント**を常時表示。
 
@@ -202,7 +202,7 @@ TDI = 0.4*応募倍率 + 0.2*先行閲覧CTR + 0.2*更新率 + 0.2*帯同権使�
 
 **収益・速度**
 
-- Recognized vs Influencedの比率、P95導入リードタイム、PRIME→BOOST転換
+- Recognized vs Influencedの比率、P95導入リードタイム、評議会→伴随転換
 
 ---
 
@@ -213,7 +213,7 @@ TDI = 0.4*応募倍率 + 0.2*先行閲覧CTR + 0.2*更新率 + 0.2*帯同権使�
 - [ ] CRMの**自動計算（PF/配点）**を有効化、案件詳細に式を表示
 - [ ] CBAAテンプレを公開し、**PC 12% or 5%（公開併用）**を周知
 - [ ] Impact Pointsダッシュボードを上長と本人の両方に表示
-- [ ] 就任儀式60秒の台本をPRIME末尾に組み込む（月1回）
+- [ ] 就任儀式60秒の台本を評議会末尾に組み込む（月1回）
 - [ ] Yearbook雛形に今期分の**P/C/R**を仮配置
 - [ ] 24h担当宣言の**トースト**と**未宣言BAN**ルールを有効化
 
@@ -250,7 +250,7 @@ TDI = 0.4*応募倍率 + 0.2*先行閲覧CTR + 0.2*更新率 + 0.2*帯同権使�
 | **S**carcity | 希少性の設計 | Council定数12、Field Director各Field1、Senior Fellow各Field最大2 |
 | **P**roof | 検証可能性 | Appointment#、検証QR、Yearbook、CaseID、公開ログ |
 | **A**ccess | 特権アクセス | 先行閲覧72h、Executive Desk優先、Green Room、帯同権 |
-| **R**itual | 儀式化 | 就任儀式60秒、月例PRIME、年次Yearbook発行 |
+| **R**itual | 儀式化 | 就任儀式60秒、月例評議会、年次Yearbook発行 |
 | **K**arma | 貢献評価 | Impact Points、Byline固定順序、P/C/R格付 |
 
 **結論**：反カニバリ・お金・実績は**数式と肩書き**だけでは動かない。**Scarcity×Proof×Access×Ritual×Karma**で、欲求を**行動→成果→公開**へ変換する。ルールは短く、可視化は過剰に。欺きはゼロ、演出はプロ。
@@ -288,18 +288,18 @@ graph TD
     Council -.任命・監査.-> FieldDirector
 
     FieldChair -.対外代表.-> FieldDirector
-    FieldDirector -->|A責任<br/>金85%| Project[実務案件<br/>BOOST/RECIPES/CONSULT<br/>💰]
+    FieldDirector -->|A責任<br/>金85%| Project[実務案件<br/>伴随/秘伝書/CONSULT<br/>💰]
     Catalyst -->|紹介<br/>金15%| Project
 
     SeniorFellow -.実装<br/>COGS.-> Project
     Fellow -.実装<br/>COGS.-> Project
 
-    SeniorFellow -->|監修・登壇<br/>RECIPES執筆| ExpertPool[専門家活動<br/>都度報酬<br/>💰]
+    SeniorFellow -->|監修・登壇<br/>秘伝書執筆| ExpertPool[専門家活動<br/>都度報酬<br/>💰]
     Fellow -->|監修・登壇<br/>ケース貢献| ExpertPool
     FieldChair -->|対外活動<br/>講演| ExpertPool
 
     CaseEditor -->|品質管理| Project
-    CommunityManager -.運営支援.-> Members[PRIME/ACTIVE/BASIC会員]
+    CommunityManager -.運営支援.-> Members[評議会/書院生/修行者会員]
     Council -.方針提示.-> ProgramGM
     ProgramGM -.運営設計.-> FieldChair
     ProgramGM -.運営設計.-> SeniorFellow
@@ -337,10 +337,10 @@ graph TD
 graph LR
     subgraph "収入源"
         Client[クライアント企業]
-        Members[会員<br/>PRIME/ACTIVE/BASIC]
+        Members[会員<br/>評議会/書院生/修行者]
     end
 
-    subgraph "実務案件（BOOST/RECIPES/CONSULT）"
+    subgraph "実務案件（伴随/秘伝書/CONSULT）"
         Client -->|GCV契約額| BAAO[BAAO]
         BAAO -->|COGS| ImplCo[実装会社<br/>Fellow/Senior Fellowの会社<br/>or 外部委託]
         BAAO -->|NSR = GCV - COGS| Revenue[純収益NSR]
@@ -356,7 +356,7 @@ graph LR
         Platform -->|Expert Pool予算| ExpertBudget[都度報酬予算]
         ExpertBudget -->|監修料<br/>30-50万/案件| SFSupervise[Senior Fellow監修]
         ExpertBudget -->|登壇料<br/>3-5万/回| SFSpeak[Senior Fellow/Fellow登壇]
-        ExpertBudget -->|RECIPES執筆<br/>40-60万/本| SFRecipe[Senior Fellow執筆]
+        ExpertBudget -->|秘伝書執筆<br/>40-60万/本| SFRecipe[Senior Fellow執筆]
         ExpertBudget -->|対外講演<br/>都度| FCSpeak[Field Chair対外活動]
     end
 
@@ -397,11 +397,11 @@ graph LR
    - PF 18%の一部から捻出
    - 監修料: 30-50万円/案件（Senior Fellow）
    - 登壇料: 3-5万円/回（Senior Fellow/Fellow）
-   - RECIPES執筆: 40-60万円/本（Senior Fellow）
+   - 秘伝書執筆: 40-60万円/本（Senior Fellow）
    - 対外講演: 都度報酬（Field Chair）
 
 3. **会員収益**
-   - PRIME/ACTIVE/BASIC会員のサブスク・年会費
+   - 評議会/書院生/修行者会員のサブスク・年会費
    - 100%が運営費（PF）として計上
    - 案件分配なし
 
@@ -464,15 +464,15 @@ BAAOは**金・名誉・権限**の流れを明確に分離した3層構造で�
 | 公式名（英） | 雅称（和） | 定数・任期 | 主な役割 | 金 | 名誉 | 権限 | なり方 | 更新条件 |
 |-------------|-----------|-----------|---------|---|------|------|--------|---------|
 | **Field Chair** | 流派師範 | 各Field 1名、任期1年 | 対外代表・ブランド顔 | △都度 | ◎ | △対外 | 推薦制 | IP 10点/年 |
-| **Named Senior Fellow** | 名義専門師範 | -、任期なし | 特定領域の第一人者、名義使用権 | ◎COGS＋都度+20% | ◎◎ | △対外優先 | 昇格制 | Senior Fellow 3年継続＋IP 15点＋RECIPES 2本 |
+| **Named Senior Fellow** | 名義専門師範 | -、任期なし | 特定領域の第一人者、名義使用権 | ◎COGS＋都度+20% | ◎◎ | △対外優先 | 昇格制 | Senior Fellow 3年継続＋IP 15点＋秘伝書 2本 |
 | **Senior Fellow** | 専門師範 | 各Field最大2名、任期1年 | 監修・登壇・見学設計・実装提供 | ◎COGS＋都度 | ◎ | ✗ | 推薦制 | IP 8点/年 |
 | **Fellow** | 師範 | -、任期1年 | 監修・登壇・ケース貢献・実装提供 | ○COGS＋都度 | ○ | ✗ | 推薦制 | IP 5点/年 |
 
 **報酬構造（2種類）**：
 1. **COGS（実装外注）**: Fellow/Senior Fellowの外部会社がBAAOから実装を受注（案件ごと契約）
 2. **Expert Pool（都度報酬）**: 登壇・監修・助言の報酬（目安、後日調整）
-   - **登壇**：1回あたり報酬（BASICライブ、外部イベント等）
-   - **監修**：1件あたり報酬（ケース監修、RECIPES監修）
+   - **登壇**：1回あたり報酬（修行者ライブ、外部イベント等）
+   - **監修**：1件あたり報酬（ケース監修、秘伝書監修）
    - **見学主催**：1回あたり報酬（現場見学のアレンジ・解説）
    - **KPI助言**：案件1件あたり報酬
 
@@ -491,7 +491,7 @@ BAAOは**金・名誉・権限**の流れを明確に分離した3層構造で�
 | 公式名（英） | 雅称（和） | 主な役割 | 報酬形態 |
 |-------------|-----------|---------|---------|
 | **Case Editor** | 記録方 | 公開品質・ファクトチェック責任 | 給与または業務委託 |
-| **Community Manager** | 世話人 | BASIC/PRIME運用・編集 | 給与または業務委託 |
+| **Community Manager** | 世話人 | 修行者/評議会運用・編集 | 給与または業務委託 |
 | **Program GM** | - | 全体設計・版管理 | 給与または業務委託 |
 
 ---
@@ -566,14 +566,14 @@ BAAOは**金・名誉・権限**の流れを明確に分離した3層構造で�
 - **昇格条件**:
   - Senior Fellow 継続3年以上
   - Impact Points 15点以上（直近1年）
-  - RECIPES 執筆2本以上（査読済・公開）
+  - 秘伝書 執筆2本以上（査読済・公開）
 - **定数**: 制限なし
 - **任期**: なし（継続的）
 - **更新条件**: 年間Impact Points **15点以上**
 - **報酬**:
   - **Delegated案件の実務担当**: CP × **55%**（同Senior Fellow）
   - **COGS（実装外注）**: 自分の会社で実装する場合
-  - **Expert Pool都度報酬**: 監修・登壇・見学主催・RECIPES執筆（**通常Senior Fellowの120%**）
+  - **Expert Pool都度報酬**: 監修・登壇・見学主催・秘伝書執筆（**通常Senior Fellowの120%**）
 - **特権**:
   - 名義使用権：「Named Senior Fellow on [領域名]」
   - 対外講演優先権：業界カンファレンス・メディア取材での優先的推薦
@@ -587,7 +587,7 @@ BAAOは**金・名誉・権限**の流れを明確に分離した3層構造で�
 - **報酬**:
   - **Delegated案件の実務担当**: CP × **55%**（Field Directorから指名された場合）
   - **COGS（実装外注）**: 自分の会社で実装する場合
-  - **Expert Pool都度報酬**: 監修・登壇・見学主催・RECIPES執筆
+  - **Expert Pool都度報酬**: 監修・登壇・見学主催・秘伝書執筆
 - **特権**: 先行閲覧72h、帯同権、Yearbook掲載
 - **昇格パス**: Impact Points 15点以上×3年継続 + Council Member 2名推薦 → **Council Member昇格審査**
 
@@ -675,7 +675,7 @@ Senior Fellow（専門師範）
 - Delegated案件実務担当（**最優先アサイン権**）
 - 自己営業案件のDelegated確約（自動承認）
 - **中規模案件の監修権**（Expert Pool報酬、GCV 800万円未満）
-- **RECIPES執筆権**（Senior Fellowと共著）
+- **秘伝書執筆権**（Senior Fellowと共著）
 - 先行閲覧72h + **帯同権**（Senior Fellowと同等）
 
 **優先度**: アサイン優先度 = **高**（Senior Fellowの次、実質的にほぼ同等）
@@ -683,11 +683,11 @@ Senior Fellow（専門師範）
 **報酬ボーナス**:
 - **最優先アサイン**: Field DirectorがDelegated案件を割り振る際、Fellow IIIを最優先（Senior Fellowと同等）
 - **監修権拡大**: 中規模案件の監修可能（Expert Pool 20-30万円）
-- **RECIPES共著**: Senior Fellowと共にRECIPES執筆（報酬配分 30%）
+- **秘伝書共著**: Senior Fellowと共に秘伝書執筆（報酬配分 30%）
 
 **Senior Fellow昇格パス**:
 - Fellow IIIで**Impact Points 15点以上を2年継続**
-- **RECIPES執筆 1本以上**（共著含む）
+- **秘伝書執筆 1本以上**（共著含む）
 - **推薦2名**（Senior FellowまたはField Director）
 → Senior Fellow審査へ
 
@@ -820,7 +820,7 @@ CP配分:
 `Field 85 / Catalyst 15` を案件登録時に自動計算。
 
 #### 7. 公開義務
-終了30日以内にCase草案を提出。非公開はRECIPESに匿名反映。
+終了30日以内にCase草案を提出。非公開は秘伝書に匿名反映。
 
 #### 8. 紛争解消
 Field間衝突はGM裁定。Catalyst起点（紹介証跡）を尊重。
@@ -901,10 +901,10 @@ Field間衝突はGM裁定。Catalyst起点（紹介証跡）を尊重。
 
 **BAAO = 実装知のデータベース + インフルエンサー専門家集団**
 
-- **核心価値**: 成功ユースケース・実装ナレッジ（RECIPES）の蓄積
+- **核心価値**: 成功ユースケース・実装ナレッジ（秘伝書）の蓄積
 - **実装**: 誰がやってもOK（外部委託可）
 - **品質担保**: BAAOの専門家（Fellow/Senior Fellow）が監修として入る
-- **再現性**: RECIPESを使って実装 → 誰でも一定品質
+- **再現性**: 秘伝書を使って実装 → 誰でも一定品質
 
 ---
 
@@ -918,7 +918,7 @@ AI時代は「影響力 = 正義」。バラバラで活動するより、集ま
 1. **自分の案件をBAAOブランドで出す** → 影響力増幅
 2. **BAAOブランドを高める** = **自分のBAAO内地位を高める** = **自分のブランドを高める**
 3. **実装は自分でやってもいいし、外注してもいい** → 柔軟性
-4. **実装知（RECIPES）を蓄積** → 次の案件で使える資産
+4. **実装知（秘伝書）を蓄積** → 次の案件で使える資産
 
 #### インセンティブ構造
 ```
@@ -955,7 +955,7 @@ Field Director（Fellow/Senior Fellow）が案件オーナー
      ↓
 成果 → BAAOブランドで公開（P評価）
      ↓
-RECIPES化（Senior Fellow執筆）
+秘伝書化（Senior Fellow執筆）
 ```
 
 **金の流れ**:
@@ -963,7 +963,7 @@ RECIPES化（Senior Fellow執筆）
 - Catalyst: CP分配15%
 - 実装会社: COGS（実装外注費）
 - 監修Senior Fellow: Expert Pool報酬
-- RECIPES執筆: Expert Pool報酬
+- 秘伝書執筆: Expert Pool報酬
 
 ---
 
@@ -975,7 +975,7 @@ Fellow個人/会社 ↔ クライアント（主契約）
      ↓
 成果をBAAOに持ち込み:
   - ケース公開（匿名/実名）
-  - RECIPES化
+  - 秘伝書化
   - BAAOブランドで発信
      ↓
 格付: C（Co-branded）
@@ -985,9 +985,9 @@ Fellow個人/会社 ↔ クライアント（主契約）
 - Fellow個人の売上（BAAOは関与しない）
 - BAAO貢献料（PC: Platform Contribution）:
   - Option 1: NSRの12%を現金で拠出
-  - Option 2: ケース公開＋RECIPES執筆で5%に減免
+  - Option 2: ケース公開＋秘伝書執筆で5%に減免
 - 実績: Influenced Revenue として集計
-- Impact Points: ケース公開+3、RECIPES+2
+- Impact Points: ケース公開+3、秘伝書+2
 
 ---
 
@@ -1012,7 +1012,7 @@ BAAOは直接関与せず
 実装を誰に出すか決める（自分の会社でもOK、他社でもOK）
 
 #### 3. 知見化
-案件結果をケース・RECIPESとしてBAAOに還元
+案件結果をケース・秘伝書としてBAAOに還元
 
 ---
 
@@ -1025,7 +1025,7 @@ BAAOは直接関与せず
 収入:
   - CP分配85%（Field Directorとして）
   - COGS（実装外注費、自分の会社）
-  - Expert Pool（監修・RECIPES執筆等）
+  - Expert Pool（監修・秘伝書執筆等）
 ```
 
 #### パターン②: 実装会社を持たないFellow（インフルエンサー専門家）
@@ -1034,7 +1034,7 @@ BAAOは直接関与せず
 
 収入:
   - CP分配85%（Field Directorとして）
-  - Expert Pool（監修・RECIPES執筆、登壇）
+  - Expert Pool（監修・秘伝書執筆、登壇）
 ```
 
 #### パターン③: 自社案件をBAAOブランド化したいFellow
@@ -1044,7 +1044,7 @@ BAAOは直接関与せず
 収入:
   - 自社売上（BAAOは関与しない）
 支出:
-  - PC 12%（または ケース＋RECIPES で5%）
+  - PC 12%（または ケース＋秘伝書 で5%）
 得るもの:
   - BAAOブランド（C評価）
   - Impact Points
@@ -1053,15 +1053,15 @@ BAAOは直接関与せず
 
 ---
 
-## 3) RECIPES & 品質担保
+## 3) 秘伝書 & 品質担保
 
-### 3-1. RECIPESとは
+### 3-1. 秘伝書とは
 
-**RECIPES（型録）= 実装知の標準化ドキュメント**
+**秘伝書（型録）= 実装知の標準化ドキュメント**
 
 過去の成功パターンを手順書化し、誰が実装しても一定品質を担保する。
 
-#### RECIPESに含まれるもの
+#### 秘伝書に含まれるもの
 1. **導入手順書**（ステップバイステップ）
 2. **チェックリスト**（品質担保項目）
 3. **スクリプト・テンプレート**（そのまま使える）
@@ -1074,7 +1074,7 @@ BAAOは直接関与せず
 
 ### 3-2. 品質担保の3層構造
 
-#### Layer 1: RECIPES（実装知）
+#### Layer 1: 秘伝書（実装知）
 - 過去の成功パターンを標準化
 - 失敗を防ぐチェックリスト
 - 誰が実装しても一定品質
@@ -1097,8 +1097,8 @@ BAAOは直接関与せず
 
 **Field Director（Fellow/Senior Fellow）**:
 1. KPI設定（Before測定）
-2. **RECIPES選定・カスタマイズ**
-   - 既存RECIPESから該当するものを選ぶ
+2. **秘伝書選定・カスタマイズ**
+   - 既存秘伝書から該当するものを選ぶ
    - ない場合は類似ケースから設計
 3. 実装会社選定
    - 自社、BAAO提携パートナー、クライアント推薦、既存SIer
@@ -1106,14 +1106,14 @@ BAAOは直接関与せず
    - 該当分野のSenior Fellow 1名（必須）
    - 必要に応じてFellow追加
 
-**成果物**: SOW、RECIPES適用計画、監修体制
+**成果物**: SOW、秘伝書適用計画、監修体制
 
 ---
 
 #### Phase 2: 実装（Week 2-7）
 
 **実装会社**:
-- RECIPESに基づいて実装
+- 秘伝書に基づいて実装
 - 手順書に従う
 - スクリプト・テンプレート使用
 - チェックリスト消化
@@ -1131,7 +1131,7 @@ BAAOは直接関与せず
 **監修Senior Fellowの役割**:
 - 週1回×6週 = 6回レビュー
 - Issue対応の技術的助言
-- RECIPESからの逸脱チェック
+- 秘伝書からの逸脱チェック
 - 実装品質の最終確認
 
 ---
@@ -1140,7 +1140,7 @@ BAAOは直接関与せず
 
 1. **実装完了**
 2. **監修Senior Fellow: 品質検証**
-   - RECIPESチェックリスト完遂確認
+   - 秘伝書チェックリスト完遂確認
    - 成果物レビュー
    - KPI測定（After）
 3. **Field Director: 顧客承認**
@@ -1148,44 +1148,44 @@ BAAOは直接関与せず
    - Fact-check
    - Before/After数値確認
    - 30分クールダウン
-5. **RECIPES更新**（必要に応じて）
+5. **秘伝書更新**（必要に応じて）
    - 今回の学び・改善点を反映
    - 監修Senior Fellowが執筆
 
 ---
 
-### 3-4. RECIPES使用の必須ルール
+### 3-4. 秘伝書使用の必須ルール
 
-#### Rule 1: RECIPES使用必須
-すべてのBAAO案件（P評価）は、該当RECIPESを使用すること。
-RECIPESがない場合は、類似ケースから設計し、案件後に新規RECIPES化すること。
+#### Rule 1: 秘伝書使用必須
+すべてのBAAO案件（P評価）は、該当秘伝書を使用すること。
+秘伝書がない場合は、類似ケースから設計し、案件後に新規秘伝書化すること。
 
 #### Rule 2: 監修Senior Fellow必須
-すべてのBOOST案件には、監修Senior Fellowを1名以上アサインすること。
-RECIPES/CONSULTは推奨（規模に応じて）。
+すべての伴随案件には、監修Senior Fellowを1名以上アサインすること。
+秘伝書/CONSULTは推奨（規模に応じて）。
 
 #### Rule 3: 週次レビュー必須
-BOOST案件は週1回、監修Senior Fellowによるレビューを実施すること。
-RECIPES/CONSULTは適宜（最低2回）。
+伴随案件は週1回、監修Senior Fellowによるレビューを実施すること。
+秘伝書/CONSULTは適宜（最低2回）。
 
 #### Rule 4: 品質検証必須
 納品前に、監修Senior Fellowによる品質検証を実施すること。
-RECIPESチェックリスト完遂確認必須。
+秘伝書チェックリスト完遂確認必須。
 
 #### Rule 5: 学びの還元必須
-案件終了後30日以内に、ケース草案提出＋RECIPES更新（または新規作成）。
+案件終了後30日以内に、ケース草案提出＋秘伝書更新（または新規作成）。
 
 ---
 
-### 3-5. RECIPESの作成・更新フロー
+### 3-5. 秘伝書の作成・更新フロー
 
-#### 新規RECIPES作成
+#### 新規秘伝書作成
 ```
 1. 案件完了（P or C案件）
      ↓
 2. Case Editor: Fact-check → クールダウン → ケース草案
      ↓
-3. Senior Fellow: RECIPES執筆
+3. Senior Fellow: 秘伝書執筆
    - 導入手順書化
    - チェックリスト作成
    - スクリプト・テンプレート整備
@@ -1193,28 +1193,28 @@ RECIPESチェックリスト完遂確認必須。
      ↓
 4. Field Chair/Senior Fellow: レビュー・監修
      ↓
-5. BAAO: RECIPES公開・販売（100-150万円/本）
+5. BAAO: 秘伝書公開・販売（100-150万円/本）
 ```
 
-#### 既存RECIPES更新
+#### 既存秘伝書更新
 ```
 案件実施中の学び・Issue
      ↓
 監修Senior Fellow: 更新ポイント記録
      ↓
-案件完了後: RECIPES更新版作成
+案件完了後: 秘伝書更新版作成
      ↓
 Case Editor: レビュー
      ↓
-RECIPES公開（バージョンアップ）
+秘伝書公開（バージョンアップ）
 ```
 
 ---
 
-### 3-6. RECIPESの報酬体系
+### 3-6. 秘伝書の報酬体系
 
-#### 新規RECIPES作成
-**RECIPES売上**: 100-150万円/本
+#### 新規秘伝書作成
+**秘伝書売上**: 100-150万円/本
 
 **分配**:
 - 執筆Senior Fellow: **40%** (40-60万円)
@@ -1222,7 +1222,7 @@ RECIPES公開（バージョンアップ）
 - Case Editor: **10%** (10-15万円)
 - BAAO（PF）: **40%** (40-60万円)
 
-#### 既存RECIPES更新
+#### 既存秘伝書更新
 - 更新Senior Fellow: **10-20万円**
 - Case Editor: **5万円**
 
@@ -1235,8 +1235,8 @@ RECIPES公開（バージョンアップ）
 | 案件規模 | 監修報酬 | 想定稼働 |
 |---------|---------|---------|
 | CONSULT（15-80万円） | 3-8万円 | 1-2回レビュー |
-| RECIPES（100-150万円） | 10-15万円 | 3-4回レビュー |
-| BOOST（400-800万円） | 30-50万円 | 週次×6-8回 |
+| 秘伝書（100-150万円） | 10-15万円 | 3-4回レビュー |
+| 伴随（400-800万円） | 30-50万円 | 週次×6-8回 |
 
 **財源**: Expert Pool（PF 18%から捻出）
 
@@ -1246,15 +1246,15 @@ RECIPES公開（バージョンアップ）
 
 | 作業 | Senior Fellow報酬 | Named Senior Fellow報酬 | 備考 |
 |------|------------------|----------------------|------|
-| BASICライブ登壇 | 3-5万円 | 3.6-6万円（+20%） | 1時間 |
+| 修行者ライブ登壇 | 3-5万円 | 3.6-6万円（+20%） | 1時間 |
 | ケース監修 | 5-10万円 | 6-12万円（+20%） | 1件 |
 | 見学主催 | 10-20万円 | 12-24万円（+20%） | 1回 |
 | KPI助言 | 3-5万円 | 3.6-6万円（+20%） | 1案件 |
 
 **Named Senior Fellow報酬加算**:
 - Expert Pool都度報酬は**通常Senior Fellowの120%**（+20%）
-- 案件監修（BOOST/RECIPES/CONSULT）も同様に+20%
-- RECIPES執筆報酬: 40%（Senior Fellowと同額、ただし優先執筆権あり）
+- 案件監修（伴随/秘伝書/CONSULT）も同様に+20%
+- 秘伝書執筆報酬: 40%（Senior Fellowと同額、ただし優先執筆権あり）
 
 **財源**: PF 18%のうち、約半分（9%相当）をExpert Poolに充当
 
@@ -1307,16 +1307,16 @@ CP分配:
 
 ### 3-3. 契約形態とお金の流れ
 
-#### A-1) 継続課金プログラム（BASIC/ACTIVE/PRIME）
+#### A-1) 継続課金プログラム（修行者/書院生/評議会）
 
-**BASIC/ACTIVE**：
+**修行者/書院生**：
 ```
 会員 → BAAO（サブスクリプション）
 月額・年額課金 → 全額NSR（COGSほぼなし）
 NSR → 配分なし（運営費としてPF扱い）
 ```
 
-**PRIME**：
+**評議会**：
 ```
 会員 → BAAO（年間契約 ¥220,000）
 年額課金 → 全額NSR
@@ -1325,9 +1325,9 @@ NSR → 配分なし（運営費としてPF扱い）
 ```
 
 **心理実装**：
-- PRIMEは「サービス割引＋先行アクセス」でLTVを最大化
-- BASICからACTIVE、ACTIVEからPRIMEへの価格ラダーで**エンドウメント効果**を利用
-- PRIME割引により「年22万円で数百万円の価値」という**価値アンカリング**
+- 評議会は「サービス割引＋先行アクセス」でLTVを最大化
+- 修行者から書院生、書院生から評議会への価格ラダーで**エンドウメント効果**を利用
+- 評議会割引により「年22万円で数百万円の価値」という**価値アンカリング**
 
 ---
 
@@ -1336,7 +1336,7 @@ NSR → 配分なし（運営費としてPF扱い）
 **CONSULT（クイック/スタンダード/ディープダイブ）**：
 ```
 クライアント → BAAO（都度契約）
-料金：¥15万/35万/80万（PRIME会員は20%オフ）
+料金：¥15万/35万/80万（評議会会員は20%オフ）
 ```
 
 **分配フロー**：
@@ -1352,16 +1352,16 @@ GCV（契約額）
 **CONSULT特有ルール**：
 - Field Directorが主導・実行（85%）
 - Catalystは紹介のみ（該当する場合 15%）
-- 3ヶ月以内にBOOST契約した場合、CONSULT料金を**全額BOOST契約額から差し引き**（BOOST側の配分で再分配）
+- 3ヶ月以内に伴随契約した場合、CONSULT料金を**全額伴随契約額から差し引き**（伴随側の配分で再分配）
 
 **心理実装**：
 - 「試してから本番」の心理的障壁を下げる（フット・イン・ザ・ドア）
-- PRIME会員割引で「年会費の元を取った感」を演出
-- BOOST移行時の全額チャージバックで「無駄にならない投資」を保証
+- 評議会会員割引で「年会費の元を取った感」を演出
+- 伴随移行時の全額チャージバックで「無駄にならない投資」を保証
 
 ---
 
-#### A-3) BAAOプライム受注（RECIPES/BOOST）
+#### A-3) BAAOプライム受注（秘伝書/伴随）
 
 ```
 クライアント → BAAO（MSA/SOW） → 必要に応じ外部へ再委託
@@ -1383,13 +1383,13 @@ COGS → 実装外注（実務Fellowの会社、または外部）
 監修 → Expert Pool
 ```
 
-**PRIME会員割引の扱い**：
-- PRIME会員が20%割引を受けた場合、割引前の金額をGCVとして扱う
-- 例：BOOST定価¥500万、PRIME割引後¥400万 → GCV=¥500万として配分計算
-- 割引差額¥100万は**PRIME会員収益から充当**（年間収支で調整）
+**評議会会員割引の扱い**：
+- 評議会会員が20%割引を受けた場合、割引前の金額をGCVとして扱う
+- 例：伴随定価¥500万、評議会割引後¥400万 → GCV=¥500万として配分計算
+- 割引差額¥100万は**評議会会員収益から充当**（年間収支で調整）
 
 **心理実装**：
-- PRIME会員には「既に払った年会費で割引を獲得」という**損失回避**の満足
+- 評議会会員には「既に払った年会費で割引を獲得」という**損失回避**の満足
 - BAAO側は割引前価格で配分することで、実行者へのインセンティブを維持
 
 ---
@@ -1589,7 +1589,7 @@ Field Director → Senior Fellow（監修） → Case Editor → Fellow（貢献
 
 - 匿名可（社名・固有名詞・数値はレンジ表記）
 - 編集履歴保持
-- 非公開案件は**RECIPESに匿名転記**して資産化
+- 非公開案件は**秘伝書に匿名転記**して資産化
 
 ---
 
@@ -1617,7 +1617,7 @@ Appointment #FW-YYYY-###
 ```
 
 **就任儀式**：
-月例PRIME末尾に60秒（理由3点読み上げ）
+月例評議会末尾に60秒（理由3点読み上げ）
 
 ---
 
@@ -1625,17 +1625,17 @@ Appointment #FW-YYYY-###
 
 **配点**：
 - **案件監修**：
-  - BOOST監修完遂：+2
-  - RECIPES監修完遂：+1
+  - 伴随監修完遂：+2
+  - 秘伝書監修完遂：+1
   - CONSULT監修完遂：+0.5
 - **知見化**：
   - Case公開（P/C）：+3
-  - RECIPES執筆：+2
-  - RECIPES更新：+1
+  - 秘伝書執筆：+2
+  - 秘伝書更新：+1
 - **その他貢献**：
   - 見学主催：+2
   - 登壇：+1
-  - BOOST達成：+2（未達：−1）
+  - 伴随達成：+2（未達：−1）
 
 **更新要件**：
 - Fellow：**5点/年**
@@ -1644,13 +1644,13 @@ Appointment #FW-YYYY-###
 - Council/Field Chair：**10点/年**
 
 **昇格要件**：
-- Fellow III → Senior Fellow：**15点/年を2年継続** + RECIPES執筆1本 + 推薦2名
-- Senior Fellow → Named Senior Fellow：**Senior Fellow継続3年** + **15点/年達成** + RECIPES執筆2本
+- Fellow III → Senior Fellow：**15点/年を2年継続** + 秘伝書執筆1本 + 推薦2名
+- Senior Fellow → Named Senior Fellow：**Senior Fellow継続3年** + **15点/年達成** + 秘伝書執筆2本
 - Senior Fellow → Council Member：**Senior Fellow継続5年** + **15点/年を3年連続** + Council Member 2名推薦 + 全会一致承認
 
 **ケース例（Senior Fellow更新）**：
-- BOOST監修×2回 = 4点
-- RECIPES執筆×1回 = 2点
+- 伴随監修×2回 = 4点
+- 秘伝書執筆×1回 = 2点
 - ケース公開×1回 = 3点
 - **合計9点** → 更新OK
 
@@ -1677,12 +1677,12 @@ Appointment #FW-YYYY-###
 
 ---
 
-### 7-2. BASIC/PRIME/見学
+### 7-2. 修行者/評議会/見学
 
 | プログラム | SLA |
 |-----------|-----|
-| **BASIC** | ライブ後**24h**で録画配布、**72h**でサマリ。翌週一般公開へ。 |
-| **PRIME** | 会合**48h**で要点1枚、見学**1週**でレポート |
+| **修行者** | ライブ後**24h**で録画配布、**72h**でサマリ。翌週一般公開へ。 |
+| **評議会** | 会合**48h**で要点1枚、見学**1週**でレポート |
 | **見学** | 写真・観察ポイント・適用可否マトリクスを必須 |
 
 ---
@@ -1692,9 +1692,9 @@ Appointment #FW-YYYY-###
 ### 主要KPI
 
 **売上**：
-- PRIME契約社数
-- RECIPES契約数
-- BOOST本数・粗利
+- 評議会契約社数
+- 秘伝書契約数
+- 伴随本数・粗利
 
 **時間**：
 - P95導入リードタイム
@@ -1707,7 +1707,7 @@ Appointment #FW-YYYY-###
 
 **コンテンツ**：
 - Case公開本数/月
-- RECIPES追加本数/月
+- 秘伝書追加本数/月
 - アーカイブ完了率
 
 **運用**：
@@ -1727,7 +1727,7 @@ Appointment #FW-YYYY-###
 | 区分 | 対象ページ |
 |-----|-----------|
 | **[公開]** | Start/Programs/FieldWorks/Cases抜粋/Events/People/Governance |
-| **[会員限定]** | Members' Resources（BASIC/PRIME資料） |
+| **[会員限定]** | Members' Resources（修行者/評議会資料） |
 | **[内部]** | 本ハンドブック、CRM、財務 |
 
 ---
@@ -1762,16 +1762,16 @@ BAAOの4本柱（提供モデル）について、それぞれの運用テンプ
 
 | 提供モデル | テンプレートファイル | 用途 |
 |----------|------------------|------|
-| **BASIC｜AI Weekly** | [BASIC_AI_WEEKLY_TEMPLATE.md](../templates/BASIC_AI_WEEKLY_TEMPLATE.md) | 毎週のアップデート＋Q&A。実務者が"次に何をするか"まで分かる軽量学習 |
-| **PRIME｜Executive Community** | [PRIME_EXECUTIVE_COMMUNITY_TEMPLATE.md](../templates/PRIME_EXECUTIVE_COMMUNITY_TEMPLATE.md) | 未公開ケースの分解、現場見学、ピアレビューで意思決定を加速 |
-| **RECIPES｜Playbooks** | [RECIPES_PLAYBOOKS_TEMPLATE.md](../templates/RECIPES_PLAYBOOKS_TEMPLATE.md) | 業務別の導入手順書（PDF＋スクリプト）。失敗例とコストまで記載 |
-| **BOOST｜Quarter Projects** | [BOOST_QUARTER_PROJECTS_TEMPLATE.md](../templates/BOOST_QUARTER_PROJECTS_TEMPLATE.md) | 4〜8週の短期実装でKPIを可視化し、横展開案まで提示 |
+| **修行者｜AI Weekly** | [修行者_AI_WEEKLY_TEMPLATE.md](../templates/修行者_AI_WEEKLY_TEMPLATE.md) | 毎週のアップデート＋Q&A。実務者が"次に何をするか"まで分かる軽量学習 |
+| **評議会｜Executive Community** | [評議会_EXECUTIVE_COMMUNITY_TEMPLATE.md](../templates/評議会_EXECUTIVE_COMMUNITY_TEMPLATE.md) | 未公開ケースの分解、現場見学、ピアレビューで意思決定を加速 |
+| **秘伝書｜Playbooks** | [秘伝書_PLAYBOOKS_TEMPLATE.md](../templates/秘伝書_PLAYBOOKS_TEMPLATE.md) | 業務別の導入手順書（PDF＋スクリプト）。失敗例とコストまで記載 |
+| **伴随｜Quarter Projects** | [伴随_QUARTER_PROJECTS_TEMPLATE.md](../templates/伴随_QUARTER_PROJECTS_TEMPLATE.md) | 4〜8週の短期実装でKPIを可視化し、横展開案まで提示 |
 
 **使い方**:
 1. 新規案件・活動開始時に、該当するテンプレートをコピー
 2. プロジェクト固有の情報を記入
 3. 週次・月次で更新し、進捗を記録
-4. 完了時に成果をケース化・RECIPES化
+4. 完了時に成果をケース化・秘伝書化
 
 ---
 
@@ -1927,7 +1927,7 @@ I：Catalyst（<氏名>）
 | 役割 | 責任範囲 | RACI |
 |-----|---------|------|
 | **Field Director** | A責任・収益・契約・顧客窓口・KPI設定 | **A/R** |
-| **Senior Fellow** | 監修・RECIPES執筆・品質担保 | **C** |
+| **Senior Fellow** | 監修・秘伝書執筆・品質担保 | **C** |
 | **実装会社** | 実装実行 | **R** |
 | **Case Editor** | 公開品質・Fact‑check | **R** |
 | **CM** | 運営・編集・台本 | **R** |

@@ -1,4 +1,4 @@
-# RECIPES（Playbooks）テンプレート
+# 型録 秘伝書（ひでんしょ）Playbooks テンプレート
 
 > **概要**: 業務別の導入手順書。失敗例とコストまで記載し、誰が実装しても一定品質を担保する実装知のドキュメント。
 
@@ -6,7 +6,7 @@
 
 ## 基本情報
 
-**RECIPESタイトル**: [業務領域] × [AI手法] の実装型
+**秘伝書タイトル**: [業務領域] × [AI手法] の実装型
 **対象業界（Field）**: [Healthcare / Manufacturing / Finance / Public / Retail & CX / Media & IP]
 **対象業務（Practice）**: [GenAI Apps / Data & Integration / Ops Automation 等]
 **勝ち筋（Mission）**: [Cost-Down / Speed-Up / Quality-Up / Growth-Up]
@@ -17,7 +17,7 @@
 
 **執筆者**: [Senior Fellow名]
 **監修**: [Field Chair / Senior Fellow名]
-**RECIPES ID**: REP-YYMM-####
+**秘伝書ID**: REP-YYMM-####
 **公開日**: YYYY/MM/DD
 **最終更新**: YYYY/MM/DD（バージョン X.Y）
 
@@ -35,7 +35,7 @@
 8. [測定方法（Before/After）](#8-測定方法beforeafter)
 9. [よくあるIssueと対処法](#9-よくあるissueと対処法)
 10. [再現条件・適用範囲](#10-再現条件適用範囲)
-11. [関連RECIPES・参考資料](#11-関連recipes参考資料)
+11. [関連秘伝書・参考資料](#11-関連秘伝書参考資料)
 
 ---
 
@@ -686,11 +686,11 @@ Before/Afterの差が統計的に有意かを確認:
 
 ---
 
-## 11. 関連RECIPES・参考資料
+## 11. 関連秘伝書・参考資料
 
-### 関連RECIPES
-- [RECIPES ID]: [タイトル]（[概要]）
-- [RECIPES ID]: [タイトル]（[概要]）
+### 関連秘伝書
+- [秘伝書ID]: [タイトル]（[概要]）
+- [秘伝書ID]: [タイトル]（[概要]）
 
 ---
 
@@ -725,7 +725,7 @@ Before/Afterの差が統計的に有意かを確認:
 
 **執筆者**: [Senior Fellow名]
 **監修**: [Field Chair / Senior Fellow名]
-**RECIPES ID**: REP-YYMM-####
+**秘伝書ID**: REP-YYMM-####
 **公開日**: YYYY/MM/DD
 **最終更新**: YYYY/MM/DD（バージョン X.Y）
 
