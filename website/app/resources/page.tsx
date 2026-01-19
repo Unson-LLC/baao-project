@@ -61,7 +61,7 @@ const articles = [
 
 const materials = [
   {
-    title: "RECIPES｜実装手順書",
+    title: "秘伝書｜実装手順書",
     description: "業務別に失敗例・コストまで明記した実装手順書",
     status: "準備中",
     icon: "📖",
@@ -118,7 +118,7 @@ export default function ResourcesPage() {
           </span>
           <h1 className="mt-2 font-serif text-4xl">イベント・資料</h1>
           <p className="mt-4 text-[#4B4135]">
-            週次稽古の予定、公開ケース、実装手順書（RECIPES）、年次レポート（Yearbook）まで、道場で生まれた知見を一箇所に集約しています。
+            週次稽古の予定、公開ケース、実装手順書（秘伝書）、年次レポート（Yearbook）まで、道場で生まれた知見を一箇所に集約しています。
           </p>
           <div className="mt-6 grid gap-3 text-sm text-[#4B4135] sm:grid-cols-3">
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
@@ -127,7 +127,7 @@ export default function ResourcesPage() {
             </div>
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
               <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">資料</p>
-              <p className="mt-2 leading-relaxed">RECIPES・Yearbook・ケーススタディ</p>
+              <p className="mt-2 leading-relaxed">秘伝書・Yearbook・ケーススタディ</p>
             </div>
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
               <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">イベント</p>

@@ -27,7 +27,7 @@ const cases = [
     field: "金融 × Growth-Up",
     title: "個社向け提案資料を半自動生成",
     description:
-      "金融機関の法人営業部門で提案資料生成を半自動化。PRIMEコミュニティでベストプラクティスとして共有。",
+      "金融機関の法人営業部門で提案資料生成を半自動化。評議会コミュニティでベストプラクティスとして共有。",
     metrics: ["資料作成工数 65%削減", "受注率 +14pt"],
     secrecy: "守秘レベル 3（実名公開予定）",
     fellowId: "yoshimi-takamitsu",
@@ -36,8 +36,8 @@ const cases = [
 
 const kpis = [
   { name: "公開ケース数", value: "48件", note: "守秘レベル1〜3" },
-  { name: "P95リードタイム", value: "-32%", note: "BOOST導入企業平均" },
-  { name: "BASIC→PRIME昇格率", value: "28%", note: "四半期平均" },
+  { name: "P95リードタイム", value: "-32%", note: "伴随導入企業平均" },
+  { name: "修行者→評議会昇格率", value: "28%", note: "四半期平均" },
   { name: "Yearbookダウンロード", value: "1,200+", note: "2025年版" },
 ];
 

@@ -55,12 +55,12 @@ export const fellows: FellowProfile[] = [
     mission: "Growth-Up",
     practice: "Data & Integration",
     appointment: "Appointment# FW-2025-021",
-    bio: "金融機関の法人営業領域で CRM × 生成AI の実装を支援。提案資料半自動生成フレームを共著し、PRIME コミュニティの監修を担当。",
+    bio: "金融機関の法人営業領域で CRM × 生成AI の実装を支援。提案資料半自動生成フレームを共著し、評議会コミュニティの監修を担当。",
     impactFocus: "提案スピードと成約率を両立するデータ活用導線の設計",
     achievements: [
       "提案資料作成時間を 65% 削減、受注率 +14pt を実現",
       "評議会議（ひょうぎかいぎ）での常任モデレーター",
-      "RECIPES #FIN-08 共著『生成AIで提案スライドを半自動化する』",
+      "秘伝書 #FIN-08 共著『生成AIで提案スライドを半自動化する』",
     ],
     impactPoints: 16,
     avatar: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=400&q=80",
@@ -122,7 +122,7 @@ export const fellows: FellowProfile[] = [
     achievements: [
       "RPA と Lark を連携させた経費精算の自動化を実現",
       "週次ライブでオートメーション講座を担当",
-      "社内展開向けチェックリストを公開、BASIC 会員で話題に",
+      "社内展開向けチェックリストを公開、修行者会員で話題に",
     ],
     impactPoints: 8,
     avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=400&q=80",
@@ -140,7 +140,7 @@ export const fellows: FellowProfile[] = [
     impactFocus: "顧客コミュニケーションの質と速度を両立するコンテンツ設計",
     achievements: [
       "カスタマーサポート応対スクリプトを 2 週間で刷新",
-      "RECIPES draft #CX-04 を共著",
+      "秘伝書 draft #CX-04 を共著",
       "オープンチャットでの QA 返信数 50+（Impact Points +4）",
     ],
     impactPoints: 6,

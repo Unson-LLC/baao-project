@@ -8,14 +8,14 @@
 |---------|----------|------|---------------------|
 | 無料稽古ライブ参加登録 | Operators / DX Leads / Fellows候補 | 週次ライブ視聴、オープンチャット招待 | Home Hero、Home Free Live、`/dx-leads`、`/operators`、Resources/Events |
 | オープンチャット参加 | 無料会員・興味層 | 継続接点 + ナーチャリング | 無料稽古サンクス、Resources（Events）、メール通知 |
-| 企業向け相談（PRIME/BOOST） | Executives / DX Leads | 四半期内の伴随相談・ROI試算 | Home CTA、`/executives`、`/dx-leads`、Programs（PRIME/BOOST）、Success Stories、Join |
+| 企業向け相談（評議会/伴随） | Executives / DX Leads | 四半期内の伴随相談・ROI試算 | Home CTA、`/executives`、`/dx-leads`、Programs（評議会/伴随）、Success Stories、Join |
 | 資料ダウンロード（FieldWorks / プラン比較） | Executives / DX Leads | 稟議資料・社内共有 | `/executives`、`/dx-leads`、Programs、Resources/Downloads |
 | 体験会・現場見学予約 | DX Leads / Fellows | コミュニティ体験・案件想起 | Home Events、Resources/Events、`/fellows` |
-| BASIC月謝プラン申込 | Operators | アーカイブとLarkを活用した定着 | `/operators`、Programs（BASIC/ACTIVE）、Join |
-| ACTIVE月謝プラン申込 | DX Leads / Operators | 上位プラン（全文検索、ドラフト閲覧） | `/dx-leads`、Programs、Join |
-| PRIME相談 | Executives | クローズドコミュニティ・役員向け伴随 | `/executives`、Programs、Success Stories、Join |
-| BOOST見積 | DX Leads | KPI可視化プロジェクト見積 | `/dx-leads`、Programs、Success Stories、Join |
-| RECIPES購入相談 | DX Leads | Playbook購入、横展開支援 | Programs、Resources、Persona LP
+| 修行者月謝プラン申込 | Operators | アーカイブとLarkを活用した定着 | `/operators`、Programs（修行者/書院生）、Join |
+| 書院生月謝プラン申込 | DX Leads / Operators | 上位プラン（全文検索、ドラフト閲覧） | `/dx-leads`、Programs、Join |
+| 評議会相談 | Executives | クローズドコミュニティ・役員向け伴随 | `/executives`、Programs、Success Stories、Join |
+| 伴随見積 | DX Leads | KPI可視化プロジェクト見積 | `/dx-leads`、Programs、Success Stories、Join |
+| 秘伝書購入相談 | DX Leads | Playbook購入、横展開支援 | Programs、Resources、Persona LP
 | Fellow応募 | Fellows候補 | コミュニティ参画・案件参画 | Home CTA、`/fellows`、Communityページ、Join |
 | 案件相談（現Fellow向け） | Fellows | Delegated案件アサイン | `/fellows`、Communityページ、Join |
 | メディア問い合わせ | Field Director / Senior Fellow / メディア | 取材・登壇・Yearbook掲載 | Success Stories、`/fellows`、Resources |
@@ -26,8 +26,8 @@
 | アンカーID | 対応フォーム / 目的 | 備考 |
 |-----------|----------------------|------|
 | `#free-live` | 無料稽古ライブ登録 | ペルソナLP（DX Leads / Operators）から直接スクロール |
-| `#enterprise` | 企業向け相談（PRIME/BOOST/CONSULT） | Executives, DX Leads, Fellowsの案件相談誘導 |
-| `#basic` | BASIC / ACTIVE 月謝プラン | クエリ `?plan=active` でACTIVEを初期表示検討 |
+| `#enterprise` | 企業向け相談（評議会/伴随/CONSULT） | Executives, DX Leads, Fellowsの案件相談誘導 |
+| `#basic` | 修行者 / 書院生 月謝プラン | クエリ `?plan=active` で書院生を初期表示検討 |
 | `#fellow` | Fellow応募 | `/fellows` の主要CTA |
 | `#fellow-assign` | Fellowsの案件相談 | Fellows LP 内の二次CTA |
 | `#media` | メディア・協業問い合わせ | Success Stories / Fellows から誘導 |
@@ -39,8 +39,8 @@
 | 環境変数 | 用途 | Joinアンカー |
 |----------|------|-------------|
 | `NEXT_PUBLIC_FORMSPREE_FREE_LIVE` | 無料稽古登録 | `#free-live` |
-| `NEXT_PUBLIC_FORMSPREE_CORPORATE` | 企業相談（PRIME/BOOST/CONSULT） | `#enterprise` |
-| `NEXT_PUBLIC_FORMSPREE_MONTHLY` | 月謝プラン（BASIC/ACTIVE） | `#basic` |
+| `NEXT_PUBLIC_FORMSPREE_CORPORATE` | 企業相談（評議会/伴随/CONSULT） | `#enterprise` |
+| `NEXT_PUBLIC_FORMSPREE_MONTHLY` | 月謝プラン（修行者/書院生） | `#basic` |
 | `NEXT_PUBLIC_FORMSPREE_FELLOW` | Fellow応募 | `#fellow` |
 | `NEXT_PUBLIC_FORMSPREE_PROJECT` | Fellows案件相談 | `#fellow-assign` |
 | `NEXT_PUBLIC_FORMSPREE_MEDIA` | メディア問い合わせ | `#media` |
@@ -65,13 +65,13 @@
 - Field（業界：製造 / 医療 / 公共 / 金融 / 小売・CX / メディア・IP）
 - Mission（Cost-Down / Speed-Up / Quality-Up / Growth-Up）
 
-### 2-2. 企業向け相談（PRIME / BOOST / CONSULT）
+### 2-2. 企業向け相談（評議会 / 伴随 / CONSULT）
 - 会社名 / 部署
 - 氏名 / メール / 電話番号
 - Field（業界）：医療 / 製造 / 金融 / 公共 / 小売・CX / メディア・IP / その他
 - Mission（勝ち筋）：Cost-Down / Speed-Up / Quality-Up / Growth-Up
 - Practice（型）：GenAI Apps / Data & Integration / Ops Automation / Safety & Legal / Change & Enablement / Design & DX Writing
-- 希望プログラム：PRIME / BOOST / CONSULT / 未定
+- 希望プログラム：評議会 / 伴随 / CONSULT / 未定
 - 目指したい成果指標／KPI（テキスト）
 - 守秘レベルの希望（公開可 / 匿名 / 非公開）
 - 希望時期（3ヶ月以内 / 半年以内 / 未定）
@@ -79,11 +79,11 @@
 - 相談内容（自由記述）
 - 個人情報の取り扱い同意
 
-### 2-3. 月謝プラン（BASIC / ACTIVE）
+### 2-3. 月謝プラン（修行者 / 書院生）
 - 氏名 / メール
 - 所属（会社名・部署）
 - 受講目的：最新情報 / 業務効率化 / 社内展開 / キャリア / その他
-- 希望プラン（BASIC / ACTIVE）
+- 希望プラン（修行者 / 書院生）
 - 決済方法（法人請求 / 個人決済 / 未定）
 - 社内共有予定（あり / なし）
 - Lark / オープンチャット招待可否（希望する / 一部のみ / 不要）

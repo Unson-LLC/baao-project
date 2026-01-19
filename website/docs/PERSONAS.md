@@ -6,7 +6,7 @@ AI道場の常設サイトは、共通のトップレイヤーでブランド・
 
 | ペルソナ | 呼称 | 主な意思決定 | 主要CTA | 優先LP |
 |-----------|------|----------------|----------|---------|
-| **経営層 / 事業責任者** | Executives | 四半期で成果を証明できる伴随への投資判断 | 企業相談（PRIME/BOOST） | `/executives`
+| **経営層 / 事業責任者** | Executives | 四半期で成果を証明できる伴随への投資判断 | 企業相談（評議会/伴随） | `/executives`
 | **DX推進リーダー / 人材開発責任者** | DX Leads | 組織内で再現可能なロードマップと導入フローの整備 | 無料稽古 → 月謝 → 伴随相談 | `/dx-leads`
 | **実務担当者 / 現場リーダー** | Operators | 業務を即改善できる学習・コミュニティ参加 | 無料稽古参加／月謝申込 | `/operators`
 | **専門家コミュニティ（Fellows / Field Director / Senior Fellow候補）** | Fellows | 自身の専門性を活かした関与とブランド露出 | Fellow応募／案件相談 | `/fellows`
@@ -46,7 +46,7 @@ AI道場の常設サイトは、共通のトップレイヤーでブランド・
   - 無料稽古から月謝→伴随へのステップが見えない
   - 守秘と公開の線引きが不安（社内共有用資料が欲しい）
 - **必要情報 / 証拠**：
-  - 月謝プラン（BASIC/ACTIVE）のコンテンツ差分と活用ストーリー
+  - 月謝プラン（修行者/書院生）のコンテンツ差分と活用ストーリー
   - FieldWorks（流派×勝ち筋×型）の導入フロー、社内定着までのRACI
   - 稟議テンプレート、KPIの追い方、Impact Points の運用例
   - 同職種の成功事例（PoC脱却、横展開）
@@ -115,8 +115,8 @@ AI道場の常設サイトは、共通のトップレイヤーでブランド・
 | ペルソナ | 入口 | 主要セクション | 補助ページ | 最終CTA |
 |----------|------|----------------|------------|----------|
 | Executives | Homeヒーローのショートリンク / Personaカード | /executives 内の ROI保証・Field Director紹介・ケース指標 | /programs#prime, /success-stories | Join#enterprise で企業相談 |
-| DX Leads | Home → /dx-leads | ロードマップ、稟議テンプレ、伴随プロセス | /programs, /resources（Downloads, FAQ） | Join#free-live → Join#enterprise/BASIC |
-| Operators | Home → /operators | Before/After、月謝プラン活用、コミュニティ紹介 | /programs（BASIC/ACTIVE）、/resources（Events） | Join#free-live → Join#basic |
+| DX Leads | Home → /dx-leads | ロードマップ、稟議テンプレ、伴随プロセス | /programs, /resources（Downloads, FAQ） | Join#free-live → Join#enterprise/修行者 |
+| Operators | Home → /operators | Before/After、月謝プラン活用、コミュニティ紹介 | /programs（修行者/書院生）、/resources（Events） | Join#free-live → Join#basic |
 | Fellows | Home CTA → /fellows | キャリアパス、Impact Points、Field Directorメッセージ | /success-stories（Byline例）、/resources（Events/Fellow説明会） | Join#fellow / Join#fellow-assign |
 
 ---

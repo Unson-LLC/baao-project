@@ -30,11 +30,11 @@
    - ボタン：`他のダイジェストを見る`（Resources/Events#archives）。
 
 4. **Path to Mastery｜成長の道筋**
-   - (D) 横フローチャート：`無料稽古` → `月謝プラン（BASIC/ACTIVE）` → `伴随（PRIME/BOOST）` → `成果公開（Cases/Yearbook）`。
+   - (D) 横フローチャート：`無料稽古` → `月謝プラン（修行者/書院生）` → `伴随（評議会/伴随）` → `成果公開（Cases/Yearbook）`。
    - それぞれの下に対象ペルソナとCTAを配置。
 
 5. **Programs Snapshot**
-   - (D) 5枚のカード（FREE / BASIC / ACTIVE / PRIME / BOOST / RECIPES）。FREEは左端に固定。
+   - (D) 5枚のカード（門下生 / 修行者 / 書院生 / 評議会 / 伴随 / 秘伝書）。FREEは左端に固定。
    - 各カードに月謝／提供内容サマリ／`詳しく見る`リンク。
    - (M) スワイプカルーセル。
 
@@ -72,27 +72,27 @@
 
 1. **Hero（セクションナビ）**
    - 見出し `稽古から伴随まで、一気通貫で導くプログラム`
-   - アンカーリンク：`FREE / BASIC / ACTIVE / PRIME / BOOST / RECIPES / CONSULT`。
+   - アンカーリンク：`門下生 / 修行者 / 書院生 / 評議会 / 伴随 / 秘伝書 / CONSULT`。
 
 2. **Overview タブ**
    - フローチャート（無料→月謝→伴随→公開）。
    - CTA：`まず無料稽古に参加`。
 
-3. **FREE｜Weekly AI News**
+3. **門下生｜Weekly AI News**
    - コンテンツリスト、配信方法、参加手順。
    - CTA：Join#free-live。
 
-4. **BASIC / ACTIVE**
+4. **修行者 / 書院生**
    - 2カラム比較表（成果物／ライブ頻度／アーカイブ／Q&A）。
    - FAQアコーディオン。
    - CTA：Join#basic（申込フォーム選択肢でACTIVEも）。
 
-5. **PRIME / BOOST**
+5. **評議会 / 伴随**
    - 伴随プロセスのタイムライン（診断→設計→実装→公開）。
    - 成果メトリクスと守秘レベル図。
    - CTA：Join#enterprise。
 
-6. **RECIPES / CONSULT**
+6. **秘伝書 / CONSULT**
    - カード表示（業務別Playbook・単発相談）。
    - CTA：Join#enterprise、資料DL。
 
@@ -118,7 +118,7 @@
    - CTA：`師範として参画`（Join#fellow）。
 
 4. **品質担保フロー**
-   - 3ステップダイアグラム（RECIPES→週次レビュー→Impact Points）。
+   - 3ステップダイアグラム（秘伝書→週次レビュー→Impact Points）。
    - CTA：`公開ケースを見る`。
 
 5. **S.P.A.R.K.心理設計**
@@ -192,7 +192,7 @@
    - 右カラムに導入プロセス（4ステップ）と期待成果。
 
 4. **月謝プラン申込（#basic）**
-   - フォーム：Stripeチェックアウト／Plan選択（BASIC/ACTIVE）。
+   - フォーム：Stripeチェックアウト／Plan選択（修行者/書院生）。
    - 補足：付き添いFAQ、決済後の流れ。
 
 5. **Fellow応募（#fellow）**
