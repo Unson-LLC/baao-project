@@ -39,7 +39,7 @@
 - 無料稽古セクション（テーマ・登壇者・オプチャ導線）
 - サンプル動画 & アンケート引用
 - Path to Mastery（無料→月謝→伴随→公開）
-- Program snapshot（FREE/BASIC/ACTIVE/PRIME/BOOST/RECIPES）
+- Program snapshot（門下生/修行者/書院生/評議会/伴随/秘伝書）
 - FieldWorks overview + Field Director紹介
 - Community & Fellows（Impact Points / 特典）
 - Cases & KPIダイジェスト
@@ -49,7 +49,7 @@
 
 ### Programs & FieldWorks（`/programs`）
 - Overview：無料→月謝→伴随→公開の流れ
-- プログラムごとのセクション（FREE / BASIC / ACTIVE / PRIME / BOOST / RECIPES）
+- プログラムごとのセクション（門下生 / 修行者 / 書院生 / 評議会 / 伴随 / 秘伝書）
 - FieldWorksマトリクスと役割（Field Director / Senior / Fellow）
 - 守秘・公開ポリシーと期待成果物
 - Cross CTA：無料稽古、月謝相談、企業相談
@@ -89,7 +89,7 @@
 | Home Hero CTA | /join#free-live / #enterprise / #fellow | 即時行動を促す | `CTA_AND_FORMS.md` と同期
 | Personaカード | /executives /dx-leads /operators /fellows | 深い疑問を解消するLPへ誘導 | ペルソナ判定が不要な場合は直接広告で流入
 | Persona LP | /programs, /success-stories, /resources | 補助的な証拠・資料 | LPから戻る必要がないようモジュール内リンクを配置
-| Programsセクション | /join#basic / #active / #enterprise | 決裁・申込へジャンプ | BASIC/ACTIVEはフォーム内で選択切替
+| Programsセクション | /join#basic / #active / #enterprise | 決裁・申込へジャンプ | 修行者/書院生はフォーム内で選択切替
 | Success Stories | /join#enterprise / #fellow | 成果証明後に行動させる | ケース個別ページ実装時も同様
 | Resources Downloads | /join#enterprise / #free-live | DL後のフォローアップ導線 | MAシナリオと連動
 

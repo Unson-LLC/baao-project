@@ -22,7 +22,7 @@
 | Free Live | ライブ概要、登壇師範紹介、参加手順、オープンチャット利用規約。ライブ後アンケートの意義を記述。 | Operators / Fellows候補。Join#free-live |
 | Sample Videos & Voices | サンプル動画埋め込み、満足度バッジ、参加者の声（アンケート引用）。 | 新規訪問者。Resources#events へ誘導 |
 | Path to Mastery | 無料→月謝→伴随→公開の4ステップをペルソナ別に説明。 | DX Leads / Operators。Programs / Persona LP へ |
-| Program Snapshot | FREE/BASIC/ACTIVE/PRIME/BOOST/RECIPES のカード。月謝・成果物・CTAリンク。 | Operators / DX Leads |
+| Program Snapshot | 門下生/修行者/書院生/評議会/伴随/秘伝書 のカード。月謝・成果物・CTAリンク。 | Operators / DX Leads |
 | FieldWorks Overview | 流派×勝ち筋×型の図、Field Director紹介、Appointment#。 | Executives / Fellows |
 | Community & Fellows | Impact Points、特典（72h先行閲覧、Green Room、案件報酬）。 | Fellows / Operators |
 | Cases & KPI | 成果メトリクス（売上、P95リードタイム等）とケースカード。 | Executives / DX Leads → Success Stories |
@@ -33,10 +33,10 @@
 ### 2-2. Programs & FieldWorks（/programs）
 
 1. **イントロ**：「無料稽古で空気を掴み、月謝で型を得て、伴随で成果を公開する」。Flow図を掲載。
-2. **FREE**：参加手順、アンケート、オープンチャット導線。
-3. **BASIC / ACTIVE**：差分（アーカイブ、検索、Lark support、レビュー）、成果物例、FAQ。
-4. **PRIME / BOOST**：四半期での実装プロセス、返金保証、守秘レベル、Field Director一次責任の表記。
-5. **RECIPES / CONSULT**：成功パターン集と個別相談。公開主義との紐づけ。
+2. **門下生**：参加手順、アンケート、オープンチャット導線。
+3. **修行者 / 書院生**：差分（アーカイブ、検索、Lark support、レビュー）、成果物例、FAQ。
+4. **評議会 / 伴随**：四半期での実装プロセス、返金保証、守秘レベル、Field Director一次責任の表記。
+5. **秘伝書 / CONSULT**：成功パターン集と個別相談。公開主義との紐づけ。
 6. **FieldWorksマトリクス**：業界（Field）×勝ち筋（Mission）×型（Practice）。RACIを簡潔に掲載。
 7. **CTA**：無料稽古 / 月謝相談 / 企業相談を再掲。アンカーは `/join#free-live` 等に合わせる。
 
@@ -70,7 +70,7 @@
 #### `/executives`
 - Hero：ROI強調、CTA「四半期で成果を証明したい」
 - 痛みの深掘り：投資失敗パターン、損失額を数字で提示
-- ソリューション：PRIME/BOOSTプロセス、返金保証、守秘体制
+- ソリューション：評議会/伴随プロセス、返金保証、守秘体制
 - Field Director / Senior Showcase：Appointment#、実績
 - ケース & KPI：業界別成功例、Yearbook抜粋
 - 稟議支援：テンプレ、面談までの流れ
@@ -79,7 +79,7 @@
 #### `/dx-leads`
 - Hero：PoC止まりの課題から共感
 - ロードマップ：無料稽古→月謝→伴随→公開を具体的に記述
-- 月謝プラン活用：BASIC/ACTIVEの教材・Larkサポート
+- 月謝プラン活用：修行者/書院生の教材・Larkサポート
 - 稟議テンプレ・FAQ：Resourcesへの導線
 - 成功事例：プロジェクト完遂例・現場の声
 - CTA：無料稽古登録、ロードマップ資料、伴随相談

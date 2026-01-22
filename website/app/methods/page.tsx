@@ -23,7 +23,7 @@ export default function MethodsPage() {
         <section id="matrix" className="rounded-3xl border border-[#D8CFC3] bg-white p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-[#1D1A15]">1. 三軸マトリクス</h2>
           <p className="mt-3 text-sm text-[#4B4135]">
-            Field（業界）、Mission（勝ち筋）、Practice（型）の組み合わせで案件を設計。どの流派でも同じ品質で実装できるよう、RECIPESと監修プロセスを標準化しています。
+            Field（業界）、Mission（勝ち筋）、Practice（型）の組み合わせで案件を設計。どの流派でも同じ品質で実装できるよう、秘伝書と監修プロセスを標準化しています。
           </p>
           <ul className="mt-4 space-y-2 text-sm text-[#4B4135]">
             <li>製造 × Quality-Up × Ops Automation：検査AIでP95不良率を改善。</li>
@@ -49,10 +49,10 @@ export default function MethodsPage() {
         <section id="quality" className="mt-10 rounded-3xl border border-[#D8CFC3] bg-white p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-[#1D1A15]">3. 品質担保フロー</h2>
           <p className="mt-3 text-sm text-[#4B4135]">
-            RECIPES（プレイブック）、週次レビュー、Impact Points の三層で品質を担保。成果はケース／Yearbook として公開され、次の案件にも再利用できるようになります。
+            秘伝書（プレイブック）、週次レビュー、Impact Points の三層で品質を担保。成果はケース／Yearbook として公開され、次の案件にも再利用できるようになります。
           </p>
           <ol className="mt-4 space-y-2 text-sm text-[#4B4135] list-decimal list-inside">
-            <li>RECIPES：Flow × Mission × Practice ごとの成功パターンを文書化。</li>
+            <li>秘伝書：Flow × Mission × Practice ごとの成功パターンを文書化。</li>
             <li>週次レビュー：Field Director と Senior Fellow が進捗・品質をチェック。</li>
             <li>Impact Points：関係者の貢献度を可視化し、昇格や優先アサインに反映。</li>
           </ol>

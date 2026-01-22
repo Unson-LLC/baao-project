@@ -3,7 +3,7 @@ import Image from "next/image";
 const benefits = [
   {
     title: "実案件での経験が積める",
-    description: "BOOST・PRIMEプロジェクトに参加し、実際の企業案件で実装支援ができます。",
+    description: "伴随・評議会プロジェクトに参加し、実際の企業案件で実装支援ができます。",
     icon: "💼",
   },
   {
@@ -32,7 +32,7 @@ const howToJoin = [
   {
     step: "2",
     title: "月謝プランで実力をつける",
-    description: "BASIC/ACTIVEプランでアーカイブを見て、質問しながら学びます。",
+    description: "修行者/書院生プランでアーカイブを見て、質問しながら学びます。",
   },
   {
     step: "3",
@@ -129,7 +129,7 @@ export default function CommunityPage() {
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-6">
               <h3 className="font-semibold text-[#1D1A15]">実装支援</h3>
               <p className="mt-2 text-sm text-[#4B4135]">
-                企業のBOOST・PRIMEプロジェクトに参加し、AI導入の実装をサポートします。自分の専門領域を活かせます。
+                企業の伴随・評議会プロジェクトに参加し、AI導入の実装をサポートします。自分の専門領域を活かせます。
               </p>
             </div>
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-6">

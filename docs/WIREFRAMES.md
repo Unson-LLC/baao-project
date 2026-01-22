@@ -26,7 +26,7 @@
    - 4ステップ横フロー（無料稽古 → 月謝 → 伴随 → 成果公開）。各ステップの下に対象ペルソナ、CTA。
 
 5. **Program Snapshot**
-   - カード6枚（FREE、BASIC、ACTIVE、PRIME、BOOST、RECIPES）。各カードに月謝・成果物・CTA。
+   - カード6枚（門下生、修行者、書院生、評議会、伴随、秘伝書）。各カードに月謝・成果物・CTA。
    - (M) 横スクロールカルーセル。
 
 6. **FieldWorks Overview**
@@ -57,21 +57,21 @@
 ## 2. Programs & FieldWorks（/programs）
 
 1. **Hero**
-   - Copy：`稽古で学び、伴随で成果を証明する設計`。アンカーリンク（FREE/BASIC/ACTIVE/PRIME/BOOST/RECIPES/FieldWorks）。
+   - Copy：`稽古で学び、伴随で成果を証明する設計`。アンカーリンク（門下生/修行者/書院生/評議会/伴随/秘伝書/FieldWorks）。
 
 2. **Overview**
    - 4ステップのタイムライン（無料体験 → 月謝 → 伴随 → 公開）。CTA：`無料稽古に参加`。
 
-3. **FREE**
+3. **門下生（もんかせい）**
    - カード：内容・参加頻度・アンケート・オープンチャット導線。CTA：Join#free-live。
 
-4. **BASIC / ACTIVE**
+4. **修行者 / 書院生**
    - 2カラム比較（提供内容 / 成果物 / サポート / 月謝）。FAQアコーディオン。CTA：Join#basic。
 
-5. **PRIME / BOOST**
+5. **評議会 / 伴随**
    - ペアのカード＋横スクロールタイムライン（診断→実装→公開）。返金保証・守秘レベルの表記。CTA：Join#enterprise。
 
-6. **RECIPES / CONSULT**
+6. **秘伝書 / CONSULT**
    - カード（Playbookの内容、活用例）。CTA：Join#enterprise と Downloads。
 
 7. **FieldWorks**
@@ -91,7 +91,7 @@
    - グリッド3列：課題 / アプローチ / 成果 / 関与メンバーByline / 守秘レベル。フィルタ（Field, Mission, Program）。
 
 3. **KPI Dashboard**
-   - 4大型カード（売上換算, P95リードタイム, 公開ケース数, BASIC→PRIME昇格率）＋更新日。
+   - 4大型カード（売上換算, P95リードタイム, 公開ケース数, 修行者→評議会昇格率）＋更新日。
 
 4. **Proof & Governance**
    - 公開ポリシー（守秘レベル説明、COI、返金保証条件）。PDFリンク。
@@ -142,7 +142,7 @@
    - 2カラム：フォーム（Field/Mission/Practice/時期/予算/相談内容）＋導入プロセス図。
 
 4. **セクション #basic**
-   - 2カラム：フォーム（BASIC/ACTIVE選択、決済方法）＋月謝プランのメリット。
+   - 2カラム：フォーム（修行者/書院生選択、決済方法）＋月謝プランのメリット。
 
 5. **セクション #fellow**
    - フォーム（専門性・実績・希望リターン）。サイドに Grade表とImpact Points要件。
@@ -163,7 +163,7 @@
 ### `/executives`
 1. Hero：タグライン＋CTA（企業相談、ROIブリーフィング）。
 2. 失敗パターン：カード3枚（PoC止まり、属人化、守秘崩壊）。
-3. PRIME/BOOSTプロセス：横タイムライン（Discovery→Design→Deploy→Proof）。返金保証をバッジ表示。
+3. 評議会/伴随プロセス：横タイムライン（Discovery→Design→Deploy→Proof）。返金保証をバッジ表示。
 4. Field Director & Senior Showcase：カード（写真、Appointment#、実績）。
 5. 成果証拠：Before/After、KPI、成功パートナーの声。
 6. 稟議サポート：テンプレDL、面談ステップ、Green Room案内。
@@ -173,7 +173,7 @@
 1. Hero：PoC止まりへの共感、CTA（無料稽古、ロードマップPDF）。
 2. 課題→解決：痛みを列挙し、各課題に対応する解決策カード。
 3. ロードマップ：無料稽古→月謝→Lark→伴随→公開のフローステップ。
-4. プログラム活用：BASIC/ACTIVE/PRIME/BOOSTの図解、FAQ。
+4. プログラム活用：修行者/書院生/評議会/伴随の図解、FAQ。
 5. 稟議キット：資料DL、社内説明のポイント、Lark運用。
 6. 成功事例：2つのケースカード（PoC→横展開）。
 7. CTA：無料稽古、伴随相談、資料DL。
@@ -181,7 +181,7 @@
 ### `/operators`
 1. Hero：残業削減・スキル習得を数字で提示。CTA（無料稽古、月謝相談）。
 2. Before/Afterギャラリー：3例、改善時間・成果。
-3. 月謝プランの中身：BASIC/ACTIVEカード+タイムライン（視聴→質問→レビュー）。
+3. 月謝プランの中身：修行者/書院生カード+タイムライン（視聴→質問→レビュー）。
 4. コミュニティ：Lark/オープンチャット画面モック、モデレーター紹介。
 5. FAQ：決済、会社承認、見逃し視聴、解約。
 6. CTA：無料稽古、Lark招待、FAQへ。

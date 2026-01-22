@@ -42,7 +42,7 @@ export default function FieldWorksOverview() {
                   <strong className="text-[#1D1A15]">Field Director｜現場責任者</strong> : A責任 / KPI・契約・品質最終判断
                 </li>
                 <li>
-                  <strong className="text-[#1D1A15]">Senior Fellow｜専門師範</strong> : 監修 / RECIPES執筆 / 週次レビュー
+                  <strong className="text-[#1D1A15]">Senior Fellow｜専門師範</strong> : 監修 / 秘伝書執筆 / 週次レビュー
                 </li>
                 <li>
                   <strong className="text-[#1D1A15]">Fellow｜師範</strong> : 実装 / ケース公開への寄稿 / 登壇
