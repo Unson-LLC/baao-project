@@ -15,10 +15,10 @@ const events: Array<{
   },
   {
     title: "実践！AI道場 〜AI活用で生産性5倍にするハンズオン合宿〜",
-    date: "2025年12月21日（日）13:00-17:30",
-    location: "Fujitsu Uvance Kawasaki Tower 26階（JR川崎駅 徒歩5分）",
-    tag: "ハンズオン合宿",
-    link: "https://unson-event-uis.connpass.com/event/376630/",
+    date: "2025年12月21日（日）開催終了",
+    location: "ご参加ありがとうございました。次回もお楽しみに！",
+    tag: "開催終了",
+    isPlaceholder: true,
   },
 ];
 

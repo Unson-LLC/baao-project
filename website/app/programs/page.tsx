@@ -1,4 +1,17 @@
-import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "稽古と伴随の道順 | BAAO 実戦AI道場",
+  description: "無料の週次稽古で空気を感じ、月謝プランで実装手順を身につけ、必要に応じて伴随・評議会で四半期の成果へつなげます",
+  alternates: {
+    canonical: 'https://baao-dojo.com/programs',
+  },
+  openGraph: {
+    title: "稽古と伴随の道順 | BAAO 実戦AI道場",
+    description: "無料の週次稽古で空気を感じ、月謝プランで実装手順を身につけ、必要に応じて伴随・評議会で四半期の成果へつなげます",
+    url: 'https://baao-dojo.com/programs',
+  },
+};
 
 const programs = [
   {
@@ -135,51 +148,18 @@ const programStages: Record<
 export default function ProgramsPage() {
   return (
     <main className="min-h-screen bg-[#F9F6F0] text-[#1D1A15]">
-      <div className="mx-auto max-w-4xl px-4 py-16 md:px-6">
-        <header className="mb-12 grid gap-8 rounded-3xl border border-[#D8CFC3] bg-white/90 p-8 shadow-sm md:grid-cols-[1.05fr_0.95fr]">
-          <div className="space-y-4">
-            <span className="text-sm font-semibold tracking-wide text-bamboo">
-              稽古と伴随の道順
-            </span>
-            <h1 className="font-serif text-4xl">稽古と伴随の道順</h1>
-            <p className="text-[#4B4135]">
-              無料の週次稽古で空気を感じ、月謝プランで実装手順を身につけ、必要に応じて伴随・評議会で四半期の成果へつなげます。道場のプログラムは、段階ごとに必要な知見とサポートを受け取れる設計です。
-            </p>
-            <div className="grid gap-3 text-sm text-[#4B4135] sm:grid-cols-3">
-              {[
-                { title: "STEP 0", body: "無料稽古とオープンチャットで空気を掴む" },
-                { title: "STEP 1-2", body: "月謝でアーカイブと検索権を得て実装力を磨く" },
-                { title: "STEP 3+", body: "評議会・伴随・秘伝書で四半期の成果と横展開" },
-              ].map((item) => (
-                <div key={item.title} className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">{item.title}</p>
-                  <p className="mt-2 leading-relaxed">{item.body}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="relative overflow-hidden rounded-2xl bg-[#1D1A15]/5">
-            <Image
-              src="/images/study.png"
-              alt="道場の稽古風景と学びの様子"
-              fill
-              sizes="(min-width: 768px) 45vw, 100vw"
-              className="object-cover"
-              priority
-            />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#1D1A15]/80 via-[#1D1A15]/20 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-6 text-sm text-white">
-              <p className="font-serif text-lg">流派 × 勝ち筋 × 型を揃える三段構え</p>
-              <ul className="mt-3 space-y-2 text-white/90">
-                <li>・週次稽古：60分で最新ケースを分解</li>
-                <li>・月謝プラン：アーカイブ＆検索で常設の学び場</li>
-                <li>・伴随/評議会：四半期でBefore/Afterを証明</li>
-              </ul>
-            </div>
-          </div>
-        </header>
+      <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24">
+        <div className="text-center mb-12">
+          <h1 className="font-serif text-4xl font-bold text-[#1D1A15] sm:text-5xl">
+            稽古と伴随の道順
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-[#4B4135]">
+            無料の週次稽古で空気を感じ、月謝プランで実装手順を身につけ、<br />
+            必要に応じて伴随・評議会で四半期の成果へつなげます
+          </p>
+        </div>
 
-        <div className="space-y-10">
+        <div className="mt-16 space-y-10">
           {programs.map((program) => {
             const stage = programStages[program.id];
             return (

@@ -1,3 +1,19 @@
+import { Metadata } from "next";
+import FAQSchema from "@/components/seo/FAQSchema";
+
+export const metadata: Metadata = {
+  title: "よくある質問 | BAAO 実戦AI道場",
+  description: "AI道場に関するよくある質問をまとめました。無料稽古、月謝プラン、企業向けプラン、師範参画など、よくあるご質問にお答えします",
+  alternates: {
+    canonical: 'https://baao-dojo.com/resources/faq',
+  },
+  openGraph: {
+    title: "よくある質問 | BAAO 実戦AI道場",
+    description: "AI道場に関するよくある質問をまとめました。無料稽古、月謝プラン、企業向けプラン、師範参画など、よくあるご質問にお答えします",
+    url: 'https://baao-dojo.com/resources/faq',
+  },
+};
+
 const faqCategories = [
   {
     category: "無料稽古について",
@@ -108,8 +124,10 @@ const faqCategories = [
 
 export default function FAQPage() {
   return (
-    <div className="bg-[#F9F6F0] min-h-screen">
-      <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24">
+    <>
+      <FAQSchema />
+      <div className="bg-[#F9F6F0] min-h-screen">
+        <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24">
         <div className="text-center">
           <h1 className="font-serif text-4xl font-bold text-[#1D1A15] sm:text-5xl">
             よくある質問
@@ -165,6 +183,7 @@ export default function FAQPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }

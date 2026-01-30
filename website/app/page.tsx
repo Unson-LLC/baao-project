@@ -8,20 +8,24 @@ import CommunityFellows from "@/components/home/CommunityFellows";
 import EventsUpdates from "@/components/home/EventsUpdates";
 import FAQPreview from "@/components/home/FAQPreview";
 import CTABand from "@/components/home/CTABand";
+import EventSchema from "@/components/seo/EventSchema";
 
 export default function Home() {
   return (
-    <div className="bg-[#F9F6F0]">
-      <HeroSection />
-      <FreeLiveSection />
-      <SampleVideosVoices />
-      <PathToMastery />
-      <ProgramSnapshot />
-      <CasesMethodology />
-      <CommunityFellows />
-      <EventsUpdates />
-      <FAQPreview />
-      <CTABand />
-    </div>
+    <>
+      <EventSchema />
+      <div className="bg-[#F9F6F0]">
+        <HeroSection />
+        <FreeLiveSection />
+        <SampleVideosVoices />
+        <PathToMastery />
+        <ProgramSnapshot />
+        <CasesMethodology />
+        <CommunityFellows />
+        <EventsUpdates />
+        <FAQPreview />
+        <CTABand />
+      </div>
+    </>
   );
 }

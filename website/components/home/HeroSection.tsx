@@ -99,43 +99,33 @@ export default function HeroSection() {
           </aside>
 
           {/* ハンズオン合宿イベントカード */}
-          <aside className="shoji-card corner-decoration rounded-2xl border-2 border-vermillion/40 bg-gradient-to-br from-vermillion/5 to-dojo-gold/10 p-6 backdrop-blur animate-pulse-subtle">
+          <aside className="shoji-card corner-decoration rounded-2xl border-2 border-[#4B4135]/30 bg-gradient-to-br from-[#4B4135]/5 to-[#D8CFC3]/20 p-6 backdrop-blur opacity-75">
             <div className="relative">
               <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-vermillion border-b-2 border-vermillion pb-1 inline-block">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#4B4135] border-b-2 border-[#4B4135] pb-1 inline-block">
                   特別イベント
                 </span>
-                <span className="px-2 py-0.5 text-[10px] font-bold bg-vermillion/20 text-vermillion rounded-full">
-                  NEW
+                <span className="px-2 py-0.5 text-[10px] font-bold bg-[#4B4135]/20 text-[#4B4135] rounded-full">
+                  開催終了
                 </span>
               </div>
               <h3 className="font-serif text-lg font-bold text-[#1D1A15] leading-snug">
-                実践！AI道場
-                <br />
-                ハンズオン合宿
+                実践！AI道場 〜AI活用で生産性5倍にするハンズオン合宿〜
               </h3>
               <dl className="mt-4 space-y-2 text-xs">
                 <div className="flex items-start gap-2">
                   <span className="mt-0.5">📅</span>
                   <div>
-                    <dd className="text-ink font-semibold">2025年12月21日（日）13:00-17:30</dd>
+                    <dd className="text-ink font-semibold">2025年12月21日（日）開催終了</dd>
                   </div>
                 </div>
                 <div className="flex items-start gap-2">
                   <span className="mt-0.5">📍</span>
                   <div>
-                    <dd className="text-ink">Fujitsu Uvance Kawasaki Tower 26階</dd>
+                    <dd className="text-ink">ご参加ありがとうございました。次回もお楽しみに！</dd>
                   </div>
                 </div>
               </dl>
-              <a
-                href="https://unson-event-uis.connpass.com/event/376630/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 block w-full text-center rounded-lg bg-vermillion px-4 py-2.5 text-sm font-bold text-[#1D1A15] transition-all hover:bg-vermillion-dark shadow-md"
-              >
-                詳細を見る・申し込む →
-              </a>
             </div>
           </aside>
         </div>

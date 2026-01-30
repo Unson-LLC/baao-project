@@ -1,4 +1,17 @@
-import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "イベント・資料 | BAAO 実戦AI道場",
+  description: "週次稽古の予定、公開ケース、実装手順書（RECIPES）、年次レポート（Yearbook）まで、道場で生まれた知見を一箇所に集約しています",
+  alternates: {
+    canonical: 'https://baao-dojo.com/resources',
+  },
+  openGraph: {
+    title: "イベント・資料 | BAAO 実戦AI道場",
+    description: "週次稽古の予定、公開ケース、実装手順書（RECIPES）、年次レポート（Yearbook）まで、道場で生まれた知見を一箇所に集約しています",
+    url: 'https://baao-dojo.com/resources',
+  },
+};
 
 const events: Array<{
   title: string;
@@ -17,10 +30,10 @@ const events: Array<{
   },
   {
     title: "実践！AI道場 〜AI活用で生産性5倍にするハンズオン合宿〜",
-    date: "2025年12月21日（日）13:00-17:30",
-    location: "Fujitsu Uvance Kawasaki Tower 26階（JR川崎駅 徒歩5分）",
-    tag: "ハンズオン合宿",
-    link: "https://unson-event-uis.connpass.com/event/376630/",
+    date: "2025年12月21日（日）開催終了",
+    location: "ご参加ありがとうございました。次回もお楽しみに！",
+    tag: "開催終了",
+    isPlaceholder: true,
   },
   {
     title: "現場見学・ワークショップ",
@@ -110,34 +123,20 @@ const featuredNotes = [
 export default function ResourcesPage() {
   return (
     <main className="min-h-screen bg-[#F9F6F0] text-[#1D1A15]">
-      <div className="mx-auto max-w-4xl px-4 py-16 md:px-6">
+      <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24">
         {/* ヘッダーセクション */}
-        <header className="mb-12 rounded-3xl border border-[#D8CFC3] bg-white/90 p-8 shadow-sm">
-          <span className="text-sm font-semibold tracking-wide text-bamboo">
+        <div className="text-center mb-12">
+          <h1 className="font-serif text-4xl font-bold text-[#1D1A15] sm:text-5xl">
             イベント・資料
-          </span>
-          <h1 className="mt-2 font-serif text-4xl">イベント・資料</h1>
-          <p className="mt-4 text-[#4B4135]">
-            週次稽古の予定、公開ケース、実装手順書（RECIPES）、年次レポート（Yearbook）まで、道場で生まれた知見を一箇所に集約しています。
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-[#4B4135]">
+            週次稽古の予定、公開ケース、実装手順書（RECIPES）、年次レポート（Yearbook）まで、<br />
+            道場で生まれた知見を一箇所に集約しています
           </p>
-          <div className="mt-6 grid gap-3 text-sm text-[#4B4135] sm:grid-cols-3">
-            <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">稽古</p>
-              <p className="mt-2 leading-relaxed">毎週の無料稽古と月謝プラン向けアーカイブ</p>
-            </div>
-            <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">資料</p>
-              <p className="mt-2 leading-relaxed">RECIPES・Yearbook・ケーススタディ</p>
-            </div>
-            <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">イベント</p>
-              <p className="mt-2 leading-relaxed">現場見学・評議会・ワークショップ</p>
-            </div>
-          </div>
-        </header>
+        </div>
 
         {/* イベント一覧 */}
-        <section className="mb-10">
+        <section className="mb-10 mt-16">
           <h2 className="mb-6 font-serif text-2xl text-[#1D1A15]">
             イベント一覧
           </h2>
@@ -189,19 +188,9 @@ export default function ResourcesPage() {
             {featuredNotes.map((note) => (
               <div
                 key={note.title}
-                className="overflow-hidden rounded-3xl border border-[#D8CFC3] bg-white shadow-sm"
+                className="rounded-3xl border border-[#D8CFC3] bg-white p-6 shadow-sm"
               >
-                <div className="grid md:grid-cols-[200px_1fr] gap-6">
-                  <div className="relative h-48 md:h-auto bg-[#1D1A15]/5">
-                    <Image
-                      src={note.image}
-                      alt={note.title}
-                      fill
-                      sizes="200px"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="p-6 md:py-6 md:pr-6 md:pl-0">
+                  <div>
                     <div className="flex items-center gap-3 mb-2">
                       <span className="rounded-full bg-bamboo/10 px-3 py-1 text-xs font-semibold text-bamboo">
                         {note.tag}
@@ -216,7 +205,6 @@ export default function ResourcesPage() {
                     </p>
                     <p className="mt-3 text-xs text-[#4B4135]">{note.author}</p>
                   </div>
-                </div>
               </div>
             ))}
           </div>

@@ -62,7 +62,7 @@ const formDefinitions: FormDefinition[] = [
             お問い合わせ種別
             <select
               name="inquiry_type"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               defaultValue=""
               required
             >
@@ -80,7 +80,7 @@ const formDefinitions: FormDefinition[] = [
               type="text"
               name="name"
               autoComplete="name"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -90,7 +90,7 @@ const formDefinitions: FormDefinition[] = [
               type="email"
               name="email"
               autoComplete="email"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -99,7 +99,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="organization"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="例）BAAO株式会社 DX推進部"
             />
           </label>
@@ -108,7 +108,7 @@ const formDefinitions: FormDefinition[] = [
             <textarea
               name="message"
               rows={6}
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="お問い合わせ内容を具体的にご記入ください"
               required
             />
@@ -117,7 +117,7 @@ const formDefinitions: FormDefinition[] = [
           <input type="hidden" name="origin" value="join_general" />
           <button
             type="submit"
-            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-[#2F4C6E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#4E6E92]"
+            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-vermillion px-6 py-3 text-sm font-semibold text-[#1D1A15] transition hover:bg-vermillion-dark"
           >
             送信する
           </button>
@@ -154,7 +154,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="name"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -163,7 +163,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="email"
               name="email"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -172,7 +172,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="speciality"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="例）製造 × Quality-Up × Vision AI"
               required
             />
@@ -182,7 +182,7 @@ const formDefinitions: FormDefinition[] = [
             <textarea
               name="experience"
               rows={4}
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -191,7 +191,7 @@ const formDefinitions: FormDefinition[] = [
             <textarea
               name="engagement"
               rows={3}
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -200,7 +200,7 @@ const formDefinitions: FormDefinition[] = [
             <textarea
               name="expected_return"
               rows={2}
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="報酬、ブランド露出、Impact Pointsなど"
               required
             />
@@ -210,7 +210,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="availability"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="例）平日夜・土曜午前"
             />
           </label>
@@ -219,7 +219,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="url"
               name="portfolio"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="ポートフォリオやSNSなど"
             />
           </label>
@@ -228,7 +228,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="referrer"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="紹介者がいればご記入ください"
             />
           </label>
@@ -250,7 +250,7 @@ const formDefinitions: FormDefinition[] = [
           <input type="hidden" name="origin" value="join_fellow" />
           <button
             type="submit"
-            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-[#2F4C6E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#4E6E92]"
+            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-vermillion px-6 py-3 text-sm font-semibold text-[#1D1A15] transition hover:bg-vermillion-dark"
           >
             応募する
           </button>
@@ -282,7 +282,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="name"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -291,7 +291,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="email"
               name="email"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -300,7 +300,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="company"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -309,7 +309,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="text"
               name="speaker"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="例）Field Director 山本、Senior Fellow 吉見 など"
             />
           </label>
@@ -318,7 +318,7 @@ const formDefinitions: FormDefinition[] = [
             <textarea
               name="message"
               rows={4}
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               required
             />
           </label>
@@ -327,7 +327,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="date"
               name="publish_date"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
             />
           </label>
           <label className="flex flex-col gap-2 text-sm text-[#4B4135]">
@@ -335,7 +335,7 @@ const formDefinitions: FormDefinition[] = [
             <input
               type="tel"
               name="phone"
-              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-[#2F4C6E] focus:outline-none focus:ring-2 focus:ring-[#2F4C6E]/20"
+              className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
               placeholder="取材当日のご連絡先"
               required
             />
@@ -344,7 +344,7 @@ const formDefinitions: FormDefinition[] = [
           <input type="hidden" name="origin" value="join_media" />
           <button
             type="submit"
-            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-[#2F4C6E] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#4E6E92]"
+            className="md:col-span-2 inline-flex items-center justify-center rounded-full bg-vermillion px-6 py-3 text-sm font-semibold text-[#1D1A15] transition hover:bg-vermillion-dark"
           >
             送信する
           </button>
@@ -475,30 +475,16 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-[#F9F6F0] text-[#1D1A15]">
-      <div className="mx-auto max-w-4xl px-4 py-16 md:px-6">
-        <header className="mb-12 rounded-3xl border border-[#D8CFC3] bg-white/90 p-8 shadow-sm">
-          <span className="text-sm font-semibold tracking-wide text-bamboo">
-            お問い合わせ
-          </span>
-          <h1 className="mt-2 font-serif text-4xl">お問い合わせ・各種受付</h1>
-          <p className="mt-4 text-[#4B4135]">
-            BAAO 実戦AI道場へのお問い合わせ窓口です。参加に関するご質問、Fellow応募、メディア取材依頼などをこちらで受け付けています。送信後は担当よりメールまたはLarkでご連絡します。
+      <div className="mx-auto max-w-4xl px-4 py-16 md:px-6 md:py-24">
+        <div className="text-center mb-12">
+          <h1 className="font-serif text-4xl font-bold text-[#1D1A15] sm:text-5xl">
+            お問い合わせ・各種受付
+          </h1>
+          <p className="mt-4 text-lg leading-relaxed text-[#4B4135]">
+            参加に関するご質問、Fellow応募、メディア取材依頼などをこちらで受け付けています。<br />
+            送信後は担当よりメールまたはLarkでご連絡します
           </p>
-          <div className="mt-6 grid gap-3 text-sm text-[#4B4135] sm:grid-cols-3">
-            <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">参加希望</p>
-              <p className="mt-2 leading-relaxed">2営業日以内にご返信</p>
-            </div>
-            <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">Fellow応募</p>
-              <p className="mt-2 leading-relaxed">3営業日以内に面談調整の連絡</p>
-            </div>
-            <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-3">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">メディア・協業</p>
-              <p className="mt-2 leading-relaxed">迅速に対応いたします</p>
-            </div>
-          </div>
-        </header>
+        </div>
 
         <nav
           role="tablist"
@@ -522,8 +508,8 @@ export default function ContactPage() {
                 }}
                 className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
                   selected
-                    ? "bg-[#2F4C6E] text-white shadow"
-                    : "bg-[#F9F6F0] text-[#2F4C6E] hover:bg-[#2F4C6E]/10"
+                    ? "bg-bamboo text-white shadow"
+                    : "bg-[#F9F6F0] text-bamboo hover:bg-bamboo/10"
                 }`}
                 onClick={() => handleSelect(tab.key)}
               >

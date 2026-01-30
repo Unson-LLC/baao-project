@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const primaryNav = [
   { label: "稽古・伴随", href: "/programs" },
-  { label: "実装記録", href: "/success-stories" },
+  { label: "ブログ", href: "/blog" },
   { label: "イベント・資料", href: "/resources" },
   { label: "お問い合わせ", href: "/join" },
   { label: "FAQ", href: "/resources/faq" },
