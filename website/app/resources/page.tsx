@@ -74,7 +74,7 @@ const articles = [
 
 const materials = [
   {
-    title: "RECIPES｜実装手順書",
+    title: "秘伝書｜実装手順書",
     description: "業務別に失敗例・コストまで明記した実装手順書",
     status: "準備中",
     icon: "📖",

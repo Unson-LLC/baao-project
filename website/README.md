@@ -1,6 +1,6 @@
 # BAAO 実戦AI道場 ランディングページ
 
-BAAO実戦AI道場のBASIC会員向けLPです。
+BAAO実戦AI道場の修行者会員向けLPです。
 
 ## ターゲット
 
@@ -69,7 +69,7 @@ BAAO公式サイトのブランドカラーを踏襲：
 4. **Testimonials** - 参加者の声
 5. **HowItWorks** - なぜ使いこなせるようになるのか（5つの理由）
 6. **Curriculum** - 学べる内容（4週間のカリキュラム）
-7. **Pricing** - 料金プラン（BASIC会員 月2,980円）
+7. **Pricing** - 料金プラン（修行者会員 月2,980円）
 8. **FAQ** - よくある質問（アコーディオン形式）
 9. **FinalCTA** - 最終行動喚起
 10. **Footer** - フッター
@@ -111,7 +111,7 @@ RESEND_API_KEY=your_resend_api_key_here
 
 以下のStripe payment linkが統合されています：
 
-- **BASIC会員（月額）**: `https://buy.stripe.com/4gM6oHg9o29DaDQ4W96wE00`
+- **修行者会員（月額）**: `https://buy.stripe.com/4gM6oHg9o29DaDQ4W96wE00`
 - 環境変数で管理（`.env.local`）
 - `components/Pricing.tsx`で使用
 

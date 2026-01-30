@@ -42,12 +42,12 @@ Larkは以下の理由で最終的に採用：
 │
 ├── 📖 02_Programs｜プログラム
 │   ├── 📄 プログラム概要（OVERVIEW）
-│   ├── 📄 稽古場BASIC
-│   ├── 📄 稽古場ACTIVE
-│   ├── 📄 師範会PRIME
-│   ├── 📄 型録RECIPES
+│   ├── 📄 稽古場 修行者
+│   ├── 📄 稽古場 書院生
+│   ├── 📄 師範会 評議会
+│   ├── 📄 型録 秘伝書
 │   ├── 📄 AIコンサルCONSULT
-│   └── 📄 立合いBOOST
+│   └── 📄 立合い 伴随
 │
 ├── 📖 03_FieldWorks｜流派×勝ち筋×型
 │   └── 📄 FieldWorks概要（統合ページ）
@@ -76,7 +76,7 @@ Larkは以下の理由で最終的に採用：
 │   ├── 📄 キャッシュフローシミュレーション.docx
 │   └── 📂 議事録
 │
-├── 📂 RECIPES詳細（PDF・スクリプト）
+├── 📂 秘伝書詳細（PDF・スクリプト）
 │   ├── 📁 製造_Cost-Down_OpsAutomation
 │   │   ├── 📄 実装手順書.pdf
 │   │   ├── 📄 プロンプト集.md
@@ -97,7 +97,7 @@ Larkは以下の理由で最終的に採用：
 **構造化データ = Base管理**（MCP対応、検索・自動化）
 
 - **会員管理Base**: members, payments, event_registrations
-- **RECIPESベース**: recipes, cases
+- **秘伝書ベース**: recipes, cases
 - **イベント管理Base**: events
 
 詳細は[LARK_CONTENT_STRATEGY.md](LARK_CONTENT_STRATEGY.md)を参照。
@@ -110,19 +110,19 @@ Larkは以下の理由で最終的に採用：
 ├── 💡 office-hours（Office Hours）
 └── 🤝 introductions（自己紹介）
 
-🟢 BASIC会員
-├── 💬 basic-lounge
-├── 📚 basic-resources
-└── ❓ basic-qa
+🟢 修行者会員
+├── 💬 shugyosha-lounge
+├── 📚 shugyosha-resources
+└── ❓ shugyosha-qa
 
-🟡 ACTIVE会員
-├── 💼 active-lounge
+🟡 書院生会員
+├── 💼 shoinsei-lounge
 ├── 🏭 field-manufacturing（製造の流派）
 ├── 🏥 field-healthcare（医療の流派）
 └── 💰 field-finance（金融の流派）
 
-🔴 PRIME会員
-├── 👑 prime-council（師範会）
+🔴 評議会会員
+├── 👑 hyougikai-council（師範会）
 ├── 👀 visits（現場見学）
 └── 🎯 executive-session
 
@@ -217,7 +217,7 @@ export const baaoLarkTools = [
 
   {
     name: "publish_baao_recipe_to_lark",
-    description: "RECIPESをLarkドライブ＋Baseに公開",
+    description: "秘伝書をLarkドライブ＋Baseに公開",
     async handler({ title, field, mission, practice, content, price, pdf }) {
       // 1. ドキュメント作成（ドライブ）
       const doc = await larkMCP.call('docx_builtin_import', {
@@ -228,10 +228,10 @@ export const baaoLarkTools = [
         useUAT: true
       });
 
-      // 2. RECIPESBaseにレコード追加
+      // 2. 秘伝書Baseにレコード追加
       const recipe = await larkMCP.call('bitable_v1_appTableRecord_create', {
-        app_token: RECIPES_BASE_TOKEN,
-        table_id: RECIPES_TABLE_ID,
+        app_token: HIDENSHO_BASE_TOKEN,
+        table_id: HIDENSHO_TABLE_ID,
         data: {
           fields: {
             "タイトル": title,
@@ -240,15 +240,15 @@ export const baaoLarkTools = [
             "型": practice,
             "価格": price,
             "ドキュメント": doc.url,
-            "アクセス層": "PRIME", // デフォルトPRIME限定
+            "アクセス層": "評議会", // デフォルト評議会限定
             "公開日": new Date().toISOString()
           }
         }
       });
 
-      // 3. PRIME会員チャットに告知
+      // 3. 評議会会員チャットに告知
       await larkMCP.call('im_v1_message_create', {
-        receive_id: PRIME_CHAT_ID,
+        receive_id: HYOUGIKAI_CHAT_ID,
         receive_id_type: 'chat_id',
         msg_type: 'interactive',
         content: JSON.stringify({
@@ -257,7 +257,7 @@ export const baaoLarkTools = [
               tag: "div",
               text: {
                 tag: "lark_md",
-                content: `**🆕 新RECIPES公開**\n\n**${title}**\n\n流派: ${field} | 勝ち筋: ${mission} | 型: ${practice}\n価格: ¥${price.toLocaleString()}\n\n[📄 ドキュメントを開く](${doc.url})`
+                content: `**🆕 新秘伝書公開**\n\n**${title}**\n\n流派: ${field} | 勝ち筋: ${mission} | 型: ${practice}\n価格: ¥${price.toLocaleString()}\n\n[📄 ドキュメントを開く](${doc.url})`
               }
             }
           ]
@@ -321,11 +321,11 @@ export const baaoLarkTools = [
         useUAT: true
       });
 
-      // 2. RECIPESベース検索（tier別フィルタ）
-      const tierFilter = getTierAccessFilter(user_tier); // BASIC, ACTIVE, PRIME
+      // 2. 秘伝書ベース検索（tier別フィルタ）
+      const tierFilter = getTierAccessFilter(user_tier); // 修行者, 書院生, 評議会
       results.recipes = await larkMCP.call('bitable_v1_appTableRecord_search', {
-        app_token: RECIPES_BASE_TOKEN,
-        table_id: RECIPES_TABLE_ID,
+        app_token: HIDENSHO_BASE_TOKEN,
+        table_id: HIDENSHO_TABLE_ID,
         data: {
           filter: {
             conditions: [
@@ -414,11 +414,11 @@ export const baaoLarkTools = [
 - [ ] Wiki空間に6セクション作成
 - [ ] 既存5ドキュメントをWikiにコピー（移行済み）
 - [ ] 残り3ドキュメントをWikiにコピー（FieldWorks、Events、Cases）
-- [ ] プログラム個別ページ作成（BASIC/ACTIVE/PRIME/RECIPES/CONSULT/BOOST）
+- [ ] プログラム個別ページ作成（修行者/書院生/評議会/秘伝書/CONSULT/伴随）
 
 **Base（多次元表）構築**（MCP）:
 - [x] 会員管理Base作成（members/payments/event_registrations）
-- [x] RECIPESベース作成（recipes/cases）
+- [x] 秘伝書ベース作成（recipes/cases）
 - [x] イベント管理Base作成（events）
 
 **ドライブ整理**（手動）:
@@ -427,9 +427,9 @@ export const baaoLarkTools = [
 
 **グループチャット**（MCP）:
 - [x] 全体チャット3個作成
-- [x] BASIC会員チャット3個
-- [x] ACTIVE会員チャット4個
-- [x] PRIME会員チャット3個
+- [x] 修行者会員チャット3個
+- [x] 書院生会員チャット4個
+- [x] 評議会会員チャット3個
 - [x] 運営チャット2個
 
 ### Phase 2: 会員管理フロー構築（Week 2）
@@ -455,7 +455,7 @@ export const baaoLarkTools = [
 
 - [ ] βテスト（内部10名）
 - [ ] ドキュメント・FAQ整備
-- [ ] 初回BASIC会員募集
+- [ ] 初回修行者会員募集
 - [ ] 正式オープン
 
 ---
@@ -478,12 +478,12 @@ export const baaoLarkTools = [
 
 ### 📋 プログラム個別ページ（Wiki手動作成）
 
-9. [ ] BASIC（`docs/programs/BASIC.md`）→ Wiki: 02_Programs/BASIC
-10. [ ] ACTIVE（`docs/programs/ACTIVE.md`）→ Wiki: 02_Programs/ACTIVE
-11. [ ] PRIME（`docs/programs/PRIME.md`）→ Wiki: 02_Programs/PRIME
-12. [ ] RECIPES（`docs/programs/RECIPES.md`）→ Wiki: 02_Programs/RECIPES
+9. [ ] 修行者（`docs/programs/BASIC.md`）→ Wiki: 02_Programs/修行者
+10. [ ] 書院生（`docs/programs/ACTIVE.md`）→ Wiki: 02_Programs/書院生
+11. [ ] 評議会（`docs/programs/PRIME.md`）→ Wiki: 02_Programs/評議会
+12. [ ] 秘伝書（`docs/programs/RECIPES.md`）→ Wiki: 02_Programs/秘伝書
 13. [ ] CONSULT（`docs/programs/CONSULT.md`）→ Wiki: 02_Programs/CONSULT
-14. [ ] BOOST（`docs/programs/BOOST.md`）→ Wiki: 02_Programs/BOOST
+14. [ ] 伴随（`docs/programs/BOOST.md`）→ Wiki: 02_Programs/伴随
 
 ### 📂 ドライブ移行待ち（手動）
 
@@ -554,7 +554,7 @@ export const baaoLarkTools = [
 
 ### 来週実行
 
-4. **Base完成** - RECIPES・イベント管理Base作成
+4. **Base完成** - 秘伝書・イベント管理Base作成
 5. **グループチャット作成** - 15チャット（MCP経由）
 6. **カスタムMCPツール実装** - 5ツール
 

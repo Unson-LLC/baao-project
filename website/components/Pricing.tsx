@@ -5,11 +5,11 @@ export default function Pricing() {
         <h2 className="heading-lg text-center mb-12">料金プラン</h2>
 
         <div className="max-w-2xl mx-auto">
-          {/* BASIC Plan */}
+          {/* 修行者 Plan */}
           <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 rounded-2xl shadow-xl border-2 border-primary mb-8">
             <div className="text-center mb-6">
               <h3 className="heading-md text-primary mb-2">
-                BASIC｜稽古場
+                修行者｜稽古場
               </h3>
               <div className="text-4xl font-bold text-text mb-2">
                 月額 2,980円
@@ -80,24 +80,24 @@ export default function Pricing() {
             </p>
           </div>
 
-          {/* ACTIVE Plan */}
+          {/* 書院生 Plan */}
           <div className="bg-background-light p-6 rounded-lg border border-gray-200 mb-8">
             <h3 className="heading-sm text-text mb-2">
               【さらに学びたい方へ】
             </h3>
             <div className="mb-4">
               <p className="font-bold text-text text-xl">
-                ACTIVE｜過去アーカイブ全文検索
+                書院生｜過去アーカイブ全文検索
               </p>
               <p className="text-text-light">月額 9,800円</p>
             </div>
             <div className="space-y-2 mb-4">
               <p className="text-text-light">
-                BASIC特典 + 全アーカイブ検索 + 業界別フィード
+                修行者特典 + 全アーカイブ検索 + 業界別フィード
               </p>
             </div>
             <a href="#active-details" className="text-primary hover:underline">
-              ACTIVEの詳細を見る →
+              書院生の詳細を見る →
             </a>
           </div>
 

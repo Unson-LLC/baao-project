@@ -1,4 +1,4 @@
-# 師範会 PRIME｜Executive Community
+# 師範会 評議会（ひょうぎかい）｜Executive Community
 
 ## ワンライナー
 
@@ -11,7 +11,7 @@
 - 自社の稟議を早く確実に通したい
 - 現場の実装・KPIの見方を短時間で掴みたい
 - 協業や人材の打席を探したい
-- **CONSULT/RECIPES/BOOSTを活用して実行まで進めたい**
+- **CONSULT/秘伝書/伴随を活用して実行まで進めたい**
 
 ---
 
@@ -19,9 +19,9 @@
 
 - **月例クローズド会（90–120分）**：ケース分解／課題持ち込みピアレビュー
 - **現場見学（Quarterly）**：導入現場のオペ観察とQ&A
-- **データルーム**：ケース草案、RECIPESドラフト、法務・安全の雛形
+- **データルーム**：ケース草案、秘伝書ドラフト、法務・安全の雛形
 - **Executive Desk**：個別相談（目安: 月2枠/社）
-- **全サービス20%割引**：CONSULT/RECIPES/BOOSTすべて20%オフ
+- **全サービス20%割引**：CONSULT/秘伝書/伴随すべて20%オフ
 
 ---
 
@@ -74,7 +74,7 @@
 
 ## CTA
 
-[PRIMEを相談](#)｜[Events & Visits｜ゲスト参加申込](../events/README.md)
+[評議会を相談](#)｜[Events & Visits｜ゲスト参加申込](../events/README.md)
 
 **責任者**：各流派の **Field Director｜現場責任者**
 
@@ -83,7 +83,7 @@
 ## 🔗 関連ドキュメント
 
 - [プログラム一覧](OVERVIEW.md)
-- [BASIC会員制度](BASIC.md)
-- [ACTIVE会員制度](ACTIVE.md)
+- [修行者会員制度](BASIC.md)
+- [書院生会員制度](ACTIVE.md)
 - [AIコンサルCONSULT](CONSULT.md)
-- [立合いBOOST](BOOST.md)
+- [立合い伴随](BOOST.md)

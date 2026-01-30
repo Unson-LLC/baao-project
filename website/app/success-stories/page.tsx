@@ -14,7 +14,7 @@ const caseHighlights = [
     title: "金融 × Growth-Up｜提案資料生成で受注率 +14pt",
     challenge: "提案資料の作成に最大3日。勝ち筋が再現できず受注率が頭打ち。",
     approach:
-      "Senior Fellowが生成AIテンプレを共著し、PRIMEセッションで役員とレビュー。RECIPESとして公開して横展開。",
+      "Senior Fellowが生成AIテンプレを共著し、評議会セッションで役員とレビュー。秘伝書として公開して横展開。",
     result: "提案資料作成時間を65%短縮し、受注率+14pt。年間売上 4.8 億円増。",
     fellows: ["吉見 貴光 (Senior Fellow)", "村上 早奈 (Fellow II)"] as const,
     confidentiality: "守秘レベル1（実名公開）",
@@ -31,10 +31,10 @@ const caseHighlights = [
 ];
 
 const kpis = [
-  { label: "四半期売上インパクト累計", value: "+¥3.6 億", note: "BOOST/PRIME報告ベース" },
+  { label: "四半期売上インパクト累計", value: "+¥3.6 億", note: "伴随/評議会報告ベース" },
   { label: "P95 リードタイム改善", value: "-43%", note: "案件平均 (2024 Q4)" },
   { label: "公開ケース数", value: "48件", note: "Yearbook 2024ランクイン" },
-  { label: "BASIC→PRIME 昇格率", value: "18%", note: "直近四半期" },
+  { label: "修行者→評議会昇格率", value: "18%", note: "直近四半期" },
 ];
 
 const policies = [
@@ -46,7 +46,7 @@ const policies = [
   {
     title: "返金保証",
     description:
-      "PRIME / BOOST では、合意したKPI設定が実行されない場合に全額返金。成果が未達の場合でも、改善プランの再提示を必須とします。",
+      "評議会 / 伴随では、合意したKPI設定が実行されない場合に全額返金。成果が未達の場合でも、改善プランの再提示を必須とします。",
   },
   {
     title: "COI・コンプライアンス",

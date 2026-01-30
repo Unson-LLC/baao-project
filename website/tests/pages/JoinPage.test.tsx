@@ -67,7 +67,7 @@ describe("JoinPage tab navigation", () => {
   it("navigates to enterprise form based on hash", async () => {
     await renderJoinPage({ hash: "#enterprise" });
     expect(
-      await screen.findByRole("heading", { name: "企業向け相談（PRIME / BOOST）" })
+      await screen.findByRole("heading", { name: "企業向け相談（評議会 / 伴随）" })
     ).toBeInTheDocument();
   });
 
@@ -87,7 +87,7 @@ describe("JoinPage tab navigation", () => {
 
   it("renders the extended corporate consultation fields", async () => {
     await renderJoinPage({ hash: "#enterprise" });
-    const form = screen.getByRole("form", { name: "企業向け相談（PRIME / BOOST）" });
+    const form = screen.getByRole("form", { name: "企業向け相談（評議会 / 伴随）" });
 
     expect(within(form).getByLabelText("電話番号")).toBeInTheDocument();
     expect(within(form).getByLabelText("Field（業界）")).toBeInTheDocument();
@@ -102,7 +102,7 @@ describe("JoinPage tab navigation", () => {
     const monthlyTab = screen.getByRole("tab", { name: "月謝プラン" });
     fireEvent.click(monthlyTab);
 
-    const form = screen.getByRole("form", { name: "月謝プラン（BASIC / ACTIVE）への問い合わせ" });
+    const form = screen.getByRole("form", { name: "月謝プラン（修行者 / 書院生）への問い合わせ" });
     expect(within(form).getByLabelText("所属（会社名・部署）")).toBeInTheDocument();
     expect(within(form).getByLabelText("受講目的")).toBeInTheDocument();
     expect(within(form).getByLabelText("決済方法")).toBeInTheDocument();
