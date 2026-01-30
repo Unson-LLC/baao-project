@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     "成功事例",
     "ROI",
   ],
+  icons: {
+    icon: '/icon.png',
+    apple: '/apple-icon.png',
+  },
   alternates: {
     canonical: 'https://baao-dojo.com',
   },
