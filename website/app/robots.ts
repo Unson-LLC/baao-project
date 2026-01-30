@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://baao-dojo.com/sitemap.xml',
+    sitemap: 'https://dojo.baao.or.jp/sitemap.xml',
   }
 }

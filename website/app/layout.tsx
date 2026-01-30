@@ -12,7 +12,7 @@ const notoSerif = Noto_Serif_JP({ subsets: ["latin"], weight: ["400", "700"], va
 const yujiBrush = Yuji_Syuku({ subsets: ["latin"], weight: ["400"], variable: "--font-yuji-brush" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://baao-dojo.com'),
+  metadataBase: new URL('https://dojo.baao.or.jp'),
   title: "BAAO 実戦AI道場｜流派 × 勝ち筋 × 型で四半期で成果",
   description:
     "無料稽古で空気を掴み、月謝で型を得て、師範が伴随して四半期で成果を公開する。役割別の稽古ガイドと師範コミュニティ案内を備えた常設サイト。",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   alternates: {
-    canonical: 'https://baao-dojo.com',
+    canonical: 'https://dojo.baao.or.jp',
   },
   openGraph: {
     title: "BAAO 実戦AI道場｜四半期で成果を証明",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
       "無料稽古 → 月謝 → 師範が伴随して → 成果公開。役割別の稽古ルートと師範コミュニティ情報を二層構造で提供します。",
     type: "website",
     locale: "ja_JP",
-    url: 'https://baao-dojo.com',
+    url: 'https://dojo.baao.or.jp',
     siteName: "BAAO 実戦AI道場",
     images: [
       {
