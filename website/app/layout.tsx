@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationSchema from "@/components/seo/OrganizationSchema";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSerif = Noto_Serif_JP({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-noto-serif" });
@@ -29,6 +30,9 @@ export const metadata: Metadata = {
   icons: {
     icon: '/icon.png',
     apple: '/apple-icon.png',
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
   alternates: {
     canonical: 'https://baao-dojo.com',
@@ -69,6 +73,9 @@ export default function RootLayout({
         <OrganizationSchema />
       </head>
       <body className="bg-washi text-ink">
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics GA_MEASUREMENT_ID={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
         <div className="flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
