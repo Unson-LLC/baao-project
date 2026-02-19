@@ -1,5 +1,5 @@
 export default function EventSchema() {
-  const schema = {
+  const weeklyKeiko = {
     "@context": "https://schema.org",
     "@type": "Event",
     "name": "週次稽古｜AIニュースと最新ケースの分解",
@@ -12,11 +12,11 @@ export default function EventSchema() {
       "@type": "VirtualLocation",
       "url": "https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w"
     },
-    "image": "https://baao-dojo.com/images/hero/main2.png",
+    "image": "https://dojo.baao.or.jp/images/hero/main2.png",
     "organizer": {
       "@type": "Organization",
       "name": "BAAO 実戦AI道場",
-      "url": "https://baao-dojo.com"
+      "url": "https://dojo.baao.or.jp"
     },
     "offers": {
       "@type": "Offer",
@@ -32,10 +32,49 @@ export default function EventSchema() {
     }
   };
 
+  const slideSeminar = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "3時間の苦痛が15分の快感に！AIで「白いスライド」に悩む時間をゼロにする無料オンラインセミナー",
+    "description": "初心者必見！AIを使いこなして資料作成の苦痛をゼロにする生存戦略を伝授。ChatGPTやGeminiを「頼りになる相談相手」に変え、プロ級のスライドを短時間で作成する方法を学びます。",
+    "startDate": "2026-02-25T19:30:00+09:00",
+    "endDate": "2026-02-25T20:30:00+09:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+    "location": {
+      "@type": "VirtualLocation",
+      "url": "https://baao-aidojo.peatix.com"
+    },
+    "image": "https://dojo.baao.or.jp/images/hero/main2.png",
+    "organizer": {
+      "@type": "Organization",
+      "name": "BAAO 実戦AI道場",
+      "url": "https://dojo.baao.or.jp"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY",
+      "availability": "https://schema.org/InStock",
+      "url": "https://baao-aidojo.peatix.com",
+      "validFrom": new Date().toISOString()
+    },
+    "performer": {
+      "@type": "Organization",
+      "name": "実践AI道場"
+    }
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(weeklyKeiko) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(slideSeminar) }}
+      />
+    </>
   );
 }

@@ -7,11 +7,18 @@ const events: Array<{
   isPlaceholder?: boolean;
 }> = [
   {
-    title: "週次稽古",
+    title: "週次稽古｜AIニュースと最新ケースの分解",
     date: "毎週木曜日 19:30-20:30",
     location: "Zoom / YouTube Live",
     tag: "無料稽古",
     link: "https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
+  },
+  {
+    title: "3時間の苦痛が15分の快感に！AIで「白いスライド」に悩む時間をゼロにする無料オンラインセミナー",
+    date: "2026年2月25日（水）19:30-20:30",
+    location: "オンライン",
+    tag: "無料セミナー",
+    link: "https://baao-aidojo.peatix.com",
   },
   {
     title: "実践！AI道場 〜AI活用で生産性5倍にするハンズオン合宿〜",

@@ -43,19 +43,19 @@ export default function CTABand() {
           {ctas.map((cta) => (
             <div
               key={cta.title}
-              className="flex flex-col rounded-3xl bg-white/10 p-6 text-white shadow-[0_12px_24px_rgba(0,0,0,0.15)] backdrop-blur"
+              className="flex flex-col rounded-2xl bg-white/5 p-8 text-white backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors"
             >
-              <h3 className="font-serif text-xl">{cta.title}</h3>
-              <p className="mt-3 text-sm text-white/80">{cta.description}</p>
+              <h3 className="font-serif text-xl font-bold">{cta.title}</h3>
+              <p className="mt-4 text-sm text-white/70 leading-relaxed">{cta.description}</p>
               {cta.external ? (
                 <a
                   href={cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition shadow-lg ${
+                  className={`mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-bold transition ${
                     cta.primary
-                      ? "bg-vermillion text-white hover:bg-vermillion-dark"
-                      : "border border-white/70 text-white hover:bg-white/10"
+                      ? "bg-white text-dojo-green hover:bg-white/90"
+                      : "border border-white/30 text-white hover:bg-white/10"
                   }`}
                 >
                   {cta.buttonLabel ?? "申し込む →"}
@@ -63,10 +63,10 @@ export default function CTABand() {
               ) : (
                 <Link
                   href={cta.href}
-                  className={`mt-6 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition shadow-lg ${
+                  className={`mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-bold transition ${
                     cta.primary
-                      ? "bg-vermillion text-white hover:bg-vermillion-dark"
-                      : "border border-white/70 text-white hover:bg-white/10"
+                      ? "bg-white text-dojo-green hover:bg-white/90"
+                      : "border border-white/30 text-white hover:bg-white/10"
                   }`}
                 >
                   {cta.buttonLabel ?? "申し込む →"}

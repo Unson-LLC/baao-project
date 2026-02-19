@@ -17,6 +17,12 @@ const guideNav = [
   { label: "師範コミュニティ", href: "/community" },
 ];
 
+const ctaButton = {
+  label: "無料稽古に参加",
+  href: "https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default",
+  external: true,
+};
+
 function NavItem({ href, label, isActive }: { href: string; label: string; isActive: boolean }) {
   return (
     <Link
@@ -69,11 +75,29 @@ export default function Header() {
             {guideNav.map((item) => (
               <NavItem key={item.href} href={item.href} label={item.label} isActive={pathname === item.href} />
             ))}
+            <a
+              href={ctaButton.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 rounded-lg bg-dojo-green px-4 py-2.5 text-sm font-bold text-white transition-all hover:bg-dojo-green/90 hover:shadow-lg hover:-translate-y-0.5"
+            >
+              {ctaButton.label}
+            </a>
           </div>
         </nav>
       </div>
       {menuOpen && (
         <div className="border-t-2 border-dojo-green/20 bg-washi/95 px-4 py-4 shadow-lg md:hidden">
+          <div className="mb-4">
+            <a
+              href={ctaButton.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center rounded-lg bg-dojo-green px-4 py-3 text-sm font-bold text-white transition-all hover:bg-dojo-green/90 shadow-md"
+            >
+              {ctaButton.label}
+            </a>
+          </div>
           <div className="flex flex-col gap-2">
             {primaryNav.map((item) => (
               <Link

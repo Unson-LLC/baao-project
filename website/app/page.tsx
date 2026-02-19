@@ -8,12 +8,14 @@ import CommunityFellows from "@/components/home/CommunityFellows";
 import EventsUpdates from "@/components/home/EventsUpdates";
 import FAQPreview from "@/components/home/FAQPreview";
 import CTABand from "@/components/home/CTABand";
+import FAQSchema from "@/components/seo/FAQSchema";
 import EventSchema from "@/components/seo/EventSchema";
 
 export default function Home() {
   return (
     <>
       <EventSchema />
+      <FAQSchema />
       <div className="bg-[#F9F6F0]">
         <HeroSection />
         <FreeLiveSection />

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import BrushDivider from "@/components/BrushDivider";
 
 const nextLive = {
   date:
@@ -17,118 +18,172 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden bg-gradient-to-br from-washi via-washi-dark to-dojo-green/10 ink-bleed"
+      className="relative overflow-hidden bg-[#F9F6F0] min-h-[90vh] flex items-center"
     >
+      {/* 背景: 畳の色合いを活かす */}
       <div className="absolute inset-0">
+        {/* メインビジュアル: 畳の色をしっかり見せる */}
         <Image
           src="/images/hero/main2.png"
-          alt="流派 × 勝ち筋 × 型で、四半期で成果を出す。"
+          alt="背景"
           fill
           priority
-          className="object-cover object-center opacity-30 image-sepia"
+          className="object-cover object-center opacity-80"
         />
-        <div className="absolute -left-24 top-16 h-96 w-96 rounded-full bg-dojo-gold/20 blur-3xl animate-float" />
-        <div className="absolute right-0 bottom-0 h-80 w-80 rounded-full bg-dojo-green/30 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-64 rounded-full bg-dojo-indigo/10 blur-3xl" />
+        
+        {/* 和紙テクスチャを重ねて質感を出す */}
+        <div className="absolute inset-0 opacity-30 mix-blend-multiply" 
+             style={{ backgroundImage: "url('/images/programs/washi.png')", backgroundSize: "200px" }}>
+        </div>
+        
+        {/* 文字の可読性を確保するためのグラデーション（左側を少し明るく） */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#F9F6F0]/95 via-[#F9F6F0]/80 to-[#F9F6F0]/40" />
       </div>
-      <div className="relative mx-auto grid max-w-6xl gap-16 px-4 py-24 md:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-36">
-        <div className="space-y-8 animate-fade-in">
-          <div className="inline-flex items-center gap-2 rounded-lg bg-dojo-green/10 px-5 py-2 border border-dojo-gold/30">
-            <span className="h-2 w-2 rounded-full bg-dojo-gold animate-pulse" />
-            <span className="text-sm font-bold text-dojo-green tracking-wide">
-              実戦AI道場
+      
+      <div className="relative mx-auto grid max-w-7xl gap-16 px-6 py-24 md:px-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center z-10">
+        
+        {/* 左側: テキストエリア */}
+        <div className="space-y-12 animate-fade-in">
+          {/* ラベル */}
+          <div className="flex items-center gap-4">
+            <span className="h-px w-12 bg-dojo-gold/60"></span>
+            <span className="text-xs font-bold text-dojo-green tracking-[0.2em] uppercase font-sans text-opacity-80">
+              BAAO Practical AI Dojo
             </span>
           </div>
-          <h1 className="font-serif text-3xl font-bold leading-tight text-[#1D1A15] sm:text-4xl lg:text-5xl drop-shadow-sm">
-            流派 × 勝ち筋 × 型で、
-            <br />
-            <span className="text-dojo-green">四半期で成果を出す。</span>
+          
+          {/* メインコピー: タイポグラフィで魅せる */}
+          <h1 className="font-serif text-[#1D1A15] leading-tight">
+            {/* 上段 */}
+            <div className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight mb-6">
+              <span className="relative group">
+                流派
+                <span className="absolute -top-2 -right-3 text-[10px] text-dojo-gold font-normal border border-dojo-gold/30 rounded-full w-4 h-4 flex items-center justify-center bg-[#F9F6F0]">壱</span>
+              </span>
+              <span className="text-dojo-gold/30 text-2xl font-light">×</span>
+              <span className="relative group">
+                勝ち筋
+                <span className="absolute -top-2 -right-3 text-[10px] text-dojo-gold font-normal border border-dojo-gold/30 rounded-full w-4 h-4 flex items-center justify-center bg-[#F9F6F0]">弐</span>
+              </span>
+              <span className="text-dojo-gold/30 text-2xl font-light">×</span>
+              <span className="relative group">
+                型
+                <span className="absolute -top-2 -right-3 text-[10px] text-dojo-gold font-normal border border-dojo-gold/30 rounded-full w-4 h-4 flex items-center justify-center bg-[#F9F6F0]">参</span>
+              </span>
+            </div>
+            
+            {/* 下段: 力強く */}
+            <span className="block text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gradient-gold pb-2">
+              四半期で成果を出す。
+            </span>
           </h1>
-          <p className="max-w-2xl text-base leading-relaxed text-ink font-serif opacity-100">
-            道場の稽古は、毎週の無料ライブから始まります。月謝でアーカイブと伴随を受け、四半期で成果を可視化し、ケースとして公開。和の現場知と実装知で、組織のAI活用を定着させます。
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          
+          {/* リード文: 縦のラインで規律を持たせる */}
+          <div className="flex gap-6">
+            <div className="w-px bg-dojo-gold/30 h-auto self-stretch"></div>
+            <p className="max-w-lg text-base leading-loose text-ink/80 font-serif">
+              道場の稽古は、毎週の無料ライブから。<br />
+              月謝で生成AIのアーカイブと伴随を受け、四半期で成果を可視化。<br />
+              和の現場知と実装知で、組織のDX・AI活用を定着させます。
+            </p>
+          </div>
+
+          {/* CTAエリア: シンプルに */}
+          <div className="flex flex-col sm:flex-row gap-5 pt-4">
             <Link
               href="/join#enterprise"
-              className="btn-primary flex items-center justify-center"
+              className="btn-primary inline-flex items-center justify-center gap-3"
             >
-              四半期で成果を相談する
+              <span>四半期で成果を相談する</span>
+              <span className="text-xs opacity-60">→</span>
             </Link>
             <Link
               href="/community"
-              className="flex items-center justify-center rounded-lg border-2 border-dojo-indigo px-6 py-3 text-dojo-indigo font-bold transition-all hover:bg-dojo-indigo hover:text-white"
+              className="btn-secondary inline-flex items-center justify-center"
             >
               師範として参画する
             </Link>
           </div>
         </div>
 
-        <div className="space-y-4">
-          {/* 週次稽古カード - コンパクト版 */}
-          <aside className="shoji-card corner-decoration rounded-2xl border-2 border-dojo-gold/30 bg-white/90 p-6 backdrop-blur">
-            <div className="relative">
-              <p className="text-xs font-bold uppercase tracking-wider text-dojo-gold border-b-2 border-dojo-gold pb-2 inline-block">
-                次回 無料稽古
-              </p>
-              <h3 className="mt-3 font-serif text-lg font-bold text-dojo-green leading-snug">{nextLive.topic}</h3>
-              <dl className="mt-4 space-y-2 text-xs">
-                <div className="flex items-start gap-2 p-2 rounded-lg bg-washi/50">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-dojo-gold flex-shrink-0" />
-                  <div>
-                    <dt className="font-bold text-dojo-green">日時</dt>
-                    <dd className="text-ink">{nextLive.date}</dd>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2 p-2 rounded-lg bg-washi/50">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-dojo-gold flex-shrink-0" />
-                  <div>
-                    <dt className="font-bold text-dojo-green">師範</dt>
-                    <dd className="text-ink">{nextLive.mentor}</dd>
-                  </div>
-                </div>
-              </dl>
-              <a
-                href="https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 block w-full text-center rounded-lg bg-dojo-green px-4 py-2.5 text-sm font-bold text-white transition-all hover:bg-dojo-green/90 shadow-md"
-              >
-                今週の稽古に参加する →
-              </a>
-            </div>
-          </aside>
+        {/* 右側: カードエリア（装飾を削ぎ落とす） */}
+        <div className="relative space-y-6 lg:pl-12">
+          {/* 背景の円形装飾 - 極めて薄く */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] border border-dojo-green/5 rounded-full pointer-events-none"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] border border-dojo-gold/10 rounded-full pointer-events-none"></div>
 
-          {/* ハンズオン合宿イベントカード */}
-          <aside className="shoji-card corner-decoration rounded-2xl border-2 border-[#4B4135]/30 bg-gradient-to-br from-[#4B4135]/5 to-[#D8CFC3]/20 p-6 backdrop-blur opacity-75">
-            <div className="relative">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#4B4135] border-b-2 border-[#4B4135] pb-1 inline-block">
-                  特別イベント
-                </span>
-                <span className="px-2 py-0.5 text-[10px] font-bold bg-[#4B4135]/20 text-[#4B4135] rounded-full">
-                  開催終了
-                </span>
-              </div>
-              <h3 className="font-serif text-lg font-bold text-[#1D1A15] leading-snug">
-                実践！AI道場 〜AI活用で生産性5倍にするハンズオン合宿〜
-              </h3>
-              <dl className="mt-4 space-y-2 text-xs">
-                <div className="flex items-start gap-2">
-                  <span className="mt-0.5">📅</span>
-                  <div>
-                    <dd className="text-ink font-semibold">2025年12月21日（日）開催終了</dd>
-                  </div>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="mt-0.5">📍</span>
-                  <div>
-                    <dd className="text-ink">ご参加ありがとうございました。次回もお楽しみに！</dd>
-                  </div>
-                </div>
-              </dl>
+          {/* 週次稽古カード */}
+          <div className="relative bg-white p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] border border-black/5 transition-transform hover:-translate-y-1 duration-500">
+            {/* 和風の透かし文字 */}
+            <div className="absolute top-4 right-6 pointer-events-none opacity-[0.03]">
+              <span className="font-serif text-8xl text-black writing-vertical">稽古</span>
             </div>
-          </aside>
+
+            <div className="relative">
+              <span className="inline-block py-1 px-2 mb-4 text-[10px] font-bold tracking-widest text-dojo-gold border border-dojo-gold/30 rounded bg-white">
+                NEXT LIVE
+              </span>
+              <h3 className="font-serif text-xl font-bold text-ink mb-6 leading-relaxed">
+                {nextLive.topic}
+              </h3>
+              
+              <div className="space-y-4">
+                <div className="flex items-start gap-4 text-sm">
+                  <span className="text-dojo-green/60 font-serif shrink-0">日時</span>
+                  <span className="text-ink font-medium">{nextLive.date}</span>
+                </div>
+                <div className="flex items-start gap-4 text-sm">
+                  <span className="text-dojo-green/60 font-serif shrink-0">師範</span>
+                  <span className="text-ink font-medium">{nextLive.mentor}</span>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-black/5">
+                <a
+                  href="https://line.me/ti/g2/Mb4gQI-33HfsA6V4gv_uFScufGZZIuqrp7q0_w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-between group w-full text-left"
+                >
+                  <span className="text-sm font-bold text-dojo-green group-hover:text-dojo-green/80 transition-colors">
+                    今週の稽古に参加する
+                  </span>
+                  <span className="w-8 h-8 flex items-center justify-center rounded-full bg-dojo-green/5 text-dojo-green group-hover:bg-dojo-green group-hover:text-white transition-all duration-300">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* サブカード（イベント） */}
+          <div className="relative bg-white p-6 rounded-xl border border-dojo-green/20 backdrop-blur-sm hover:shadow-lg transition-all duration-500">
+             <div className="flex items-center justify-between mb-3">
+               <span className="text-[10px] font-bold tracking-widest text-dojo-green uppercase">Upcoming Event</span>
+               <span className="text-[10px] px-2 py-0.5 bg-dojo-green/10 rounded text-dojo-green font-semibold">2/25(水)</span>
+             </div>
+             <p className="font-serif text-sm font-medium text-ink leading-relaxed mb-3">
+               3時間の苦痛が15分の快感に！<br />
+               AIで「白いスライド」に悩む時間をゼロにする無料オンラインセミナー
+             </p>
+             <div className="flex items-center justify-between mt-4 pt-4 border-t border-black/5">
+               <span className="text-xs text-ink/60">19:30-20:30 オンライン</span>
+               <a
+                 href="https://baao-aidojo.peatix.com"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 className="text-xs font-bold text-dojo-green hover:text-dojo-green/80 transition-colors"
+               >
+                 詳細を見る →
+               </a>
+             </div>
+          </div>
         </div>
+      </div>
+      
+      {/* 筆のかすれ区切り線 - 色を薄くして控えめに */}
+      <div className="absolute bottom-0 left-0 w-full opacity-30">
+        <BrushDivider position="bottom" color="white" />
       </div>
     </section>
   );

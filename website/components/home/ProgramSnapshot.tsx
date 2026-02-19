@@ -10,6 +10,7 @@ const learningPrograms = [
     price: "¥0 / 月",
     features: ["毎週のライブ視聴", "オープンチャット参加", "開催後のダイジェスト配信"],
     href: "/programs#free",
+    badge: "まずはここから",
   },
   {
     name: "修行者（しゅぎょうしゃ）",
@@ -95,30 +96,23 @@ export default function ProgramSnapshot() {
             {learningPrograms.map((program) => (
               <div
                 key={program.name}
-                className="relative flex h-full flex-col overflow-hidden rounded-3xl border-2 border-[#D8CFC3] bg-[#FDFBF6]/90 p-6 shadow-[0_12px_24px_rgba(29,26,21,0.06)]"
-                style={{
-                  borderImage: program.popular
-                    ? 'linear-gradient(135deg, rgba(196, 126, 59, 0.6) 0%, rgba(196, 126, 59, 0.3) 50%, rgba(196, 126, 59, 0.6) 100%) 1'
-                    : 'linear-gradient(135deg, rgba(44, 44, 44, 0.6) 0%, rgba(44, 44, 44, 0.3) 50%, rgba(44, 44, 44, 0.6) 100%) 1',
-                }}
+                className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-black/5 bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:-translate-y-1"
               >
                 {/* 人気バッジ */}
                 {program.popular && (
-                  <div className="absolute -right-2 top-4 rounded-l-full bg-vermillion px-4 py-1 text-xs font-bold text-[#1D1A15] shadow-md">
+                  <div className="absolute -right-2 top-4 rounded-l-full bg-dojo-gold px-4 py-1 text-xs font-bold text-white shadow-md z-10">
                     おすすめ
                   </div>
                 )}
-                {/* 各カードにも薄い模様を追加 */}
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-15"
-                  style={{
-                    backgroundImage: "url(/images/programs/washi.png)",
-                    backgroundRepeat: "repeat",
-                    backgroundSize: "500px 500px",
-                  }}
-                />
+                {/* エントリーバッジ */}
+                {program.badge && (
+                  <div className="absolute -right-2 top-4 rounded-l-full bg-dojo-green px-4 py-1 text-xs font-bold text-white shadow-md z-10">
+                    {program.badge}
+                  </div>
+                )}
+                
                 <div className="relative">
-                  <h3 className="font-serif text-xl text-[#1D1A15]">{program.name}</h3>
+                  <h3 className="font-serif text-xl text-[#1D1A15] font-bold">{program.name}</h3>
                   {program.subtitle && (
                     <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-bamboo">{program.subtitle}</p>
                   )}

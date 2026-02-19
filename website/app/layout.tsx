@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationSchema from "@/components/seo/OrganizationSchema";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import StickyCTA from "@/components/StickyCTA";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const notoSerif = Noto_Serif_JP({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-noto-serif" });
@@ -13,15 +14,16 @@ const yujiBrush = Yuji_Syuku({ subsets: ["latin"], weight: ["400"], variable: "-
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://dojo.baao.or.jp'),
-  title: "BAAO 実戦AI道場｜流派 × 勝ち筋 × 型で四半期で成果",
+  title: "BAAO 実戦AI道場｜四半期で成果を出す、和の現場知と実装知",
   description:
-    "無料稽古で空気を掴み、月謝で型を得て、師範が伴随して四半期で成果を公開する。役割別の稽古ガイドと師範コミュニティ案内を備えた常設サイト。",
+    "AI導入の失敗を防ぎ、四半期で具体的な成果を出すための「実戦AI道場」。毎週の無料ライブ稽古、過去の成功事例（秘伝書）、専門家による伴随支援で、組織のAI活用を確実に定着させます。まずは無料で見学から。",
   keywords: [
     "BAAO",
     "AI道場",
     "生成AI",
     "DX伴随",
-    "月謝プラン",
+    "実戦AI",
+    "AI導入 失敗しない",
     "Field Director",
     "Fellow",
     "成功事例",
@@ -38,16 +40,16 @@ export const metadata: Metadata = {
     canonical: 'https://dojo.baao.or.jp',
   },
   openGraph: {
-    title: "BAAO 実戦AI道場｜四半期で成果を証明",
+    title: "BAAO 実戦AI道場｜四半期で成果を出す、和の現場知と実装知",
     description:
-      "無料稽古 → 月謝 → 師範が伴随して → 成果公開。役割別の稽古ルートと師範コミュニティ情報を二層構造で提供します。",
+      "AI導入の失敗を防ぎ、四半期で具体的な成果を出すための「実戦AI道場」。毎週の無料ライブ稽古、過去の成功事例（秘伝書）、専門家による伴随支援で、組織のAI活用を確実に定着させます。",
     type: "website",
     locale: "ja_JP",
     url: 'https://dojo.baao.or.jp',
     siteName: "BAAO 実戦AI道場",
     images: [
       {
-        url: '/images/hero/main2.png',
+        url: 'https://dojo.baao.or.jp/images/hero/main2.png',
         width: 1200,
         height: 630,
         alt: 'BAAO 実戦AI道場 - 四半期で成果を出すAI導入支援',
@@ -56,11 +58,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BAAO 実戦AI道場｜四半期で成果を証明",
-    description: "無料稽古から師範の伴随まで一貫支援。役割別ガイドで疑問を解消。",
-    images: ['/images/hero/main2.png'],
+    title: "BAAO 実戦AI道場｜四半期で成果を出す、和の現場知と実装知",
+    description: "AI導入の失敗を防ぎ、四半期で具体的な成果を出すための「実戦AI道場」。まずは無料で見学から。",
+    images: ['https://dojo.baao.or.jp/images/hero/main2.png'],
   },
 };
+
+import WebSiteSchema from "@/components/seo/WebSiteSchema";
 
 export default function RootLayout({
   children,
@@ -71,6 +75,7 @@ export default function RootLayout({
     <html lang="ja" className={`${inter.variable} ${notoSerif.variable} ${yujiBrush.variable}`}>
       <head>
         <OrganizationSchema />
+        <WebSiteSchema />
       </head>
       <body className="bg-washi text-ink">
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
@@ -81,6 +86,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
+        <StickyCTA />
         <Analytics />
       </body>
     </html>

@@ -4,9 +4,9 @@ export default function OrganizationSchema() {
     "@type": "Organization",
     "name": "BAAO 実戦AI道場",
     "alternateName": "BAAO道場",
-    "url": "https://baao-dojo.com",
-    "logo": "https://baao-dojo.com/images/logo.png",
-    "description": "無料稽古で空気を掴み、月謝で型を得て、師範が伴随して四半期で成果を公開する。役割別の稽古ガイドと師範コミュニティ案内を備えた常設サイト。",
+    "url": "https://dojo.baao.or.jp",
+    "logo": "https://dojo.baao.or.jp/images/logo.png",
+    "description": "AI導入の失敗を防ぎ、四半期で具体的な成果を出すための「実戦AI道場」。",
     "sameAs": [
       "https://twitter.com/baao_dojo",
       "https://www.youtube.com/@baao-dojo"
@@ -15,7 +15,7 @@ export default function OrganizationSchema() {
       "@type": "ContactPoint",
       "contactType": "customer support",
       "availableLanguage": "Japanese",
-      "url": "https://baao-dojo.com/join"
+      "url": "https://dojo.baao.or.jp/join"
     },
     "areaServed": "JP",
     "founder": {
