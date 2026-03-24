@@ -4,6 +4,7 @@ import SampleVideosVoices from "@/components/home/SampleVideosVoices";
 import PathToMastery from "@/components/home/PathToMastery";
 import ProgramSnapshot from "@/components/home/ProgramSnapshot";
 import CasesMethodology from "@/components/home/CasesMethodology";
+import TrainingPartners from "@/components/home/TrainingPartners";
 import CommunityFellows from "@/components/home/CommunityFellows";
 import EventsUpdates from "@/components/home/EventsUpdates";
 import FAQPreview from "@/components/home/FAQPreview";
@@ -23,6 +24,7 @@ export default function Home() {
         <PathToMastery />
         <ProgramSnapshot />
         <CasesMethodology />
+        <TrainingPartners />
         <CommunityFellows />
         <EventsUpdates />
         <FAQPreview />
