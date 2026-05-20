@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>グローウィン・パートナーズ様 Xアカウント設計書 v0.3</title>
+<style>
+  :root {
+    --primary: #0f3a6b;
+    --primary-light: #1e5a9c;
+    --primary-soft: #e8f0fb;
+    --accent: #c2691f;
+    --accent-soft: #fff4e6;
+    --success: #2a8a7a;
+    --success-soft: #e6f4f1;
+    --warning: #c98a1f;
+    --warning-soft: #fef5e0;
+    --danger: #a8332c;
+    --danger-soft: #fdecea;
+    --bg: #f7f8fa;
+    --bg-card: #ffffff;
+    --text: #1a1d23;
+    --text-mid: #4a5160;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --border-soft: #f0f1f4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo", system-ui, sans-serif;
+    line-height: 1.9;
+    color: var(--text);
+    background: var(--bg);
+    font-size: 16px;
+    font-feature-settings: "palt";
+    letter-spacing: 0.02em;
+  }
+
+  /* === レイアウト === */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    max-width: 1280px;
+    margin: 0 auto;
+    gap: 32px;
+    padding: 0 24px;
+  }
+
+  /* === サイドナビ === */
+  nav.sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 40px 0 40px;
+    border-right: 1px solid var(--border);
+  }
+  nav.sidebar h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+  nav.sidebar ul { list-style: none; }
+  nav.sidebar li { margin: 4px 0; }
+  nav.sidebar a {
+    display: block;
+    padding: 8px 14px;
+    color: var(--text-mid);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+  }
+  nav.sidebar a:hover {
+    background: var(--primary-soft);
+    color: var(--primary);
+    border-left-color: var(--primary-light);
+  }
+
+  /* === メイン === */
+  main { padding: 40px 0 100px; min-width: 0; }
+
+  /* === ヘッダー === */
+  .doc-header {
+    background: linear-gradient(135deg, #0f3a6b 0%, #1e5a9c 60%, #2a6db5 100%);
+    color: white;
+    padding: 48px 56px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::after {
+    content: "";
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);
+    border-radius: 50%;
+  }
+  .doc-header .tag {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    font-weight: 600;
+  }
+  .doc-header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .doc-header .meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 10px 28px;
+    font-size: 13px;
+    opacity: 0.92;
+    position: relative;
+    z-index: 1;
+  }
+  .doc-header .meta-grid div {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  .doc-header .meta-grid .label {
+    font-weight: 600;
+    color: rgba(255,255,255,0.7);
+    min-width: 100px;
+  }
+
+  /* === サマリーカード === */
+  .summary {
+    background: var(--accent-soft);
+    border: 1px solid #f0d4a8;
+    border-radius: 14px;
+    padding: 28px 36px;
+    margin-bottom: 40px;
+  }
+  .summary h2 {
+    font-size: 15px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .summary ul { list-style: none; }
+  .summary li {
+    padding: 8px 0 8px 26px;
+    position: relative;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .summary li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .summary li strong { color: var(--text); }
+
+  /* === セクション === */
+  section {
+    background: var(--bg-card);
+    border-radius: 14px;
+    padding: 44px 56px;
+    margin-bottom: 24px;
+    border: 1px solid var(--border-soft);
+  }
+  section h2 {
+    font-size: 26px;
+    color: var(--primary);
+    margin-bottom: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  section h2 .num {
+    background: var(--primary);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  section h3 {
+    font-size: 19px;
+    color: var(--text);
+    margin: 36px 0 18px;
+    font-weight: 700;
+    padding-left: 14px;
+    border-left: 4px solid var(--accent);
+    line-height: 1.5;
+  }
+  section h3:first-of-type { margin-top: 0; }
+
+  section h4 {
+    font-size: 15px;
+    color: var(--primary);
+    margin: 24px 0 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  section p { margin-bottom: 14px; line-height: 1.9; }
+  section ul, section ol { padding-left: 1.4em; margin-bottom: 16px; }
+  section li { margin: 6px 0; line-height: 1.8; }
+
+  /* === テーブル === */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 20px 0 28px;
+    font-size: 14.5px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  thead { background: var(--primary); }
+  th {
+    padding: 14px 16px;
+    text-align: left;
+    color: white;
+    font-weight: 600;
+    font-size: 13.5px;
+    letter-spacing: 0.03em;
+    border-bottom: 2px solid var(--primary-light);
+  }
+  td {
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: top;
+    line-height: 1.75;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #fafbfc; }
+  tbody tr.highlight {
+    background: var(--success-soft);
+  }
+  tbody tr.highlight:hover {
+    background: #d8ede9;
+  }
+
+  /* === バッジ === */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+  .b-success { background: var(--success); color: white; }
+  .b-warning { background: var(--warning); color: white; }
+  .b-danger { background: var(--danger); color: white; }
+  .b-info { background: var(--primary-light); color: white; }
+  .b-muted { background: var(--border); color: var(--text-mid); }
+  .b-soft-success { background: var(--success-soft); color: var(--success); }
+  .b-soft-warning { background: var(--warning-soft); color: var(--warning); }
+  .b-soft-danger { background: var(--danger-soft); color: var(--danger); }
+
+  /* === アラート === */
+  .alert {
+    border-radius: 10px;
+    padding: 20px 26px;
+    margin: 20px 0;
+    line-height: 1.8;
+    border-left: 4px solid;
+    font-size: 14.5px;
+  }
+  .alert strong {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 15px;
+  }
+  .a-danger { background: var(--danger-soft); border-color: var(--danger); }
+  .a-danger strong { color: var(--danger); }
+  .a-success { background: var(--success-soft); border-color: var(--success); }
+  .a-success strong { color: var(--success); }
+  .a-info { background: var(--primary-soft); border-color: var(--primary-light); }
+  .a-info strong { color: var(--primary); }
+  .a-warning { background: var(--warning-soft); border-color: var(--warning); }
+  .a-warning strong { color: var(--warning); }
+
+  /* === 引用カード === */
+  .quotes { display: grid; gap: 12px; margin: 18px 0 8px; }
+  .quote-card {
+    background: linear-gradient(to right, #fefcf9, #fffbf4);
+    border-left: 3px solid var(--accent);
+    padding: 18px 22px 18px 56px;
+    border-radius: 4px 10px 10px 4px;
+    font-size: 14.5px;
+    line-height: 1.85;
+    position: relative;
+  }
+  .quote-card::before {
+    content: counter(quote-counter, decimal-leading-zero);
+    counter-increment: quote-counter;
+    position: absolute;
+    left: 14px;
+    top: 18px;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 14px;
+    font-feature-settings: "tnum";
+  }
+  .quote-group { counter-reset: quote-counter; }
+  .quote-group:nth-of-type(2) { counter-reset: quote-counter 6; }
+  .quote-group:nth-of-type(3) { counter-reset: quote-counter 11; }
+
+  /* === 哲学カード === */
+  .philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+    margin: 20px 0 8px;
+  }
+  .philosophy-card {
+    background: linear-gradient(135deg, #fffaf2 0%, #fff5e6 100%);
+    border: 1px solid #f5d9a8;
+    border-radius: 12px;
+    padding: 24px 26px;
+  }
+  .philosophy-card .icon {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 10px;
+  }
+  .philosophy-card h4 {
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border: none;
+    padding: 0;
+  }
+  .philosophy-card p {
+    font-size: 14px;
+    line-height: 1.85;
+    margin: 0;
+    color: var(--text-mid);
+  }
+
+  /* === タイムライン === */
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    position: relative;
+  }
+  .timeline::before {
+    content: "";
+    position: absolute;
+    left: 100px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+  }
+  .timeline li {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 24px;
+    padding: 10px 0;
+    position: relative;
+    align-items: baseline;
+  }
+  .timeline li::before {
+    content: "";
+    position: absolute;
+    left: 96px;
+    top: 18px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--accent);
+    z-index: 1;
+  }
+  .timeline .year {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 13.5px;
+    text-align: right;
+    padding-right: 18px;
+  }
+  .timeline .event {
+    font-size: 14.5px;
+    line-height: 1.7;
+  }
+
+  /* === ピンリスト === */
+  .pin-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: pin-counter;
+  }
+  .pin-list li {
+    counter-increment: pin-counter;
+    background: white;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--primary-light);
+    padding: 18px 22px 18px 64px;
+    margin: 12px 0;
+    border-radius: 8px;
+    position: relative;
+    font-size: 14.5px;
+    line-height: 1.85;
+  }
+  .pin-list li::before {
+    content: counter(pin-counter);
+    position: absolute;
+    left: 18px;
+    top: 18px;
+    background: var(--primary);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  /* === グリッド === */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin: 20px 0;
+  }
+  .info-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 22px 24px;
+    line-height: 1.75;
+  }
+  .info-card h4 {
+    margin: 0 0 10px;
+    color: var(--primary);
+    font-size: 14.5px;
+    font-weight: 700;
+  }
+  .info-card p {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin: 0;
+  }
+
+  /* === 強調 === */
+  .keyword {
+    background: var(--primary-soft);
+    color: var(--primary);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95em;
+  }
+  .keyword-accent {
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.95em;
+  }
+
+  /* === コードブロック === */
+  .bio-block {
+    background: linear-gradient(135deg, var(--accent-soft) 0%, #fff5e6 100%);
+    border: 1px solid #f0d4a8;
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin: 18px 0;
+    font-family: inherit;
+    line-height: 2;
+    font-size: 15px;
+    white-space: pre-wrap;
+  }
+
+  /* === チェックリスト === */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 10px 0 10px 36px;
+    position: relative;
+    font-size: 14.5px;
+    line-height: 1.7;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--text-muted);
+    border-radius: 4px;
+  }
+  .checklist li.done {
+    color: var(--text-muted);
+  }
+  .checklist li.done::before {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  .checklist li.done::after {
+    content: "✓";
+    position: absolute;
+    left: 4px;
+    top: 11px;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  /* === フッター === */
+  footer {
+    margin-top: 60px;
+    padding: 32px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.8;
+    border-top: 1px solid var(--border);
+  }
+
+  /* === レスポンシブ === */
+  @media (max-width: 1024px) {
+    .layout { grid-template-columns: 1fr; }
+    nav.sidebar { display: none; }
+    section { padding: 32px 28px; }
+    .doc-header { padding: 36px 28px; }
+  }
+
+  @media print {
+    .layout { grid-template-columns: 1fr; }
+    nav.sidebar { display: none; }
+    body { background: white; font-size: 12px; }
+    section { box-shadow: none; page-break-inside: avoid; border: none; }
+    .doc-header { background: var(--primary) !important; -webkit-print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<nav class="sidebar">
+  <h3>目次</h3>
+  <ul>
+    <li><a href="#s0">0 設計思想</a></li>
+    <li><a href="#s1">1 目的・KPI</a></li>
+    <li><a href="#s2">2 想起ワード設計</a></li>
+    <li><a href="#s3">3 発信者プロフィール</a></li>
+    <li><a href="#s4">4 ペルソナ</a></li>
+    <li><a href="#s5">5 プロフィール5層</a></li>
+    <li><a href="#s6">6 発信テーマ</a></li>
+    <li><a href="#s7">7 投稿フォーマット</a></li>
+    <li><a href="#s8">8 運用フロー</a></li>
+    <li><a href="#s9">9 スケジュール</a></li>
+    <li><a href="#s10">10 合意論点</a></li>
+    <li><a href="#s11">11 タスク</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<div class="doc-header">
+  <span class="tag">DRAFT v0.3 / 動画分析統合版</span>
+  <h1>グローウィン・パートナーズ様<br>Xアカウント設計書</h1>
+  <div class="meta-grid">
+    <div><span class="label">作成日</span> 2026-05-14</div>
+    <div><span class="label">運用主体</span> 佐野 哲哉 様</div>
+    <div><span class="label">v1.0 確定予定</span> 2026-05-22（金）</div>
+    <div><span class="label">担当</span> 佐藤 圭吾</div>
+  </div>
+</div>
+
+<div class="summary">
+  <h2>v0.2 → v0.3 主要更新</h2>
+  <ul>
+    <li><strong>発信哲学を400字に明文化</strong>（動画分析から抽出）</li>
+    <li><strong>翻訳ブリッジ表</strong>：ブランド概念語彙と佐野様口頭表現の対応辞書を新設</li>
+    <li><strong>L3「コーポレートを愛しすぎて経営者になってしまった人」</strong>を最有力候補に絞り込み</li>
+    <li><strong>直接引用 15個・エピソード 8本</strong>を構造化（X投稿即素材）</li>
+    <li><strong>重要発見</strong>：「コーポレートドリブン」「物差し」は本人の口頭発言にゼロ／AI言及もゼロ</li>
+    <li>5/20 MTGでは <strong>B案/C案の選定 + L3最終確定 + 翻訳ブリッジ合意</strong>を主目的とする</li>
+  </ul>
+</div>
+
+<section id="s0">
+  <h2><span class="num">0</span>設計思想</h2>
+  <div class="alert a-info">
+    <strong>コアコンセプト</strong>
+    実在のn=1ペルソナを指名し、その人の朝7:30のタイムラインに割り込む発信をする。
+  </div>
+</section>
+
+<section id="s1">
+  <h2><span class="num">1</span>目的・KPI</h2>
+  <table>
+    <thead>
+      <tr><th style="width:140px">区分</th><th>指標</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><span class="badge b-warning">Primary</span></td><td>プロフィールクリック数／保存数／平均視聴時間・完了率</td></tr>
+      <tr><td><span class="badge b-info">Secondary</span></td><td>「グローウィン・パートナーズ」「佐野哲哉」指名検索数／商談時"Xを見て"率</td></tr>
+      <tr><td><span class="badge b-muted">Tertiary</span></td><td>CFO EDGE 流入数／記事DL数</td></tr>
+      <tr><td><span class="badge b-danger">見ない</span></td><td>フォロワー数／いいね数</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s2">
+  <h2><span class="num">2</span>想起ワード設計</h2>
+
+  <h3>想起ワード3層構造</h3>
+  <table>
+    <thead>
+      <tr><th>層</th><th>現状候補</th><th>X直近7日</th><th>Google Trends</th><th>状態</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>L1（会社）</strong></td>
+        <td><span class="keyword-accent">コーポレートドリブン経営</span></td>
+        <td>0件</td>
+        <td>データなし</td>
+        <td><span class="badge b-success">確定</span><br><small>完全ブルーオーシャン</small></td>
+      </tr>
+      <tr>
+        <td><strong>L2（ドメイン）</strong></td>
+        <td>「経営企画 × AI」<br>または「コーポレート部門 × AI」</td>
+        <td>多数</td>
+        <td>経営企画 72.9<br>コーポレート部門 29.6</td>
+        <td><span class="badge b-warning">B/C案で位置づけ変わる</span></td>
+      </tr>
+      <tr>
+        <td><strong>L3（個人）</strong></td>
+        <td><span class="keyword-accent">コーポレートを愛しすぎて<br>経営者になってしまった人</span></td>
+        <td>—</td>
+        <td>—</td>
+        <td><span class="badge b-warning">動画分析で最有力</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>B案・C案の整理</h3>
+  <p style="color: var(--text-muted); font-size: 14px;">5/14 野村様メールの「B案とC案の違いは何か」への回答。詳細は別資料『2026-05-20_glowin-b-vs-c-explanation』参照。</p>
+  <table>
+    <thead>
+      <tr><th style="width:120px">案</th><th>一言で言うと</th><th>投稿配分</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>B案</strong></td>
+        <td>L2で短期勝負（リーチ最大化・独自旗は弱まる）</td>
+        <td>L1 20% / L2 60% / L3 20%</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>C案 ⭐</strong></td>
+        <td>L1で長期勝負・L2を入口に使う（漏斗設計・独自性維持）</td>
+        <td>L1 40% / L2 35% / L3 25%</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="alert a-success">
+    <strong>雲孫推奨：C案</strong>
+    「コーポレートドリブン経営」は note でも X でも 0 件＝Glowinが日本で最初の発信者になれる独占ポジション。これを使わない手はない。
+  </div>
+
+  <h3>動画分析からの重大な発見</h3>
+  <div class="alert a-danger">
+    <strong>佐野様本人の口頭発言に登場しない語彙</strong>
+    動画2本（合計32分）の発話を全分析した結果、ブランド概念定義書側の主要語彙が一度も発話されていないことが判明。
+  </div>
+  <table>
+    <thead>
+      <tr><th>ブランド概念定義書側の語彙</th><th>動画での出現</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>「コーポレートドリブン」</td><td><span class="badge b-soft-danger">ゼロ</span></td></tr>
+      <tr><td>「物差し」</td><td><span class="badge b-soft-danger">ゼロ</span></td></tr>
+      <tr><td>「仕組み」</td><td><span class="badge b-soft-danger">ほぼゼロ</span></td></tr>
+      <tr><td>「AI」</td><td><span class="badge b-soft-danger">ゼロ（一度も発話なし）</span></td></tr>
+    </tbody>
+  </table>
+
+  <h4>代わりに佐野様が頻発している語彙 TOP10</h4>
+  <table>
+    <thead>
+      <tr><th style="width:60px">#</th><th>キーワード</th><th>用途</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td><span class="keyword-accent">成長と成功</span>（を支援する／共創する）</td><td>経営理念の核</td></tr>
+      <tr><td>2</td><td><span class="keyword-accent">真のプロフェッショナル</span></td><td>自己定義</td></tr>
+      <tr><td>3</td><td><span class="keyword-accent">楽しむ／ポジティブに乗り越える</span></td><td>行動指針</td></tr>
+      <tr><td>4</td><td><span class="keyword-accent">プラットフォーム</span></td><td>創業動機</td></tr>
+      <tr><td>5</td><td><span class="keyword-accent">中堅さん／中堅企業</span></td><td>ターゲット</td></tr>
+      <tr><td>6</td><td><span class="keyword-accent">先導し、伴走し、寄り添い、後押しする</span></td><td>支援スタイル</td></tr>
+      <tr><td>7</td><td><span class="keyword-accent">答えは自分の中にある</span></td><td>自立を促す口癖</td></tr>
+      <tr><td>8</td><td><span class="keyword-accent">ゼロベースで／ベストウェイ</span></td><td>標準化・効率化</td></tr>
+      <tr><td>9</td><td><span class="keyword-accent">平々凡々な人間</span></td><td>自己謙遜</td></tr>
+      <tr><td>10</td><td><span class="keyword-accent">めちゃくちゃ</span></td><td>強調する話し言葉</td></tr>
+    </tbody>
+  </table>
+
+  <h3>翻訳ブリッジ表（v0.3新設）</h3>
+  <div class="alert a-info">
+    <strong>運用ルール</strong>
+    ブランド概念定義書の語彙と、佐野様本人の口頭表現を 1対1 で対応させる翻訳辞書。
+    投稿生成時は <strong>佐野様の語彙を優先</strong> し、ブランド概念は文脈で滲ませる。
+  </div>
+  <table>
+    <thead>
+      <tr><th>ブランド概念語彙</th><th>佐野様の口頭表現</th><th>投稿での使い方</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>コーポレートドリブン経営</strong></td>
+        <td>「コーポレート（バックオフィス）の真の価値」<br>「成長と成功を支援する」</td>
+        <td>L1旗は記事タイトル・固定ポストのみ。<br>日常投稿は本人表現</td>
+      </tr>
+      <tr>
+        <td><strong>物差し／仕組み</strong></td>
+        <td>「ベストウェイ」「ゼロベースで」<br>「みんなが幸せに働ける環境」</td>
+        <td>「物差し」は使わず<br>「ベストウェイ」で代替</td>
+      </tr>
+      <tr>
+        <td><strong>AI活用</strong></td>
+        <td>（本人の文脈に存在しない）</td>
+        <td>L2の「経営企画×AI」は記事題材に限定。<br>本人語りには入れない</td>
+      </tr>
+      <tr>
+        <td><strong>バックオフィスDX</strong></td>
+        <td>「コーポレート（バックオフィス）」<br>「真のプロフェッショナルとして<br>バック室の人間として何をやるべきか」</td>
+        <td>DX語を避け<br>「真のプロフェッショナル」で表現</td>
+      </tr>
+      <tr>
+        <td><strong>中堅企業</strong></td>
+        <td>「中堅さん」「中堅企業」<br>「困ってる方が即目の前にいらっしゃる」</td>
+        <td>そのまま使用OK</td>
+      </tr>
+      <tr>
+        <td><strong>経営参謀</strong></td>
+        <td>「経営参謀を創出するプラットフォーム」</td>
+        <td>そのまま使用OK</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>L3 最有力候補</h3>
+  <table>
+    <thead>
+      <tr><th>候補</th><th>評価</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AIおじさんテツ｜元Big4会計士</td>
+        <td><span class="badge b-danger">却下</span> 「AI」は動画に一切出てこない／本人の語りに無い</td>
+      </tr>
+      <tr class="highlight">
+        <td><strong>コーポレートを愛しすぎて経営者になってしまった人 ⭐</strong></td>
+        <td><span class="badge b-success">最有力</span> 雑務全部一人で担った原体験／コーポレートイノベーションのパーパスと一致</td>
+      </tr>
+      <tr>
+        <td>経営正論パンチで自社を殴り続ける経営者</td>
+        <td><span class="badge b-danger">却下</span> 攻撃的でない／ポジティブ・楽しむ重視のスタイルと乖離</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>この2つ名が刺さる根拠</h4>
+  <ol class="pin-list">
+    <li>30歳でITベンチャーCFO参画時「経理・人事・総務・法務・情シス・経企を <strong>一人で</strong>」やった原体験＝まさに「コーポレートを愛しすぎた」エピソード</li>
+    <li>「全くなき道をどうやって進むかっていうことを、もう <strong>羅針盤もない状態で、大海原に漕ぎ出す</strong> というようなことをやっていきました」＝コーポレート愛が経営者誕生のきっかけ</li>
+    <li>2017末「<strong>コーポレートイノベーションの創造へ</strong>」パーパス策定＝会社哲学そのもの</li>
+  </ol>
+
+  <div class="alert a-warning">
+    <strong>5/20 MTGで佐野様に最終確認</strong>
+    v0.2 で出した14案は破棄。この1本に絞って合意を取る。
+  </div>
+</section>
+
+<section id="s3">
+  <h2><span class="num">3</span>発信者プロフィール</h2>
+
+  <h3>発信主体</h3>
+  <ul>
+    <li><strong>第一候補：</strong>佐野 哲哉 様（代表取締役CEO・公認会計士）</li>
+    <li><strong>形式：</strong>個人アカウント＋会社名併記<br>例：<span class="keyword">佐野哲哉｜グローウィン・パートナーズ</span></li>
+  </ul>
+
+  <h3>発信哲学 400字</h3>
+  <p style="color: var(--text-muted); font-size: 14px;">動画から抽出した佐野様のお言葉ベースで、3パートに構造化。</p>
+  <div class="philosophy-grid">
+    <div class="philosophy-card">
+      <span class="icon">💭</span>
+      <h4>信じていること</h4>
+      <p>答えは常に自分の中にあり、困難な状況も気持ち次第でポジティブに乗り越えられ、成長の糧になると信じている。また、高度な知識を誇示するのではなく、目の前で困っている人から「ありがとう」と言われることこそが「真のプロフェッショナル」であると確信。</p>
+    </div>
+    <div class="philosophy-card">
+      <span class="icon">❓</span>
+      <h4>問い続けていること</h4>
+      <p>過去のやり方や現状に甘んじることなく、「わからないからやれない」ではなく「どうやったらできるようになるのか」、そして「常にゼロベースで何がベストウェイか」を自らと組織に問い続けている。</p>
+    </div>
+    <div class="philosophy-card">
+      <span class="icon">🎯</span>
+      <h4>誰のために何を実現したいか</h4>
+      <p>社会へのインパクトが最も大きい「中堅企業」の変革に伴走すること。そして、バックオフィスを含めた「関わる全ての人」が経営参謀として育つ環境を創り、彼らと共に未来の「成長と成功」を実現して社会をより良くすることを目指している。</p>
+    </div>
+  </div>
+
+  <h3>経歴・キャリア</h3>
+  <ul class="timeline">
+    <li><span class="year">1970</span><span class="event">長野県生まれ</span></li>
+    <li><span class="year">1986頃</span><span class="event">高1で父他界・「ちゃんとした大学に行って、ちゃんとした会社に」の遺言</span></li>
+    <li><span class="year">1998頃</span><span class="event">監査法人M&A専門部署 <strong>立ち上げ10人目</strong></span></li>
+    <li><span class="year">1999</span><span class="event">大学卒業＋公認会計士試験合格、監査法人入社</span></li>
+    <li><span class="year">2000<br>30歳</span><span class="event">ITベンチャー創業CFO参画／VCから <strong>20億円調達</strong><br>経理・人事・総務・法務・情シス・経企を一人で</span></li>
+    <li><span class="year">2005</span><span class="event">ITベンチャー退社（上場2年延期）</span></li>
+    <li><span class="year">2005-08-01</span><span class="event"><strong>グローウィン・パートナーズ設立</strong></span></li>
+    <li><span class="year">2017末</span><span class="event">「コーポレートイノベーションの創造へ」パーパス策定</span></li>
+  </ul>
+
+  <h3>業界・常識への異論（差別化発信ネタ）</h3>
+  <ol class="pin-list">
+    <li><strong>大企業向けコンサルへの疑問：</strong>「巨大企業であれば優秀な人たちがたくさんいて何を手伝ってんのかよくわかんない」→ 中堅にこだわる</li>
+    <li><strong>プロフェッショナルの定義への異論：</strong>「何も難しいことを知っているのがプロフェッショナルだとは僕は全然思っていない」「困った方が、ありがとうと言ってもらえるサービスを提供できるのがプロ」</li>
+    <li><strong>CFOというスマートなイメージへの違和感：</strong>「当時そういう言葉も実はあまり一般的ではなくて、なんか全部雑務をやる人っていう形で始めました」→ 泥臭い実体験</li>
+    <li><strong>前例踏襲への批判：</strong>「いや、そこはちょっと待ってくださいと、もっといい方法がありますよと言ってディスカッションして、もしそれが良ければ先輩はちゃんと受け入れるべきだ」</li>
+  </ol>
+</section>
+
+<section id="s4">
+  <h2><span class="num">4</span>ペルソナ</h2>
+  <div class="alert a-warning">
+    <strong>5/15 確定予定</strong>
+    変更なし — 詳細は v0.2 §4 参照。<br>
+    未確定論点：執行役員クラスに届けたいのか／担当一人に届けたいのか（先方内部MTGで決定）
+  </div>
+</section>
+
+<section id="s5">
+  <h2><span class="num">5</span>プロフィール5層（DIL川岸式）</h2>
+
+  <h3>バイオ案</h3>
+  <div class="bio-block">佐野哲哉｜グローウィン・パートナーズ代表 / 公認会計士
+コーポレートを愛しすぎて経営者になってしまった人
+中堅企業の成長と成功を、コーポレート（バックオフィス）から支援
+30歳でCFO参画→20億調達→2005創業</div>
+
+  <h3>固定ポスト案（5連投スレッド型）</h3>
+  <ol class="pin-list">
+    <li><strong>自己紹介：</strong>「コーポレートを愛しすぎて経営者になってしまった人、佐野です。30歳でITベンチャーのCFOになり、経理・人事・総務・法務・情シス・経企を一人でやった原体験から、2005年にグローウィン・パートナーズを作りました」</li>
+    <li><strong>信念：</strong>「何も難しいことを知っているのがプロフェッショナルだとは僕は全然思っていない。分かりやすく困った方が、ありがとうと言ってもらえるようなサービスを提供できるっていうのがプロだと僕は思っている」</li>
+    <li><strong>ターゲット：</strong>「巨大企業には優秀な人がたくさんいる。でも中堅企業は困ってる方が即目の前にいらっしゃる。だから僕らは中堅にこだわります」</li>
+    <li><strong>信条：</strong>「答えは全部自分の中にあると思っています。どうやってポジティブにその場を乗り越えていけるかは自分次第」</li>
+    <li><strong>CTA：</strong>「中堅企業のコーポレート機能を強くしていく実装ログを書きます。CFO EDGE で連載中」</li>
+  </ol>
+</section>
+
+<section id="s6">
+  <h2><span class="num">6</span>発信テーマ</h2>
+
+  <h3>テーマ比率（C案前提）</h3>
+  <table>
+    <thead>
+      <tr><th style="width:60px">#</th><th>テーマ</th><th style="width:100px">狙う層</th><th style="width:80px">比率</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>①</td><td>コーポレートドリブン経営の実装ログ（佐野様の哲学・経営観）</td><td><span class="badge b-info">L1</span></td><td><strong>40%</strong></td></tr>
+      <tr><td>②</td><td>経営企画×AI／コーポレート部門×AI のトレンド解釈</td><td><span class="badge b-info">L2</span></td><td><strong>35%</strong></td></tr>
+      <tr><td>③</td><td>佐野様の経歴・エピソード・人格</td><td><span class="badge b-info">L3</span></td><td><strong>25%</strong></td></tr>
+    </tbody>
+  </table>
+
+  <h3>投稿型と素材の対応</h3>
+  <table>
+    <thead>
+      <tr><th style="width:180px">型</th><th>素材</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>数字インパクト型</strong></td><td>「30歳でCFO・20億調達」「監査法人M&A部署10人目」</td></tr>
+      <tr><td><strong>問い返し型</strong></td><td>「答えは全部自分の中にあると思いませんか？」</td></tr>
+      <tr><td><strong>ビフォーアフター型</strong></td><td>「会計やらない会計士、になった理由」</td></tr>
+      <tr><td><strong>FAQ型</strong></td><td>「真のプロフェッショナルとは何か」</td></tr>
+      <tr><td><strong>引用RT型</strong></td><td>AIニュース＋佐野様視点コメント</td></tr>
+    </tbody>
+  </table>
+
+  <h3>直接引用 15個（X短文即素材）</h3>
+
+  <h4>マインドセット・困難への向き合い方</h4>
+  <div class="quotes quote-group">
+    <div class="quote-card">1年間で100仕事あったら2とか3くらいしか面白いと思える瞬間なんてないんだ。でもそれをもっと確率を上げたり、その2とか3ですら面白いと思えるためには、そうじゃない部分で一生懸命仕事をしないと、1つも面白い仕事は来ないし、自分のものにはずっとなんないんだぞ</div>
+    <div class="quote-card">辛い仕事にどういう風に向き合うかっていうのは、その人の気持ち次第でめちゃくちゃ変わる</div>
+    <div class="quote-card">わかんないからやれないじゃなくて、どうやったらできるようになるのかっていうことについて毎日毎日しながら前に進めるってことに対して、とても自分が成長させてもらった</div>
+    <div class="quote-card">明りのない、抜けないトンネルはない</div>
+    <div class="quote-card">どうやってポジティブにその場を乗り越えていけるかというのは自分次第です。答えは全部自分の中にあると思っています</div>
+    <div class="quote-card">お客様に叱られることもあるでしょう。上司に全部やり直しと言われて辛い目に会うこともあるでしょう。きっとただそれは皆さんが成長するそのチャンスだ</div>
+  </div>
+
+  <h4>経営者・プロとしての矜持</h4>
+  <div class="quotes quote-group">
+    <div class="quote-card">全くなき道をどうやって進むかっていうことを、もう羅針盤もない状態で、大海原に漕ぎ出すというようなことをやっていきました</div>
+    <div class="quote-card">自分みたいな平々凡々な人間が起業したり経営の意思決定に携われるってすごく面白いので、これをいろんな会社にお伝えしながら、なおかつその会社で働く人たちが将来育っていって、いろんな会社の参謀になっていくというようなプラットフォームみたいな会社を作ったら、自分一人でやるよりもよっぽど面白いことがたくさんできんじゃないか</div>
+    <div class="quote-card">全ての人の成長と成功を支援したいんだ。自分がやりたいことはこれだ</div>
+    <div class="quote-card">我々がお手伝いすることによって、もっとその先にある社会が良くなっていくのであれば、それはもうすなわち社会貢献じゃないか</div>
+    <div class="quote-card">常にゼロベースで何がベストウェイかっていうのを考える癖をつけていただきたい</div>
+  </div>
+
+  <h4>コーポレート（バックオフィス）・中堅企業</h4>
+  <div class="quotes quote-group">
+    <div class="quote-card">中堅さんは、困ってる方が即目の前にいらっしゃったり、時には社長さんを直接我々がサポートするというようなプロジェクトもあったり</div>
+    <div class="quote-card">何も難しいことを知っているのがプロフェッショナルだとは僕は全然思っていない。分かりやすく困った方が、ありがとうと言ってもらえるようなサービスを提供できるっていうのがプロだと僕は思っている</div>
+    <div class="quote-card">バックオフィスの人たちも、ここは真のプロフェッショナルとして自分はバック室の人間として今何をやるべきなのかというようなことを考えながら日々仕事をしていく</div>
+    <div class="quote-card">日本を支える企業、この変革を我々がお手伝いしよう</div>
+  </div>
+
+  <h3>エピソード 8本（X長文・YouTube動画素材）</h3>
+  <table>
+    <thead>
+      <tr><th style="width:60px">#</th><th>エピソード</th><th>教訓・X投稿フック</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>大阪→横浜 転校で「なんでやねん」が大ウケ</td><td>アウェイ環境への適応力</td></tr>
+      <tr><td>2</td><td>高1で父他界・遺言「ちゃんとした会社に」</td><td>目的意識の芽生え</td></tr>
+      <tr><td>3</td><td>大学受験失敗→公認会計士へ</td><td>「自分の人生は自分で決める」</td></tr>
+      <tr><td>4</td><td>監査法人入社初期「逃げの転職」→先輩の叱咤激励</td><td>100仕事の2-3しか面白くない／そうじゃない部分で一生懸命</td></tr>
+      <tr><td>5</td><td>M&A部署10人目で立ち上げ業務</td><td>コーポレートファイナンスの最前線</td></tr>
+      <tr><td>6</td><td>ITベンチャーCFOで20億調達／羅針盤なき大海原</td><td>バックオフィス泥臭い実体験</td></tr>
+      <tr><td>7</td><td>上場2年延期の失敗</td><td>独立の決断</td></tr>
+      <tr><td>8</td><td>パーパス策定時に現場から4つの支援スタイルが上がった</td><td>抽象化せず4つ全て採用＝「先導し、伴走し、寄り添い、後押しする」</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s7">
+  <h2><span class="num">7</span>投稿フォーマット・頻度</h2>
+
+  <h3>投稿頻度</h3>
+  <div class="grid-3">
+    <div class="info-card">
+      <h4>⚡ 1日 1〜3回</h4>
+      <p>佐野様はタイムイズマネー的・スピード重視のスタイル</p>
+    </div>
+    <div class="info-card">
+      <h4>📝 短文</h4>
+      <p>日次 2-3回</p>
+    </div>
+    <div class="info-card">
+      <h4>📰 長文記事型</h4>
+      <p>月 3-4本</p>
+    </div>
+  </div>
+
+  <h3>トーン</h3>
+  <ul>
+    <li>飾らない「泥臭さ」と「フラットな対話」</li>
+    <li>熱量高め＋「<span class="keyword-accent">めちゃくちゃ</span>」等のフランクな話し言葉</li>
+    <li>常にポジティブ</li>
+    <li>平々凡々な人間が、と自己謙遜しつつ本質を突く</li>
+  </ul>
+
+  <h3>カバー領域</h3>
+  <div class="grid-3">
+    <div class="info-card">
+      <h4>① コーポレートの真の価値</h4>
+      <p>バックオフィスの泥臭いリアル。例：「経理・人事・総務・法務・情シス・経企を一人でやった話」</p>
+    </div>
+    <div class="info-card">
+      <h4>② 中堅企業の変革</h4>
+      <p>コーポレートイノベーション。例：「巨大企業より中堅にこだわる理由」</p>
+    </div>
+    <div class="info-card">
+      <h4>③ 次世代マインドセット</h4>
+      <p>若手・次世代リーダーへ。例：「明りのない抜けないトンネルはない」</p>
+    </div>
+  </div>
+</section>
+
+<section id="s8">
+  <h2><span class="num">8</span>コンテンツ運用フロー</h2>
+  <div class="alert a-info">
+    <strong>変更なし</strong>
+    詳細は v0.2 §8 参照。Mac mini + AI下書き → Google Chat Bot → 本田様レビュー → X/YouTube自動投稿
+  </div>
+</section>
+
+<section id="s9">
+  <h2><span class="num">9</span>スケジュール</h2>
+  <table>
+    <thead>
+      <tr><th style="width:200px">期日</th><th>マイルストーン</th></tr>
+    </thead>
+    <tbody>
+      <tr class="highlight"><td><strong>5/20（水）15:00-16:00</strong></td><td>アカウント設計書 v1.0 ドラフトレビュー＋B/C案・L3最終確定</td></tr>
+      <tr><td>5/22（金）</td><td>アカウント設計書 v1.0 確定</td></tr>
+      <tr><td>5/29（木）</td><td>初週投稿20本素案＋自動投稿システムMVP稼働</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="s10">
+  <h2><span class="num">10</span>5/20 MTGで合意したい論点</h2>
+  <ol class="pin-list">
+    <li><strong>発信主体：</strong>佐野様で確定（5/8議事録ベース） <span class="badge b-soft-success">✓ 済</span></li>
+    <li><strong>B案 vs C案の選定</strong>（雲孫推奨：C案） <span class="badge b-soft-warning">要合意</span></li>
+    <li><strong>L3「コーポレートを愛しすぎて経営者になってしまった人」</strong>で合意 <span class="badge b-soft-warning">要合意</span></li>
+    <li><strong>翻訳ブリッジ表の承認</strong>：投稿生成時は佐野様の口頭表現を優先 <span class="badge b-soft-warning">要合意</span></li>
+    <li><strong>発信哲学400字の佐野様による校正</strong> <span class="badge b-soft-warning">要合意</span></li>
+    <li><strong>固定ポスト5連投案のレビュー</strong> <span class="badge b-soft-warning">要合意</span></li>
+    <li><strong>ペルソナの絞り込み</strong>（先方内部MTGで決定済か確認） <span class="badge b-soft-warning">要合意</span></li>
+    <li><strong>投稿頻度の合意</strong>（1日1-3回案） <span class="badge b-soft-warning">要合意</span></li>
+    <li><strong>CFO EDGE Search Console提供依頼</strong> <span class="badge b-soft-warning">要合意</span></li>
+  </ol>
+</section>
+
+<section id="s11">
+  <h2><span class="num">11</span>5/20 までに佐藤側で完了するタスク</h2>
+  <ul class="checklist">
+    <li class="done">動画分析の取り込み（§2.5-2.7、§3.2-3.4、§6.3-6.4）</li>
+    <li class="done">B案/C案の整理ペーパー作成</li>
+    <li class="done">翻訳ブリッジ表の作成（§2.6）</li>
+    <li class="done">L3最有力候補絞り込み（§2.7）</li>
+    <li class="done">直接引用15個＋エピソード8本の構造化（§6.3-6.4）</li>
+    <li>5/20 MTG進行台本の作成</li>
+    <li>野村様への v0.3 共有メール下書き</li>
+  </ul>
+</section>
+
+<footer>
+  v0.3 — 2026-05-14 — 佐藤 圭吾<br>
+  グローウィン・パートナーズ株式会社 × 雲孫合同会社 × BAAO
+</footer>
+
+</main>
+</div>
+
+</body>
+</html>
