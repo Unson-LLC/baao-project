@@ -1,0 +1,4 @@
+interface:
+  display_name: "BAAO Live Materials"
+  short_description: "Make BAAO live Notion materials."
+  default_prompt: "BAAO稽古ライブ用のNotion貼り付け資料を作って"
