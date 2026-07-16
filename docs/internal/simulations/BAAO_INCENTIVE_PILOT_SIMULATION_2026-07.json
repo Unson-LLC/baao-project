@@ -11,7 +11,11 @@
     "Personal KG was unavailable with 401, so no private preference was imputed as fact.",
     "All monetary values, probabilities, hours, and fairness scores are explicit hypotheses.",
     "A completed flow requires provider acceptance, BAAO non-negative modeled total value, and any required customer permission.",
-    "Immediate cash excludes expected future license sales. Total value includes the modeled content or license asset value."
+    "Immediate cash excludes expected future license sales. Total value includes the modeled content or license asset value.",
+    "The cash-guarded regime replaces modeled asset value with realized gross profit for BAAO acceptance.",
+    "Cash-guarded Knowledge and Sponsored Case transactions count only after the required customer or sponsor cash has been received in full.",
+    "Every completed cash-guarded transaction must have non-negative realized gross profit and at least a 20% gross margin.",
+    "Every cash-guarded offer charges a non-refundable scoping fee with at least a 20% modeled gross margin; the fee is credited to the final price if the transaction proceeds."
   ],
   "candidateRateCardYen": {
     "referral": {
@@ -26,7 +30,23 @@
     "knowledgeModuleRoyalty": "20% of net sales",
     "knowledgeRoyaltyMinimumGuarantee": 300000,
     "knowledgeRoyaltyShare": "40% of net sales, minimum guarantee recoupable",
-    "fullPlaybookRule": "More than 16 author hours requires an individually scoped quote; do not bundle it with Case Listing."
+    "fullPlaybookRule": "More than 16 author hours requires an individually scoped quote; do not bundle it with Case Listing.",
+    "cashGuardedPilot": {
+      "coDeliveryStandard": 600000,
+      "sponsoredCommissionedCase": 400000,
+      "verifiedCaseLite": 60000,
+      "verifiedCaseStandard": 150000,
+      "enterpriseKnowledgeCommittedLicenseRevenue": 950000,
+      "partnerKnowledgeCommittedPreorders": 600000,
+      "minimumGrossMarginRate": "20%",
+      "scopingFees": {
+        "caseReview": 15000,
+        "coDeliveryOrSponsoredCase": 30000,
+        "knowledgeProduct": 45000
+      },
+      "scopingFeeRule": "Collect a non-refundable scoping fee with at least a 20% modeled gross margin and credit it to the final price if the transaction proceeds.",
+      "fundingRule": "Do not start Sponsored Case or Knowledge production before the required customer or sponsor cash has been received in full."
+    }
   },
   "profiles": [
     {
@@ -123,7 +143,9 @@
       "permissionProbability": {
         "bundledCase": 0.35,
         "granularCase": 0.65,
-        "granularKnowledge": 0.2
+        "granularKnowledge": 0.2,
+        "sponsoredCaseFunding": 0.25,
+        "knowledgePreFunding": 0
       }
     },
     "enterprise_co_delivery": {
@@ -182,7 +204,9 @@
       "permissionProbability": {
         "bundledCase": 0.25,
         "granularCase": 0.55,
-        "granularKnowledge": 0.3
+        "granularKnowledge": 0.3,
+        "sponsoredCaseFunding": 0,
+        "knowledgePreFunding": 0.35
       }
     },
     "external_partner_referral": {
@@ -241,7 +265,9 @@
       "permissionProbability": {
         "bundledCase": 0.45,
         "granularCase": 0.72,
-        "granularKnowledge": 0.5
+        "granularKnowledge": 0.5,
+        "sponsoredCaseFunding": 0,
+        "knowledgePreFunding": 0.4
       }
     }
   },
@@ -254,6 +280,22 @@
         "p10": 364941,
         "median": 442399,
         "p90": 462029
+      },
+      "completedFlowCashP10YenByOption": {
+        "cbaa_12pct_nsr": -126034,
+        "delivery_bundled_into_cbaa": 0,
+        "referral_10pct_gcv_12m": 431407
+      },
+      "completedFlowGrossMarginP10ByOption": {},
+      "offeredFlowCashP10YenByOption": {
+        "cbaa_12pct_nsr": -27695,
+        "delivery_bundled_into_cbaa": 0,
+        "referral_10pct_gcv_12m": 431407
+      },
+      "offeredFlowCashMeanYenByOption": {
+        "cbaa_12pct_nsr": -6970,
+        "delivery_bundled_into_cbaa": 0,
+        "referral_10pct_gcv_12m": 445938
       },
       "baaoTotalValueYenAcross3Cases": {
         "p10": 433007,
@@ -279,7 +321,12 @@
       "stopConditionProxy": {
         "fairnessMedianBelow4": true,
         "medianCaseOpsAbove8Hours": true,
-        "distributionSlaBelow90Pct": true
+        "distributionSlaBelow90Pct": true,
+        "portfolioCashP10BelowZero": false,
+        "anyCompletedFlowCashP10BelowZero": true,
+        "anyCompletedFlowGrossMarginP10Below20Pct": false,
+        "anyOfferedFlowCashP10BelowZero": true,
+        "anyOfferedFlowCashMeanBelowZero": true
       }
     },
     "v1_2": {
@@ -290,6 +337,22 @@
         "p10": 326553,
         "median": 446698,
         "p90": 561660
+      },
+      "completedFlowCashP10YenByOption": {
+        "listing_case_only_50k": -117250,
+        "co_delivery_standard_500k": 94063,
+        "referral_10pct_gcv_12m": 431431
+      },
+      "completedFlowGrossMarginP10ByOption": {},
+      "offeredFlowCashP10YenByOption": {
+        "listing_case_only_50k": -111790,
+        "co_delivery_standard_500k": 94063,
+        "referral_10pct_gcv_12m": 431431
+      },
+      "offeredFlowCashMeanYenByOption": {
+        "listing_case_only_50k": -50494,
+        "co_delivery_standard_500k": 150239,
+        "referral_10pct_gcv_12m": 445894
       },
       "baaoTotalValueYenAcross3Cases": {
         "p10": 731945,
@@ -315,7 +378,12 @@
       "stopConditionProxy": {
         "fairnessMedianBelow4": false,
         "medianCaseOpsAbove8Hours": true,
-        "distributionSlaBelow90Pct": true
+        "distributionSlaBelow90Pct": true,
+        "portfolioCashP10BelowZero": false,
+        "anyCompletedFlowCashP10BelowZero": true,
+        "anyCompletedFlowGrossMarginP10Below20Pct": false,
+        "anyOfferedFlowCashP10BelowZero": true,
+        "anyOfferedFlowCashMeanBelowZero": true
       }
     },
     "proposed_v2_initial": {
@@ -326,6 +394,32 @@
         "p10": 289625,
         "median": 543072,
         "p90": 659082
+      },
+      "completedFlowCashP10YenByOption": {
+        "commissioned_case_author_fee_150k": -310145,
+        "co_delivery_standard_500k": 94406,
+        "verified_case_lite_60k": 2393,
+        "referral_10pct_gcv_12m": 431663,
+        "verified_case_standard_150k": -10410
+      },
+      "completedFlowGrossMarginP10ByOption": {},
+      "offeredFlowCashP10YenByOption": {
+        "commissioned_case_author_fee_150k": -300844,
+        "co_delivery_standard_500k": 94406,
+        "verified_case_lite_60k": 0,
+        "knowledge_fixed_200k_plus_20pct": 0,
+        "referral_10pct_gcv_12m": 431663,
+        "verified_case_standard_150k": -7208,
+        "knowledge_40pct_royalty_no_advance": 0
+      },
+      "offeredFlowCashMeanYenByOption": {
+        "commissioned_case_author_fee_150k": -130735,
+        "co_delivery_standard_500k": 149711,
+        "verified_case_lite_60k": 6686,
+        "knowledge_fixed_200k_plus_20pct": 0,
+        "referral_10pct_gcv_12m": 446044,
+        "verified_case_standard_150k": 12496,
+        "knowledge_40pct_royalty_no_advance": 0
       },
       "baaoTotalValueYenAcross3Cases": {
         "p10": 683086,
@@ -351,7 +445,12 @@
       "stopConditionProxy": {
         "fairnessMedianBelow4": false,
         "medianCaseOpsAbove8Hours": true,
-        "distributionSlaBelow90Pct": false
+        "distributionSlaBelow90Pct": false,
+        "portfolioCashP10BelowZero": false,
+        "anyCompletedFlowCashP10BelowZero": true,
+        "anyCompletedFlowGrossMarginP10Below20Pct": false,
+        "anyOfferedFlowCashP10BelowZero": true,
+        "anyOfferedFlowCashMeanBelowZero": true
       }
     },
     "proposed_v2_revised": {
@@ -362,6 +461,34 @@
         "p10": -169039,
         "median": 297578,
         "p90": 660923
+      },
+      "completedFlowCashP10YenByOption": {
+        "commissioned_case_author_fee_150k": -309133,
+        "co_delivery_standard_500k": 94148,
+        "verified_case_lite_60k": 24000,
+        "knowledge_module_400k_plus_20pct": -515124,
+        "referral_10pct_gcv_12m": 431577,
+        "verified_case_standard_150k": 54000,
+        "knowledge_300k_minimum_against_40pct": -403097
+      },
+      "completedFlowGrossMarginP10ByOption": {},
+      "offeredFlowCashP10YenByOption": {
+        "commissioned_case_author_fee_150k": -299796,
+        "co_delivery_standard_500k": 94148,
+        "verified_case_lite_60k": 0,
+        "knowledge_module_400k_plus_20pct": -499374,
+        "referral_10pct_gcv_12m": 431577,
+        "verified_case_standard_150k": 0,
+        "knowledge_300k_minimum_against_40pct": -394801
+      },
+      "offeredFlowCashMeanYenByOption": {
+        "commissioned_case_author_fee_150k": -134245,
+        "co_delivery_standard_500k": 149923,
+        "verified_case_lite_60k": 13202,
+        "knowledge_module_400k_plus_20pct": -116524,
+        "referral_10pct_gcv_12m": 445988,
+        "verified_case_standard_150k": 37109,
+        "knowledge_300k_minimum_against_40pct": -140040
       },
       "baaoTotalValueYenAcross3Cases": {
         "p10": 839496,
@@ -387,7 +514,89 @@
       "stopConditionProxy": {
         "fairnessMedianBelow4": false,
         "medianCaseOpsAbove8Hours": false,
-        "distributionSlaBelow90Pct": false
+        "distributionSlaBelow90Pct": false,
+        "portfolioCashP10BelowZero": true,
+        "anyCompletedFlowCashP10BelowZero": true,
+        "anyCompletedFlowGrossMarginP10Below20Pct": false,
+        "anyOfferedFlowCashP10BelowZero": true,
+        "anyOfferedFlowCashMeanBelowZero": true
+      }
+    },
+    "proposed_v2_cash_guarded": {
+      "expectedPublishedCasesOutOf3": 1.4,
+      "expectedLicensedKnowledgeAssetsOutOf2Offers": 0.27,
+      "commercialFlowCompletionRate": 1,
+      "baaoImmediateCashYenAcross3Cases": {
+        "p10": 687211,
+        "median": 773355,
+        "p90": 961017
+      },
+      "completedFlowCashP10YenByOption": {
+        "sponsored_commissioned_case_400k": 82000,
+        "co_delivery_standard_600k_cash_guarded": 169887,
+        "verified_case_lite_60k_cash_guarded": 12000,
+        "prefunded_knowledge_module_950k_400k_plus_20pct": 208708,
+        "referral_10pct_gcv_12m_cash_guarded": 431695,
+        "verified_case_standard_150k_cash_guarded": 42000,
+        "prefunded_knowledge_preorders_600k_300k_minimum_40pct": 161398
+      },
+      "completedFlowGrossMarginP10ByOption": {
+        "sponsored_commissioned_case_400k": 0.205,
+        "co_delivery_standard_600k_cash_guarded": 0.2831,
+        "verified_case_lite_60k_cash_guarded": 0.2,
+        "prefunded_knowledge_module_950k_400k_plus_20pct": 0.2197,
+        "referral_10pct_gcv_12m_cash_guarded": 0.8634,
+        "verified_case_standard_150k_cash_guarded": 0.28,
+        "prefunded_knowledge_preorders_600k_300k_minimum_40pct": 0.269
+      },
+      "offeredFlowCashP10YenByOption": {
+        "sponsored_commissioned_case_400k": 6000,
+        "co_delivery_standard_600k_cash_guarded": 169887,
+        "verified_case_lite_60k_cash_guarded": 3000,
+        "prefunded_knowledge_module_950k_400k_plus_20pct": 9000,
+        "referral_10pct_gcv_12m_cash_guarded": 431695,
+        "verified_case_standard_150k_cash_guarded": 3000,
+        "prefunded_knowledge_preorders_600k_300k_minimum_40pct": 9000
+      },
+      "offeredFlowCashMeanYenByOption": {
+        "sponsored_commissioned_case_400k": 21016,
+        "co_delivery_standard_600k_cash_guarded": 225828,
+        "verified_case_lite_60k_cash_guarded": 7892,
+        "prefunded_knowledge_module_950k_400k_plus_20pct": 30925,
+        "referral_10pct_gcv_12m_cash_guarded": 446113,
+        "verified_case_standard_150k_cash_guarded": 29957,
+        "prefunded_knowledge_preorders_600k_300k_minimum_40pct": 38746
+      },
+      "baaoTotalValueYenAcross3Cases": {
+        "p10": 687211,
+        "median": 773355,
+        "p90": 961017
+      },
+      "opsHoursAcross3Cases": {
+        "p10": 47.3,
+        "median": 56.2,
+        "p90": 66.8
+      },
+      "fairnessProxy7Point": {
+        "p10": 5,
+        "median": 5.6,
+        "p90": 6.2
+      },
+      "caseOpsHoursWhenPublished": {
+        "p10": 3,
+        "median": 8,
+        "p90": 8
+      },
+      "distributionSlaRate": 0.9504,
+      "stopConditionProxy": {
+        "fairnessMedianBelow4": false,
+        "medianCaseOpsAbove8Hours": false,
+        "distributionSlaBelow90Pct": false,
+        "portfolioCashP10BelowZero": false,
+        "anyCompletedFlowCashP10BelowZero": false,
+        "anyCompletedFlowGrossMarginP10Below20Pct": false,
+        "anyOfferedFlowCashP10BelowZero": false,
+        "anyOfferedFlowCashMeanBelowZero": false
       }
     }
   },
@@ -425,6 +634,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -450,6 +685,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -485,6 +746,32 @@
               "median": 399890,
               "p90": 516434
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 8.7,
               "median": 10.9,
@@ -510,6 +797,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -587,6 +900,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -614,6 +953,32 @@
               "p90": 0
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": 0,
               "median": 0,
               "p90": 0
@@ -649,6 +1014,32 @@
               "median": 484596,
               "p90": 682702
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 36.3,
               "median": 41.7,
@@ -674,6 +1065,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -753,6 +1170,32 @@
               "median": 446040,
               "p90": 460226
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 3.3,
               "median": 4.5,
@@ -778,6 +1221,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -811,6 +1280,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -836,6 +1331,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -915,6 +1436,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -940,6 +1487,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -975,6 +1548,32 @@
               "median": 268009,
               "p90": 387442
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 8.6,
               "median": 11,
@@ -1000,6 +1599,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1077,6 +1702,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -1107,6 +1758,32 @@
               "p10": 94063,
               "median": 150339,
               "p90": 205844
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
             },
             "opsHoursWhenCompleted": {
               "p10": 24.5,
@@ -1139,6 +1816,32 @@
               "median": 454395,
               "p90": 654246
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 9.7,
               "median": 12.5,
@@ -1164,6 +1867,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1243,6 +1972,32 @@
               "median": 445929,
               "p90": 460465
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 3.3,
               "median": 4.5,
@@ -1268,6 +2023,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1303,6 +2084,32 @@
               "median": 256537,
               "p90": 385265
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 8.6,
               "median": 11,
@@ -1328,6 +2135,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1407,6 +2240,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -1432,6 +2291,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1467,6 +2352,32 @@
               "median": 110057,
               "p90": 196903
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 8.5,
               "median": 10.8,
@@ -1492,6 +2403,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1569,6 +2506,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -1599,6 +2562,32 @@
               "p10": 94406,
               "median": 149291,
               "p90": 205988
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
             },
             "opsHoursWhenCompleted": {
               "p10": 24.5,
@@ -1631,6 +2620,32 @@
               "median": 555759,
               "p90": 761372
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 3.2,
               "median": 4,
@@ -1661,6 +2676,32 @@
               "p10": null,
               "median": null,
               "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
             },
             "opsHoursWhenCompleted": {
               "p10": null,
@@ -1737,6 +2778,32 @@
               "median": 446091,
               "p90": 460380
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 3.3,
               "median": 4.5,
@@ -1762,6 +2829,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1797,6 +2890,32 @@
               "median": 360458,
               "p90": 485793
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 8.6,
               "median": 11,
@@ -1827,6 +2946,32 @@
               "p10": null,
               "median": null,
               "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
             },
             "opsHoursWhenCompleted": {
               "p10": null,
@@ -1903,6 +3048,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -1928,6 +3099,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -1963,6 +3160,32 @@
               "median": 111490,
               "p90": 198175
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 8.5,
               "median": 10.8,
@@ -1988,6 +3211,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -2065,6 +3314,32 @@
               "median": null,
               "p90": null
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
             "opsHoursWhenCompleted": {
               "p10": null,
               "median": null,
@@ -2095,6 +3370,32 @@
               "p10": 94148,
               "median": 149883,
               "p90": 206191
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
             },
             "opsHoursWhenCompleted": {
               "p10": 24.5,
@@ -2127,6 +3428,32 @@
               "median": 573123,
               "p90": 773891
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 3,
               "median": 3,
@@ -2157,6 +3484,32 @@
               "p10": 54132,
               "median": 246988,
               "p90": 416954
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
             },
             "opsHoursWhenCompleted": {
               "p10": 6.4,
@@ -2233,6 +3586,32 @@
               "median": 446023,
               "p90": 460488
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 3.3,
               "median": 4.5,
@@ -2258,6 +3637,32 @@
               "p90": null
             },
             "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
               "p10": null,
               "median": null,
               "p90": null
@@ -2293,6 +3698,32 @@
               "median": 392571,
               "p90": 522449
             },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
             "opsHoursWhenCompleted": {
               "p10": 8,
               "median": 8,
@@ -2323,6 +3754,32 @@
               "p10": 53710,
               "median": 263313,
               "p90": 427772
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
             },
             "opsHoursWhenCompleted": {
               "p10": 5.4,
@@ -2364,6 +3821,814 @@
           "p90": 8
         },
         "distributionSlaRate": 0.9533
+      }
+    },
+    "proposed_v2_cash_guarded": {
+      "murakami_unson_direct": {
+        "label": "村上案件型（雲孫が直接獲得・提供）",
+        "facts": {
+          "source": "雲孫側の直接接点",
+          "delivery": "雲孫",
+          "baaoLead": false,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "sponsored_commissioned_case_400k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 0.2512,
+            "customerPermissionRate": 0.6478,
+            "completionRate": 0.1635,
+            "providerUtilityYen": {
+              "p10": 150079,
+              "median": 257300,
+              "p90": 363730
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 82000,
+              "median": 94316,
+              "p90": 122639
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 82000,
+              "median": 94316,
+              "p90": 122639
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 400000,
+              "median": 400000,
+              "p90": 400000
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 277361,
+              "median": 305684,
+              "p90": 318000
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": 0.205,
+              "median": 0.2358,
+              "p90": 0.3066
+            },
+            "fundingSecuredRate": 0.2512,
+            "preflightCostYenWhenOffered": {
+              "p10": 24000,
+              "median": 24000,
+              "p90": 24000
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 30000,
+              "median": 30000,
+              "p90": 30000
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 10.6,
+              "median": 13,
+              "p90": 14
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 233694
+          },
+          "baaoImmediateCashYen": {
+            "p10": 6000,
+            "median": 6000,
+            "p90": 85951
+          },
+          "baaoTotalValueYen": {
+            "p10": 6000,
+            "median": 6000,
+            "p90": 85951
+          },
+          "opsHours": {
+            "p10": 2,
+            "median": 2,
+            "p90": 12.3
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": null,
+          "median": null,
+          "p90": null
+        },
+        "distributionSlaRate": 0.9596
+      },
+      "enterprise_co_delivery": {
+        "label": "BAAO関与エンタープライズ型（会員主契約＋監修）",
+        "facts": {
+          "source": "会員側の既存接点",
+          "delivery": "会員法人＋BAAO監修",
+          "baaoLead": false,
+          "baaoDelivery": true
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "co_delivery_standard_600k_cash_guarded": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 107320,
+              "median": 323001,
+              "p90": 545337
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 169887,
+              "median": 226167,
+              "p90": 281412
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 169887,
+              "median": 226167,
+              "p90": 281412
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 600000,
+              "median": 600000,
+              "p90": 600000
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 318588,
+              "median": 373835,
+              "p90": 430113
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": 0.2831,
+              "median": 0.3769,
+              "p90": 0.469
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 24000,
+              "median": 24000,
+              "p90": 24000
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 30000,
+              "median": 30000,
+              "p90": 30000
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 26.5,
+              "median": 31.2,
+              "p90": 35.8
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "verified_case_lite_60k_cash_guarded": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.5436,
+            "completionRate": 0.5436,
+            "providerUtilityYen": {
+              "p10": 194387,
+              "median": 356217,
+              "p90": 519681
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 12000,
+              "median": 12000,
+              "p90": 12000
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 12000,
+              "median": 12000,
+              "p90": 12000
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 60000,
+              "median": 60000,
+              "p90": 60000
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 48000,
+              "median": 48000,
+              "p90": 48000
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": 0.2,
+              "median": 0.2,
+              "p90": 0.2
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 12000,
+              "median": 12000,
+              "p90": 12000
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 15000,
+              "median": 15000,
+              "p90": 15000
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 4,
+              "median": 4,
+              "p90": 4
+            }
+          },
+          "knowledge": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "prefunded_knowledge_module_950k_400k_plus_20pct": 1
+            },
+            "providerAcceptanceRate": 0.9753,
+            "baaoAcceptanceRate": 0.3465,
+            "customerPermissionRate": 0.2974,
+            "completionRate": 0.0999,
+            "providerUtilityYen": {
+              "p10": 42310,
+              "median": 141718,
+              "p90": 227927
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 208708,
+              "median": 228857,
+              "p90": 248084
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 208708,
+              "median": 228857,
+              "p90": 248084
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 950000,
+              "median": 950000,
+              "p90": 950000
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 701916,
+              "median": 721143,
+              "p90": 741292
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": 0.2197,
+              "median": 0.2409,
+              "p90": 0.2611
+            },
+            "fundingSecuredRate": 0.3465,
+            "preflightCostYenWhenOffered": {
+              "p10": 36000,
+              "median": 36000,
+              "p90": 36000
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 45000,
+              "median": 45000,
+              "p90": 45000
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 9.3,
+              "median": 10.9,
+              "p90": 12.6
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 179583,
+            "median": 524161,
+            "p90": 885209
+          },
+          "baaoImmediateCashYen": {
+            "p10": 188346,
+            "median": 250119,
+            "p90": 316953
+          },
+          "baaoTotalValueYen": {
+            "p10": 188346,
+            "median": 250119,
+            "p90": 316953
+          },
+          "opsHours": {
+            "p10": 32.2,
+            "median": 37.4,
+            "p90": 43.1
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": 3,
+          "median": 3,
+          "p90": 3
+        },
+        "distributionSlaRate": 0.9479
+      },
+      "external_partner_referral": {
+        "label": "外部パートナー型（BAAO紹介＋パートナー提供）",
+        "facts": {
+          "source": "BAAOが新規接点を紹介",
+          "delivery": "外部パートナー",
+          "baaoLead": true,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "referral_10pct_gcv_12m_cash_guarded": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 1500000,
+              "median": 1500000,
+              "p90": 1500000
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 431695,
+              "median": 446190,
+              "p90": 460420
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 431695,
+              "median": 446190,
+              "p90": 460420
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 500000,
+              "median": 500000,
+              "p90": 500000
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 39580,
+              "median": 53812,
+              "p90": 68305
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": 0.8634,
+              "median": 0.8924,
+              "p90": 0.9208
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 3.3,
+              "median": 4.5,
+              "p90": 5.7
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "fundingSecuredRate": null,
+            "preflightCostYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "verified_case_standard_150k_cash_guarded": 1
+            },
+            "providerAcceptanceRate": 0.9586,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.7206,
+            "completionRate": 0.6912,
+            "providerUtilityYen": {
+              "p10": 44143,
+              "median": 204484,
+              "p90": 371197
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 42000,
+              "median": 42000,
+              "p90": 42000
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 42000,
+              "median": 42000,
+              "p90": 42000
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 150000,
+              "median": 150000,
+              "p90": 150000
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 108000,
+              "median": 108000,
+              "p90": 108000
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": 0.28,
+              "median": 0.28,
+              "p90": 0.28
+            },
+            "fundingSecuredRate": 1,
+            "preflightCostYenWhenOffered": {
+              "p10": 12000,
+              "median": 12000,
+              "p90": 12000
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 15000,
+              "median": 15000,
+              "p90": 15000
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 9,
+              "median": 9,
+              "p90": 9
+            }
+          },
+          "knowledge": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "prefunded_knowledge_preorders_600k_300k_minimum_40pct": 1
+            },
+            "providerAcceptanceRate": 0.833,
+            "baaoAcceptanceRate": 0.4075,
+            "customerPermissionRate": 0.5054,
+            "completionRate": 0.1736,
+            "providerUtilityYen": {
+              "p10": -16165,
+              "median": 51425,
+              "p90": 109508
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 161398,
+              "median": 180763,
+              "p90": 199221
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 161398,
+              "median": 180763,
+              "p90": 199221
+            },
+            "cashRevenueYenWhenCompleted": {
+              "p10": 600000,
+              "median": 600000,
+              "p90": 600000
+            },
+            "variableCostYenWhenCompleted": {
+              "p10": 400834,
+              "median": 419260,
+              "p90": 438665
+            },
+            "grossMarginRateWhenCompleted": {
+              "p10": 0.269,
+              "median": 0.3013,
+              "p90": 0.332
+            },
+            "fundingSecuredRate": 0.4075,
+            "preflightCostYenWhenOffered": {
+              "p10": 36000,
+              "median": 36000,
+              "p90": 36000
+            },
+            "preflightRevenueYenWhenOffered": {
+              "p10": 45000,
+              "median": 45000,
+              "p90": 45000
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8.4,
+              "median": 9.9,
+              "p90": 11.6
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 1500000,
+            "median": 1641611,
+            "p90": 1864187
+          },
+          "baaoImmediateCashYen": {
+            "p10": 454562,
+            "median": 494570,
+            "p90": 653663
+          },
+          "baaoTotalValueYen": {
+            "p10": 454562,
+            "median": 494570,
+            "p90": 653663
+          },
+          "opsHours": {
+            "p10": 8.1,
+            "median": 16.1,
+            "p90": 22
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": 8,
+          "median": 8,
+          "p90": 8
+        },
+        "distributionSlaRate": 0.9501
       }
     }
   }

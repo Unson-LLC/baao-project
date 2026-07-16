@@ -47,6 +47,8 @@ const profiles = [
       bundledCase: 0.35,
       granularCase: 0.65,
       granularKnowledge: 0.20,
+      sponsoredCaseFunding: 0.25,
+      knowledgePreFunding: 0,
     },
   },
   {
@@ -77,6 +79,8 @@ const profiles = [
       bundledCase: 0.25,
       granularCase: 0.55,
       granularKnowledge: 0.30,
+      sponsoredCaseFunding: 0,
+      knowledgePreFunding: 0.35,
     },
   },
   {
@@ -108,6 +112,8 @@ const profiles = [
       bundledCase: 0.45,
       granularCase: 0.72,
       granularKnowledge: 0.50,
+      sponsoredCaseFunding: 0,
+      knowledgePreFunding: 0.40,
     },
   },
 ];
@@ -117,6 +123,7 @@ const regimes = [
   'v1_2',
   'proposed_v2_initial',
   'proposed_v2_revised',
+  'proposed_v2_cash_guarded',
 ];
 
 function mulberry32(seed) {
@@ -152,6 +159,13 @@ function emptyFlow(reason) {
     providerUtility: 0,
     baaoImmediateCash: 0,
     baaoTotalValue: 0,
+    cashRevenue: 0,
+    variableCost: 0,
+    grossMarginRate: null,
+    fundingSecured: false,
+    baaoAcceptanceBasis: 'not_offered',
+    preflightCost: 0,
+    preflightRevenue: 0,
     opsHours: 0,
     caseOpsHours: 0,
     caseSlaApplies: false,
@@ -164,12 +178,29 @@ function offeredFlow({
   baaoImmediateCash,
   baaoTotalValue,
   opsHours,
+  cashRevenue = 0,
+  variableCost = 0,
+  fundingSecured = true,
+  baaoAcceptanceBasis = 'modeled_total_value',
+  minimumGrossMarginRate = null,
+  preflightCost = 0,
+  preflightRevenue = 0,
   caseOpsHours = 0,
   caseSlaApplies = caseOpsHours > 0,
   customerPermitted = true,
 }) {
   const providerAccepted = providerUtility >= 0;
-  const baaoAccepted = baaoTotalValue >= 0;
+  const grossMarginRate = cashRevenue > 0
+    ? (cashRevenue - variableCost) / cashRevenue
+    : null;
+  const cashGuardPassed =
+    fundingSecured &&
+    baaoImmediateCash >= 0 &&
+    (minimumGrossMarginRate === null ||
+      (grossMarginRate !== null && grossMarginRate >= minimumGrossMarginRate));
+  const baaoAccepted = baaoAcceptanceBasis === 'realized_cash_gross_profit'
+    ? cashGuardPassed
+    : baaoTotalValue >= 0;
   return {
     offered: true,
     reason: null,
@@ -181,10 +212,41 @@ function offeredFlow({
     providerUtility,
     baaoImmediateCash,
     baaoTotalValue,
+    cashRevenue,
+    variableCost,
+    grossMarginRate,
+    fundingSecured,
+    baaoAcceptanceBasis,
+    preflightCost,
+    preflightRevenue,
     opsHours,
     caseOpsHours,
     caseSlaApplies,
   };
+}
+
+function cashGuardedFlow({
+  cashRevenue,
+  variableCost,
+  preflightCost = 0,
+  minimumGrossMarginRate = 0.20,
+  preflightRevenue = preflightCost / (1 - minimumGrossMarginRate),
+  ...flow
+}) {
+  const totalVariableCost = variableCost + preflightCost;
+  const realizedGrossProfit = cashRevenue - totalVariableCost;
+  return offeredFlow({
+    ...flow,
+    baaoImmediateCash: realizedGrossProfit,
+    baaoTotalValue: realizedGrossProfit,
+    cashRevenue,
+    variableCost: totalVariableCost,
+    preflightCost,
+    preflightRevenue,
+    opsHours: flow.opsHours + preflightCost / BAAO_HOURLY_COST,
+    minimumGrossMarginRate,
+    baaoAcceptanceBasis: 'realized_cash_gross_profit',
+  });
 }
 
 function aliasFlow(source, option) {
@@ -199,6 +261,13 @@ function aliasFlow(source, option) {
     providerUtility: 0,
     baaoImmediateCash: 0,
     baaoTotalValue: 0,
+    cashRevenue: 0,
+    variableCost: 0,
+    grossMarginRate: null,
+    fundingSecured: source.fundingSecured,
+    baaoAcceptanceBasis: source.baaoAcceptanceBasis,
+    preflightCost: 0,
+    preflightRevenue: 0,
     opsHours: 0,
     caseOpsHours: 0,
     caseSlaApplies: false,
@@ -227,12 +296,22 @@ function sampleProfile(random, profile) {
   };
 }
 
-function referralFlow(profile, sample) {
+function referralFlow(profile, sample, cashGuarded = false) {
   if (!profile.facts.baaoLead) {
     return emptyFlow('BAAO did not originate the lead.');
   }
   const fee = profile.gcv * 0.10;
   const opsCost = sample.leadOpsHours * BAAO_HOURLY_COST;
+  if (cashGuarded) {
+    return cashGuardedFlow({
+      option: 'referral_10pct_gcv_12m_cash_guarded',
+      providerUtility: profile.nsr - fee,
+      cashRevenue: fee,
+      variableCost: opsCost,
+      preflightCost: 0,
+      opsHours: sample.leadOpsHours,
+    });
+  }
   return offeredFlow({
     option: 'referral_10pct_gcv_12m',
     providerUtility: profile.nsr - fee,
@@ -242,17 +321,137 @@ function referralFlow(profile, sample) {
   });
 }
 
-function coDeliveryFlow(profile, sample) {
+function coDeliveryFlow(profile, sample, cashGuarded = false) {
   if (!profile.facts.baaoDelivery) {
     return emptyFlow('BAAO has no pre-agreed delivery role.');
   }
-  const price = 500_000;
+  const price = cashGuarded ? 600_000 : 500_000;
+  if (cashGuarded) {
+    return cashGuardedFlow({
+      option: 'co_delivery_standard_600k_cash_guarded',
+      providerUtility: sample.supervisionValue - price,
+      cashRevenue: price,
+      variableCost: sample.deliveryCost,
+      preflightCost: 24_000,
+      opsHours: sample.deliveryCost / BAAO_HOURLY_COST,
+    });
+  }
   return offeredFlow({
     option: 'co_delivery_standard_500k',
     providerUtility: sample.supervisionValue - price,
     baaoImmediateCash: price - sample.deliveryCost,
     baaoTotalValue: price - sample.deliveryCost,
     opsHours: sample.deliveryCost / BAAO_HOURLY_COST,
+  });
+}
+
+function cashGuardedCaseFlow(random, profile, sample) {
+  const commonBenefit = sample.distributionValue + sample.brandValue;
+
+  if (profile.id === 'murakami_unson_direct') {
+    const sponsorFee = 400_000;
+    const honorarium = 150_000;
+    const labor = sample.providerCaseHours * sample.providerHourlyCost;
+    const caseOpsHours = Math.min(sample.baaoCaseHours, 12);
+    const opsCost = caseOpsHours * BAAO_HOURLY_COST;
+    return cashGuardedFlow({
+      option: 'sponsored_commissioned_case_400k',
+      providerUtility: commonBenefit + honorarium - labor,
+      cashRevenue: sponsorFee,
+      variableCost: honorarium + opsCost,
+      preflightCost: 24_000,
+      fundingSecured: chance(
+        random,
+        profile.permission.sponsoredCaseFunding,
+      ),
+      opsHours: caseOpsHours,
+      caseOpsHours,
+      caseSlaApplies: false,
+      customerPermitted: chance(random, profile.permission.granularCase),
+    });
+  }
+
+  if (profile.id === 'enterprise_co_delivery') {
+    const price = 60_000;
+    const liteProviderHours = sample.providerCaseHours * 0.55;
+    const labor = liteProviderHours * sample.providerHourlyCost;
+    const caseOpsHours = Math.min(sample.baaoCaseLiteHours, 3);
+    const opsCost = caseOpsHours * BAAO_HOURLY_COST;
+    return cashGuardedFlow({
+      option: 'verified_case_lite_60k_cash_guarded',
+      providerUtility: commonBenefit - price - labor,
+      cashRevenue: price,
+      variableCost: opsCost,
+      preflightCost: 12_000,
+      opsHours: caseOpsHours,
+      caseOpsHours,
+      customerPermitted: chance(random, profile.permission.granularCase),
+    });
+  }
+
+  const price = 150_000;
+  const labor = sample.providerCaseHours * sample.providerHourlyCost;
+  const caseOpsHours = Math.min(sample.baaoCaseHours, 8);
+  const opsCost = caseOpsHours * BAAO_HOURLY_COST;
+  return cashGuardedFlow({
+    option: 'verified_case_standard_150k_cash_guarded',
+    providerUtility: commonBenefit - price - labor,
+    cashRevenue: price,
+    variableCost: opsCost,
+    preflightCost: 12_000,
+    opsHours: caseOpsHours,
+    caseOpsHours,
+    customerPermitted: chance(random, profile.permission.granularCase),
+  });
+}
+
+function cashGuardedKnowledgeFlow(random, profile, sample) {
+  if (profile.id === 'murakami_unson_direct') {
+    return emptyFlow(
+      'Knowledge licensing is not offered without a pre-funded buyer.',
+    );
+  }
+
+  const labor =
+    sample.providerRecipeHours * 0.40 * sample.providerHourlyCost;
+  const opsCost = sample.baaoKnowledgeHours * BAAO_HOURLY_COST;
+  const controlledIpRisk = sample.ipRisk * 0.10;
+  const customerPermitted = chance(
+    random,
+    profile.permission.granularKnowledge,
+  );
+  const fundingSecured = chance(
+    random,
+    profile.permission.knowledgePreFunding,
+  );
+
+  if (profile.id === 'enterprise_co_delivery') {
+    const committedLicenseRevenue = 950_000;
+    const authorFee = 400_000;
+    const royalty = committedLicenseRevenue * 0.20;
+    return cashGuardedFlow({
+      option: 'prefunded_knowledge_module_950k_400k_plus_20pct',
+      providerUtility: authorFee + royalty - labor - controlledIpRisk,
+      cashRevenue: committedLicenseRevenue,
+      variableCost: authorFee + royalty + opsCost,
+      preflightCost: 36_000,
+      fundingSecured,
+      opsHours: sample.baaoKnowledgeHours,
+      customerPermitted,
+    });
+  }
+
+  const committedPreorders = 600_000;
+  const authorPayout = Math.max(300_000, committedPreorders * 0.40);
+  return cashGuardedFlow({
+    option: 'prefunded_knowledge_preorders_600k_300k_minimum_40pct',
+    providerUtility: authorPayout - labor - controlledIpRisk,
+    cashRevenue: committedPreorders,
+    variableCost: authorPayout + opsCost,
+    preflightCost: 36_000,
+    fundingSecured,
+    opsHours: sample.baaoKnowledgeHours,
+    customerPermitted,
   });
 }
 
@@ -494,6 +693,11 @@ function simulateRun(random, regime, profile) {
     flows.knowledge = flows.case.option === 'listing_free_with_case_recipe'
       ? aliasFlow(flows.case, 'knowledge_bundled_into_free_listing')
       : emptyFlow('The rationally selected case-only path does not include knowledge.');
+  } else if (regime === 'proposed_v2_cash_guarded') {
+    flows.lead = referralFlow(profile, sample, true);
+    flows.delivery = coDeliveryFlow(profile, sample, true);
+    flows.case = cashGuardedCaseFlow(random, profile, sample);
+    flows.knowledge = cashGuardedKnowledgeFlow(random, profile, sample);
   } else {
     const revised = regime === 'proposed_v2_revised';
     flows.lead = referralFlow(profile, sample);
@@ -508,15 +712,33 @@ function simulateRun(random, regime, profile) {
     0,
   );
   const baaoImmediateCashRealized = economicFlows.reduce(
-    (total, flow) => total + (flow.completed ? flow.baaoImmediateCash : 0),
+    (total, flow) =>
+      total +
+      (flow.completed
+        ? flow.baaoImmediateCash
+        : flow.offered
+          ? flow.preflightRevenue - flow.preflightCost
+          : 0),
     0,
   );
   const baaoTotalValueRealized = economicFlows.reduce(
-    (total, flow) => total + (flow.completed ? flow.baaoTotalValue : 0),
+    (total, flow) =>
+      total +
+      (flow.completed
+        ? flow.baaoTotalValue
+        : flow.offered
+          ? flow.preflightRevenue - flow.preflightCost
+          : 0),
     0,
   );
   const opsHoursRealized = economicFlows.reduce(
-    (total, flow) => total + (flow.completed ? flow.opsHours : 0),
+    (total, flow) =>
+      total +
+      (flow.completed
+        ? flow.opsHours
+        : flow.offered
+          ? flow.preflightCost / BAAO_HOURLY_COST
+          : 0),
     0,
   );
   const distributionProbability = {
@@ -524,6 +746,7 @@ function simulateRun(random, regime, profile) {
     v1_2: 0.78,
     proposed_v2_initial: 0.95,
     proposed_v2_revised: 0.95,
+    proposed_v2_cash_guarded: 0.95,
   }[regime];
 
   return {
@@ -610,6 +833,30 @@ function summarizeFlow(runs, flowName) {
     ),
     baaoTotalValueYenWhenCompleted: distribution(
       completed.map((flow) => flow.baaoTotalValue),
+    ),
+    cashRevenueYenWhenCompleted: distribution(
+      completed.map((flow) => flow.cashRevenue),
+    ),
+    variableCostYenWhenCompleted: distribution(
+      completed.map((flow) => flow.variableCost),
+    ),
+    grossMarginRateWhenCompleted: distribution(
+      completed
+        .map((flow) => flow.grossMarginRate)
+        .filter((value) => value !== null),
+      4,
+    ),
+    fundingSecuredRate: offered.length
+      ? roundNumber(
+          offered.filter((flow) => flow.fundingSecured).length / offered.length,
+          4,
+        )
+      : null,
+    preflightCostYenWhenOffered: distribution(
+      offered.map((flow) => flow.preflightCost),
+    ),
+    preflightRevenueYenWhenOffered: distribution(
+      offered.map((flow) => flow.preflightRevenue),
     ),
     opsHoursWhenCompleted: distribution(
       completed.map((flow) => flow.opsHours),
@@ -707,6 +954,87 @@ for (const regime of regimes) {
     : null;
   const fairnessMedian = percentile(fairnessValues, 0.50);
   const caseOpsMedian = percentile(caseOpsValues, 0.50);
+  const portfolioCashValues = Array.from(
+    { length: ITERATIONS },
+    (_, index) =>
+      profiles.reduce(
+        (total, profile) =>
+          total + raw[regime][profile.id][index].baaoImmediateCashRealized,
+        0,
+      ),
+  );
+  const completedFlowsByOption = new Map();
+  const offeredFlowsByOption = new Map();
+  for (const run of allRuns) {
+    for (const flow of Object.values(run.flows)) {
+      if (flow.option === 'none') continue;
+      if (flow.offered) {
+        const offeredValues = offeredFlowsByOption.get(flow.option) ?? [];
+        offeredValues.push(flow);
+        offeredFlowsByOption.set(flow.option, offeredValues);
+      }
+      if (flow.completed) {
+        const completedValues = completedFlowsByOption.get(flow.option) ?? [];
+        completedValues.push(flow);
+        completedFlowsByOption.set(flow.option, completedValues);
+      }
+    }
+  }
+  const completedFlowCashP10ByOption = Object.fromEntries(
+    [...completedFlowsByOption.entries()].map(([option, flows]) => [
+      option,
+      roundNumber(percentile(flows.map((flow) => flow.baaoImmediateCash), 0.10)),
+    ]),
+  );
+  const completedFlowMarginP10ByOption = Object.fromEntries(
+    [...completedFlowsByOption.entries()]
+      .map(([option, flows]) => {
+        const margins = flows
+          .map((flow) => flow.grossMarginRate)
+          .filter((value) => value !== null);
+        return margins.length
+          ? [option, roundNumber(percentile(margins, 0.10), 4)]
+          : null;
+      })
+      .filter(Boolean),
+  );
+  const offeredFlowCashValuesByOption = Object.fromEntries(
+    [...offeredFlowsByOption.entries()].map(([option, flows]) => [
+      option,
+      flows.map((flow) =>
+        flow.completed
+          ? flow.baaoImmediateCash
+          : flow.preflightRevenue - flow.preflightCost,
+      ),
+    ]),
+  );
+  const offeredFlowCashP10ByOption = Object.fromEntries(
+    Object.entries(offeredFlowCashValuesByOption).map(([option, values]) => [
+      option,
+      roundNumber(percentile(values, 0.10)),
+    ]),
+  );
+  const offeredFlowCashMeanByOption = Object.fromEntries(
+    Object.entries(offeredFlowCashValuesByOption).map(([option, values]) => [
+      option,
+      roundNumber(
+        values.reduce((total, value) => total + value, 0) / values.length,
+      ),
+    ]),
+  );
+  const portfolioCashP10 = percentile(portfolioCashValues, 0.10);
+  const anyCompletedFlowCashP10BelowZero = Object.values(
+    completedFlowCashP10ByOption,
+  ).some((value) => value < 0);
+  const anyCompletedFlowMarginP10Below20Pct = Object.values(
+    completedFlowMarginP10ByOption,
+  ).some((value) => value < 0.20);
+  const anyOfferedFlowCashP10BelowZero = Object.values(
+    offeredFlowCashP10ByOption,
+  ).some((value) => value < 0);
+  const anyOfferedFlowCashMeanBelowZero = Object.values(
+    offeredFlowCashMeanByOption,
+  ).some((value) => value < 0);
 
   aggregateResults[regime] = {
     expectedPublishedCasesOutOf3: roundNumber(
@@ -728,14 +1056,12 @@ for (const regime of regimes) {
         )
       : null,
     baaoImmediateCashYenAcross3Cases: distribution(
-      Array.from({ length: ITERATIONS }, (_, index) =>
-        profiles.reduce(
-          (total, profile) =>
-            total + raw[regime][profile.id][index].baaoImmediateCashRealized,
-          0,
-        ),
-      ),
+      portfolioCashValues,
     ),
+    completedFlowCashP10YenByOption: completedFlowCashP10ByOption,
+    completedFlowGrossMarginP10ByOption: completedFlowMarginP10ByOption,
+    offeredFlowCashP10YenByOption: offeredFlowCashP10ByOption,
+    offeredFlowCashMeanYenByOption: offeredFlowCashMeanByOption,
     baaoTotalValueYenAcross3Cases: distribution(
       Array.from({ length: ITERATIONS }, (_, index) =>
         profiles.reduce(
@@ -763,6 +1089,12 @@ for (const regime of regimes) {
       medianCaseOpsAbove8Hours: caseOpsMedian !== null && caseOpsMedian > 8,
       distributionSlaBelow90Pct:
         distributionRate !== null && distributionRate < 0.90,
+      portfolioCashP10BelowZero: portfolioCashP10 < 0,
+      anyCompletedFlowCashP10BelowZero,
+      anyCompletedFlowGrossMarginP10Below20Pct:
+        anyCompletedFlowMarginP10Below20Pct,
+      anyOfferedFlowCashP10BelowZero,
+      anyOfferedFlowCashMeanBelowZero,
     },
   };
 }
@@ -782,6 +1114,10 @@ const result = {
     'All monetary values, probabilities, hours, and fairness scores are explicit hypotheses.',
     'A completed flow requires provider acceptance, BAAO non-negative modeled total value, and any required customer permission.',
     'Immediate cash excludes expected future license sales. Total value includes the modeled content or license asset value.',
+    'The cash-guarded regime replaces modeled asset value with realized gross profit for BAAO acceptance.',
+    'Cash-guarded Knowledge and Sponsored Case transactions count only after the required customer or sponsor cash has been received in full.',
+    'Every completed cash-guarded transaction must have non-negative realized gross profit and at least a 20% gross margin.',
+    'Every cash-guarded offer charges a non-refundable scoping fee with at least a 20% modeled gross margin; the fee is credited to the final price if the transaction proceeds.',
   ],
   candidateRateCardYen: {
     referral: { rate: '10% GCV', evidenceWindow: '12 months' },
@@ -795,6 +1131,24 @@ const result = {
     knowledgeRoyaltyShare: '40% of net sales, minimum guarantee recoupable',
     fullPlaybookRule:
       'More than 16 author hours requires an individually scoped quote; do not bundle it with Case Listing.',
+    cashGuardedPilot: {
+      coDeliveryStandard: 600_000,
+      sponsoredCommissionedCase: 400_000,
+      verifiedCaseLite: 60_000,
+      verifiedCaseStandard: 150_000,
+      enterpriseKnowledgeCommittedLicenseRevenue: 950_000,
+      partnerKnowledgeCommittedPreorders: 600_000,
+      minimumGrossMarginRate: '20%',
+      scopingFees: {
+        caseReview: 15_000,
+        coDeliveryOrSponsoredCase: 30_000,
+        knowledgeProduct: 45_000,
+      },
+      scopingFeeRule:
+        'Collect a non-refundable scoping fee with at least a 20% modeled gross margin and credit it to the final price if the transaction proceeds.',
+      fundingRule:
+        'Do not start Sponsored Case or Knowledge production before the required customer or sponsor cash has been received in full.',
+    },
   },
   profiles: profiles.map(({ id, label, facts, gcv, nsr }) => ({
     id,
