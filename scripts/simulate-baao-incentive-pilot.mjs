@@ -1117,7 +1117,7 @@ const result = {
     'The cash-guarded regime replaces modeled asset value with realized gross profit for BAAO acceptance.',
     'Cash-guarded Knowledge and Sponsored Case transactions count only after the required customer or sponsor cash has been received in full.',
     'Every completed cash-guarded transaction must have non-negative realized gross profit and at least a 20% gross margin.',
-    'Every cash-guarded offer charges a non-refundable scoping fee with at least a 20% modeled gross margin; the fee is credited to the final price if the transaction proceeds.',
+    'Every cash-guarded offer charges a scoping fee with at least a 20% modeled gross margin once agreed scoping work begins; the fee is non-refundable after work starts and credited to the final price if the transaction proceeds.',
   ],
   candidateRateCardYen: {
     referral: { rate: '10% GCV', evidenceWindow: '12 months' },
@@ -1145,7 +1145,7 @@ const result = {
         knowledgeProduct: 45_000,
       },
       scopingFeeRule:
-        'Collect a non-refundable scoping fee with at least a 20% modeled gross margin and credit it to the final price if the transaction proceeds.',
+        'Collect a scoping fee with at least a 20% modeled gross margin before agreed scoping work begins. Refund it if BAAO declines before work starts; otherwise it is non-refundable and credited to the final price if the transaction proceeds.',
       fundingRule:
         'Do not start Sponsored Case or Knowledge production before the required customer or sponsor cash has been received in full.',
     },
