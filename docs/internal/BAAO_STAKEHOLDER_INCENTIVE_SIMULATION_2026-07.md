@@ -2,7 +2,7 @@
 
 - 実行日: 2026-07-16
 - 対象: CBAA / Case Listing / Co-Delivery / Prime / Referral / Impact Points
-- ステータス: 制度仮説のシミュレーション完了、人間への選択実験は未実施
+- ステータス: 制度仮説と3案件の模擬パイロット完了、人間への選択実験は未実施
 - 作業ブランチ: `codex/baao-stakeholder-simulation`
 - 関連レビュー: `docs/internal/CBAA_PROGRAM_REDESIGN_2026-07.md` v1.2（commit `1faaab9`）
 
@@ -616,3 +616,14 @@ CaseとKnowledge販売を別質問にし、抱き合わせによる見かけの�
 おかしいのは、その欲求を満たす手段として、自力獲得案件の売上やレシピを一律に求め、見返りを名誉・ポイント・曖昧な露出に寄せることである。これは人間の欲を追えていないのではなく、BAAO側の欲だけを制度化し、参加者、所属企業、顧客、運営の欲と恐れを同時に扱えていない。
 
 あるべき姿は、BAAOが価値を提供した箇所で対価を得て、BAAOが価値を受け取った箇所では提供者へ対価を返す、双方向の市場設計である。称号と所属感はその交換を温めるが、交換そのものの代わりにはならない。
+
+## 16. 追補: 模擬パイロット
+
+本レポートの60日パイロットを、3案件類型・10,000回の決定シミュレーションとして先行実施した。
+
+- 実行レポート: `docs/internal/BAAO_INCENTIVE_PILOT_SIMULATION_2026-07.md`
+- 再実行スクリプト: `scripts/simulate-baao-incentive-pilot.mjs`
+- 数値出力: `docs/internal/simulations/BAAO_INCENTIVE_PILOT_SIMULATION_2026-07.json`
+- Handbook修正案: `docs/internal/OPERATIONS_HANDBOOK_V2_AMENDMENT_PROPOSAL_2026-07.md`
+
+模擬結果では、v1.2の無料Listing＋Recipe経路は選択されず、Knowledge Assetが0件となった。Case単体5万円もBAAO側で赤字だった。そこでCaseの作業上限、Knowledgeの最低保証、投資予算を追加し、V2修正版へ反映した。

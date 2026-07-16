@@ -1,0 +1,2370 @@
+{
+  "meta": {
+    "generatedAt": "2026-07-16",
+    "iterations": 10000,
+    "seed": 20260716,
+    "modelType": "deterministic Monte Carlo decision simulation",
+    "status": "Synthetic pilot. The output is a decision aid, not observed stakeholder behavior."
+  },
+  "boundaries": [
+    "Graph facts are used only for role and relationship structure.",
+    "Personal KG was unavailable with 401, so no private preference was imputed as fact.",
+    "All monetary values, probabilities, hours, and fairness scores are explicit hypotheses.",
+    "A completed flow requires provider acceptance, BAAO non-negative modeled total value, and any required customer permission.",
+    "Immediate cash excludes expected future license sales. Total value includes the modeled content or license asset value."
+  ],
+  "candidateRateCardYen": {
+    "referral": {
+      "rate": "10% GCV",
+      "evidenceWindow": "12 months"
+    },
+    "coDeliveryStandard": 500000,
+    "verifiedCaseLite": 60000,
+    "verifiedCaseStandard": 150000,
+    "commissionedCaseAuthorFee": 150000,
+    "knowledgeModuleAuthorFee": 400000,
+    "knowledgeModuleRoyalty": "20% of net sales",
+    "knowledgeRoyaltyMinimumGuarantee": 300000,
+    "knowledgeRoyaltyShare": "40% of net sales, minimum guarantee recoupable",
+    "fullPlaybookRule": "More than 16 author hours requires an individually scoped quote; do not bundle it with Case Listing."
+  },
+  "profiles": [
+    {
+      "id": "murakami_unson_direct",
+      "label": "村上案件型（雲孫が直接獲得・提供）",
+      "facts": {
+        "source": "雲孫側の直接接点",
+        "delivery": "雲孫",
+        "baaoLead": false,
+        "baaoDelivery": false
+      },
+      "gcv": 3000000,
+      "nsr": 1500000
+    },
+    {
+      "id": "enterprise_co_delivery",
+      "label": "BAAO関与エンタープライズ型（会員主契約＋監修）",
+      "facts": {
+        "source": "会員側の既存接点",
+        "delivery": "会員法人＋BAAO監修",
+        "baaoLead": false,
+        "baaoDelivery": true
+      },
+      "gcv": 8000000,
+      "nsr": 3600000
+    },
+    {
+      "id": "external_partner_referral",
+      "label": "外部パートナー型（BAAO紹介＋パートナー提供）",
+      "facts": {
+        "source": "BAAOが新規接点を紹介",
+        "delivery": "外部パートナー",
+        "baaoLead": true,
+        "baaoDelivery": false
+      },
+      "gcv": 5000000,
+      "nsr": 2000000
+    }
+  ],
+  "assumptions": {
+    "murakami_unson_direct": {
+      "providerHourlyCostYen": [
+        20000,
+        30000
+      ],
+      "providerCaseHours": [
+        5,
+        9
+      ],
+      "providerRecipeHours": [
+        18,
+        30
+      ],
+      "baaoCaseHours": [
+        8,
+        14
+      ],
+      "baaoCaseLiteHours": [
+        2,
+        4
+      ],
+      "baaoKnowledgeHours": [
+        5,
+        9
+      ],
+      "distributionValueYen": [
+        80000,
+        300000
+      ],
+      "brandValueYen": [
+        30000,
+        150000
+      ],
+      "supervisionValueYen": [
+        0,
+        0
+      ],
+      "deliveryCostYen": [
+        0,
+        0
+      ],
+      "caseAssetValueYen": [
+        200000,
+        500000
+      ],
+      "knowledgeGrossValueYen": [
+        250000,
+        700000
+      ],
+      "ipRiskYen": [
+        150000,
+        500000
+      ],
+      "permissionProbability": {
+        "bundledCase": 0.35,
+        "granularCase": 0.65,
+        "granularKnowledge": 0.2
+      }
+    },
+    "enterprise_co_delivery": {
+      "providerHourlyCostYen": [
+        25000,
+        35000
+      ],
+      "providerCaseHours": [
+        6,
+        12
+      ],
+      "providerRecipeHours": [
+        24,
+        40
+      ],
+      "baaoCaseHours": [
+        9,
+        16
+      ],
+      "baaoCaseLiteHours": [
+        3,
+        5
+      ],
+      "baaoKnowledgeHours": [
+        6,
+        10
+      ],
+      "distributionValueYen": [
+        180000,
+        500000
+      ],
+      "brandValueYen": [
+        100000,
+        350000
+      ],
+      "supervisionValueYen": [
+        650000,
+        1200000
+      ],
+      "deliveryCostYen": [
+        280000,
+        420000
+      ],
+      "caseAssetValueYen": [
+        300000,
+        800000
+      ],
+      "knowledgeGrossValueYen": [
+        500000,
+        1200000
+      ],
+      "ipRiskYen": [
+        350000,
+        1000000
+      ],
+      "permissionProbability": {
+        "bundledCase": 0.25,
+        "granularCase": 0.55,
+        "granularKnowledge": 0.3
+      }
+    },
+    "external_partner_referral": {
+      "providerHourlyCostYen": [
+        18000,
+        28000
+      ],
+      "providerCaseHours": [
+        5,
+        10
+      ],
+      "providerRecipeHours": [
+        16,
+        30
+      ],
+      "baaoCaseHours": [
+        8,
+        14
+      ],
+      "baaoCaseLiteHours": [
+        2,
+        4
+      ],
+      "baaoKnowledgeHours": [
+        5,
+        9
+      ],
+      "distributionValueYen": [
+        180000,
+        550000
+      ],
+      "brandValueYen": [
+        80000,
+        250000
+      ],
+      "supervisionValueYen": [
+        0,
+        0
+      ],
+      "deliveryCostYen": [
+        0,
+        0
+      ],
+      "caseAssetValueYen": [
+        180000,
+        500000
+      ],
+      "knowledgeGrossValueYen": [
+        300000,
+        900000
+      ],
+      "ipRiskYen": [
+        200000,
+        600000
+      ],
+      "permissionProbability": {
+        "bundledCase": 0.45,
+        "granularCase": 0.72,
+        "granularKnowledge": 0.5
+      }
+    }
+  },
+  "aggregateResults": {
+    "current_handbook": {
+      "expectedPublishedCasesOutOf3": 0.32,
+      "expectedLicensedKnowledgeAssetsOutOf2Offers": 0,
+      "commercialFlowCompletionRate": 0.6275,
+      "baaoImmediateCashYenAcross3Cases": {
+        "p10": 364941,
+        "median": 442399,
+        "p90": 462029
+      },
+      "baaoTotalValueYenAcross3Cases": {
+        "p10": 433007,
+        "median": 454121,
+        "p90": 999588
+      },
+      "opsHoursAcross3Cases": {
+        "p10": 3.4,
+        "median": 5.2,
+        "p90": 47.9
+      },
+      "fairnessProxy7Point": {
+        "p10": 1.9,
+        "median": 2.8,
+        "p90": 5.4
+      },
+      "caseOpsHoursWhenPublished": {
+        "p10": 9.4,
+        "median": 12.1,
+        "p90": 15.1
+      },
+      "distributionSlaRate": 0.6363,
+      "stopConditionProxy": {
+        "fairnessMedianBelow4": true,
+        "medianCaseOpsAbove8Hours": true,
+        "distributionSlaBelow90Pct": true
+      }
+    },
+    "v1_2": {
+      "expectedPublishedCasesOutOf3": 1.73,
+      "expectedLicensedKnowledgeAssetsOutOf2Offers": 0,
+      "commercialFlowCompletionRate": 1,
+      "baaoImmediateCashYenAcross3Cases": {
+        "p10": 326553,
+        "median": 446698,
+        "p90": 561660
+      },
+      "baaoTotalValueYenAcross3Cases": {
+        "p10": 731945,
+        "median": 1136888,
+        "p90": 1592998
+      },
+      "opsHoursAcross3Cases": {
+        "p10": 39.9,
+        "median": 53.7,
+        "p90": 67.7
+      },
+      "fairnessProxy7Point": {
+        "p10": 3.6,
+        "median": 4.2,
+        "p90": 4.8
+      },
+      "caseOpsHoursWhenPublished": {
+        "p10": 8.9,
+        "median": 11.4,
+        "p90": 13.9
+      },
+      "distributionSlaRate": 0.7791,
+      "stopConditionProxy": {
+        "fairnessMedianBelow4": false,
+        "medianCaseOpsAbove8Hours": true,
+        "distributionSlaBelow90Pct": true
+      }
+    },
+    "proposed_v2_initial": {
+      "expectedPublishedCasesOutOf3": 1.7,
+      "expectedLicensedKnowledgeAssetsOutOf2Offers": 0,
+      "commercialFlowCompletionRate": 1,
+      "baaoImmediateCashYenAcross3Cases": {
+        "p10": 289625,
+        "median": 543072,
+        "p90": 659082
+      },
+      "baaoTotalValueYenAcross3Cases": {
+        "p10": 683086,
+        "median": 1174824,
+        "p90": 1696461
+      },
+      "opsHoursAcross3Cases": {
+        "p10": 36.8,
+        "median": 48.4,
+        "p90": 60.2
+      },
+      "fairnessProxy7Point": {
+        "p10": 5,
+        "median": 5.6,
+        "p90": 6.2
+      },
+      "caseOpsHoursWhenPublished": {
+        "p10": 3.4,
+        "median": 8.6,
+        "p90": 12.9
+      },
+      "distributionSlaRate": 0.9508,
+      "stopConditionProxy": {
+        "fairnessMedianBelow4": false,
+        "medianCaseOpsAbove8Hours": true,
+        "distributionSlaBelow90Pct": false
+      }
+    },
+    "proposed_v2_revised": {
+      "expectedPublishedCasesOutOf3": 1.72,
+      "expectedLicensedKnowledgeAssetsOutOf2Offers": 0.6,
+      "commercialFlowCompletionRate": 1,
+      "baaoImmediateCashYenAcross3Cases": {
+        "p10": -169039,
+        "median": 297578,
+        "p90": 660923
+      },
+      "baaoTotalValueYenAcross3Cases": {
+        "p10": 839496,
+        "median": 1373511,
+        "p90": 1939988
+      },
+      "opsHoursAcross3Cases": {
+        "p10": 38.5,
+        "median": 50.2,
+        "p90": 62.6
+      },
+      "fairnessProxy7Point": {
+        "p10": 5,
+        "median": 5.6,
+        "p90": 6.2
+      },
+      "caseOpsHoursWhenPublished": {
+        "p10": 3,
+        "median": 8,
+        "p90": 8
+      },
+      "distributionSlaRate": 0.9515,
+      "stopConditionProxy": {
+        "fairnessMedianBelow4": false,
+        "medianCaseOpsAbove8Hours": false,
+        "distributionSlaBelow90Pct": false
+      }
+    }
+  },
+  "caseResults": {
+    "current_handbook": {
+      "murakami_unson_direct": {
+        "label": "村上案件型（雲孫が直接獲得・提供）",
+        "facts": {
+          "source": "雲孫側の直接接点",
+          "delivery": "雲孫",
+          "baaoLead": false,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "cbaa_12pct_nsr": 1
+            },
+            "providerAcceptanceRate": 0.1942,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.3531,
+            "completionRate": 0.0697,
+            "providerUtilityYen": {
+              "p10": -181499,
+              "median": -73849,
+              "p90": 32440
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 19042,
+              "median": 49267,
+              "p90": 76164
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 283715,
+              "median": 399890,
+              "p90": 516434
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8.7,
+              "median": 10.9,
+              "p90": 13.4
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0
+          },
+          "baaoImmediateCashYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0
+          },
+          "baaoTotalValueYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0
+          },
+          "opsHours": {
+            "p10": 0,
+            "median": 0,
+            "p90": 0
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 1.8,
+          "median": 2.4,
+          "p90": 3
+        },
+        "caseOpsHours": {
+          "p10": 8.7,
+          "median": 10.9,
+          "p90": 13.4
+        },
+        "distributionSlaRate": 0.6212
+      },
+      "enterprise_co_delivery": {
+        "label": "BAAO関与エンタープライズ型（会員主契約＋監修）",
+        "facts": {
+          "source": "会員側の既存接点",
+          "delivery": "会員法人＋BAAO監修",
+          "baaoLead": false,
+          "baaoDelivery": true
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "delivery_bundled_into_cbaa": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.255,
+            "completionRate": 0.255,
+            "providerUtilityYen": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 0,
+              "median": 0,
+              "p90": 0
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "cbaa_12pct_nsr": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.255,
+            "completionRate": 0.255,
+            "providerUtilityYen": {
+              "p10": 517529,
+              "median": 789259,
+              "p90": 1056988
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -131909,
+              "median": -67933,
+              "p90": -3345
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 280322,
+              "median": 484596,
+              "p90": 682702
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 36.3,
+              "median": 41.7,
+              "p90": 47
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 852147
+          },
+          "baaoImmediateCashYen": {
+            "p10": -84504,
+            "median": 0,
+            "p90": 0
+          },
+          "baaoTotalValueYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 529670
+          },
+          "opsHours": {
+            "p10": 0,
+            "median": 0,
+            "p90": 43
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 1.8,
+          "median": 2.4,
+          "p90": 3
+        },
+        "caseOpsHours": {
+          "p10": 9.7,
+          "median": 12.5,
+          "p90": 15.3
+        },
+        "distributionSlaRate": 0.6404
+      },
+      "external_partner_referral": {
+        "label": "外部パートナー型（BAAO紹介＋パートナー提供）",
+        "facts": {
+          "source": "BAAOが新規接点を紹介",
+          "delivery": "外部パートナー",
+          "baaoLead": true,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "referral_10pct_gcv_12m": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 1500000,
+              "median": 1500000,
+              "p90": 1500000
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 431407,
+              "median": 446040,
+              "p90": 460226
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 431407,
+              "median": 446040,
+              "p90": 460226
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 3.3,
+              "median": 4.5,
+              "p90": 5.7
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 1500000,
+            "median": 1500000,
+            "p90": 1500000
+          },
+          "baaoImmediateCashYen": {
+            "p10": 431407,
+            "median": 446040,
+            "p90": 460226
+          },
+          "baaoTotalValueYen": {
+            "p10": 431407,
+            "median": 446040,
+            "p90": 460226
+          },
+          "opsHours": {
+            "p10": 3.3,
+            "median": 4.5,
+            "p90": 5.7
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 4.5,
+          "median": 5.1,
+          "p90": 5.7
+        },
+        "caseOpsHours": {
+          "p10": null,
+          "median": null,
+          "p90": null
+        },
+        "distributionSlaRate": null
+      }
+    },
+    "v1_2": {
+      "murakami_unson_direct": {
+        "label": "村上案件型（雲孫が直接獲得・提供）",
+        "facts": {
+          "source": "雲孫側の直接接点",
+          "delivery": "雲孫",
+          "baaoLead": false,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "listing_case_only_50k": 1
+            },
+            "providerAcceptanceRate": 0.7266,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.6464,
+            "completionRate": 0.4669,
+            "providerUtilityYen": {
+              "p10": -53002,
+              "median": 54363,
+              "p90": 161577
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -110781,
+              "median": -81700,
+              "p90": -53164
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 145921,
+              "median": 268009,
+              "p90": 387442
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8.6,
+              "median": 11,
+              "p90": 13.4
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 140861
+          },
+          "baaoImmediateCashYen": {
+            "p10": -102224,
+            "median": 0,
+            "p90": 0
+          },
+          "baaoTotalValueYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 352561
+          },
+          "opsHours": {
+            "p10": 0,
+            "median": 0,
+            "p90": 12.7
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 3.6,
+          "median": 4.2,
+          "p90": 4.8
+        },
+        "caseOpsHours": {
+          "p10": 8.6,
+          "median": 11,
+          "p90": 13.4
+        },
+        "distributionSlaRate": 0.7807
+      },
+      "enterprise_co_delivery": {
+        "label": "BAAO関与エンタープライズ型（会員主契約＋監修）",
+        "facts": {
+          "source": "会員側の既存接点",
+          "delivery": "会員法人＋BAAO監修",
+          "baaoLead": false,
+          "baaoDelivery": true
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "co_delivery_standard_500k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 205365,
+              "median": 428224,
+              "p90": 645233
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 94063,
+              "median": 150339,
+              "p90": 205844
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 94063,
+              "median": 150339,
+              "p90": 205844
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 24.5,
+              "median": 29.1,
+              "p90": 33.8
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "listing_case_only_50k": 1
+            },
+            "providerAcceptanceRate": 0.9734,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.5526,
+            "completionRate": 0.5389,
+            "providerUtilityYen": {
+              "p10": 73591,
+              "median": 247341,
+              "p90": 417018
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -134148,
+              "median": -100403,
+              "p90": -66048
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 252018,
+              "median": 454395,
+              "p90": 654246
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 9.7,
+              "median": 12.5,
+              "p90": 15.3
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 263099,
+            "median": 556996,
+            "p90": 871894
+          },
+          "baaoImmediateCashYen": {
+            "p10": 4206,
+            "median": 97636,
+            "p90": 189769
+          },
+          "baaoTotalValueYen": {
+            "p10": 110610,
+            "median": 381125,
+            "p90": 760110
+          },
+          "opsHours": {
+            "p10": 25.9,
+            "median": 35.8,
+            "p90": 45.5
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 3.6,
+          "median": 4.2,
+          "p90": 4.8
+        },
+        "caseOpsHours": {
+          "p10": 9.7,
+          "median": 12.5,
+          "p90": 15.3
+        },
+        "distributionSlaRate": 0.7751
+      },
+      "external_partner_referral": {
+        "label": "外部パートナー型（BAAO紹介＋パートナー提供）",
+        "facts": {
+          "source": "BAAOが新規接点を紹介",
+          "delivery": "外部パートナー",
+          "baaoLead": true,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "referral_10pct_gcv_12m": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 1500000,
+              "median": 1500000,
+              "p90": 1500000
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 431431,
+              "median": 445929,
+              "p90": 460465
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 431431,
+              "median": 445929,
+              "p90": 460465
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 3.3,
+              "median": 4.5,
+              "p90": 5.7
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "listing_case_only_50k": 1
+            },
+            "providerAcceptanceRate": 0.9987,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.724,
+            "completionRate": 0.7229,
+            "providerUtilityYen": {
+              "p10": 141809,
+              "median": 307702,
+              "p90": 469417
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -110982,
+              "median": -82131,
+              "p90": -53110
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 127962,
+              "median": 256537,
+              "p90": 385265
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8.6,
+              "median": 11,
+              "p90": 13.4
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 1500000,
+            "median": 1739689,
+            "p90": 1950507
+          },
+          "baaoImmediateCashYen": {
+            "p10": 336661,
+            "median": 377941,
+            "p90": 450580
+          },
+          "baaoTotalValueYen": {
+            "p10": 440263,
+            "median": 640163,
+            "p90": 820012
+          },
+          "opsHours": {
+            "p10": 4.1,
+            "median": 14.3,
+            "p90": 17.8
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 3.6,
+          "median": 4.2,
+          "p90": 4.8
+        },
+        "caseOpsHours": {
+          "p10": 8.6,
+          "median": 11,
+          "p90": 13.4
+        },
+        "distributionSlaRate": 0.7812
+      }
+    },
+    "proposed_v2_initial": {
+      "murakami_unson_direct": {
+        "label": "村上案件型（雲孫が直接獲得・提供）",
+        "facts": {
+          "source": "雲孫側の直接接点",
+          "delivery": "雲孫",
+          "baaoLead": false,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "commissioned_case_author_fee_150k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 0.7155,
+            "customerPermissionRate": 0.6477,
+            "completionRate": 0.4662,
+            "providerUtilityYen": {
+              "p10": 149747,
+              "median": 255642,
+              "p90": 361506
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -310145,
+              "median": -279710,
+              "p90": -252539
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 22937,
+              "median": 110057,
+              "p90": 196903
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8.5,
+              "median": 10.8,
+              "p90": 13.3
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 322136
+          },
+          "baaoImmediateCashYen": {
+            "p10": -300844,
+            "median": 0,
+            "p90": 0
+          },
+          "baaoTotalValueYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 169944
+          },
+          "opsHours": {
+            "p10": 0,
+            "median": 0,
+            "p90": 12.6
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": null,
+          "median": null,
+          "p90": null
+        },
+        "distributionSlaRate": 0.9449
+      },
+      "enterprise_co_delivery": {
+        "label": "BAAO関与エンタープライズ型（会員主契約＋監修）",
+        "facts": {
+          "source": "会員側の既存接点",
+          "delivery": "会員法人＋BAAO監修",
+          "baaoLead": false,
+          "baaoDelivery": true
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "co_delivery_standard_500k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 204480,
+              "median": 421254,
+              "p90": 647107
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 94406,
+              "median": 149291,
+              "p90": 205988
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 94406,
+              "median": 149291,
+              "p90": 205988
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 24.5,
+              "median": 29.2,
+              "p90": 33.8
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "verified_case_lite_60k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.5466,
+            "completionRate": 0.5466,
+            "providerUtilityYen": {
+              "p10": 196099,
+              "median": 356561,
+              "p90": 519209
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 2393,
+              "median": 12357,
+              "p90": 21688
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 362200,
+              "median": 555759,
+              "p90": 761372
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 3.2,
+              "median": 4,
+              "p90": 4.8
+            }
+          },
+          "knowledge": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "knowledge_fixed_200k_plus_20pct": 1
+            },
+            "providerAcceptanceRate": 0,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.2991,
+            "completionRate": 0,
+            "providerUtilityYen": {
+              "p10": -1005443,
+              "median": -752338,
+              "p90": -530430
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 276563,
+            "median": 609752,
+            "p90": 970738
+          },
+          "baaoImmediateCashYen": {
+            "p10": 100370,
+            "median": 155926,
+            "p90": 212659
+          },
+          "baaoTotalValueYen": {
+            "p10": 110535,
+            "median": 500518,
+            "p90": 868878
+          },
+          "opsHours": {
+            "p10": 25.9,
+            "median": 31.4,
+            "p90": 36.8
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": 3.2,
+          "median": 4,
+          "p90": 4.8
+        },
+        "distributionSlaRate": 0.9528
+      },
+      "external_partner_referral": {
+        "label": "外部パートナー型（BAAO紹介＋パートナー提供）",
+        "facts": {
+          "source": "BAAOが新規接点を紹介",
+          "delivery": "外部パートナー",
+          "baaoLead": true,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "referral_10pct_gcv_12m": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 1500000,
+              "median": 1500000,
+              "p90": 1500000
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 431663,
+              "median": 446091,
+              "p90": 460380
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 431663,
+              "median": 446091,
+              "p90": 460380
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 3.3,
+              "median": 4.5,
+              "p90": 5.7
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "verified_case_standard_150k": 1
+            },
+            "providerAcceptanceRate": 0.9578,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.7199,
+            "completionRate": 0.6899,
+            "providerUtilityYen": {
+              "p10": 42888,
+              "median": 208416,
+              "p90": 374054
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -10410,
+              "median": 18086,
+              "p90": 47133
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 230183,
+              "median": 360458,
+              "p90": 485793
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8.6,
+              "median": 11,
+              "p90": 13.4
+            }
+          },
+          "knowledge": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "knowledge_40pct_royalty_no_advance": 1
+            },
+            "providerAcceptanceRate": 0,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.5051,
+            "completionRate": 0,
+            "providerUtilityYen": {
+              "p10": -572342,
+              "median": -384990,
+              "p90": -215235
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 1500000,
+            "median": 1633868,
+            "p90": 1852758
+          },
+          "baaoImmediateCashYen": {
+            "p10": 432067,
+            "median": 455404,
+            "p90": 491113
+          },
+          "baaoTotalValueYen": {
+            "p10": 439461,
+            "median": 733841,
+            "p90": 917916
+          },
+          "opsHours": {
+            "p10": 4,
+            "median": 14.1,
+            "p90": 17.7
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": 8.6,
+          "median": 11,
+          "p90": 13.4
+        },
+        "distributionSlaRate": 0.9532
+      }
+    },
+    "proposed_v2_revised": {
+      "murakami_unson_direct": {
+        "label": "村上案件型（雲孫が直接獲得・提供）",
+        "facts": {
+          "source": "雲孫側の直接接点",
+          "delivery": "雲孫",
+          "baaoLead": false,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "commissioned_case_author_fee_150k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 0.7316,
+            "customerPermissionRate": 0.6581,
+            "completionRate": 0.4799,
+            "providerUtilityYen": {
+              "p10": 149627,
+              "median": 256761,
+              "p90": 361116
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -309133,
+              "median": -279105,
+              "p90": -252343
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 21400,
+              "median": 111490,
+              "p90": 198175
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8.5,
+              "median": 10.8,
+              "p90": 13.3
+            }
+          },
+          "knowledge": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 327363
+          },
+          "baaoImmediateCashYen": {
+            "p10": -299796,
+            "median": 0,
+            "p90": 0
+          },
+          "baaoTotalValueYen": {
+            "p10": 0,
+            "median": 0,
+            "p90": 173976
+          },
+          "opsHours": {
+            "p10": 0,
+            "median": 0,
+            "p90": 12.5
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": null,
+          "median": null,
+          "p90": null
+        },
+        "distributionSlaRate": 0.9506
+      },
+      "enterprise_co_delivery": {
+        "label": "BAAO関与エンタープライズ型（会員主契約＋監修）",
+        "facts": {
+          "source": "会員側の既存接点",
+          "delivery": "会員法人＋BAAO監修",
+          "baaoLead": false,
+          "baaoDelivery": true
+        },
+        "flows": {
+          "lead": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "delivery": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "co_delivery_standard_500k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 205315,
+              "median": 424038,
+              "p90": 646067
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 94148,
+              "median": 149883,
+              "p90": 206191
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 94148,
+              "median": 149883,
+              "p90": 206191
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 24.5,
+              "median": 29.2,
+              "p90": 33.8
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "verified_case_lite_60k": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.5501,
+            "completionRate": 0.5501,
+            "providerUtilityYen": {
+              "p10": 189761,
+              "median": 356738,
+              "p90": 519670
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 24000,
+              "median": 24000,
+              "p90": 24000
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 374390,
+              "median": 573123,
+              "p90": 773891
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 3,
+              "median": 3,
+              "p90": 3
+            }
+          },
+          "knowledge": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "knowledge_module_400k_plus_20pct": 1
+            },
+            "providerAcceptanceRate": 0.9204,
+            "baaoAcceptanceRate": 0.8288,
+            "customerPermissionRate": 0.3003,
+            "completionRate": 0.235,
+            "providerUtilityYen": {
+              "p10": 10899,
+              "median": 120617,
+              "p90": 219625
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -515124,
+              "median": -495747,
+              "p90": -476915
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 54132,
+              "median": 246988,
+              "p90": 416954
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 6.4,
+              "median": 8,
+              "p90": 9.6
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 298782,
+            "median": 647089,
+            "p90": 1011474
+          },
+          "baaoImmediateCashYen": {
+            "p10": -342838,
+            "median": 141521,
+            "p90": 214330
+          },
+          "baaoTotalValueYen": {
+            "p10": 120980,
+            "median": 549108,
+            "p90": 943921
+          },
+          "opsHours": {
+            "p10": 26.5,
+            "median": 32.5,
+            "p90": 39.6
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": 3,
+          "median": 3,
+          "p90": 3
+        },
+        "distributionSlaRate": 0.9502
+      },
+      "external_partner_referral": {
+        "label": "外部パートナー型（BAAO紹介＋パートナー提供）",
+        "facts": {
+          "source": "BAAOが新規接点を紹介",
+          "delivery": "外部パートナー",
+          "baaoLead": true,
+          "baaoDelivery": false
+        },
+        "flows": {
+          "lead": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "referral_10pct_gcv_12m": 1
+            },
+            "providerAcceptanceRate": 1,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 1,
+            "completionRate": 1,
+            "providerUtilityYen": {
+              "p10": 1500000,
+              "median": 1500000,
+              "p90": 1500000
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 431577,
+              "median": 446023,
+              "p90": 460488
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 431577,
+              "median": 446023,
+              "p90": 460488
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 3.3,
+              "median": 4.5,
+              "p90": 5.7
+            }
+          },
+          "delivery": {
+            "offered": false,
+            "offerCount": 0,
+            "optionMix": {},
+            "providerAcceptanceRate": null,
+            "baaoAcceptanceRate": null,
+            "customerPermissionRate": null,
+            "completionRate": null,
+            "providerUtilityYen": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            },
+            "opsHoursWhenCompleted": {
+              "p10": null,
+              "median": null,
+              "p90": null
+            }
+          },
+          "case": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "verified_case_standard_150k": 1
+            },
+            "providerAcceptanceRate": 0.9558,
+            "baaoAcceptanceRate": 1,
+            "customerPermissionRate": 0.7197,
+            "completionRate": 0.6872,
+            "providerUtilityYen": {
+              "p10": 40202,
+              "median": 206959,
+              "p90": 369358
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": 54000,
+              "median": 54000,
+              "p90": 54000
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 265333,
+              "median": 392571,
+              "p90": 522449
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 8,
+              "median": 8,
+              "p90": 8
+            }
+          },
+          "knowledge": {
+            "offered": true,
+            "offerCount": 10000,
+            "optionMix": {
+              "knowledge_300k_minimum_against_40pct": 1
+            },
+            "providerAcceptanceRate": 0.8486,
+            "baaoAcceptanceRate": 0.8594,
+            "customerPermissionRate": 0.4983,
+            "completionRate": 0.3648,
+            "providerUtilityYen": {
+              "p10": -13068,
+              "median": 58363,
+              "p90": 118300
+            },
+            "baaoImmediateCashYenWhenCompleted": {
+              "p10": -403097,
+              "median": -383980,
+              "p90": -364492
+            },
+            "baaoTotalValueYenWhenCompleted": {
+              "p10": 53710,
+              "median": 263313,
+              "p90": 427772
+            },
+            "opsHoursWhenCompleted": {
+              "p10": 5.4,
+              "median": 7,
+              "p90": 8.6
+            }
+          }
+        },
+        "realizedPortfolioPerOfferedCase": {
+          "providerUtilityYen": {
+            "p10": 1500000,
+            "median": 1657846,
+            "p90": 1881232
+          },
+          "baaoImmediateCashYen": {
+            "p10": 79793,
+            "median": 452323,
+            "p90": 509938
+          },
+          "baaoTotalValueYen": {
+            "p10": 446021,
+            "median": 825031,
+            "p90": 1145068
+          },
+          "opsHours": {
+            "p10": 4.5,
+            "median": 12.5,
+            "p90": 19.9
+          }
+        },
+        "fairnessProxy7Point": {
+          "p10": 5,
+          "median": 5.6,
+          "p90": 6.2
+        },
+        "caseOpsHours": {
+          "p10": 8,
+          "median": 8,
+          "p90": 8
+        },
+        "distributionSlaRate": 0.9533
+      }
+    }
+  }
+}
