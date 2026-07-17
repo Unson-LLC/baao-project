@@ -1,8 +1,9 @@
-# BAAO Operations Handbook v2.1 修正案
+# [SUPERSEDED] BAAO Operations Handbook v2.1 修正案
 
 - 作成日: 2026-07-16
 - 対象正本: `docs/internal/OPERATIONS_HANDBOOK.md` v1.0
-- ステータス: 承認前の制度改定案
+- ステータス: v3現行正本へ統合済み。価格部分は実パイロット前の未承認仮説
+- 統合先: [`OPERATIONS_HANDBOOK.md`](OPERATIONS_HANDBOOK.md)
 - 根拠: `docs/internal/BAAO_INCENTIVE_PILOT_SIMULATION_2026-07.md`
 - 数値根拠: `docs/internal/simulations/BAAO_INCENTIVE_PILOT_SIMULATION_2026-07.json`
 - 実施要領: `docs/internal/pilots/BAAO_60_DAY_PILOT_RUNBOOK_2026-07.md`

@@ -2,16 +2,16 @@
 
 - 調査日: 2026-07-17
 - 対象: BAAOの案件、実績、知識資産、会員評価、収益、運用制度
-- ステータス: 意思決定用の調査結果。現行制度の変更決裁そのものではない
+- ステータス: 2026-07-17時点の移行前スナップショット。提言はHandbook v3へ反映済み
 - 現行正本: `docs/internal/OPERATIONS_HANDBOOK.md`
-- 改定候補: `docs/internal/OPERATIONS_HANDBOOK_V2_AMENDMENT_PROPOSAL_2026-07.md`
+- 移行結果: `docs/internal/BAAO_TARGET_STATE_MIGRATION_REPORT_2026-07.md`
 - 関連検証: `docs/internal/BAAO_STAKEHOLDER_INCENTIVE_SIMULATION_2026-07.md`、`docs/internal/BAAO_INCENTIVE_PILOT_SIMULATION_2026-07.md`
 
 ## 0. 結論
 
 BAAOの中心思想はGraph SSOTとAboutに存在する。しかし、その思想を実際の取引へ翻訳する制度が逆向き、または未実装である。
 
-現行Handbookは「実装知を蓄積し、個人の影響力を増幅する」と掲げる一方、実際の参加導線では、BAAOが案件を供給・提供していない直案件にも売上連動負担を求め、Case、Knowledge、実績表示、称号更新を一つに束ねている。さらに、その負担感をポイント、失効、名誉、損失回避で中和する設計になっている。
+移行前Handbookは「実装知を蓄積し、個人の影響力を増幅する」と掲げる一方、実際の参加導線では、BAAOが案件を供給・提供していない直案件にも売上連動負担を求め、Case、Knowledge、実績表示、称号更新を一つに束ねていた。さらに、その負担感をポイント、失効、名誉、損失回避で中和する設計だった。
 
 これでは、自力で案件を取れる良質な実装者ほどBAAO外で契約・公開し、残った参加者には無償貢献、知財流出、評価不安が偏る。BAAO側も、実績件数は作れても、誰にどんな価値を提供した対価なのか説明できず、契約責任、会計、ブランド表示が不安定になる。
 
@@ -37,11 +37,11 @@ BAAOの中心思想はGraph SSOTとAboutに存在する。しかし、その思�
 |---|---|---|
 | Graph SSOT | Brainbase Graph API、2026-07-17取得 | `org_baao` / `baao`、`org_unson` / `unson`、BAAO役員・運営、両組織の役割 |
 | Philosophy | Brainbase Philosophy Context、2026-07-17取得 | センターピン、相手の脳で考える、価値の流通、役割と権限、実行結果を学習へ戻す |
-| 現行制度 | `docs/internal/OPERATIONS_HANDBOOK.md` | CBAA 12% / 5%、P/C/R、Impact Points、Yearbook、契約予定、心理トリガー |
+| 移行前制度 | `docs/internal/archive/OPERATIONS_HANDBOOK_V1_LEGACY.md` | CBAA 12% / 5%、P/C/R、Impact Points、Yearbook、契約予定、心理トリガー |
 | 公開上の説明 | `docs/ABOUT.md`、`docs/programs/`、`docs/cases/README.md`、`website/` | BAAOの価値、価格、Case、Fellow表示、公開導線 |
 | 改定設計 | Handbook v2.1修正案、2本のシミュレーションレポート | 4取引分離、Opt-in、採算ガード、権利分離、人間心理の仮説 |
 | 実施準備 | `docs/internal/pilots/`、検証スクリプト | 提示カード、実施要領、台帳仕様、採算チェック、自動停止条件 |
-| Git状態 | 現ブランチのファイルと履歴 | V2は承認前、実パイロットは準備中、現行Handbookは未置換 |
+| Git状態 | 調査開始時点のファイルと履歴 | V2は承認前、実パイロットは準備中、移行前Handbookが正本だった |
 
 ### 1-2. 確認できていないこと
 
@@ -151,9 +151,9 @@ GraphとAboutには、実装知、品質担保、公開、専門家の影響力�
 
 ただし、GraphにはBAAOの`org_baao` / `baao`、雲孫の`org_unson` / `unson`という重複候補があり、どちらが現行組織正本かを機械的に一意決定できない。思想と役割は読めるが、制度決定の格納先がまだ揺れている。
 
-### 4-2. 現行Handbookは心理誘導と価値交換が逆転している
+### 4-2. 移行前Handbookは心理誘導と価値交換が逆転していた
 
-現行Handbookは、C案件に対して次を組み合わせている。
+移行前Handbookは、C案件に対して次を組み合わせていた。
 
 - PC 12%の現金拠出。
 - PC 5%に加えCaseとRecipeを提供する減免。

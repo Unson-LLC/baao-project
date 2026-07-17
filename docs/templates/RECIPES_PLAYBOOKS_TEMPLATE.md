@@ -695,8 +695,8 @@ Before/Afterの差が統計的に有意かを確認:
 ---
 
 ### 参考ケース（BAAOアーカイブ）
-- [CaseID]: [タイトル]（[P/C/R評価]）
-- [CaseID]: [タイトル]（[P/C/R評価]）
+- [CaseID]: [タイトル]（[BAAO受注 / BAAO共同提供 / BAAO会員による実績]）
+- [CaseID]: [タイトル]（[BAAO受注 / BAAO共同提供 / BAAO会員による実績]）
 
 ---
 
