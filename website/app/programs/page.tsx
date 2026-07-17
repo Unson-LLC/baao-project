@@ -102,7 +102,7 @@ const programs = [
       "導入前後のKPI測定と可視化",
       "専任チームによる伴随支援",
       "他部署への横展開計画を策定",
-      "週次レビューと功績点で進捗を可視化",
+      "週次レビューとActivity Ledgerで役割・品質・学習を記録",
     ],
     meta: [
       { label: "対象", value: "四半期で成果を証明したいDXチーム" },
@@ -231,7 +231,7 @@ export default function ProgramsPage() {
             <div className="rounded-2xl bg-[#F9F6F0] p-4">
               <p className="text-xs font-semibold tracking-wide text-bamboo">第4週（実装）</p>
               <p className="mt-1 font-semibold text-[#1D1A15]">実装</p>
-              <p className="mt-1 leading-relaxed">伴随チームが実装・トレーニングを実施。功績点で進捗と貢献を可視化。</p>
+              <p className="mt-1 leading-relaxed">共同提供チームが実装・トレーニングを実施。役割、品質、工数、学習をActivity Ledgerへ記録。</p>
             </div>
             <div className="rounded-2xl bg-[#F9F6F0] p-4">
               <p className="text-xs font-semibold tracking-wide text-bamboo">第8週（横展開）</p>
@@ -241,9 +241,9 @@ export default function ProgramsPage() {
           </div>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">成果事例</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-bamboo">成果検証</p>
               <p className="mt-2 text-sm leading-relaxed">
-                製造業の検査AI案件では、8週の伴随で工数削減 1,200時間／年・不良率 38%→19% を達成。初年度コスト 480万円に対し削減効果は 1,350万円、投資回収期間は 4.3ヶ月でした。
+                Before / After、測定方法、比較期間、除外条件を案件開始前に定めます。成果数値は一次資料と顧客許諾を確認できた場合のみ公開します。
               </p>
             </div>
             <div className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-4">

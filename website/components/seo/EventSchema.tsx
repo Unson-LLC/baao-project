@@ -27,8 +27,8 @@ export default function EventSchema() {
       "validFrom": new Date().toISOString()
     },
     "performer": {
-      "@type": "Person",
-      "name": "BAAO Field Director"
+      "@type": "Organization",
+      "name": "BAAO 実戦AI道場"
     }
   };
 

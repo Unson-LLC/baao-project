@@ -1,9 +1,9 @@
-const spark = [
-  { key: "S", title: "Scarcity", description: "師範会（Council）やField Directorは席数が限られていることを明示し、参加の希少価値を担保。" },
-  { key: "P", title: "Proof", description: "Appointment#、Yearbook、公開ケースで検証可能性を担保し、実装知の質を証明。" },
-  { key: "A", title: "Access", description: "Green Room や先行閲覧 72h など、貢献者が享受できる特権を設計。" },
-  { key: "R", title: "Ritual", description: "就任儀式・Impact Pointsレビューなど、コミュニティの“型”を用意し行動を促す。" },
-  { key: "K", title: "Karma", description: "Impact Pointsで貢献度を定量化し、更新基準や昇格条件を透明化。" },
+const operatingPrinciples = [
+  { key: "1", title: "役務と対価", description: "BAAOが対価を受け取るときは、紹介、監修、編集、配信など具体的な役務と責任を示します。" },
+  { key: "2", title: "個別Opt-in", description: "共同提供、実績掲載、知識利用を分け、何も選ばない・保留・撤回の自由を守ります。" },
+  { key: "3", title: "帰属と表示", description: "契約主体、提供主体、BAAOの役割を分け、実際に寄与した範囲だけを名乗ります。" },
+  { key: "4", title: "権利の分離", description: "Case掲載の同意を、教材化、販売、AI学習、RAG利用の同意へ流用しません。" },
+  { key: "5", title: "証跡と学習", description: "活動を点数競争にせず、品質、許諾、報酬、失敗をActivity Ledgerに残して改善します。" },
 ];
 
 export default function MethodsPage() {
@@ -16,7 +16,7 @@ export default function MethodsPage() {
           </span>
           <h1 className="font-serif text-4xl">FieldWorks フレームワーク</h1>
           <p className="text-[#4B4135]">
-            BAAO 実戦AI道場では、すべての案件を「流派（Field）× 勝ち筋（Mission）× 型（Practice）」の三軸で整理し、RACI に基づいて役割を明確化しています。このページでは FieldWorks の骨格と心理的な仕掛けを紹介します。
+            BAAO 実戦AI道場では、案件を「流派（Field）× 勝ち筋（Mission）× 型（Practice）」の三軸で整理し、契約主体、役務、RACI、権利、採算を明確にします。
           </p>
         </header>
 
@@ -36,11 +36,11 @@ export default function MethodsPage() {
         <section id="raci" className="mt-10 rounded-3xl border border-[#D8CFC3] bg-white p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-[#1D1A15]">2. 役割（RACI）</h2>
           <p className="mt-3 text-sm text-[#4B4135]">
-            Field Director が一次責任者（A）となり、Senior Fellow・Fellow が監修／実装を担当。Catalyst はリード獲得と 24h 担当宣言、横展開を支援します。
+            案件ごとに契約主体と最終責任者（A）を決め、実装、監修、紹介、公開の役割を分けます。役職だけで案件責任が自動的に決まることはありません。
           </p>
           <ul className="mt-4 space-y-2 text-sm text-[#4B4135]">
             <li><strong>Responsible</strong>：Fellow／実装チーム</li>
-            <li><strong>Accountable</strong>：Field Director（契約・KPI・品質の最終責任）</li>
+            <li><strong>Accountable</strong>：契約と権限に基づき指名された案件責任者</li>
             <li><strong>Consulted</strong>：Senior Fellow（監修・RECIPES執筆）</li>
             <li><strong>Informed</strong>：Catalyst・Community Manager など</li>
           </ul>
@@ -49,22 +49,22 @@ export default function MethodsPage() {
         <section id="quality" className="mt-10 rounded-3xl border border-[#D8CFC3] bg-white p-6 shadow-sm">
           <h2 className="font-serif text-2xl text-[#1D1A15]">3. 品質担保フロー</h2>
           <p className="mt-3 text-sm text-[#4B4135]">
-            秘伝書（プレイブック）、週次レビュー、Impact Points の三層で品質を担保。成果はケース／Yearbook として公開され、次の案件にも再利用できるようになります。
+            プレイブック、レビュー、検証証跡の三層で品質を担保します。成果の公開と再利用は、顧客・提供者・権利者の許諾を分けて確認します。
           </p>
           <ol className="mt-4 space-y-2 text-sm text-[#4B4135] list-decimal list-inside">
             <li>秘伝書：Flow × Mission × Practice ごとの成功パターンを文書化。</li>
             <li>週次レビュー：Field Director と Senior Fellow が進捗・品質をチェック。</li>
-            <li>Impact Points：関係者の貢献度を可視化し、昇格や優先アサインに反映。</li>
+            <li>Activity Ledger：役割、品質、許諾、報酬、学習を記録し、件数ランキングには使わない。</li>
           </ol>
         </section>
 
-        <section id="spark" className="mt-10 rounded-3xl border border-[#D8CFC3] bg-white p-6 shadow-sm">
-          <h2 className="font-serif text-2xl text-[#1D1A15]">4. S.P.A.R.K. 心理設計</h2>
+        <section id="principles" className="mt-10 rounded-3xl border border-[#D8CFC3] bg-white p-6 shadow-sm">
+          <h2 className="font-serif text-2xl text-[#1D1A15]">4. 価値交換の原則</h2>
           <p className="mt-3 text-sm text-[#4B4135]">
-            Community の行動設計には S.P.A.R.K. を採用。希少性／検証可能性／特権／儀式／カルマの5要素で、継続的な参加と高品質なアウトカムを支えます。
+            希少性や地位喪失で参加を迫らず、受け取る価値と返す価値を透明にします。
           </p>
           <ul className="mt-4 grid gap-4 md:grid-cols-2">
-            {spark.map((item) => (
+            {operatingPrinciples.map((item) => (
               <li key={item.key} className="rounded-2xl border border-[#D8CFC3] bg-[#F9F6F0] p-4 text-sm text-[#4B4135]">
                 <p className="font-semibold text-[#1D1A15]">{item.key}：{item.title}</p>
                 <p className="mt-1">{item.description}</p>

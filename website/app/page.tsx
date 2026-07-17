@@ -3,7 +3,7 @@ import FreeLiveSection from "@/components/home/FreeLiveSection";
 import SampleVideosVoices from "@/components/home/SampleVideosVoices";
 import PathToMastery from "@/components/home/PathToMastery";
 import ProgramSnapshot from "@/components/home/ProgramSnapshot";
-import CasesMethodology from "@/components/home/CasesMethodology";
+import CasesHighlights from "@/components/home/CasesHighlights";
 import TrainingPartners from "@/components/home/TrainingPartners";
 import CommunityFellows from "@/components/home/CommunityFellows";
 import EventsUpdates from "@/components/home/EventsUpdates";
@@ -23,7 +23,7 @@ export default function Home() {
         <SampleVideosVoices />
         <PathToMastery />
         <ProgramSnapshot />
-        <CasesMethodology />
+        <CasesHighlights />
         <TrainingPartners />
         <CommunityFellows />
         <EventsUpdates />
