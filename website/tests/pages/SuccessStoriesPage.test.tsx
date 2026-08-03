@@ -1,22 +1,23 @@
 import { describe, it, expect } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import SuccessStoriesPage from "@/app/success-stories/page";
 
 describe("SuccessStoriesPage", () => {
-  it("includes bridge copy guiding readers before CTA", () => {
+  it("states that public cases are being re-verified", () => {
     render(<SuccessStoriesPage />);
-    expect(screen.getByText(/この成功事例と同じ伴随をまずは無料稽古で体験しませんか/)).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "公開ケースは再検証中です" })).toBeInTheDocument();
   });
 
-  it("provides a real link for the公開ガイドラインPDF button", () => {
+  it("shows the verification steps before publication", () => {
     render(<SuccessStoriesPage />);
-    const link = screen.getByRole("link", { name: "公開ガイドラインを確認する" });
-    expect(link.getAttribute("href")).not.toBe("#");
+    expect(screen.getByText(/契約主体、提供主体、本人の役割を確認する/)).toBeInTheDocument();
+    expect(screen.getByText(/公開範囲を個別に確認する/)).toBeInTheDocument();
+    expect(screen.getByText(/Case掲載とKnowledge・AI利用の許諾を分ける/)).toBeInTheDocument();
   });
 
-  it("anchors yearbook section for cross-page navigation", () => {
+  it("provides a consultation path without claiming an unverified result", () => {
     render(<SuccessStoriesPage />);
-    const section = screen.getByRole("heading", { level: 2, name: "Yearbook 2024 Preview" }).closest("section");
-    expect(section?.getAttribute("id")).toBe("yearbook");
+    const link = screen.getByRole("link", { name: "相談する" });
+    expect(link).toHaveAttribute("href", "/join#media");
   });
 });

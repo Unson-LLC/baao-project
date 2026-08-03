@@ -12,13 +12,13 @@ const ctas = [
   },
   {
     title: "四半期で成果を相談する",
-    description: "師範が24時間以内に担当宣言。評議会/伴随で成果を可視化します。",
+    description: "契約主体、役務、責任、採算を確認し、合意できた範囲で成果を可視化します。",
     href: "/join#enterprise",
     primary: false,
   },
   {
     title: "師範として参画する",
-    description: "功績点と報酬で評価される師範制度。案件アサインや登壇の場が待っています。",
+    description: "専門品質、信頼、倫理、協働を確認する師範制度。案件ごとに役務、責任、報酬を合意します。",
     href: "/join#fellow",
     primary: false,
   },

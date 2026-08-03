@@ -33,10 +33,10 @@
    - 左：流派×勝ち筋×型のマトリクス図。右：Field Director紹介（Appointment#、コメント）。
 
 7. **Community & Fellows**
-   - 左：Impact Pointsステップ（Fellow I→III→Senior→Field Director）。右：特典グリッド（72h先行閲覧、Green Room、報酬）。
+   - 左：役職と責任範囲。右：Activity Ledger、案件別報酬、実績掲載・知識提供の個別Opt-in。
 
 8. **Cases & KPI**
-   - 3枚のケースカード（業界別）＋KPIボード（4指標）。
+   - BAAO受注／BAAO共同提供／BAAO会員による実績の説明カード＋再検証中表示。
    - `Success Stories` へのリンクボタン。
 
 9. **Events & Updates**
@@ -88,16 +88,16 @@
    - Copy：`公開できる成果が再現性の証明です。` CTA：`四半期で成果を相談`。
 
 2. **Case Highlights**
-   - グリッド3列：課題 / アプローチ / 成果 / 関与メンバーByline / 守秘レベル。フィルタ（Field, Mission, Program）。
+   - 検証済みケースのみ。契約主体 / 提供主体 / BAAOの役割 / 成果根拠 / 許諾範囲を表示。
 
 3. **KPI Dashboard**
-   - 4大型カード（売上換算, P95リードタイム, 公開ケース数, 修行者→評議会昇格率）＋更新日。
+   - 検証済みケース数、BAAO受注、共同提供、会員実績を分け、算定範囲・期間・更新日を表示。
 
 4. **Proof & Governance**
-   - 公開ポリシー（守秘レベル説明、COI、返金保証条件）。PDFリンク。
+   - 公開ポリシー（権利分離、守秘レベル、COI、撤回方法）。
 
 5. **Yearbook**
-   - 左：最新号プレビュー画像。右：DLボタン、過去アーカイブ、Field Directorコメント。
+   - 許諾と事実確認が揃った場合のみ年次レポートを公開。未準備時は再検証中と表示。
 
 6. **Voices**
    - 引用カード：経営層、DX推進、Fellow。
@@ -145,7 +145,7 @@
    - 2カラム：フォーム（修行者/書院生選択、決済方法）＋月謝プランのメリット。
 
 5. **セクション #fellow**
-   - フォーム（専門性・実績・希望リターン）。サイドに Grade表とImpact Points要件。
+   - フォーム（専門性・検証可能な実績・希望する役割とリターン）。サイドに審査基準と個別Opt-in。
 
 6. **セクション #fellow-assign**
    - 既存Fellow向けフォーム（Appointment#、希望案件）。補足に案件アサインの流れ。
@@ -187,12 +187,12 @@
 6. CTA：無料稽古、Lark招待、FAQへ。
 
 ### `/fellows`
-1. Hero：Appointment#・ブランド露出を強調。CTA（Fellow応募、案件相談、説明会）。
-2. キャリアパス：タイムライン（Fellow I→III→Senior→Field Director）。Impact Points要件。
-3. 特典 & 報酬：カード（Green Room、72h先行閲覧、Delegated案件報酬）。
-4. Impact Points Dashboard：サンプル図＋配点表。
-5. Field Director / Senior Showcase：カードで紹介、メディア問い合わせリンク。
-6. ケースByline例：Success Storiesの引用、Yearbookリンク。
+1. Hero：中心思想、役割、責任を説明。CTA（参画相談、案件相談）。
+2. 役職：Member / Fellow / Senior / Field Director / Councilの責任境界。
+3. 価値交換：案件報酬、実績掲載、知識資産、登壇を別々に説明。
+4. Activity Ledger：契約・許諾・成果・品質・BAAOから返した価値を表示。点数化しない。
+5. 公開プロフィール：Graph SSOT、一次資料、本人許諾を確認できた人物のみ。
+6. ケース表示：BAAO受注／共同提供／会員実績を区別。
 7. FAQ：選考フロー、守秘、登壇までの流れ。
 8. CTAバンド：Fellow応募、案件相談、説明会予約。
 
