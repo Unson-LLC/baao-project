@@ -133,11 +133,11 @@ const formDefinitions: FormDefinition[] = [
     heading: "Fellow応募",
     description: (
       <div className="space-y-3 text-sm text-[#4B4135]">
-        <p>専門領域や参画の動機を記入してください。Impact Points・グレードに応じた参画プランをご案内します。</p>
+        <p>専門領域、検証可能な実績、参画の動機、希望する役割を記入してください。役務と責任に合う参画方法をご案内します。</p>
         <ul className="space-y-1 list-disc list-inside">
-          <li>応募後 3 営業日以内に担当 Field Director が面談日程をご連絡します。</li>
-          <li>面談時に Impact Points の仮付与、参画可能な案件や登壇枠をご提案します。</li>
-          <li>合意後は Green Room / Lark へ招待し、最初の案件または登壇にアサインします。</li>
+          <li>受付後、権限を持つ担当者を確認したうえで面談日程をご連絡します。</li>
+          <li>面談時に専門性、品質、倫理、可用性、希望するリターンを確認します。</li>
+          <li>案件、実績掲載、知識提供は別々に提示し、何も選ばない・保留する選択もできます。</li>
         </ul>
       </div>
     ),
@@ -201,7 +201,7 @@ const formDefinitions: FormDefinition[] = [
               name="expected_return"
               rows={2}
               className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
-              placeholder="報酬、ブランド露出、Impact Pointsなど"
+              placeholder="報酬、案件機会、公開クレジット、知識流通など"
               required
             />
           </label>
@@ -266,7 +266,7 @@ const formDefinitions: FormDefinition[] = [
     heading: "メディア・協業のご相談",
     description: (
       <p className="text-sm text-[#4B4135]">
-        取材テーマや希望出演者、公開予定日などをご記入ください。広報チームと Field Director が対応します。
+        取材テーマや希望出演者、公開予定日などをご記入ください。権限を確認した担当者が対応します。
       </p>
     ),
     renderForm: (action, headingId) =>
@@ -310,7 +310,7 @@ const formDefinitions: FormDefinition[] = [
               type="text"
               name="speaker"
               className="rounded-lg border border-[#D8CFC3] bg-white px-3 py-2 focus:border-bamboo focus:outline-none focus:ring-2 focus:ring-bamboo/20"
-              placeholder="例）Field Director 山本、Senior Fellow 吉見 など"
+              placeholder="例）生成AI導入や組織変革を扱える専門家"
             />
           </label>
           <label className="flex flex-col gap-2 text-sm text-[#4B4135] md:col-span-2">
