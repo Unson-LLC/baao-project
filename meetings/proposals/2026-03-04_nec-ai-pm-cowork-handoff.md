@@ -53,7 +53,7 @@
 
 ### 1. 確定した構成（最重要）
 
-**ファイルパス**: `/Volumes/UNSON-DRIVE/brainbase-worktrees/session-1771856088494-baao/session-1771856088494-NEC提案/2026-03-04_nec-ai-pm-presentation-outline.md`
+**ファイルパス**: `meetings/proposals/2026-03-04_nec-ai-pm-presentation-outline.md`
 
 このファイルに、説明会の詳細な構成（タイムテーブル、各パートの内容、トーン＆マナー）が記載されています。**このファイルを最優先で参照してください。**
 
@@ -62,19 +62,19 @@
 以下の資料から、必要な情報を抽出して活用してください：
 
 #### AI駆動PMパンフレット（田岡さんリクエスト対応版）
-- **パス**: `/Users/ksato/workspace/projects/baao/meetings/proposals/2026-02-23_nec-ai-pm-pamphlet.md`
+- **パス**: `meetings/proposals/2026-02-23_nec-ai-pm-pamphlet.md`
 - **内容**: PM業務の自動化マップ、10人規模PJケーススタディ、ROI計算、manaの実績、brainbaseの運用実例
 
 #### NEC AI講演資料（1/22）
-- **パス**: `/Users/ksato/workspace/projects/baao/docs/internal/2026-01-22_nec_ai_lecture.md`
+- **パス**: `docs/internal/2026-01-22_nec_ai_lecture.md`
 - **内容**: AI市場トレンド、アンビエントエージェント、メモリー戦略、NECの勝ち筋
 
 #### NEC提案書 - AI駆動PM（2/19）
-- **パス**: `/Users/ksato/workspace/brainbase-config/.worktrees/session-1771856088494-baao/meetings/proposals/2026-02-19_nec-proposal-03-ai-driven-pm.md`
+- **パス**: `meetings/proposals/2026-02-19_nec-proposal-03-ai-driven-pm.md`
 - **内容**: 全社展開プログラム、他社事例（ソフトバンク、NTTデータ等）、3つの壁
 
 #### NEC他社比較レポート（2/19）
-- **パス**: `/Users/ksato/workspace/brainbase-config/.worktrees/session-1771856088494-baao/meetings/research/2026-02-19_nec-consultation-report.md`
+- **パス**: `meetings/research/2026-02-19_nec-consultation-report.md`
 - **内容**: 富士通、KDDI、ソフトバンク等との生成AI利活用状況比較データ
 
 ---
@@ -85,7 +85,7 @@
 
 **形式**: Markdown形式のスライド（Marp形式推奨）または PowerPoint
 
-**構成**: `/Volumes/UNSON-DRIVE/brainbase-worktrees/session-1771856088494-baao/session-1771856088494-NEC提案/2026-03-04_nec-ai-pm-presentation-outline.md` に記載された8つのパートに沿って作成
+**構成**: `meetings/proposals/2026-03-04_nec-ai-pm-presentation-outline.md` に記載された8つのパートに沿って作成
 
 **スライド枚数の目安**:
 - Part 1（問題提起）: 3-4枚
@@ -261,7 +261,7 @@
 
 作成したファイルは以下のディレクトリに保存してください：
 
-**ディレクトリ**: `/Volumes/UNSON-DRIVE/brainbase-worktrees/session-1771856088494-baao/session-1771856088494-NEC提案/`
+**ディレクトリ**: `meetings/proposals/`
 
 **ファイル名の例**:
 - `2026-03-04_nec-ai-pm-presentation.md` （Marp形式のスライド）
