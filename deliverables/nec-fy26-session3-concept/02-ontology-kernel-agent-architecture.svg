@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1664" height="936" viewBox="0 0 1664 936" role="img" aria-labelledby="title desc">
+  <title id="title">MCPでつなぎ、Ontology Kernelで意味を揃え、Agentが安全に仕事を進める</title>
+  <desc id="desc">Mail、Teams、DriveをMCPでつなぎ、RAG、Personal KG、Graph SSOT、Ontology Kernel、Agent、Automation Run、Human Gate、DecisionとRACIの関係を示す構成図</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="9" flood-color="#071B50" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrowNavy" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#071B50"/></marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#04AFC4"/></marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10z" fill="#FF7A00"/></marker>
+    <style>
+      .jp{font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
+      .navy{fill:#071B50}.muted{fill:#5D6988}.white{fill:#fff}.orange{fill:#FF7A00}
+      .line{fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .stage{font-size:16px;font-weight:800;letter-spacing:.06em}
+      .h2{font-size:25px;font-weight:900}.h3{font-size:19px;font-weight:850}
+      .body{font-size:14px;font-weight:650}.small{font-size:12px;font-weight:650}.tiny{font-size:10.5px;font-weight:700}
+    </style>
+  </defs>
+
+  <rect width="1664" height="936" fill="#F8FAFD"/>
+  <rect x="58" y="42" width="58" height="6" rx="3" fill="#FF7A00"/>
+  <text class="jp navy" x="58" y="99" font-size="37" font-weight="900">MCPでつなぎ、Ontology Kernelで意味を揃え、Agentが安全に仕事を進める</text>
+  <text class="jp muted" x="60" y="135" font-size="17" font-weight="650">情報を集めるだけではなく、意味を検証し、根拠を残し、人が承認した仕事だけを正本と業務へ戻す。</text>
+
+  <g class="jp stage">
+    <text x="72" y="183" fill="#6B2CBF">01  SOURCES</text>
+    <text x="315" y="183" fill="#04AFC4">02  MCP</text>
+    <text x="474" y="183" fill="#1785E5">03  BRAINBASE</text>
+    <text x="1242" y="183" fill="#FF7A00">04  AGENT LOOP</text>
+  </g>
+
+  <!-- Sources -->
+  <g filter="url(#shadow)"><rect x="58" y="205" width="230" height="474" rx="24" fill="#FFFFFF" stroke="#D9E1EF" stroke-width="2"/></g>
+  <text class="jp navy h2" x="84" y="248">業務の正本</text>
+  <text class="jp muted body" x="84" y="273">原文・会話・成果物は残す</text>
+
+  <g>
+    <rect x="82" y="303" width="182" height="86" rx="15" fill="#FBF8FF" stroke="#DCCAF4" stroke-width="2"/>
+    <rect x="101" y="330" width="43" height="30" rx="4" fill="none" stroke="#6B2CBF" stroke-width="3"/>
+    <path d="M102 332 L123 348 L143 332" class="line" stroke="#6B2CBF" stroke-width="3"/>
+    <text class="jp navy h3" x="160" y="340">Mail</text><text class="jp muted small" x="160" y="363">相談・依頼・判断</text>
+  </g>
+  <g>
+    <rect x="82" y="406" width="182" height="86" rx="15" fill="#F2FBFD" stroke="#BFEAF0" stroke-width="2"/>
+    <circle cx="116" cy="439" r="11" fill="none" stroke="#04AFC4" stroke-width="3"/>
+    <path d="M98 469 C100 454 107 449 116 449 C126 449 133 454 135 469" class="line" stroke="#04AFC4" stroke-width="3"/>
+    <path d="M137 429 h15 a8 8 0 0 1 8 8 v12 a8 8 0 0 1-8 8 h-6 l-8 7 v-7" class="line" stroke="#04AFC4" stroke-width="3"/>
+    <text class="jp navy h3" x="168" y="443">Teams</text><text class="jp muted small" x="168" y="466">会議・チャット</text>
+  </g>
+  <g>
+    <rect x="82" y="509" width="182" height="86" rx="15" fill="#F3F8FF" stroke="#C5DCF5" stroke-width="2"/>
+    <path d="M101 538 h18 l7 8 h26 v27 h-51 z" fill="none" stroke="#1785E5" stroke-width="3" stroke-linejoin="round"/><path d="M102 546 h49" class="line" stroke="#1785E5" stroke-width="3"/>
+    <text class="jp navy h3" x="168" y="546">Drive</text><text class="jp muted small" x="168" y="569">資料・議事録</text>
+  </g>
+  <text class="jp muted small" x="84" y="628">repo・業務DB・SaaSも対象</text>
+  <text class="jp" x="84" y="651" fill="#6B2CBF" font-size="11" font-weight="800">内容をOntologyへ複製しない</text>
+
+  <!-- MCP -->
+  <g filter="url(#shadow)"><rect x="315" y="279" width="126" height="326" rx="28" fill="#071B50"/></g>
+  <circle cx="378" cy="334" r="30" fill="#0D2A68" stroke="#04AFC4" stroke-width="2"/>
+  <path d="M362 334 h32 M369 324 v20 M387 324 v20" class="line" stroke="#FFFFFF" stroke-width="3"/>
+  <text class="jp white" x="378" y="389" text-anchor="middle" font-size="28" font-weight="900">MCP</text>
+  <text class="jp" x="378" y="413" text-anchor="middle" fill="#8EE5EF" font-size="12" font-weight="800">Tool Plane</text>
+  <line x1="339" y1="436" x2="417" y2="436" stroke="#33508B"/>
+  <g class="jp white" font-size="13" font-weight="750" text-anchor="middle"><text x="378" y="470">認証・権限</text><text x="378" y="503">読み取り</text><text x="378" y="536">書き戻し</text><text x="378" y="569">監査可能な接続</text></g>
+  <path d="M288 354 H305" class="line" stroke="#6B2CBF" stroke-width="3" marker-end="url(#arrowNavy)"/>
+  <path d="M288 451 H305" class="line" stroke="#04AFC4" stroke-width="3" marker-end="url(#arrowCyan)"/>
+  <path d="M288 552 H305" class="line" stroke="#1785E5" stroke-width="3" marker-end="url(#arrowNavy)"/>
+
+  <!-- Brainbase boundary -->
+  <g filter="url(#shadow)"><rect x="468" y="205" width="736" height="474" rx="28" fill="#FFFFFF" stroke="#BFD0EC" stroke-width="2"/></g>
+  <rect x="468" y="205" width="736" height="69" rx="28" fill="#071B50"/><path d="M468 250 V233 Q468 205 496 205 H1176 Q1204 205 1204 233 V250" fill="#071B50"/>
+  <text class="jp white" x="500" y="246" font-size="27" font-weight="900">Brainbase</text>
+  <text class="jp" x="684" y="244" fill="#A7DDE5" font-size="13" font-weight="750">意味・事実・個人文脈を分けてつなぐ</text>
+
+  <!-- evidence and personal context -->
+  <rect x="496" y="302" width="177" height="139" rx="18" fill="#F1FBFC" stroke="#04AFC4" stroke-width="2"/>
+  <circle cx="528" cy="336" r="17" fill="#FFFFFF" stroke="#04AFC4" stroke-width="2"/><circle cx="524" cy="332" r="7" fill="none" stroke="#04AFC4" stroke-width="2"/><path d="M529 337 l8 8" class="line" stroke="#04AFC4" stroke-width="2"/>
+  <text class="jp navy h3" x="554" y="341">RAG</text>
+  <text class="jp muted body" x="514" y="375">原文と出典へ戻る</text>
+  <text class="jp muted small" x="514" y="400">会議・文書・メールを検索</text>
+  <rect x="514" y="413" width="140" height="20" rx="10" fill="#DDF4F7"/><text class="jp" x="584" y="427" text-anchor="middle" fill="#087F8D" font-size="10.5" font-weight="800">Evidence / Provenance</text>
+
+  <rect x="496" y="463" width="177" height="158" rx="18" fill="#FBF7FF" stroke="#6B2CBF" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="532" cy="503" r="15" fill="none" stroke="#6B2CBF" stroke-width="2.5"/><path d="M504 542 C507 520 518 513 532 513 C546 513 557 520 560 542" class="line" stroke="#6B2CBF" stroke-width="2.5"/>
+  <circle cx="573" cy="496" r="6" fill="#FFFFFF" stroke="#6B2CBF" stroke-width="2"/><circle cx="584" cy="520" r="6" fill="#FFFFFF" stroke="#6B2CBF" stroke-width="2"/><path d="M552 513 l21-17 l11 24 l-23 13" class="line" stroke="#6B2CBF" stroke-width="2"/>
+  <text class="jp navy" x="585" y="565" text-anchor="middle" font-size="17" font-weight="900">Personal KG</text>
+  <text class="jp muted small" x="585" y="588" text-anchor="middle">個人の経験・判断・ローカル文脈</text>
+  <text class="jp" x="585" y="609" text-anchor="middle" fill="#6B2CBF" font-size="10.5" font-weight="800">owner-visible／自動昇格しない</text>
+
+  <!-- Ontology Kernel, surrounding Graph access -->
+  <rect x="699" y="298" width="477" height="329" rx="22" fill="#FFF9F2" stroke="#FF7A00" stroke-width="3"/>
+  <rect x="718" y="313" width="250" height="36" rx="18" fill="#FF7A00"/>
+  <text class="jp white" x="843" y="337" text-anchor="middle" font-size="18" font-weight="900">Ontology Kernel</text>
+  <text class="jp" x="985" y="336" fill="#B45300" font-size="11.5" font-weight="800">Graphの事実を守る意味契約</text>
+
+  <!-- Graph facts inside kernel -->
+  <rect x="724" y="373" width="188" height="158" rx="18" fill="#F2F7FE" stroke="#1785E5" stroke-width="2.5"/>
+  <path d="M758 420 L787 402 L819 422 L803 452 L768 449 Z" class="line" stroke="#1785E5" stroke-width="2.4"/>
+  <circle cx="758" cy="420" r="6" fill="#FFFFFF" stroke="#1785E5" stroke-width="2"/><circle cx="787" cy="402" r="6" fill="#FFFFFF" stroke="#1785E5" stroke-width="2"/><circle cx="819" cy="422" r="6" fill="#FFFFFF" stroke="#1785E5" stroke-width="2"/><circle cx="803" cy="452" r="6" fill="#FFFFFF" stroke="#1785E5" stroke-width="2"/><circle cx="768" cy="449" r="6" fill="#FFFFFF" stroke="#1785E5" stroke-width="2"/>
+  <text class="jp navy" x="818" y="481" text-anchor="middle" font-size="19" font-weight="900">Graph SSOT</text>
+  <text class="jp muted small" x="818" y="504" text-anchor="middle">人・組織・案件・Decision・RACI</text>
+  <rect x="754" y="511" width="128" height="16" rx="8" fill="#DDEEFF"/><text class="jp" x="818" y="523" text-anchor="middle" fill="#176AB4" font-size="8.8" font-weight="850">承認後にcanonical公開</text>
+
+  <!-- Kernel functions -->
+  <g class="jp">
+    <rect x="934" y="373" width="105" height="69" rx="14" fill="#FFFFFF" stroke="#FFD0A0" stroke-width="1.5"/>
+    <text x="986" y="399" text-anchor="middle" fill="#B45300" font-size="13" font-weight="900">意味・型</text><text x="986" y="420" text-anchor="middle" fill="#6B6470" font-size="10.5" font-weight="700">同一性・関係語彙</text>
+    <rect x="1051" y="373" width="105" height="69" rx="14" fill="#FFFFFF" stroke="#FFD0A0" stroke-width="1.5"/>
+    <text x="1103" y="399" text-anchor="middle" fill="#B45300" font-size="13" font-weight="900">書込前検証</text><text x="1103" y="420" text-anchor="middle" fill="#6B6470" font-size="10.5" font-weight="700">制約・dry-run</text>
+    <rect x="934" y="454" width="105" height="69" rx="14" fill="#FFFFFF" stroke="#FFD0A0" stroke-width="1.5"/>
+    <text x="986" y="480" text-anchor="middle" fill="#B45300" font-size="13" font-weight="900">根拠付き推論</text><text x="986" y="501" text-anchor="middle" fill="#6B6470" font-size="10.5" font-weight="700">規則ID・根拠・時刻</text>
+    <rect x="1051" y="454" width="105" height="69" rx="14" fill="#FFFFFF" stroke="#FFD0A0" stroke-width="1.5"/>
+    <text x="1103" y="480" text-anchor="middle" fill="#B45300" font-size="13" font-weight="900">版・変更管理</text><text x="1103" y="501" text-anchor="middle" fill="#6B6470" font-size="10.5" font-weight="700">適用日・移行・rollback</text>
+  </g>
+
+  <!-- validation outcomes -->
+  <path d="M1051 548 H934" class="line" stroke="#FF7A00" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+  <text class="jp" x="993" y="542" text-anchor="middle" fill="#B45300" font-size="10.5" font-weight="850">Agent proposal → validate</text>
+  <rect x="724" y="552" width="432" height="53" rx="13" fill="#FFFFFF" stroke="#FFD0A0"/>
+  <g class="jp" font-size="10.5" font-weight="850">
+    <circle cx="752" cy="578" r="12" fill="#E5F7F1"/><path d="M746 578 l4 4 l8-10" class="line" stroke="#158667" stroke-width="2"/><text x="771" y="582" fill="#246C58">適合：Human Gateへ</text>
+    <circle cx="899" cy="578" r="12" fill="#FFF0E0"/><path d="M893 572 l12 12 M905 572 l-12 12" class="line" stroke="#D35B00" stroke-width="2"/><text x="918" y="582" fill="#9E4300">違反：拒否・隔離</text>
+    <circle cx="1040" cy="578" r="12" fill="#F2EDFA"/><text x="1040" y="582" text-anchor="middle" fill="#6B2CBF">?</text><text x="1059" y="582" fill="#5A3B86">不足：競合・未確認</text>
+  </g>
+  <text class="jp" x="716" y="649" fill="#B45300" font-size="10.5" font-weight="800">Story: active／受け入れ基準: 未完了／active Ontology version: 未確認</text>
+
+  <!-- context connections -->
+  <path d="M441 364 H487" class="line" stroke="#071B50" stroke-width="3.5" marker-end="url(#arrowNavy)"/><text class="jp muted tiny" x="464" y="350" text-anchor="middle">取得</text>
+  <path d="M673 368 H690" class="line" stroke="#04AFC4" stroke-width="2.5" marker-end="url(#arrowCyan)"/>
+  <path d="M673 540 H690" class="line" stroke="#6B2CBF" stroke-width="2.5" stroke-dasharray="6 5" marker-end="url(#arrowNavy)"/><text class="jp" x="681" y="526" text-anchor="middle" fill="#6B2CBF" font-size="9.5" font-weight="800">候補・参照</text>
+  <path d="M1204 350 H1226" class="line" stroke="#071B50" stroke-width="3.5" marker-end="url(#arrowNavy)"/><text class="jp muted tiny" x="1215" y="336" text-anchor="middle">文脈</text>
+  <path d="M1226 556 H1177" class="line" stroke="#FF7A00" stroke-width="3" marker-end="url(#arrowOrange)"/><text class="jp" x="1202" y="546" text-anchor="middle" fill="#B45300" font-size="10.5" font-weight="850">提案</text>
+
+  <!-- Agent loop -->
+  <g filter="url(#shadow)"><rect x="1233" y="205" width="371" height="474" rx="28" fill="#071B50"/></g>
+  <text class="jp white" x="1264" y="246" font-size="27" font-weight="900">Agent</text>
+  <text class="jp" x="1264" y="270" fill="#A8B9DF" font-size="13" font-weight="750">役割・範囲・Tool・Workflowを持つ</text>
+  <rect x="1262" y="302" width="313" height="76" rx="16" fill="#102C68" stroke="#294A89"/>
+  <circle cx="1300" cy="340" r="20" fill="#173B7E"/><path d="M1288 344 C1289 328 1298 322 1307 324 C1318 326 1320 341 1312 348 M1292 352 H1308" class="line" stroke="#8EE5EF" stroke-width="2.5"/>
+  <text class="jp white h3" x="1334" y="335">Role Agent</text><text class="jp" x="1334" y="359" fill="#B9C7E4" font-size="12" font-weight="700">誰が・どの組織で・何を使えるか</text>
+
+  <g class="jp">
+    <rect x="1262" y="397" width="92" height="72" rx="14" fill="#102C68" stroke="#294A89"/><text x="1308" y="425" text-anchor="middle" fill="#8EE5EF" font-size="12" font-weight="850">調査</text><text x="1308" y="447" text-anchor="middle" fill="#B9C7E4" font-size="10.5" font-weight="700">根拠を集める</text>
+    <rect x="1371" y="397" width="92" height="72" rx="14" fill="#102C68" stroke="#294A89"/><text x="1417" y="425" text-anchor="middle" fill="#C6AAF1" font-size="12" font-weight="850">判断支援</text><text x="1417" y="447" text-anchor="middle" fill="#B9C7E4" font-size="10.5" font-weight="700">論点を整理</text>
+    <rect x="1480" y="397" width="95" height="72" rx="14" fill="#102C68" stroke="#294A89"/><text x="1528" y="425" text-anchor="middle" fill="#FFB25B" font-size="12" font-weight="850">提案・実行</text><text x="1528" y="447" text-anchor="middle" fill="#B9C7E4" font-size="10.5" font-weight="700">候補をつくる</text>
+  </g>
+  <rect x="1262" y="489" width="313" height="76" rx="16" fill="#132F68" stroke="#3B5C99"/>
+  <text class="jp white" x="1286" y="518" font-size="16" font-weight="900">Automation Run</text>
+  <text class="jp" x="1286" y="542" fill="#B9C7E4" font-size="11.5" font-weight="700">step・state・retry・output・audit</text>
+  <path d="M1472 527 h67" class="line" stroke="#8FA7D5" stroke-width="2"/><circle cx="1480" cy="527" r="5" fill="#04AFC4"/><circle cx="1507" cy="527" r="5" fill="#6B2CBF"/><circle cx="1534" cy="527" r="5" fill="#FF7A00"/>
+
+  <rect x="1262" y="584" width="313" height="65" rx="16" fill="#FFF5E8" stroke="#FF7A00" stroke-width="2"/>
+  <path d="M1287 617 l7 7 l15-19" class="line" stroke="#FF7A00" stroke-width="2.8"/>
+  <text class="jp" x="1322" y="610" fill="#9E4300" font-size="14" font-weight="900">Human Gate</text>
+  <text class="jp" x="1322" y="632" fill="#A66B3F" font-size="11" font-weight="750">承認者・resolution・監査を記録</text>
+
+  <!-- write back from Agent through MCP to sources -->
+  <path d="M1418 679 V704 H378 V616" class="line" stroke="#FF7A00" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrowOrange)"/>
+  <path d="M315 704 H173 V688" class="line" stroke="#FF7A00" stroke-width="3" stroke-dasharray="9 7" marker-end="url(#arrowOrange)"/>
+  <rect x="676" y="684" width="400" height="39" rx="20" fill="#FFF8F0" stroke="#FFD2A5"/>
+  <text class="jp" x="876" y="708" text-anchor="middle" fill="#B64D00" font-size="13" font-weight="850">承認後：Mail送信／Teams投稿／Drive更新／タスク登録</text>
+
+  <!-- ontology change lifecycle -->
+  <text class="jp navy" x="58" y="762" font-size="16" font-weight="900">Ontology変更は、提案から公開まで証跡を残す</text>
+  <line x1="58" y1="793" x2="1605" y2="793" stroke="#CBD5E6" stroke-width="1.5"/>
+  <g class="jp">
+    <circle cx="186" cy="793" r="12" fill="#FFFFFF" stroke="#6B2CBF" stroke-width="3"/><text x="186" y="799" text-anchor="middle" fill="#6B2CBF" font-size="13" font-weight="900">1</text>
+    <text x="186" y="827" text-anchor="middle" fill="#071B50" font-size="13" font-weight="850">規則を提案</text>
+    <path d="M199 793 H428" class="line" stroke="#071B50" stroke-width="2" marker-end="url(#arrowNavy)"/>
+    <circle cx="445" cy="793" r="12" fill="#FFFFFF" stroke="#1785E5" stroke-width="3"/><text x="445" y="799" text-anchor="middle" fill="#1785E5" font-size="13" font-weight="900">2</text>
+    <text x="445" y="827" text-anchor="middle" fill="#071B50" font-size="13" font-weight="850">Impact Report</text>
+    <path d="M458 793 H720" class="line" stroke="#071B50" stroke-width="2" marker-end="url(#arrowNavy)"/>
+    <circle cx="737" cy="793" r="12" fill="#FFFFFF" stroke="#FF7A00" stroke-width="3"/><text x="737" y="799" text-anchor="middle" fill="#FF7A00" font-size="13" font-weight="900">3</text>
+    <text x="737" y="827" text-anchor="middle" fill="#071B50" font-size="13" font-weight="850">Decision / RACI承認</text>
+    <path d="M750 793 H1041" class="line" stroke="#071B50" stroke-width="2" marker-end="url(#arrowNavy)"/>
+    <circle cx="1058" cy="793" r="12" fill="#FFFFFF" stroke="#04AFC4" stroke-width="3"/><text x="1058" y="799" text-anchor="middle" fill="#04AFC4" font-size="13" font-weight="900">4</text>
+    <text x="1058" y="827" text-anchor="middle" fill="#071B50" font-size="13" font-weight="850">active version公開</text>
+    <path d="M1071 793 H1370" class="line" stroke="#071B50" stroke-width="2" marker-end="url(#arrowNavy)"/>
+    <circle cx="1387" cy="793" r="12" fill="#FFFFFF" stroke="#071B50" stroke-width="3"/><text x="1387" y="799" text-anchor="middle" fill="#071B50" font-size="13" font-weight="900">5</text>
+    <text x="1387" y="827" text-anchor="middle" fill="#071B50" font-size="13" font-weight="850">移行／rollback</text>
+  </g>
+
+  <!-- bottom statement -->
+  <circle cx="84" cy="881" r="22" fill="#071B50"/><path d="M75 882 l6 6 l13-17" class="line" stroke="#FFFFFF" stroke-width="3"/>
+  <text class="jp navy" x="119" y="875" font-size="19" font-weight="900">Ontologyは知識を置く箱ではない。</text>
+  <text class="jp" x="119" y="901" fill="#344260" font-size="16" font-weight="750">事実を同じ意味で解釈し、誤った関係を正本へ入れず、判断を再現するための契約である。</text>
+</svg>
