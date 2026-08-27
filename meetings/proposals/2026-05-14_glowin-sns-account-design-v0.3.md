@@ -8,7 +8,7 @@ deadline_v1.0: 2026-05-22
 related:
   - ./2026-05-08_glowin-sns-account-design-v0.2.md (v0.2)
   - ./2026-05-20_glowin-b-vs-c-explanation.md (B vs C 説明)
-  - /Users/ksato/workspace/_notes/customers/growin-partners/materials/2026-05-14/notebooklm_outputs.md (動画分析)
+  - 動画分析の個人作業メモ（Git外の履歴資料。共有参照先なし）
 ---
 
 # グローウィン・パートナーズ様 Xアカウント設計書（v0.3）

@@ -421,22 +421,22 @@ AIが自動で:
 
 ## 参考資料
 
-### 既存資料パス
+### 既存資料
 
 1. **AI駆動PMパンフレット**（田岡さんリクエスト対応版）
-   - `/Users/ksato/workspace/projects/baao/meetings/proposals/2026-02-23_nec-ai-pm-pamphlet.md`
+   - `meetings/proposals/2026-02-23_nec-ai-pm-pamphlet.md`
    - PM業務の自動化マップ、技術アーキテクチャ、10人規模PJケーススタディ、ROI計算
 
 2. **NEC AI講演資料**（1/22）
-   - `/Users/ksato/workspace/projects/baao/docs/internal/2026-01-22_nec_ai_lecture.md`
+   - `docs/internal/2026-01-22_nec_ai_lecture.md`
    - AI市場トレンド、アンビエントエージェント、メモリー戦略
 
 3. **NEC提案書 - AI駆動PM**（2/19）
-   - `/Users/ksato/workspace/brainbase-config/.worktrees/session-1771856088494-baao/meetings/proposals/2026-02-19_nec-proposal-03-ai-driven-pm.md`
+   - `meetings/proposals/2026-02-19_nec-proposal-03-ai-driven-pm.md`
    - 全社展開プログラム、他社事例、3つの壁
 
 4. **NEC他社比較レポート**（2/19）
-   - `/Users/ksato/workspace/brainbase-config/.worktrees/session-1771856088494-baao/meetings/research/2026-02-19_nec-consultation-report.md`
+   - `meetings/research/2026-02-19_nec-consultation-report.md`
    - 富士通、KDDI、ソフトバンク等との比較データ
 
 ---
