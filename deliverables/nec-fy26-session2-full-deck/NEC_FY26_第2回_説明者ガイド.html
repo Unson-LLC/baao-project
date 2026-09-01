@@ -1,0 +1,1404 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NEC FY26 第2回｜説明者ガイド</title>
+  <style>
+    :root {
+      --navy: #0f2453;
+      --navy-2: #091a3e;
+      --purple: #6f3fb3;
+      --green: #20bda7;
+      --orange: #f7941e;
+      --pink: #e4007f;
+      --cyan: #00a8cc;
+      --ink: #15213a;
+      --muted: #61708f;
+      --line: #dfe5ef;
+      --surface: #f5f7fb;
+      --paper: #ffffff;
+      --danger: #b42318;
+      --danger-bg: #fff1f0;
+      --warn: #9a5b00;
+      --warn-bg: #fff7e6;
+      --ok: #067647;
+      --ok-bg: #ecfdf3;
+      --shadow: 0 12px 32px rgba(15, 36, 83, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--surface);
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", "Hiragino Sans",
+        "Yu Gothic UI", "Yu Gothic", sans-serif;
+      line-height: 1.7;
+    }
+
+    button, select, textarea { font: inherit; }
+
+    a { color: var(--purple); }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 64px;
+      padding: 10px 20px;
+      color: #fff;
+      background: rgba(9, 26, 62, .96);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      min-width: 240px;
+      line-height: 1.25;
+    }
+
+    .brand strong { font-size: 15px; letter-spacing: .02em; }
+    .brand span { color: rgba(255,255,255,.62); font-size: 11px; }
+
+    .progress-shell {
+      flex: 1;
+      height: 5px;
+      overflow: hidden;
+      background: rgba(255,255,255,.15);
+      border-radius: 99px;
+    }
+
+    #progress {
+      width: 0;
+      height: 100%;
+      background: var(--orange);
+      transition: width .2s ease;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .mode-select, .mini-button, .top-link {
+      min-height: 34px;
+      padding: 6px 10px;
+      color: #fff;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .mini-button:hover, .top-link:hover { background: rgba(255,255,255,.16); }
+
+    #timer {
+      min-width: 66px;
+      color: #fff;
+      font-variant-numeric: tabular-nums;
+      text-align: center;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      min-height: calc(100vh - 64px);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 64px;
+      height: calc(100vh - 64px);
+      overflow-y: auto;
+      padding: 18px 14px 40px;
+      background: #fff;
+      border-right: 1px solid var(--line);
+    }
+
+    .sidebar-label {
+      margin: 0 8px 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 8px;
+      align-items: start;
+      padding: 9px 8px;
+      color: var(--ink);
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+
+    .nav-link:hover { background: var(--surface); }
+    .nav-link.active { color: var(--navy); background: #eef3ff; font-weight: 700; }
+
+    .nav-number {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      color: var(--navy);
+      background: #edf1f8;
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .nav-link.internal-only .nav-number {
+      color: var(--warn);
+      background: var(--warn-bg);
+    }
+
+    main {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 34px 0 100px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+      gap: 28px;
+      padding: 34px;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--orange);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.18;
+      letter-spacing: -.025em;
+    }
+
+    .hero-lead {
+      margin: 20px 0 0;
+      color: rgba(255,255,255,.78);
+      font-size: 17px;
+    }
+
+    .hero-card {
+      align-self: stretch;
+      padding: 20px;
+      color: var(--ink);
+      background: #fff;
+      border-radius: 14px;
+    }
+
+    .hero-card h2 {
+      margin: 0 0 12px;
+      font-size: 17px;
+    }
+
+    .hero-card ol {
+      margin: 0;
+      padding-left: 1.3em;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-top: 38px;
+      scroll-margin-top: 88px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: 27px;
+      line-height: 1.25;
+    }
+
+    .section-kicker {
+      margin: 0 0 5px;
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      padding: 20px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 17px;
+    }
+
+    .card p { margin: 0; font-size: 14px; }
+
+    .center-pin {
+      grid-column: span 2;
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff;
+    }
+
+    .center-pin h3 { color: var(--orange); }
+    .center-pin p { font-size: 20px; font-weight: 700; line-height: 1.5; }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 99px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .status.ok { color: var(--ok); background: var(--ok-bg); }
+    .status.warn { color: var(--warn); background: var(--warn-bg); }
+    .status.danger { color: var(--danger); background: var(--danger-bg); }
+    .status.info { color: var(--navy); background: #edf3ff; }
+
+    .alert {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-top: 14px;
+      padding: 16px 18px;
+      background: var(--warn-bg);
+      border: 1px solid #ffd98e;
+      border-radius: 12px;
+    }
+
+    .alert.danger {
+      background: var(--danger-bg);
+      border-color: #ffc9c5;
+    }
+
+    .alert-icon {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      font-weight: 900;
+      background: rgba(247,148,30,.16);
+    }
+
+    .alert p { margin: 0; font-size: 14px; }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .route-step {
+      position: relative;
+      min-height: 105px;
+      padding: 14px 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    .route-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -10px;
+      top: 38px;
+      z-index: 2;
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .route-step strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .slides {
+      display: grid;
+      gap: 22px;
+    }
+
+    .slide-guide {
+      scroll-margin-top: 82px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(15,36,83,.06);
+    }
+
+    .slide-guide.internal-only {
+      border-color: #f5c66f;
+    }
+
+    .slide-top {
+      display: grid;
+      grid-template-columns: minmax(320px, 44%) minmax(0, 56%);
+    }
+
+    .slide-image-wrap {
+      padding: 16px;
+      background: #e9edf5;
+      border-right: 1px solid var(--line);
+    }
+
+    .slide-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+      box-shadow: 0 6px 20px rgba(9,26,62,.18);
+    }
+
+    .slide-copy {
+      padding: 22px 24px;
+    }
+
+    .slide-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      align-items: center;
+      margin-bottom: 9px;
+    }
+
+    .slide-no {
+      color: var(--purple);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+
+    .time {
+      color: var(--muted);
+      font-size: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .slide-copy h3 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.35;
+    }
+
+    .say-this {
+      margin: 0 0 14px;
+      padding: 13px 15px;
+      color: var(--navy);
+      background: #f0f4ff;
+      border-left: 4px solid var(--purple);
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .talk-points {
+      margin: 0;
+      padding-left: 1.25em;
+      font-size: 14px;
+    }
+
+    .talk-points li + li { margin-top: 5px; }
+
+    .slide-lower {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+    }
+
+    .lower-cell {
+      padding: 16px 20px;
+    }
+
+    .lower-cell + .lower-cell { border-left: 1px solid var(--line); }
+
+    .lower-cell h4 {
+      margin: 0 0 7px;
+      color: var(--navy);
+      font-size: 13px;
+    }
+
+    .lower-cell p, .lower-cell ul {
+      margin: 0;
+      color: #43516d;
+      font-size: 13px;
+    }
+
+    .lower-cell ul { padding-left: 1.2em; }
+
+    .speaker-note {
+      width: 100%;
+      min-height: 70px;
+      margin-top: 10px;
+      padding: 10px;
+      resize: vertical;
+      color: var(--ink);
+      background: #fbfcfe;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .qa-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    details.qa {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    details.qa summary {
+      padding: 15px 17px;
+      color: var(--navy);
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    details.qa p {
+      margin: 0;
+      padding: 0 17px 17px;
+      color: #43516d;
+      font-size: 14px;
+    }
+
+    .boundary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .boundary {
+      padding: 18px;
+      background: #fff;
+      border-top: 4px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .boundary.confirmed { border-color: var(--green); }
+    .boundary.inference { border-color: var(--orange); }
+    .boundary.unknown { border-color: var(--pink); }
+
+    .boundary h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+      font-size: 16px;
+    }
+
+    .boundary ul {
+      margin: 0;
+      padding-left: 1.2em;
+      font-size: 13px;
+    }
+
+    .closing {
+      padding: 26px;
+      color: #fff;
+      background: var(--navy);
+      border-radius: 16px;
+    }
+
+    .closing h3 {
+      margin: 0 0 14px;
+      color: var(--orange);
+      font-size: 18px;
+    }
+
+    .closing blockquote {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .closing p {
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+    }
+
+    .internal-context {
+      padding: 20px;
+      background: var(--warn-bg);
+      border: 1px solid #f5c66f;
+      border-radius: 14px;
+    }
+
+    .internal-context h3 { margin-top: 0; color: var(--warn); }
+
+    body.audience-mode .internal-only { display: none !important; }
+
+    .keyboard {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    kbd {
+      padding: 2px 6px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-bottom-width: 2px;
+      border-radius: 5px;
+      font-family: inherit;
+      font-size: 11px;
+    }
+
+    @media (max-width: 960px) {
+      .brand { min-width: 0; }
+      .brand span, .progress-shell, .top-link { display: none; }
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      main { width: min(100% - 28px, 760px); padding-top: 20px; }
+      .hero, .slide-top { grid-template-columns: 1fr; }
+      .slide-image-wrap { border-right: 0; border-bottom: 1px solid var(--line); }
+      .cards, .boundary-grid { grid-template-columns: 1fr; }
+      .center-pin { grid-column: auto; }
+      .route { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .route-step::after { display: none; }
+    }
+
+    @media (max-width: 620px) {
+      .topbar { padding-inline: 10px; }
+      .brand strong { font-size: 12px; }
+      .mode-select { max-width: 128px; }
+      .slide-lower, .qa-grid { grid-template-columns: 1fr; }
+      .lower-cell + .lower-cell { border-left: 0; border-top: 1px solid var(--line); }
+      .hero { padding: 24px; }
+      h1 { font-size: 32px; }
+    }
+
+    @media print {
+      .topbar, .sidebar, .speaker-note, .keyboard { display: none !important; }
+      .layout { display: block; }
+      main { width: 100%; padding: 0; }
+      .hero, .slide-guide, .card, .boundary, .closing {
+        box-shadow: none;
+        break-inside: avoid;
+      }
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body class="audience-mode">
+  <header class="topbar">
+    <div class="brand">
+      <strong>NEC FY26 第2回｜説明者ガイド</strong>
+      <span>Web MTG用・発言境界つき</span>
+    </div>
+    <div class="progress-shell" aria-label="読み進めた位置">
+      <div id="progress"></div>
+    </div>
+    <div class="top-actions">
+      <select id="mode" class="mode-select" aria-label="表示モード">
+        <option value="audience">参加者向け</option>
+        <option value="internal">内部レビュー</option>
+      </select>
+      <button id="timerButton" class="mini-button" type="button">開始</button>
+      <span id="timer">00:00</span>
+      <a class="top-link" href="NEC_FY26_AI推進者向け実践プログラム_第2回_演習追加版.pdf">PDF</a>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="sidebar-label">理解と進行</p>
+      <a class="nav-link" href="#overview"><span class="nav-number">A</span><span>3分で全体像</span></a>
+      <a class="nav-link" href="#flow"><span class="nav-number">B</span><span>説明の一本線</span></a>
+      <p class="sidebar-label" style="margin-top:18px">Slides</p>
+      <a class="nav-link" href="#s01"><span class="nav-number">1</span><span>AI活用をPoCへ</span></a>
+      <a class="nav-link" href="#s02"><span class="nav-number">2</span><span>今日の到達点</span></a>
+      <a class="nav-link" href="#s03"><span class="nav-number">3</span><span>業務分解から設計へ</span></a>
+      <a class="nav-link" href="#s04"><span class="nav-number">4</span><span>3つの業務レーン</span></a>
+      <a class="nav-link" href="#s05"><span class="nav-number">5</span><span>成果から立ち上げる</span></a>
+      <a class="nav-link" href="#s06"><span class="nav-number">6</span><span>将来像との接続</span></a>
+      <a class="nav-link" href="#s07"><span class="nav-number">7</span><span>6つの判断</span></a>
+      <a class="nav-link" href="#s08"><span class="nav-number">8</span><span>重要仮説</span></a>
+      <a class="nav-link" href="#s09"><span class="nav-number">9</span><span>関係者と責任</span></a>
+      <a class="nav-link" href="#s10"><span class="nav-number">10</span><span>候補の比較基準</span></a>
+      <a class="nav-link" href="#s11"><span class="nav-number">11</span><span>入館申請ケース</span></a>
+      <a class="nav-link" href="#s12"><span class="nav-number">12</span><span>20件の実験</span></a>
+      <a class="nav-link" href="#s13"><span class="nav-number">13</span><span>意思決定パック</span></a>
+      <a class="nav-link" href="#work01"><span class="nav-number">W1</span><span>20分実践ワーク</span></a>
+      <a class="nav-link" href="#work02"><span class="nav-number">W2</span><span>記入用パック</span></a>
+      <a class="nav-link" href="#s14"><span class="nav-number">14</span><span>週次レビュー</span></a>
+      <a class="nav-link internal-only" href="#s15"><span class="nav-number">15</span><span>PMO提案・本編外</span></a>
+      <a class="nav-link internal-only" href="#s16"><span class="nav-number">16</span><span>PMOトライアル・本編外</span></a>
+      <p class="sidebar-label" style="margin-top:18px">支援</p>
+      <a class="nav-link" href="#qa"><span class="nav-number">Q</span><span>想定質問</span></a>
+      <a class="nav-link" href="#boundary"><span class="nav-number">!</span><span>言い切り境界</span></a>
+      <a class="nav-link" href="#close"><span class="nav-number">C</span><span>推奨クロージング</span></a>
+    </aside>
+
+    <main>
+      <section class="hero" id="overview">
+        <div>
+          <p class="eyebrow">Presenter Companion</p>
+          <h1>この資料は、17テーマを「実際に試せるPoC」へ変えるための説明です。</h1>
+          <p class="hero-lead">
+            AIの機能紹介ではなく、成果・仮説・責任・実験・判断日を決めるところまでを扱います。
+            Web MTGでは、スライド1〜13の後に20分ワークを行い、スライド14で締めてください。
+          </p>
+        </div>
+        <div class="hero-card">
+          <h2>MTG直前の30秒チェック</h2>
+          <ol>
+            <li>ゴールは「最大3件を仮選定し、最初の実験を決める」。</li>
+            <li>2週間は完成期間ではなく、最重要仮説を確かめる期間。</li>
+            <li>数値目標は実績ではなく、提出課題に基づく仮説。</li>
+            <li>AIが整理し、人が継続・修正・停止を決める。</li>
+            <li>PMO契約はNECとの合意事項ではない。本編では売り込まない。</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">THREE-MINUTE UNDERSTANDING</p>
+            <h2>まず、この4点だけ理解する</h2>
+          </div>
+        </div>
+        <div class="cards">
+          <article class="card center-pin">
+            <h3>資料全体の中心メッセージ</h3>
+            <p>いきなり自動化しない。変えたい成果を決め、外れた時に痛い仮説を小さく試し、人が次の判断をする。</p>
+          </article>
+          <article class="card">
+            <h3>なぜ第2回を行うか</h3>
+            <p>第1回で分解・提出された17テーマを、比較可能なPoC候補へ変えるため。</p>
+          </article>
+          <article class="card">
+            <h3>何を持ち帰るか</h3>
+            <p>候補、期待する変化、重要仮説、テスト、停止条件、責任者、次の判断日。</p>
+          </article>
+          <article class="card">
+            <h3>AIに何を任せるか</h3>
+            <p>進捗・指標・リスク・未決事項の整理。採択、例外、停止は人が判断する。</p>
+          </article>
+          <article class="card">
+            <h3>何を約束しないか</h3>
+            <p>2週間での本番完成、全自動化、目標値の達成、PMO契約の成立は約束しない。</p>
+          </article>
+        </div>
+        <div class="alert danger">
+          <div class="alert-icon">!</div>
+          <p>
+            <strong>重要な訂正：</strong>
+            「PMOで契約継続する方向」は、2026年7月10日の山本力弥さんによる内部Slack方針です。
+            若松さんのフィードバックでも、NECとの合意でもありません。
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="flow">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">THE RED THREAD</p>
+            <h2>説明の一本線</h2>
+          </div>
+          <p class="section-note">迷ったら、この順番へ戻る</p>
+        </div>
+        <div class="route">
+          <div class="route-step"><strong>1. 候補を束ねる</strong>17テーマを3レーンで眺める</div>
+          <div class="route-step"><strong>2. 成果を決める</strong>誰の何がどう変わるか</div>
+          <div class="route-step"><strong>3. 仮説を選ぶ</strong>外れた時に痛い前提から試す</div>
+          <div class="route-step"><strong>4. 境界を引く</strong>AIと人、対象と対象外</div>
+          <div class="route-step"><strong>5. 小さく試す</strong>20件、2週間、停止条件つき</div>
+          <div class="route-step"><strong>6. 次を決める</strong>継続・修正・拡大・停止</div>
+        </div>
+        <p class="keyboard"><kbd>J</kbd> / <kbd>↓</kbd> 次の項目　 <kbd>K</kbd> / <kbd>↑</kbd> 前の項目　メモはブラウザに自動保存</p>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">SLIDE-BY-SLIDE</p>
+            <h2>スライド別トークトラック</h2>
+          </div>
+          <p class="section-note">説明約25分＋実践ワーク20分</p>
+        </div>
+
+        <div class="slides">
+          <article class="slide-guide" id="s01">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="01-cover.png" alt="スライド1 AI活用をPoCプロジェクトへ"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 01</span><span class="time">目安 0:45</span><span class="status info">導入</span></div>
+                <h3>AI活用を、PoCプロジェクトへ</h3>
+                <p class="say-this">「今日はAIのアイデアを増やす回ではなく、既に出ている候補を実際に試せるプロジェクトへ変える回です。」</p>
+                <ul class="talk-points">
+                  <li>第1回でアイデアと業務分解はできている。</li>
+                  <li>第2回は、候補を絞って動かすための判断設計を行う。</li>
+                  <li>完成品を決めるのではなく、最初の検証を決める。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>ここで確認する反応</h4><p>「今日は選ぶ・立ち上げる回」という認識が揃っているか。</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>「今日PoCを完成させる」とは言わない。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s01" placeholder="当日の導入や参加者名など"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s02">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="02-outcomes.png" alt="スライド2 今日の到達点"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 02</span><span class="time">目安 1:00</span><span class="status ok">合意</span></div>
+                <h3>今日の到達点</h3>
+                <p class="say-this">「終了時に、候補・期待する変化・最初の2週間と次の判断日が置けていれば成功です。」</p>
+                <ul class="talk-points">
+                  <li>候補は最大3件。3件選ぶこと自体が目的ではない。</li>
+                  <li>「何を作るか」より「何が変わるか」を先に決める。</li>
+                  <li>2週間後に何を判断できるかまで置く。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>聞き方</h4><p>「この3点以外に、今日決めておくべきことはありますか？」</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>PoCの最終採択か仮選定かは未確認。相手と合わせる。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s02"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s03">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="03-transition.png" alt="スライド3 業務分解からプロジェクト設計へ"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 03</span><span class="time">目安 1:15</span><span class="status info">接続</span></div>
+                <h3>第1回の「業務分解」を、第2回は「プロジェクト設計」へ</h3>
+                <p class="say-this">「17テーマを一件ずつ発表するのではなく、比較し、選び、最初の実験へ進めます。」</p>
+                <ul class="talk-points">
+                  <li>第1回：AIと人の役割を考え、テーマを出した。</li>
+                  <li>第2回：成果・仮説・実験・判断を決める。</li>
+                  <li>アイデアの数から、実行可能性へ焦点を移す。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>つなぎ</h4><p>「まず、17件を比較しやすい単位へ整理します。」</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>17件すべての詳細説明は行わない。俯瞰が目的。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s03"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s04">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="04-three-lanes.png" alt="スライド4 3つの業務レーン"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 04</span><span class="time">目安 1:45</span><span class="status info">整理</span></div>
+                <h3>17テーマは、3つの業務レーンで比較する</h3>
+                <p class="say-this">「内容の違う17件も、AIが担う仕事の型で見ると、検索・チェック・文書作成の3つに整理できます。」</p>
+                <ul class="talk-points">
+                  <li>A：根拠を探し、回答案を作る。</li>
+                  <li>B：ルールと照らし、不備候補を示す。</li>
+                  <li>C：不足や差分を見つけ、文書へする。</li>
+                  <li>各レーンから1件ずつ選ぶ必要はない。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>判断軸</h4><p>安全に測れるか、データが揃うか、人の確認を置けるか。</p></div>
+              <div class="lower-cell"><h4>聞き方</h4><p>「この3分類で違和感のあるテーマはありますか？」</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s04"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s05">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="05-outcome-first.png" alt="スライド5 作るものではなく変える成果から"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 05</span><span class="time">目安 2:00</span><span class="status ok">中心原則</span></div>
+                <h3>立ち上げは「作るもの」ではなく「変える成果」から</h3>
+                <p class="say-this">「チャットボットを作る、では成功が測れません。誰のどの業務がどう変わり、何を維持するかまで言葉にします。」</p>
+                <ul class="talk-points">
+                  <li>悪い定義：「チャットボットを作る」。</li>
+                  <li>良い定義：「一次回答時間を減らしつつ、根拠提示と有人移管を維持する」。</li>
+                  <li>速さだけでなく、品質・安全も同時に置く。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>型</h4><p>対象ユーザーが／どの業務を／どの状態へ変え／どの指標を動かすか。</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>「効率化」「高度化」だけでは測定不能。具体的な業務状態へ戻す。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s05"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s06">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="06-roadmap.png" alt="スライド6 小さなPoCから運用自律化へ"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 06</span><span class="time">目安 1:45</span><span class="status warn">将来像</span></div>
+                <h3>小さなPoCで、運用自律化への判断基盤をつくる</h3>
+                <p class="say-this">「今回の小さなテーマはゴールではなく、評価方法と責任分界を作る入口です。」</p>
+                <ul class="talk-points">
+                  <li>最初は問い合わせ・申請・手順書など、安全に測れる業務。</li>
+                  <li>結果だけでなく、判断ログと失敗パターンを残す。</li>
+                  <li>十分な実績とガードレールの後に、障害対応や運用自律化へ広げる。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>言い切ってよいこと</h4><p>段階的なロードマップであること。</p></div>
+              <div class="lower-cell"><h4>言い切らないこと</h4><p>運用自律化の実施決定。本番ログは初回PoCの対象外。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s06"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s07">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="07-six-decisions.png" alt="スライド7 PoC立ち上げの6つの判断"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 07</span><span class="time">目安 1:45</span><span class="status info">手順</span></div>
+                <h3>PoC立ち上げは、6つの判断を順番に置く</h3>
+                <p class="say-this">「PoCを止めないために必要なのは、タスクを増やすことではなく、判断を順番に置くことです。」</p>
+                <ul class="talk-points">
+                  <li>成果 → 仮説 → 関係者 → 実験 → リスク → 判断周期。</li>
+                  <li>どれかが抜けると、作業は進んでも意思決定ができない。</li>
+                  <li>AIはこの6点の更新と未決事項の整理に使う。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>強調</h4><p>「プロジェクト管理ツールの導入」の話ではない。</p></div>
+              <div class="lower-cell"><h4>つなぎ</h4><p>「では、最初にどの仮説から試すかを決めます。」</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s07"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s08">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="08-critical-hypothesis.png" alt="スライド8 外れた時に痛い仮説"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 08</span><span class="time">目安 2:00</span><span class="status ok">判断</span></div>
+                <h3>最初に試すのは、外れた時に痛い仮説</h3>
+                <p class="say-this">「作りやすい機能からではなく、外れていたら計画全体が崩れる前提から試します。」</p>
+                <ul class="talk-points">
+                  <li>影響が大きく、確信度が低いものが最優先。</li>
+                  <li>価値、使いやすさ、運用成立性、技術、安全・倫理、組織体制を見る。</li>
+                  <li>例：正確に回答できても、根拠文書が更新されなければ運用は成立しない。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>聞き方</h4><p>「この前提が外れたら、PoCを続けられないものは何ですか？」</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>確信度が高い＝重要、ではない。リスクとの掛け合わせ。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s08"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s09">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="09-stakeholders.png" alt="スライド9 関係者を決めることで分ける"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 09</span><span class="time">目安 1:45</span><span class="status info">責任分界</span></div>
+                <h3>関係者は、役職ではなく「決めること」で分ける</h3>
+                <p class="say-this">「誰が偉いかではなく、目的・継続判断・業務ルール・データ・利用可否を誰が決めるかで整理します。」</p>
+                <ul class="talk-points">
+                  <li>スポンサー：目的、優先順位、予算。</li>
+                  <li>意思決定者：継続、修正、停止。</li>
+                  <li>業務・データ責任者：ルール、例外、利用範囲。</li>
+                  <li>利用者代表：現場で使えるかを確認。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>原則</h4><p>AIは論点整理。承認と例外判断は人。</p></div>
+              <div class="lower-cell"><h4>聞き方</h4><p>「止める判断ができる人は誰ですか？」</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s09"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s10">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="10-selection-criteria.png" alt="スライド10 PoC候補を5基準で比較"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 10</span><span class="time">目安 1:45</span><span class="status info">比較</span></div>
+                <h3>PoC候補は、5基準で比較する</h3>
+                <p class="say-this">「件数や時間削減だけでなく、安全に検証でき、学びを他の業務へ再利用できるかまで見ます。」</p>
+                <ul class="talk-points">
+                  <li>アウトカム、検証可能性、安全性、実現可能性、再利用性。</li>
+                  <li>安全性または検証可能性が低ければ、点数が高くても保留。</li>
+                  <li>点数は議論を揃える道具で、機械的な採択装置ではない。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>強調</h4><p>最大効果より「今、安全に学べるテーマ」を優先する。</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>配点はBAAOの比較案。NECの正式基準ではない。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s10"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s11">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="11-case-dcs.png" alt="スライド11 入館申請ケース"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 11</span><span class="time">目安 2:30</span><span class="status warn">ケース</span></div>
+                <h3>ケース：入館申請15分を、どこまで安全に減らせるか</h3>
+                <p class="say-this">「全部をAIに渡すのではなく、マクロ・AI・人の境界を引き、見逃しと過剰指摘を別々に測ります。」</p>
+                <ul class="talk-points">
+                  <li>月235件、15分→8分は提出時点の目標仮説。</li>
+                  <li>マクロ：転記・形式統一。AI：表記ゆれや自由記述の不備候補。人：最終判定・例外・送信。</li>
+                  <li>「見逃し」は危険、「過剰指摘」は手戻り。別指標にする。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>必ず言う</h4><p>8分は達成実績ではなく、PoCで確かめる目標。</p></div>
+              <div class="lower-cell"><h4>聞き方</h4><p>「AIに任せると一番危ない例外は何ですか？」</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s11"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s12">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="12-experiment.png" alt="スライド12 20件で停止条件も決める"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 12</span><span class="time">目安 1:45</span><span class="status ok">実験</span></div>
+                <h3>20件で、成功だけでなく停止条件も決める</h3>
+                <p class="say-this">「20件は成果を証明する母数ではなく、最初の仮説を安く確かめる最低セットです。」</p>
+                <ul class="talk-points">
+                  <li>正常10、誤り5、境界5。難しいケースを意図的に混ぜる。</li>
+                  <li>現行業務と同じデータで、品質・業務・安全を比較。</li>
+                  <li>停止条件へ触れたら、続行せず原因を確認する。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>注意</h4><p>20件で本番品質や統計的有意性を証明するとは言わない。</p></div>
+              <div class="lower-cell"><h4>例</h4><p>機密混入、根拠なし回答、承認抜けは停止候補。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s12"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s13">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="13-decision-pack.png" alt="スライド13 1枚の意思決定パック"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 13</span><span class="time">目安 1:30</span><span class="status info">成果物</span></div>
+                <h3>PoCは、1枚の意思決定パックで運営する</h3>
+                <p class="say-this">「作業報告を増やすのではなく、次の判断に必要な6項目を一枚で更新します。」</p>
+                <ul class="talk-points">
+                  <li>アウトカム、重要仮説、関係者、実験、リスク、意思決定ログ。</li>
+                  <li>完成させて保管する資料ではなく、毎週更新するLiving Document。</li>
+                  <li>会議の目的は、この一枚を見て次を決めること。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>強調</h4><p>資料作成量を増やす仕組みではない。</p></div>
+              <div class="lower-cell"><h4>聞き方</h4><p>「今ある管理資料のどれに、この6項目を載せられそうですか？」</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s13"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="work01">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="14-hands-on-work.png" alt="実践ワーク 1テーマを試せるPoCに変える"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">WORK 01</span><span class="time">20:00</span><span class="status ok">参加者が操作</span></div>
+                <h3>実践ワーク｜1テーマを「試せるPoC」に変える</h3>
+                <p class="say-this">「ここから各グループで、提出テーマから最初に試したいものを1件選び、AIの案を人が修正してPoCのたたき台を完成させます。」</p>
+                <ul class="talk-points">
+                  <li>3分：提出テーマから1件を選ぶ。</li>
+                  <li>5分：承認済みAI環境で意思決定パックの案を作る。</li>
+                  <li>8分：重要仮説、成功条件、停止条件を人が修正する。</li>
+                  <li>4分：各グループが1分で3点を共有する。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>共有する3点</h4><p>何を試すか／外れたら痛い仮説／何が起きたら止めるか。</p></div>
+              <div class="lower-cell"><h4>安全境界</h4><p>NECで利用承認されたAI環境のみ。機密・個人情報は入力しない。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="work01" placeholder="使用するAI環境、グループ数、共有順"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="work02">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="15-decision-pack-worksheet.png" alt="記入用 1枚のPoC意思決定パック"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">WORK 02</span><span class="time">記入シート</span><span class="status info">成果物</span></div>
+                <h3>記入用｜1枚のPoC意思決定パック</h3>
+                <p class="say-this">「AIに6項目の案を出させた後、重要仮説と停止条件は必ず皆さんの言葉へ直してください。」</p>
+                <ul class="talk-points">
+                  <li>アウトカム：誰の、どの業務を、どう変えるか。</li>
+                  <li>重要仮説：外れたら計画が崩れる前提は何か。</li>
+                  <li>判断者：継続・修正・停止を決める人は誰か。</li>
+                  <li>実験・条件・判断日まで書いて完成。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>AIへの依頼例</h4><p>「以下の業務テーマを、6項目のPoC意思決定パックとして整理してください。不明点は推測せず質問してください。」</p></div>
+              <div class="lower-cell"><h4>ファシリテーター</h4><p>残り8分と3分で声をかけ、空欄よりも仮説表現の曖昧さを支援する。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="work02" placeholder="詰まりやすいグループ、補助質問"></textarea></div>
+          </article>
+
+          <article class="slide-guide" id="s14">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="14-weekly-review.png" alt="スライド14 AIが週次レビューを回し人がゲートを決める"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 14</span><span class="time">目安 2:00</span><span class="status ok">本編の結論</span></div>
+                <h3>AIが週次レビューを回し、人がゲートを決める</h3>
+                <p class="say-this">「AIが進捗を管理すること自体が目的ではありません。人が次を決められる状態を毎週作ることが目的です。」</p>
+                <ul class="talk-points">
+                  <li>AI：進捗、指標、リスク、未決事項を整理。</li>
+                  <li>人：継続、修正、拡大、停止を判断。</li>
+                  <li>決定理由と次の判定日をログに残し、次の実験へ戻す。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>参加者向けの締め</h4><p>ここまでが研修内容の本編。次は最初の2週間で何を行うかを口頭で確認する。</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>ここからPMO契約の営業説明へ自動的につなげない。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s14"></textarea></div>
+          </article>
+
+          <article class="slide-guide internal-only" id="s15">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="15-pmo.png" alt="スライド15 BAAOは研修講師からAI駆動PMOへ"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 15</span><span class="time">参加者向けは非表示</span><span class="status danger">営業提案</span></div>
+                <h3>BAAOは、研修講師からAI駆動PMOへ</h3>
+                <p class="say-this">内部レビュー用：「過去の田岡さんの関心と山本さんの営業方針を踏まえた、継続支援の仮説です。」</p>
+                <ul class="talk-points">
+                  <li>2月19日のNEC会議では、AI駆動PMとBAAO支援への関心が確認されている。</li>
+                  <li>7月10日に山本さんが「PMOで契約継続する方向」とSlack投稿。</li>
+                  <li>ただし現在のNECとの合意は3回研修まで。PMO契約は未合意。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>扱い</h4><p>本編から外し、田岡さん・矢沢さん等の事務局／決裁関係者との別協議用。</p></div>
+              <div class="lower-cell"><h4>誤り</h4><p>若松さんのフィードバックとは説明しない。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s15"></textarea></div>
+          </article>
+
+          <article class="slide-guide internal-only" id="s16">
+            <div class="slide-top">
+              <div class="slide-image-wrap"><img class="slide-image" src="16-next-two-weeks.png" alt="スライド16 今日から最初の2週間を始める"></div>
+              <div class="slide-copy">
+                <div class="slide-meta"><span class="slide-no">SLIDE 16</span><span class="time">参加者向けは非表示</span><span class="status danger">未合意表現あり</span></div>
+                <h3>今日から、最初の2週間を始める</h3>
+                <p class="say-this">内部レビュー用：「行動計画は有効ですが、“2週間のPMOトライアル”は未合意なので、そのまま外部提示しません。」</p>
+                <ul class="talk-points">
+                  <li>使える部分：担当者、テストデータ、成功・停止条件、次の判断日。</li>
+                  <li>修正すべき部分：「BAAO×NEC｜2週間のPMOトライアル」。</li>
+                  <li>参加者向けには「第3回までの最初の2週間」として口頭で確認する。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="slide-lower">
+              <div class="lower-cell"><h4>別協議で確認すること</h4><p>支援範囲、スポンサー、会議周期、成果物、工数、契約条件。</p></div>
+              <div class="lower-cell"><h4>注意</h4><p>PoCの採択自体が未確定なら「仮選定」と呼ぶ。</p></div>
+            </div>
+            <div class="lower-cell"><h4>自分のメモ</h4><textarea class="speaker-note" data-note="s16"></textarea></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="qa">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">EXPECTED QUESTIONS</p>
+            <h2>想定質問と短い回答</h2>
+          </div>
+        </div>
+        <div class="qa-grid">
+          <details class="qa">
+            <summary>なぜ最大3件なのですか？</summary>
+            <p>初期段階で複数テーマを同時に広げすぎず、比較しながら学べる範囲へ絞るためです。3件選ぶこと自体が目的ではなく、データと責任者が揃う件数を優先します。</p>
+          </details>
+          <details class="qa">
+            <summary>2週間で何が完成しますか？</summary>
+            <p>完成品ではありません。最重要仮説を小さく検証し、続けるか、修正するか、止めるかを判断できる材料を作ります。</p>
+          </details>
+          <details class="qa">
+            <summary>20件で十分なのですか？</summary>
+            <p>本番品質を証明するには不十分です。20件は正常・誤り・境界例を含め、最初の仮説と危険な失敗パターンを安く確認する最低セットです。</p>
+          </details>
+          <details class="qa">
+            <summary>入館申請は8分まで減るのですか？</summary>
+            <p>未確認です。8分は提出時点の目標仮説であり、達成実績ではありません。PoCでは時間だけでなく、見逃しと過剰指摘も測ります。</p>
+          </details>
+          <details class="qa">
+            <summary>なぜマクロとAIを分けるのですか？</summary>
+            <p>決められたルールで確実に処理できる転記や形式統一は、マクロ等の方が安定します。AIは表記ゆれ、文脈、文章化など曖昧さを含む部分に限定します。</p>
+          </details>
+          <details class="qa">
+            <summary>どのAI・APIを使いますか？</summary>
+            <p>現時点では未確定です。NEC側で利用可能なNGS、Copilot、API、データ持ち出し、VM、Teams連携などの現行ルールを採択前に確認します。</p>
+          </details>
+          <details class="qa">
+            <summary>AIがPoCを自動運営するのですか？</summary>
+            <p>いいえ。AIは進捗・指標・リスク・未決事項を整理します。採択、例外、継続、停止など、責任を伴う判断は人が行います。</p>
+          </details>
+          <details class="qa">
+            <summary>BAAOがPMOとして入ることは決まっていますか？</summary>
+            <p>決まっていません。過去にNEC側からAI駆動PMとBAAO支援への関心は示されていますが、現在合意されている範囲は3回研修です。伴走支援は事務局と別途協議します。</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section" id="boundary">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">EVIDENCE BOUNDARY</p>
+            <h2>言い切ってよいこと／仮説／未確認</h2>
+          </div>
+        </div>
+        <div class="boundary-grid">
+          <article class="boundary confirmed">
+            <h3>確認済み</h3>
+            <ul>
+              <li>対象はNECクラウドデリバリー／運用部門のAI推進者。</li>
+              <li>第1回提出物から17テーマを整理した。</li>
+              <li>3回研修とPoC立案が現在の契約・プログラムの基本線。</li>
+              <li>過去に田岡さんはAI駆動PMとBAAO支援への関心を示した。</li>
+              <li>山本さんは7月10日にPMO継続方向を内部Slackで示した。</li>
+            </ul>
+          </article>
+          <article class="boundary inference">
+            <h3>BAAOの提案・仮説</h3>
+            <ul>
+              <li>17テーマを3レーンで比較する。</li>
+              <li>最大3件に仮選定する。</li>
+              <li>20件・2週間で最重要仮説を試す。</li>
+              <li>5基準・100点で比較する。</li>
+              <li>意思決定パックと週次ゲートで運営する。</li>
+            </ul>
+          </article>
+          <article class="boundary unknown">
+            <h3>未確認・未合意</h3>
+            <ul>
+              <li>第2回の実施日、60分／75分。</li>
+              <li>当日中の最終採択か、仮選定までか。</li>
+              <li>利用可能なAI、API、データ取り扱いルール。</li>
+              <li>8分目標の達成可否。</li>
+              <li>PMOトライアル、継続契約、工数、金額、会議周期。</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="internal-context internal-only" style="margin-top:16px">
+          <h3>内部レビューでのみ共有する出所整理</h3>
+          <p>
+            7月6日の山本さんとの1on1では、NECのPMO継続は議題になっていません。
+            PMO継続方向は7月10日の山本さんのSlack投稿です。
+            資料叩き台にある「若松氏フィードバック（山本氏経由）」は誤記です。
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="close">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">RECOMMENDED CLOSE</p>
+            <h2>参加者向けの推奨クロージング</h2>
+          </div>
+        </div>
+        <div class="closing">
+          <h3>スライド14の後に、このまま話す</h3>
+          <blockquote>
+            「第2回では、候補を選ぶだけでなく、成果・仮説・責任者・最初の実験・停止条件までを一枚にします。
+            その後の最初の2週間で、利用者確認、テストデータ準備、現行実測、承認済み環境での最初の実験を行い、
+            次の判断日に継続・修正・拡大・停止を決めます。必要な伴走体制については、事務局と別途確認します。」
+          </blockquote>
+          <p>この締めなら、研修の行動計画と営業提案を混同しません。</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">SOURCE MAP</p>
+            <h2>確認に使った主な資料</h2>
+          </div>
+        </div>
+        <div class="card">
+          <ul class="talk-points">
+            <li><a href="../../meetings/minutes/2026-02-19_nec-consultation-02.md">2026-02-19 NEC×BAAO 第2回コンサルティング議事録</a></li>
+            <li><a href="../../0221-growin/minutes/2026-04-27_itil-ai-utilization-service-operations.md">2026-04-27 AI推進者教育プログラム打ち合わせ議事録</a></li>
+            <li><a href="../../meetings/minutes/2026-07-06_yamamoto-business-ops-ai-consult-training.md">2026-07-06 山本さんとの事業・運用確認MTG</a></li>
+            <li><a href="../../meetings/prep/2026-07-10_nec-fy26-ai-promotion-session2-draft.md">第2回叩き台</a></li>
+            <li><a href="deck-plan.md">元16枚のデッキ設計メモ＋演習2枚</a></li>
+            <li><a href="qa-report.md">画像版QAレポート</a></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const mode = document.getElementById('mode');
+    const progress = document.getElementById('progress');
+    const timerButton = document.getElementById('timerButton');
+    const timer = document.getElementById('timer');
+    const sections = [...document.querySelectorAll('main [id]')];
+    const navLinks = [...document.querySelectorAll('.nav-link')];
+    let timerStart = null;
+    let timerInterval = null;
+    let elapsedBeforeStart = 0;
+
+    mode.addEventListener('change', () => {
+      document.body.classList.toggle('audience-mode', mode.value === 'audience');
+      localStorage.setItem('nec-guide-mode', mode.value);
+    });
+
+    const savedMode = localStorage.getItem('nec-guide-mode') || 'audience';
+    mode.value = savedMode;
+    document.body.classList.toggle('audience-mode', savedMode === 'audience');
+
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = scrollable > 0 ? window.scrollY / scrollable : 0;
+      progress.style.width = `${Math.min(100, Math.max(0, ratio * 100))}%`;
+
+      let current = sections[0]?.id;
+      for (const section of sections) {
+        if (section.getBoundingClientRect().top <= 120) current = section.id;
+      }
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+      });
+    }
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    function renderTimer(totalMs) {
+      const totalSeconds = Math.floor(totalMs / 1000);
+      const minutes = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+      const seconds = String(totalSeconds % 60).padStart(2, '0');
+      timer.textContent = `${minutes}:${seconds}`;
+    }
+
+    timerButton.addEventListener('click', () => {
+      if (timerInterval) {
+        elapsedBeforeStart += Date.now() - timerStart;
+        clearInterval(timerInterval);
+        timerInterval = null;
+        timerButton.textContent = '再開';
+        return;
+      }
+      if (timerButton.textContent === 'リセット') {
+        elapsedBeforeStart = 0;
+        renderTimer(0);
+      }
+      timerStart = Date.now();
+      timerInterval = setInterval(() => {
+        renderTimer(elapsedBeforeStart + Date.now() - timerStart);
+      }, 500);
+      timerButton.textContent = '停止';
+    });
+
+    timer.addEventListener('dblclick', () => {
+      if (timerInterval) clearInterval(timerInterval);
+      timerInterval = null;
+      timerStart = null;
+      elapsedBeforeStart = 0;
+      renderTimer(0);
+      timerButton.textContent = '開始';
+    });
+
+    document.querySelectorAll('.speaker-note').forEach(note => {
+      const key = `nec-guide-note-${note.dataset.note}`;
+      note.value = localStorage.getItem(key) || '';
+      note.addEventListener('input', () => localStorage.setItem(key, note.value));
+    });
+
+    function visibleAnchors() {
+      return navLinks.filter(link => {
+        const target = document.querySelector(link.getAttribute('href'));
+        return target && getComputedStyle(target).display !== 'none';
+      });
+    }
+
+    document.addEventListener('keydown', event => {
+      if (event.target.matches('textarea, input, select')) return;
+      if (!['j', 'k', 'ArrowDown', 'ArrowUp'].includes(event.key)) return;
+      event.preventDefault();
+      const anchors = visibleAnchors();
+      const currentY = window.scrollY + 140;
+      let index = anchors.findIndex(link => {
+        const target = document.querySelector(link.getAttribute('href'));
+        return target.offsetTop >= currentY;
+      });
+      if (index === -1) index = anchors.length - 1;
+      if (event.key === 'k' || event.key === 'ArrowUp') index = Math.max(0, index - 1);
+      const target = document.querySelector(anchors[index].getAttribute('href'));
+      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "guide_id": "brainbase-sato-keigo-judgment-guide-demo-2026-07-15",
+  "owner": "佐藤圭吾",
+  "source": {
+    "system": "Brainbaseに蓄積された本人の判断基準",
+    "verified_on": "2026-07-15",
+    "export_type": "sanitized_allowlist",
+    "live_connection_required": false
+  },
+  "privacy": {
+    "contains_real_people_other_than_owner": false,
+    "contains_real_customers_or_projects": false,
+    "contains_raw_meeting_text": false,
+    "safe_for_public_demo": true
+  },
+  "judgment_items": [
+    {
+      "id": "judgment:counterpart-perspective-first",
+      "type": "judgment_axis",
+      "cognitive_type": "claim",
+      "confidence": 0.95,
+      "name": "こちらの正しさより先に相手の状況を立ち上げる",
+      "summary": "相手が今何を見て、何を誤解し、何を怖がり、何なら自然に動けるかを先に考える。",
+      "apply_when": ["顧客メール", "営業提案", "相手に確認や判断を依頼する場面"],
+      "output_effects": [
+        "顧客の期限と背景を先に受け止める",
+        "断るだけで終わらず、顧客が次に動ける確認事項と回答予定を示す"
+      ]
+    },
+    {
+      "id": "judgment:delegate-through-next-action",
+      "type": "judgment_axis",
+      "cognitive_type": "preference",
+      "confidence": 0.90,
+      "name": "情報整理だけでなく判断と次アクションまでAIへ委譲する",
+      "summary": "AIは要約で止まらず、判断軸に基づく優先順位、推奨案、次アクションまで提示する。",
+      "apply_when": ["経営報告", "日報", "タスク優先順位", "業務運用の改善"],
+      "do_not_apply_when": ["監査", "法務", "人事評価", "最終責任を伴う確約"],
+      "output_effects": [
+        "事実の列挙に加えて、AIの推奨順序と理由を出す",
+        "人が決めるべき事項は承認待ちとして分離する"
+      ]
+    },
+    {
+      "id": "judgment:delegate-by-responsibility-boundary",
+      "type": "judgment_axis",
+      "cognitive_type": "insight",
+      "confidence": 0.90,
+      "name": "タスクではなく責任範囲と戻し先で委任する",
+      "summary": "誰に何を頼むかだけでなく、誰が意思決定し、どの条件で責任者へ戻すかを明確にする。",
+      "apply_when": ["複数部門にまたがる案件", "担当者と承認者が異なる仕事", "経営者がボトルネックになりうる場面"],
+      "output_effects": [
+        "担当、判断権限、エスカレーション条件を分ける",
+        "PM、CS、営業責任者の確認順序を示す"
+      ]
+    },
+    {
+      "id": "judgment:human-reduces-decision-fear",
+      "type": "judgment_axis",
+      "cognitive_type": "claim",
+      "confidence": 0.93,
+      "name": "人間は相手の決断の恐怖を減らし納得と責任を支える",
+      "summary": "AIが調査や提案を担っても、重要な商談では相手の不安を減らし、納得して決められる状態を人間が作る。",
+      "apply_when": ["高額商材", "競合がいる商談", "顧客が社内説明を必要とする場面"],
+      "output_effects": [
+        "顧客が社内計画を進めるために必要な情報を明示する",
+        "メール送信と最終説明は営業担当へ戻す"
+      ]
+    },
+    {
+      "id": "judgment:ai-work-as-operating-system",
+      "type": "judgment_axis",
+      "cognitive_type": "claim",
+      "confidence": 0.92,
+      "name": "AI活用を承認・証跡・記憶を含む業務OSとして設計する",
+      "summary": "単発の生成ではなく、承認、証跡、記憶、配分判断まで含めて会社の動き方を設計する。",
+      "apply_when": ["反復業務", "Automations", "複数成果物を生む業務フロー"],
+      "output_effects": [
+        "判断根拠と未確認事項をログへ残す",
+        "人のレビュー状態を成果物と一緒に管理する"
+      ]
+    }
+  ],
+  "relationships": [
+    {"from": "judgment:counterpart-perspective-first", "type": "shapes", "to": "customer_communication"},
+    {"from": "judgment:delegate-through-next-action", "type": "shapes", "to": "management_recommendation"},
+    {"from": "judgment:delegate-by-responsibility-boundary", "type": "shapes", "to": "task_and_approval_design"},
+    {"from": "judgment:human-reduces-decision-fear", "type": "requires_human", "to": "final_customer_conversation"},
+    {"from": "judgment:ai-work-as-operating-system", "type": "requires", "to": "approval_evidence_and_memory"}
+  ]
+}
