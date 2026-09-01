@@ -1,23 +1,15 @@
 const quotes = [
   {
-    quote:
-      "四半期で役員会へ成果を示せる道筋が見えた。伴随レポートがそのまま経営会議資料になり、投資判断が進んだ。",
-    source: "製造業 事業本部長（BOOST導入企業）",
+    quote: "公開する声は、本人の文言確認と利用許諾を取得します。",
+    source: "公開基準",
   },
   {
-    quote:
-      "こんなに簡単にアプリが作れるのかと驚きました。元々興味はあったが、より触ってみようと思えたいい機会となった。",
-    source: "参加者（未経験・知人紹介）",
+    quote: "成果数値は、測定方法・比較期間・除外条件を一次資料で確認します。",
+    source: "検証基準",
   },
   {
-    quote:
-      "ノーコードによるアプリ開発の最前線を理解できた。人生が変わるほどのインパクトを受けました。",
-    source: "参加者（未経験・知人紹介）",
-  },
-  {
-    quote:
-      "実際に触って、動かして、チームメンバの成果物を確認できた。会話を通してコミュニケーションが生まれるのが道場らしくて良い。",
-    source: "参加者（5年以上・知人紹介）",
+    quote: "実績掲載と知識・AI利用の許諾は分け、何も選ばない自由を守ります。",
+    source: "権利基準",
   },
 ];
 
@@ -65,21 +57,14 @@ export default function SampleVideosVoices() {
               </p>
             </div>
           </div>
-          <div className="mt-6 flex items-center justify-between rounded-xl bg-bamboo/10 px-5 py-4">
-            <div>
-              <p className="text-xs uppercase tracking-wide text-bamboo">キックオフイベント（2025/10/26）</p>
-              <p className="font-serif text-3xl text-[#1D1A15]">4.44 / 5</p>
-            </div>
-            <div className="text-right text-sm text-[#4B4135]">
-              <p>アプリ開発に挑戦したい 68%</p>
-              <p>自動化を学びたい 52%</p>
-            </div>
-          </div>
+          <p className="mt-6 rounded-xl bg-bamboo/10 px-5 py-4 text-sm text-[#4B4135]">
+            動画・イベント情報は開催実績と公開許諾を確認したものだけ掲載します。
+          </p>
         </div>
 
         <div className="space-y-6">
           <h2 className="font-serif text-3xl text-[#1D1A15] sm:text-4xl">
-            無料稽古での「気づき」と「手応え」。
+            証拠と許諾を揃えて公開する。
           </h2>
           <div className="relative grid gap-5">
             {quotes.map((quote) => (

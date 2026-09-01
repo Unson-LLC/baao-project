@@ -11,7 +11,7 @@ const nextLive = {
     "週次稽古｜AIニュースと最新ケースの分解",
   mentor:
     process.env.NEXT_PUBLIC_NEXT_LIVE_MENTOR ??
-    "佐藤 圭吾（BAAO理事 / 生成AIエキスパート）",
+    "登壇者は開催案内で確認",
 };
 
 export default function HeroSection() {

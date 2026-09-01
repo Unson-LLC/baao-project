@@ -60,14 +60,14 @@ const events: Array<{
 
 const articles = [
   {
-    title: "製造現場でのAI導入ケース",
-    description: "画像検査AIによる品質改善の実装事例",
+    title: "検証済みケース",
+    description: "契約主体、成果根拠、顧客許諾を確認できたケースから公開",
     link: "#",
     isPlaceholder: true,
   },
   {
-    title: "自治体・公共分野での実装事例",
-    description: "窓口業務の自動化とコスト削減",
+    title: "共同提供ケース",
+    description: "開始前SOWでBAAOの役務と責任を合意したケースを公開",
     link: "#",
     isPlaceholder: true,
   },
@@ -87,8 +87,8 @@ const materials = [
     icon: "📖",
   },
   {
-    title: "Yearbook 2025",
-    description: "2025年の伴随案件の成果をまとめた年次レポート",
+    title: "検証済みケース年次レポート",
+    description: "公開許諾と事実確認が揃ったケースを対象に準備",
     status: "準備中",
     icon: "📊",
   },
@@ -102,26 +102,26 @@ const materials = [
 
 const featuredNotes = [
   {
-    title: "週次稽古ノート｜生成AIと品質改善",
-    description: "P95不良率を20pt改善した現場コミュニケーション術を、稽古の実況ノートから抜粋。",
-    author: "記録：Field Director 山本",
-    status: "近日公開",
+    title: "週次稽古ノート｜公開前検証中",
+    description: "登壇者、内容、公開範囲を確認できたノートから公開します。",
+    author: "記録者：確認中",
+    status: "検証中",
     image: "/images/hero/main3.png",
     tag: "稽古ノート",
   },
   {
-    title: "現場見学レポート｜公共×ChatOps",
-    description: "自治体の窓口業務をChatOpsで再設計したワークショップ記録とチェックリスト。",
-    author: "記録：Senior Fellow 小川",
-    status: "執筆中",
+    title: "現場見学レポート｜公開前検証中",
+    description: "顧客許諾と守秘範囲を確認できた記録から公開します。",
+    author: "記録者：確認中",
+    status: "検証中",
     image: "/images/fieldworks/framework.png",
     tag: "現場見学",
   },
   {
-    title: "評議会議アジェンダ｜金融業の合議制",
-    description: "Green Roomで議論したROI算出プロセスと未公開ケースの概要メモ。",
-    author: "記録：Field Director 吉見",
-    status: "アーカイブ整備中",
+    title: "評議会議アジェンダ｜公開前検証中",
+    description: "参加者、権利、公開範囲を確認できた資料から公開します。",
+    author: "記録者：確認中",
+    status: "検証中",
     image: "/images/hero/main2.png",
     tag: "評議会",
   },
